@@ -809,5 +809,31 @@
    "about": "Coinbase's balance-sheet investing arm; no outside LPs, so no fund raises or reported returns.",
    "funds": []
   }
+ },
+ "types": {
+  "SV Angel": "fund",
+  "Coinbase Ventures": "corp",
+  "YZi Labs": "corp",
+  "Animoca Brands": "corp",
+  "OKX Ventures": "corp",
+  "Galaxy Digital": "corp",
+  "a16z crypto": "fund",
+  "Robot Ventures": "fund",
+  "Balaji Srinivasan": "angel",
+  "Naval Ravikant": "angel",
+  "Sandeep Nailwal": "angel",
+  "Mark Cuban": "angel",
+  "Alan Howard": "angel",
+  "Gary Vaynerchuk": "angel",
+  "Anthony Pompliano": "angel",
+  "Meltem Demirors": "angel",
+  "Ryan Selkis": "angel",
+  "Elad Gil": "angel",
+  "Do Kwon": "angel",
+  "Vitalik Buterin": "angel",
+  "CZ": "angel",
+  "Changpeng Zhao": "angel",
+  "Arthur Hayes": "angel",
+  "Justin Sun": "angel"
  }
 }

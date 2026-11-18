@@ -21,13 +21,13 @@
   <section class="card row">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px">
       <h2 style="margin:0">Investors <span class="sub" id="inv-sub"></span></h2>
-      <div class="filters"><input type="search" id="q" placeholder="Find an investor…"><label class="muted"><input type="checkbox" id="curated"> only firms with fund data</label></div>
+      <div class="filters"><div class="tabs" id="types"><button data-k="" class="on">All</button><button data-k="fund">VC funds</button><button data-k="angel">Angels</button><button data-k="corp">Corporates, exchanges &amp; ecosystems</button></div><input type="search" id="q" placeholder="Find an investor…"><label class="muted"><input type="checkbox" id="curated"> only firms with fund data</label></div>
     </div>
     <div style="overflow:auto;max-height:760px"><table>
       <thead><tr><th data-s="name">Investor</th><th class="r" data-s="n">Deals (all)</th><th class="r" data-s="n12">Last 12m</th><th class="r" data-s="ch" title="Deals announced in the last 12 months vs the 12 months before">vs prior 12m</th><th class="r" data-s="led">Led</th><th data-s="last">Last announced</th><th class="r" data-s="aum">AUM (reported)</th><th data-s="fundDate">Latest fund</th></tr></thead>
       <tbody id="body"><tr><td colspan="8" class="muted">Loading ~11,700 rounds…</td></tr></tbody>
     </table></div>
-    <div class="src" style="margin-top:8px">Deal counts come from the fundraising history (DefiLlama + CoinCarp). Dates are announcement dates, which often lag the actual investment by months, so a slowing fund keeps showing "new" deals for a while. Name variants are merged for the big firms (e.g. a16z / a16z crypto, Binance Labs / YZi Labs).</div>
+    <div class="src" style="margin-top:8px">Deal counts come from the fundraising history (DefiLlama + CoinCarp). Dates are announcement dates, which often lag the actual investment by months, so a slowing fund keeps showing "new" deals for a while. Angels are individuals detected from their names, so a few may be mislabelled. Name variants are merged for the big firms (e.g. a16z / a16z crypto, Binance Labs / YZi Labs).</div>
   </section>
 </div>
 <script src="vc-lib.js"></script>
@@ -50,16 +50,17 @@
   const now = Date.now(), y1 = now - 365 * 864e5, y2 = now - 730 * 864e5; const S = {};
   for (const x of rows) for (const [arr, lead] of [[x.L, true], [x.O, false]]) for (const n of arr) {
     const s = (S[n] ||= { name: n, n: 0, n12: 0, p12: 0, led: 0, last: '' }); s.n++; if (lead) s.led++; if (x.t >= y1) s.n12++; else if (x.t >= y2) s.p12++; if (x.d > s.last) s.last = x.d; }
-  let list = Object.values(S).filter(s => s.n >= 8 || F[s.name]);
+  let list = Object.values(S).filter(s => s.n >= 3 || F[s.name]); for (const s of list) s.type = VC.typeOf(s.name); let typeF = '';
   for (const s of list) { const f = F[s.name]; s.ch = s.p12 ? (s.n12 / s.p12 - 1) * 100 : (s.n12 ? 999 : -999);
     if (f) { const a = (f.aum || []).at(-1); s.aum = a?.value ?? null; const fd = [...(f.funds || [])].sort((a, b) => (b.date || '').localeCompare(a.date || ''))[0]; s.fund = fd; s.fundDate = fd?.date || ''; s.cur = true; } }
-  $('inv-sub').textContent = `· ${list.length} investors with 8+ announced deals`;
+  
   let sortK = 'n12', dir = -1;
   function render() {
     const qq = $('q').value.trim().toLowerCase(), cur = $('curated').checked;
-    const v = list.filter(s => (!qq || s.name.toLowerCase().includes(qq)) && (!cur || s.cur)).sort((a, b) => { const A = a[sortK] ?? -1e18, B = b[sortK] ?? -1e18; return (A > B ? 1 : A < B ? -1 : 0) * dir; });
-    $('body').replaceChildren(...v.slice(0, 400).map(s => el('tr', {},
-      el('td', {}, el('a', { class: 'lnk', style: 'font-weight:600', href: 'vc.html?n=' + encodeURIComponent(s.name), text: s.name }), s.cur ? el('span', { class: 'pill', text: 'fund data' }) : null),
+    const minN = typeF === 'angel' ? 3 : 8; const v = list.filter(s => (s.n >= minN || s.cur) && (!typeF || s.type === typeF) && (!qq || s.name.toLowerCase().includes(qq)) && (!cur || s.cur)).sort((a, b) => { const A = a[sortK] ?? -1e18, B = b[sortK] ?? -1e18; return (A > B ? 1 : A < B ? -1 : 0) * dir; });
+    $('inv-sub').textContent = `· ${v.length} ${typeF ? VC.TYPE_LABEL[typeF].toLowerCase() + ' investors' : 'investors'} with ${minN}+ announced deals` + (typeF === 'angel' ? ' (individuals; detected from names, may miss a few)' : '');
+    $('body').replaceChildren(...v.slice(0, 500).map(s => el('tr', {},
+      el('td', {}, el('a', { class: 'lnk', style: 'font-weight:600', href: 'vc.html?n=' + encodeURIComponent(s.name), text: s.name }), s.type !== 'fund' ? el('span', { class: 'tag', style: 'margin-left:6px', text: s.type === 'angel' ? 'Angel' : 'Corporate' }) : null, s.cur ? el('span', { class: 'pill', text: 'fund data' }) : null),
       el('td', { class: 'r num', text: s.n }), el('td', { class: 'r num', text: s.n12 }),
       el('td', { class: 'r num', style: 'color:' + (s.ch > 0 ? 'var(--up)' : s.ch < 0 ? 'var(--down)' : 'inherit'), text: Math.abs(s.ch) === 999 ? (s.ch > 0 ? 'new' : (s.p12 ? '−100%' : '—')) : (s.ch >= 0 ? '+' : '') + s.ch.toFixed(0) + '%' }),
       el('td', { class: 'r num muted', text: s.led }), el('td', { class: 'muted num', text: s.last }),
@@ -67,7 +68,7 @@
       el('td', { class: 'muted' }, s.fund ? `${s.fund.name} · ${usd(s.fund.size)} · ${s.fund.date}` : ''))));
   }
   document.querySelector('thead').addEventListener('click', (e) => { const th = e.target.closest('th[data-s]'); if (!th) return; const k = th.dataset.s; if (sortK === k) dir = -dir; else { sortK = k; dir = k === 'name' ? 1 : -1; } render(); });
-  $('q').addEventListener('input', render); $('curated').addEventListener('change', render);
+  $('q').addEventListener('input', render); $('types').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; typeF = b.dataset.k; for (const x of $('types').children) x.classList.toggle('on', x === b); render(); }); $('curated').addEventListener('change', render);
   render();
 })();
 </script>

@@ -47,7 +47,7 @@
   const f = data.firms[name] || null;
   document.title = name + ' · Morning Desk';
   $('name').textContent = name;
-  const metaTxt = [f?.type, f?.hq, f?.founded ? 'founded ' + f.founded : null].filter(Boolean).join(' · ');
+  const metaTxt = [f?.type || VC.TYPE_LABEL[VC.typeOf(name)], f?.hq, f?.founded ? 'founded ' + f.founded : null].filter(Boolean).join(' · ');
   $('meta').replaceChildren(metaTxt,
     f?.site ? el('span', {}, ' · ', link(f.site, 'website')) : '', f?.about ? el('div', { style: 'margin-top:3px;color:var(--text-secondary)', text: f.about }) : '');
   $('histLink').href = 'funding.html#investor=' + encodeURIComponent(name);

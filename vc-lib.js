@@ -31,8 +31,16 @@ window.VC = (() => {
     const [h, d] = await Promise.all([fetch('funding-history.json').then(r => r.json()), fetch('vc-data.json?t=' + Date.now()).then(r => r.json())]);
     const A = d.aliases || {}; const canon = (n) => A[n] || n;
     const rows = h.rows.map(x => { const L = [...new Set(x.l.map(canon))]; const O = [...new Set(x.o.map(canon))].filter(n => !L.includes(n)); return { ...x, t: Date.parse(x.d + 'T00:00:00Z'), L, O }; });
+    TYPES = d.types || {};
     return { rows, data: d, canon, meta: h.meta };
   }
+  // Investor type: 'angel' (individual), 'corp' (corporate / exchange / ecosystem / market maker) or 'fund'.
+  const ORG = /(capital|ventures?|\blabs?\b|fund|partners|\bvc\b|dao|group|holdings|digital|network|foundation|protocol|finance|exchange|research|investments?|management|asset|global|crypto|coin|chain|block|systems|studio|combinator|accelerator|incubator|wallet|bank|\binc\b|llc|ltd|technolog|securities|markets?|trading|associates|collective|catalyst|perkins|commons|works|street|prime|angels?\b|velocity|peak|investimentos|mellon|rollup|neutral|investors?|holding|fintech|dragon|lightspeed|faction|draper|advisors?|equity|office|syndicate|club|house|hub|alpha|quant|ventur|limited|company|corp|enterprises?|incubat|launchpad|pad\b|guild|games?|gaming|media|dao|ai\b|tech\b|pay\b|x\b|one\b|interactive|emergent|alliance|financial|hippeau|classic|entrepreneur|gifford|point nine|cartel|colab|facilities|starting line|scend|wace|seven seven six|chapter one|hard yaka|the lao|flow traders|brevan|sequoia|accel|tether|circle|ripple|a16z|andreessen|y combinator)/i;
+  const CORP = /(binance|coinbase|okx|kucoin|bybit|\bgate\b|huobi|\bhtx\b|bitget|mexc|crypto\.com|kraken|robinhood|tether|circle|ripple|paypal|visa|mastercard|google|samsung|sony|nasdaq|animoca|foundation|consensys|yzi labs|polygon|solana|aptos|\bsui\b|avalanche|ava labs|protocol labs|mask network|\bgsr\b|wintermute|amber group|dwf labs|jump crypto|jump trading|flow traders|jane street|galaxy digital|\bdcg\b|mellon|fidelity|franklin|blackrock|alameda|ftx|bitmain|tencent|alibaba|softbank|microsoft|nvidia|goldman|jpmorgan|citi|deutsche|standard chartered|bnb chain|near\b|ton\b|tron|ethereum|arbitrum|optimism|starknet|celo|cosmos|hedera|algorand|stellar|cardano|polkadot)/i;
+  const PERSON = /^[A-Z][a-z][a-zA-Z.'’-]*( (de|van|von|da|del|le|la|[A-Z][a-z][a-zA-Z.'’-]*|[A-Z]\.)){1,3}$/;
+  let TYPES = {};
+  const typeOf = (n) => TYPES[n] || (CORP.test(n) ? 'corp' : (!ORG.test(n) && PERSON.test(n)) ? 'angel' : 'fund');
+  const TYPE_LABEL = { fund: 'VC / fund', angel: 'Angel', corp: 'Corporate / exchange / ecosystem' };
   const q = (t) => { const d = new Date(t); return d.getUTCFullYear() + ' Q' + (Math.floor(d.getUTCMonth() / 3) + 1); };
-  return { $, el, usd, link, bars, load, showTip, hideTip, q };
+  return { $, el, usd, link, bars, load, showTip, hideTip, q, typeOf, TYPE_LABEL };
 })();
