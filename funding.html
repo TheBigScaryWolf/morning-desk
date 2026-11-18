@@ -34,7 +34,7 @@
   .r { text-align: right; } .muted { color: var(--text-muted); }
   .inv { color: var(--series-1); cursor: pointer; } .inv:hover { text-decoration: underline; }
   .tag { display: inline-block; font-size: 10.5px; padding: 1px 6px; border-radius: 4px; background: #2b2b28; color: var(--text-secondary); margin: 1px 4px 1px 0; }
-  .list-row { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; padding: 4px 0; border-bottom: 1px solid #262624; cursor: pointer; }
+  .list-row { display: grid; grid-template-columns: 1fr auto auto auto; gap: 12px; padding: 4px 0; border-bottom: 1px solid #262624; cursor: pointer; }
   .list-row:hover { background: #24241f; }
   #tip { position: fixed; pointer-events: none; background: #2a2a27; border: 1px solid #45453f; border-radius: 6px; padding: 5px 8px; font-size: 12px; z-index: 50; display: none; white-space: nowrap; }
   svg text { fill: var(--text-muted); font-size: 10.5px; }
@@ -57,7 +57,8 @@
       <select id="cat"><option value="">All categories</option></select>
       <select id="srcSel"><option value="">All sources</option><option value="dl">In DefiLlama</option><option value="cc">CoinCarp only (not in DefiLlama)</option></select>
       <select id="min"><option value="0">Any size</option><option value="1e6">≥ $1M</option><option value="5e6">≥ $5M</option><option value="1e7">≥ $10M</option><option value="5e7">≥ $50M</option><option value="1e8">≥ $100M</option></select>
-      <label class="muted"><input type="checkbox" id="leadOnly"> investor must be lead</label>
+      <input id="inv" list="invList" placeholder="Investor…" style="width:180px"><datalist id="invList"></datalist>
+      <select id="role" title="Which role the chosen investor played"><option value="any">Any role</option><option value="lead">As lead</option><option value="part">As participant (not lead)</option></select>
       <button id="reset">Reset</button>
     </div>
     <div class="src" style="margin-top:8px" id="active"></div>
@@ -72,7 +73,7 @@
 
   <div class="grid two row">
     <section class="card"><h2>Capital raised <span class="sub" id="ch-sub"></span></h2><div id="chart" style="height:220px"></div></section>
-    <section class="card"><h2><span id="inv-title">Most active lead investors</span> <span class="sub">· in this selection, click to filter</span></h2><div id="leads" style="max-height:220px;overflow:auto"></div></section>
+    <section class="card"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px"><h2 style="margin:0"><span id="inv-title">Most active investors</span> <span class="sub">· deals announced in this selection · click to filter</span></h2><div class="tabs" id="invMode" style="flex-wrap:nowrap;flex-shrink:0"><button data-k="any" class="on">Any role</button><button data-k="lead">As lead</button></div></div><div id="leads" style="max-height:220px;overflow:auto"></div></section>
   </div>
   <div class="grid two row">
     <section class="card"><h2>Top categories <span class="sub">· by $ raised</span></h2><div id="cats" style="max-height:200px;overflow:auto"></div></section>
@@ -82,11 +83,11 @@
   <section class="card row">
     <h2>Rounds <span class="sub" id="t-sub"></span></h2>
     <div style="overflow:auto"><table>
-      <thead><tr><th data-s="d">Date ▾</th><th data-s="n">Project</th><th data-s="r">Round</th><th class="r" data-s="a">Raised</th><th class="r" data-s="v" title="Reported post-money valuation; 'est.' = estimate from typical dilution for the round type">Valuation</th><th>Lead</th><th>Other investors</th><th data-s="c">Category</th></tr></thead>
+      <thead><tr><th data-s="d" title="Date the round was announced. The money is often committed months earlier.">Announced ▾</th><th data-s="n">Project</th><th data-s="r">Round</th><th class="r" data-s="a">Raised</th><th class="r" data-s="v" title="Reported post-money valuation; 'est.' = estimate from typical dilution for the round type">Valuation</th><th>Lead</th><th>Other investors</th><th data-s="c">Category</th></tr></thead>
       <tbody id="body"></tbody>
     </table></div>
     <div class="more"><button id="moreBtn">Show 200 more</button></div>
-    <div class="src" style="margin-top:8px">Data: DefiLlama's public raises database merged with CoinCarp's fundraising list, with duplicates removed (same project within ~2 weeks, or ~6 weeks when the amount matches). CoinCarp shows up to 3 investors per round and doesn't mark leads. New rounds are added by the Monday crawl. Click a project to search for its announcement, or an investor to filter by them. Valuation estimates assume ~10% sold at pre-seed, 12% at seed, 18% at Series A, 15% at B and 12% at C. They are rough guides, not reported figures.</div>
+    <div class="src" style="margin-top:8px">Data: DefiLlama's public raises database merged with CoinCarp's fundraising list, with duplicates removed (same project within ~2 weeks, or ~6 weeks when the amount matches). CoinCarp shows up to 3 investors per round and doesn't mark leads. New rounds are added by the Monday crawl. <b>Dates are announcement dates:</b> startups often announce a round months (sometimes a year) after the money was committed, so recent activity here lags what investors are actually doing now. A fund that has stopped writing cheques can keep appearing for months. Click a project to search for its announcement, or an investor to filter by them. Valuation estimates assume ~10% sold at pre-seed, 12% at seed, 18% at Series A, 15% at B and 12% at C. They are rough guides, not reported figures.</div>
   </section>
 </div>
 <div id="tip"></div>
@@ -102,7 +103,7 @@
   const hideTip = () => tip.style.display = 'none';
 
   let ROWS = [], view = [], shown = 200, sortK = 'd', sortDir = -1, win = 365, invFilter = '';
-  const st = { q: '', round: '', cat: '', min: 0, leadOnly: false, src: '' };
+  const st = { q: '', round: '', cat: '', min: 0, role: 'any', src: '' }; let invMode = 'any';
 
   function valOf(x) { if (x.v) return { v: x.v, est: false }; const d = DIL[x.r]; return d && x.a ? { v: Math.round(x.a / d / 1e5) * 1e5, est: true } : null; }
 
@@ -114,17 +115,21 @@
     const rounds = {}, cats = {}; for (const x of ROWS) { if (x.r) rounds[x.r] = (rounds[x.r] || 0) + 1; if (x.c) cats[x.c] = (cats[x.c] || 0) + 1; }
     for (const [k] of Object.entries(rounds).sort((a, b) => b[1] - a[1])) $('round').append(el('option', { value: k, text: k }));
     for (const [k] of Object.entries(cats).sort((a, b) => b[1] - a[1])) $('cat').append(el('option', { value: k, text: k }));
+    const invs = {}; for (const x of ROWS) for (const i of [...x.l, ...x.o]) invs[i] = (invs[i] || 0) + 1;
+    $('invList').replaceChildren(...Object.entries(invs).sort((a, b) => b[1] - a[1]).map(([k]) => el('option', { value: k })));
     const h = new URLSearchParams(location.hash.slice(1)); // e.g. #investor=Paradigm
-    if (h.get('investor')) invFilter = h.get('investor');
+    if (h.get('investor')) { invFilter = h.get('investor'); $('inv').value = invFilter; }
     apply();
   }
 
   function apply() {
     const now = Date.now(), from = win ? now - win * 864e5 : 0, q = st.q.toLowerCase();
     view = ROWS.filter(x => x.t >= from && (!st.round || x.r === st.round) && (!st.cat || x.c === st.cat) && (!st.min || (x.a || 0) >= st.min) && (!st.src || (st.src === 'cc' ? x.src === 'cc' : x.src !== 'cc')) && (!q || x.hay.includes(q))
-      && (!invFilter || (st.leadOnly ? x.l.includes(invFilter) : (x.l.includes(invFilter) || x.o.includes(invFilter)))));
+      && (!invFilter || (st.role === 'lead' ? x.l.includes(invFilter) : st.role === 'part' ? (!x.l.includes(invFilter) && x.o.includes(invFilter)) : (x.l.includes(invFilter) || x.o.includes(invFilter)))));
     sortView(); shown = 200; render();
-    $('active').textContent = invFilter ? `Filtered to investor: ${invFilter}${st.leadOnly ? ' (as lead)' : ''}. Click Reset to clear.` : '';
+    if (invFilter) { const all = ROWS.filter(x => x.l.includes(invFilter) || x.o.includes(invFilter)); const led = all.filter(x => x.l.includes(invFilter)).length;
+      $('active').textContent = `Investor: ${invFilter} (${{ any: 'any role', lead: 'as lead', part: 'as participant' }[st.role]}). All-time: ${all.length} deals, ${led} as lead. Most recent announced: ${all[0]?.d || '—'}. Dates are announcement dates, which can lag the actual investment by months.`; }
+    else $('active').textContent = '';
   }
   function sortView() {
     const k = sortK; view.sort((a, b) => { const va = k === 'v' ? (valOf(a)?.v ?? -1) : (a[k] ?? -1), vb = k === 'v' ? (valOf(b)?.v ?? -1) : (b[k] ?? -1); return (va > vb ? 1 : va < vb ? -1 : 0) * sortDir; });
@@ -137,7 +142,7 @@
     renderChart(); renderSide(); renderTable();
   }
   function renderTable() {
-    const inv = (name) => el('span', { class: 'inv', text: name, onclick: () => { invFilter = name; apply(); scrollTo({ top: 0, behavior: 'smooth' }); } });
+    const inv = (name) => el('span', { class: 'inv', text: name, onclick: () => { invFilter = name; $('inv').value = name; apply(); scrollTo({ top: 0, behavior: 'smooth' }); } });
     const join = (arr) => { const f = document.createDocumentFragment(); arr.forEach((n, i) => { if (i) f.append(', '); f.append(inv(n)); }); return f; };
     $('t-sub').textContent = `· showing ${Math.min(shown, view.length).toLocaleString()} of ${view.length.toLocaleString()}`;
     $('body').replaceChildren(...view.slice(0, shown).map(x => { const val = valOf(x);
@@ -155,12 +160,12 @@
     $('moreBtn').style.display = shown < view.length ? '' : 'none';
   }
   function renderSide() {
-    const L = {}, C = {}; for (const x of view) { for (const l of x.l) { (L[l] ||= { n: 0, s: 0 }); L[l].n++; L[l].s += x.a || 0; } if (x.c) { (C[x.c] ||= { n: 0, s: 0 }); C[x.c].n++; C[x.c].s += x.a || 0; } }
-    const row = (name, a, b, on) => el('div', { class: 'list-row', onclick: on }, el('span', { text: name }), el('span', { class: 'muted num', text: a }), el('span', { class: 'num', text: b }));
-    const useAll = view.filter(x => x.l.length).length < view.length * .2;
-    if (useAll) { for (const k in L) delete L[k]; for (const x of view) for (const l of [...x.l, ...x.o]) { (L[l] ||= { n: 0, s: 0 }); L[l].n++; L[l].s += x.a || 0; } }
-    $('inv-title').textContent = useAll ? 'Most active investors' : 'Most active lead investors';
-    $('leads').replaceChildren(...Object.entries(L).sort((a, b) => b[1].n - a[1].n).slice(0, 30).map(([k, v]) => row(k, v.n + ' deals', usd(v.s), () => { invFilter = k; st.leadOnly = !useAll; $('leadOnly').checked = !useAll; apply(); })));
+    const L = {}, C = {}; for (const x of view) { if (x.c) { (C[x.c] ||= { n: 0, s: 0 }); C[x.c].n++; C[x.c].s += x.a || 0; } }
+    const add = (k, x, lead) => { const o = (L[k] ||= { n: 0, led: 0, s: 0, last: '' }); o.n++; if (lead) o.led++; o.s += x.a || 0; if (x.d > o.last) o.last = x.d; };
+    for (const x of view) { for (const l of x.l) add(l, x, true); if (invMode === 'any') for (const o of x.o) add(o, x, false); }
+    const row = (name, a, b, on, c) => el('div', { class: 'list-row', onclick: on }, el('span', { text: name }), el('span', { class: 'muted num', text: a }), c != null ? el('span', { class: 'muted num', title: 'Most recent announced deal in this selection', text: c }) : el('span'), el('span', { class: 'num', text: b }));
+    $('inv-title').textContent = invMode === 'lead' ? 'Most active lead investors' : 'Most active investors';
+    $('leads').replaceChildren(...Object.entries(L).sort((a, b) => b[1].n - a[1].n).slice(0, 40).map(([k, v]) => row(k, invMode === 'any' ? `${v.n} deals · ${v.led} led` : `${v.n} led`, usd(v.s), () => { invFilter = k; $('inv').value = k; st.role = invMode; $('role').value = invMode; apply(); }, v.last)));
     $('cats').replaceChildren(...Object.entries(C).sort((a, b) => b[1].s - a[1].s).slice(0, 20).map(([k, v]) => row(k, v.n + ' deals', usd(v.s), () => { st.cat = k; $('cat').value = k; apply(); })));
     $('big').replaceChildren(...[...view].filter(x => x.a).sort((a, b) => b.a - a.a).slice(0, 15).map(x => row(`${x.n} · ${x.r || ''}`, x.d, usd(x.a), () => { $('q').value = x.n; st.q = x.n; apply(); })));
   }
@@ -192,8 +197,10 @@
   $('cat').addEventListener('change', () => { st.cat = $('cat').value; apply(); });
   $('srcSel').addEventListener('change', () => { st.src = $('srcSel').value; apply(); });
   $('min').addEventListener('change', () => { st.min = +$('min').value; apply(); });
-  $('leadOnly').addEventListener('change', () => { st.leadOnly = $('leadOnly').checked; apply(); });
-  $('reset').addEventListener('click', () => { Object.assign(st, { q: '', round: '', cat: '', min: 0, leadOnly: false, src: '' }); $('srcSel').value = ''; invFilter = ''; $('q').value = ''; $('round').value = ''; $('cat').value = ''; $('min').value = '0'; $('leadOnly').checked = false; history.replaceState(null, '', location.pathname); apply(); });
+  $('role').addEventListener('change', () => { st.role = $('role').value; apply(); });
+  $('inv').addEventListener('change', () => { invFilter = $('inv').value.trim(); apply(); });
+  $('invMode').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; invMode = b.dataset.k; for (const x of $('invMode').children) x.classList.toggle('on', x === b); renderSide(); });
+  $('reset').addEventListener('click', () => { Object.assign(st, { q: '', round: '', cat: '', min: 0, role: 'any', src: '' }); $('role').value = 'any'; $('inv').value = ''; $('srcSel').value = ''; invFilter = ''; $('q').value = ''; $('round').value = ''; $('cat').value = ''; $('min').value = '0'; history.replaceState(null, '', location.pathname); apply(); });
   $('moreBtn').addEventListener('click', () => { shown += 200; renderTable(); });
   document.querySelector('thead').addEventListener('click', (e) => { const th = e.target.closest('th[data-s]'); if (!th) return; const k = th.dataset.s; if (sortK === k) sortDir = -sortDir; else { sortK = k; sortDir = k === 'n' || k === 'r' || k === 'c' ? 1 : -1; }
     for (const t of document.querySelectorAll('th[data-s]')) t.textContent = t.textContent.replace(/ [▾▴]$/, ''); th.textContent += sortDir < 0 ? ' ▾' : ' ▴'; sortView(); renderTable(); });
