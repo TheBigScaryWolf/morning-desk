@@ -894,7 +894,8 @@
   }
 
   // ---------- Winners / losers ----------
-  async function loadMovers() {
+  async function loadMovers() { await loadMoversPrice(); await loadMoversTvl(); }
+  async function loadMoversPrice() {
     const [l1, l2] = await Promise.all([
       safe(getJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=layer-1&order=market_cap_desc&per_page=40&price_change_percentage=7d')),
       safe(getJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=layer-2&order=market_cap_desc&per_page=20&price_change_percentage=7d')),
@@ -908,8 +909,10 @@
       uniq.sort((a, b) => b.price_change_percentage_7d_in_currency - a.price_change_percentage_7d_in_currency);
       const m = (c) => ({ name: c.symbol.toUpperCase(), sub: usd(c.market_cap), v: c.price_change_percentage_7d_in_currency, link: 'https://www.coingecko.com/en/coins/' + c.id });
       $('mv-price').replaceChildren(col('Best', uniq.slice(0, 5).map(m)), col('Worst', uniq.slice(-5).reverse().map(m)));
-    } else if (!$('mv-price').querySelector('.mover')) $('mv-price').replaceChildren(el('div', { class: 'err', text: 'CoinGecko is rate-limiting; retrying in 30 min.' }));
-    // TVL movers: top 30 chains
+    } else { if (!$('mv-price').querySelector('.mover')) $('mv-price').replaceChildren(el('div', { class: 'muted', text: 'CoinGecko is busy; retrying in a couple of minutes…' })); setTimeout(loadMoversPrice, 120000); }
+  }
+  async function loadMoversTvl() {
+    const col = (title, rows) => el('div', {}, el('div', { class: 'muted', style: 'font-size:11.5px;margin-bottom:2px', text: title }), ...rows.map(r => el('div', { class: 'mover' }, el('span', {}, r.name, r.sub ? el('span', { class: 'muted', text: '  ' + r.sub }) : null), pctEl(r.v, 1))));
     const top = S.chains.slice(0, 30); let i = 0; const need = top.filter(c => !S.hist[c.name]);
     await Promise.all(Array.from({ length: 6 }, async () => { while (i < need.length) { const c = need[i++]; const h = await safe(getJSON('https://api.llama.fi/v2/historicalChainTvl/' + encodeURIComponent(c.name))); if (Array.isArray(h)) S.hist[c.name] = h.slice(-120).map(p => ({ t: p.date * 1000, v: p.tvl })); } }));
     const tv = top.map(c => ({ name: c.name, sub: usd(c.tvl), v: histChange(c.name, 7, c.tvl) })).filter(x => x.v != null).sort((a, b) => b.v - a.v);
@@ -1006,7 +1009,7 @@
   $('refresh').addEventListener('click', () => { S.hist = {}; refreshFast(); refreshSlow(); });
   tickMeta(); setInterval(tickMeta, 30000);
   renderIntel(); renderEtfEth(); renderMacro(); renderUnlocks(); renderWeekly();
-  refreshFast(); refreshSlow().then(refreshHeavy);
+  refreshFast().then(() => refreshSlow()).then(() => setTimeout(refreshHeavy, 15000));
   setInterval(refreshHeavy, 30 * 60 * 1000);
   setInterval(refreshFast, 60 * 1000);
   setInterval(refreshSlow, 10 * 60 * 1000);
