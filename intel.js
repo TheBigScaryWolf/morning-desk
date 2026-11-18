@@ -3155,5 +3155,203 @@ window.INTEL = {
     ]
    }
   ]
+ },
+ "macro": {
+  "source": "Sources: fedratecalc.com, helious.io, weekly market previews",
+  "events": [
+   {
+    "time": "2026-11-18T07:00:00Z",
+    "event": "UK CPI (Oct)",
+    "region": "UK",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-18T13:30:00Z",
+    "event": "US housing starts",
+    "region": "US",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-18T19:00:00Z",
+    "event": "FOMC minutes (Oct 27–28 meeting)",
+    "region": "US",
+    "impact": "high",
+    "note": "Markets are pricing possible rate hikes; hawkish minutes would add pressure"
+   },
+   {
+    "time": "2026-11-19T13:30:00Z",
+    "event": "US initial jobless claims + Philly Fed manufacturing",
+    "region": "US",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-19T23:30:00Z",
+    "event": "Japan CPI",
+    "region": "JP",
+    "impact": "medium",
+    "note": "Relevant for yen carry trade"
+   },
+   {
+    "time": "2026-11-20T01:15:00Z",
+    "event": "China loan prime rate",
+    "region": "CN",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-20T15:00:00Z",
+    "event": "UMich consumer sentiment (final)",
+    "region": "US",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-25T13:30:00Z",
+    "event": "US PCE inflation + GDP (2nd estimate)",
+    "region": "US",
+    "impact": "high",
+    "note": "The Fed's preferred inflation gauge"
+   },
+   {
+    "time": "2026-11-26T12:00:00Z",
+    "allDay": true,
+    "event": "US Thanksgiving: stock markets closed",
+    "region": "US",
+    "impact": "medium",
+    "note": "Thin liquidity; ETF flows pause"
+   },
+   {
+    "time": "2026-12-09T19:00:00Z",
+    "event": "FOMC rate decision",
+    "region": "US",
+    "impact": "high",
+    "note": "Next Fed meeting"
+   }
+  ]
+ },
+ "unlocks": {
+  "source": "Tokenomist / ChainCatcher weekly lists",
+  "items": [
+   {
+    "date": "2026-11-18",
+    "token": "KAT",
+    "name": "Katana",
+    "valueUsd": 240000.0,
+    "pctCirc": null,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-20",
+    "token": "ZRO",
+    "name": "LayerZero",
+    "valueUsd": 34690000.0,
+    "pctCirc": 5.82,
+    "recipients": "Private investors, team"
+   },
+   {
+    "date": "2026-11-20",
+    "token": "KAITO",
+    "name": "Kaito",
+    "valueUsd": 3070000.0,
+    "pctCirc": 7.29,
+    "recipients": "Community, team, investors, reserve"
+   },
+   {
+    "date": "2026-11-20",
+    "token": "BR",
+    "name": "",
+    "valueUsd": 2150000.0,
+    "pctCirc": 1.46,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-23",
+    "token": "SOON",
+    "name": "SOON",
+    "valueUsd": 4410000.0,
+    "pctCirc": 3.38,
+    "recipients": ""
+   }
+  ]
+ },
+ "weekly": {
+  "label": "from raises of 7–13 Nov",
+  "hiring": [
+   {
+    "company": "Index Industries",
+    "raise": "$50M seed · Lightspeed",
+    "what": "Tokenized US housing index (RWA)",
+    "url": "https://job-boards.greenhouse.io/indexindustries",
+    "roles": [
+     {
+      "title": "Head of Partnerships",
+      "location": "Chicago",
+      "url": "https://job-boards.greenhouse.io/indexindustries/jobs/4696883006"
+     },
+     {
+      "title": "Head of Business Development (Capital Raising)",
+      "location": "Chicago",
+      "url": "https://job-boards.greenhouse.io/indexindustries/jobs/4691376006"
+     }
+    ]
+   },
+   {
+    "company": "Alta",
+    "raise": "$47.5M Series A · Index Ventures",
+    "what": "L1 blockchain for banks (privacy + compliance); Airwallex is a backer",
+    "url": "https://cryptorank.io/insights/deals/alta-series-a-2026-11-10",
+    "roles": [],
+    "note": "No public job listings found yet: worth a speculative approach. An L1 for institutions will need ecosystem and partnerships leads."
+   }
+  ],
+  "ecosystem": [
+   {
+    "type": "Upgrade",
+    "chain": "Solana",
+    "date": "16 Nov",
+    "title": "Solana drops 'mainnet beta': Solana 1.0",
+    "summary": "Adds shared protocol versioning; announced at Breakpoint London.",
+    "url": "https://decrypt.co/383322/solana-drops-mainnet-beta-after-six-years"
+   },
+   {
+    "type": "Partnership",
+    "chain": "Solana",
+    "date": "12 Nov",
+    "title": "DTCC Tokenization Service to connect with Solana",
+    "summary": "Targeted for H2 2027 for eligible DTC-custodied assets.",
+    "url": "https://solana.com/news"
+   },
+   {
+    "type": "Mainnet",
+    "chain": "Hyperliquid L1",
+    "date": "9 Nov",
+    "title": "Elysium mainnet: first L2 in the Hyperliquid ecosystem",
+    "summary": "Runs on HyperEVM and uses HYPE for fees.",
+    "url": "https://pluang.com/en/news-feed/elysium-luncurkan-mainnet-hyperliquid-layer-2-9-november"
+   },
+   {
+    "type": "TGE",
+    "chain": "Wire Network",
+    "date": "Dec",
+    "title": "Wire Network TGE and mainnet delayed again, now December",
+    "summary": "Second delay; exchange listings held back after industry security incidents.",
+    "url": "https://www.coingabbar.com/en/wire-network-tge-mainnet-launch-delayed-december-update"
+   },
+   {
+    "type": "Upgrade",
+    "chain": "Ethereum",
+    "date": "17 Nov",
+    "title": "Glamsterdam scaling changes could break up to 15,000 contracts",
+    "summary": "Core devs are reconsidering the two changes after audits flagged hundreds of issues.",
+    "url": "https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts"
+   },
+   {
+    "type": "Grant",
+    "chain": "Pyth",
+    "date": "Nov",
+    "title": "Pyth Community Hackathon: round 2 open",
+    "summary": "Registration via the Pyth forum and Discord.",
+    "url": "https://opengrants.io/guides/crypto-grants/"
+   }
+  ],
+  "ecoLabel": "9–17 Nov"
  }
 };

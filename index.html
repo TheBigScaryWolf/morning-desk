@@ -43,6 +43,28 @@
   .chart { height: 170px; }
   .ls-now { display: flex; height: 22px; border-radius: 5px; overflow: hidden; margin: 2px 0 10px; font-size: 11.5px; font-weight: 600; }
   .ls-now div { display: flex; align-items: center; padding: 0 8px; white-space: nowrap; color: #fff; }
+  .verdict { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; padding: 12px 16px; }
+  .verdict .badge { font-weight: 700; font-size: 14px; padding: 4px 12px; border-radius: 999px; color: #111; white-space: nowrap; }
+  .verdict .why { color: var(--text-secondary); font-size: 12.5px; flex: 1 1 400px; }
+  .verdict .delta { color: var(--text-muted); font-size: 12px; width: 100%; }
+  .mstrip { display: grid; grid-template-columns: repeat(5, minmax(0,1fr)); gap: 12px; }
+  @media (max-width: 1100px) { .mstrip { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+  .mstrip .card { padding: 10px 14px; }
+  .mstrip .l { color: var(--text-secondary); font-size: 12px; }
+  .mstrip .v { font-size: 19px; font-weight: 650; margin-top: 2px; }
+  .mstrip .s { font-size: 11.5px; color: var(--text-muted); margin-top: 1px; }
+  .cal-item { display: grid; grid-template-columns: 92px 1fr auto; gap: 10px; padding: 7px 0; border-bottom: 1px solid #262624; align-items: baseline; }
+  .cal-item .when { color: var(--text-muted); font-size: 12px; }
+  .cal-item .what { color: var(--text-primary); }
+  .cal-item .what small { display: block; color: var(--text-muted); font-size: 11.5px; margin-top: 1px; }
+  .imp { font-size: 10.5px; padding: 1px 6px; border-radius: 4px; background: #2b2b28; color: var(--text-secondary); white-space: nowrap; }
+  .imp.high { background: rgba(230,103,103,.18); color: #f0a3a3; }
+  .today { color: var(--warn) !important; font-weight: 600; }
+  .mover-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+  @media (max-width: 700px) { .mover-grid { grid-template-columns: minmax(0,1fr); } }
+  .mover { display: grid; grid-template-columns: 1fr auto; padding: 4px 0; border-bottom: 1px solid #262624; }
+  .eco-item { padding: 8px 0; border-bottom: 1px solid #262624; }
+  .eco-item .nh { font-size: 11.5px; color: var(--text-muted); display: flex; gap: 8px; flex-wrap: wrap; }
   .etf-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-bottom: 10px; }
   .etf-stats .l { color: var(--text-muted); font-size: 11.5px; }
   .etf-stats .v { font-size: 16px; font-weight: 600; margin-top: 1px; }
@@ -133,8 +155,24 @@
     </div>
   </header>
 
+  <!-- Verdict -->
+  <section class="card verdict" id="verdict">
+    <span class="badge" id="v-badge" style="background:#c3c2b7">Reading the market…</span>
+    <span class="why" id="v-why"></span>
+    <span class="delta" id="v-delta"></span>
+  </section>
+
+  <!-- Market structure -->
+  <div class="mstrip row" id="mstrip">
+    <section class="card"><div class="l">Total crypto market cap</div><div class="v num" id="m-mcap">—</div><div class="s" id="m-mcap-s"></div></section>
+    <section class="card"><div class="l">BTC dominance</div><div class="v num" id="m-dom">—</div><div class="s">share of total market cap</div></section>
+    <section class="card"><div class="l">BTC dominance ex-stablecoins</div><div class="v num" id="m-domx">—</div><div class="s">BTC ÷ (total − stablecoins)</div></section>
+    <section class="card"><div class="l">ETH / BTC</div><div class="v num" id="m-ethbtc">—</div><div class="s" id="m-ethbtc-s"></div></section>
+    <section class="card"><div class="l">Stablecoin share</div><div class="v num" id="m-stshare">—</div><div class="s">of total market cap</div></section>
+  </div>
+
   <!-- KPI strip -->
-  <div class="grid kpis">
+  <div class="grid kpis row">
     <section class="card kpi" id="k-btc">
       <div class="label"><span>Bitcoin</span><span class="src">CoinGecko · Bybit</span></div>
       <div class="big num" id="btc-price">—</div>
@@ -168,6 +206,21 @@
     <div class="card-h"><h2>Morning brief</h2><span class="sub" id="brief-sub"></span></div>
     <div id="brief-body" class="empty">Waiting for the morning crawl…</div>
   </section>
+
+  <!-- Macro + Unlocks -->
+  <div class="grid two-even row">
+    <section class="card" id="macro">
+      <div class="card-h"><h2>Macro calendar <span class="sub">· next 7 days, your time zone</span></h2><span class="src" id="macro-src"></span></div>
+      <div id="macro-body" class="empty">Waiting for the morning crawl…</div>
+    </section>
+    <section class="card" id="unlocks">
+      <div class="card-h"><h2>Token unlocks <span class="sub">· next 7–14 days</span></h2><span class="src" id="unl-src"></span></div>
+      <div class="scroll" style="max-height:330px"><table>
+        <thead><tr><th>Date</th><th>Token</th><th class="r">Value</th><th class="r" title="Share of circulating supply">% circ.</th><th>Goes to</th></tr></thead>
+        <tbody id="unl-body"><tr><td colspan="5" class="empty">Waiting for the morning crawl…</td></tr></tbody>
+      </table></div>
+    </section>
+  </div>
 
   <!-- Bitcoin deep-dive -->
   <section class="card row" id="btc">
@@ -206,10 +259,10 @@
         <div class="tabs" id="chain-tabs"><button id="chain-more">Show top 50</button></div>
       </div>
       <div class="scroll"><table>
-        <thead><tr><th>#</th><th>Chain</th><th class="r" title="Value locked in DeFi protocols on the chain">TVL</th><th class="r">24h</th><th class="r">7d</th><th class="r">30d</th><th class="bar-cell">TVL 30d</th></tr></thead>
-        <tbody id="chain-body"><tr><td colspan="7" class="empty">Loading…</td></tr></tbody>
+        <thead><tr><th>#</th><th>Chain</th><th class="r" title="Value locked in DeFi protocols on the chain">TVL</th><th class="r">24h</th><th class="r">7d</th><th class="r">30d</th><th class="r" title="Fees paid to apps on this chain, last 24h (DefiLlama)">Fees 24h</th><th class="r" title="DEX trading volume on this chain, last 24h (DefiLlama)">DEX vol 24h</th><th class="bar-cell">TVL 30d</th></tr></thead>
+        <tbody id="chain-body"><tr><td colspan="9" class="empty">Loading…</td></tr></tbody>
       </table></div>
-      <div class="src" style="margin-top:6px">Value deposited in DeFi apps on each chain (lending, DEXs, staking…), as on <a href="https://defillama.com/chains" target="_blank" rel="noopener">DefiLlama</a>. Bitcoin is left out: its "TVL" is mostly BTC restaked through Babylon, not an app economy.</div>
+      <div class="src" style="margin-top:6px">TVL = value deposited in DeFi apps on each chain (lending, DEXs, staking…). Fees and DEX volume show actual usage over the last 24h. All from <a href="https://defillama.com/chains" target="_blank" rel="noopener">DefiLlama</a>. Bitcoin is left out: its "TVL" is mostly BTC restaked through Babylon, not an app economy.</div>
     </section>
 
     <section class="card flows" id="flows">
@@ -251,6 +304,28 @@
       <tbody id="fund-body"><tr><td colspan="7" class="empty">Waiting for the Monday crawl…</td></tr></tbody>
     </table></div>
     <div class="src" style="margin-top:6px" id="fund-src"></div>
+  </section>
+
+  <!-- Weekly: raised→hiring + ecosystem -->
+  <div class="grid two-even row">
+    <section class="card" id="hiring">
+      <div class="card-h"><h2>Raised → now hiring <span class="sub">· BD / partnerships / ecosystem roles</span></h2><span class="sub" id="hire-sub"></span></div>
+      <div id="hire-body" class="empty">Filled by the Monday crawl…</div>
+    </section>
+    <section class="card" id="ecosystem">
+      <div class="card-h"><h2>Ecosystem moves <span class="sub">· grants, accelerators, mainnets, TGEs</span></h2><span class="sub" id="eco-sub"></span></div>
+      <div class="chips" id="eco-chips"></div>
+      <div class="news-list" id="eco-body" style="max-height:420px"><div class="empty">Filled by the Monday crawl…</div></div>
+    </section>
+  </div>
+
+  <!-- Weekly winners / losers -->
+  <section class="card row" id="movers">
+    <div class="card-h"><h2>Winners &amp; losers · last 7 days</h2><span class="src">Prices: CoinGecko L1/L2 categories (top 60 by market cap) · TVL: DefiLlama (top 30 chains)</span></div>
+    <div class="mover-grid">
+      <div><div class="mini-h">L1 / L2 tokens, price 7d</div><div class="mover-grid" id="mv-price"><div class="empty">Loading…</div></div></div>
+      <div><div class="mini-h">Chains, TVL 7d</div><div class="mover-grid" id="mv-tvl"><div class="empty">Loading…</div></div></div>
+    </div>
   </section>
 
   <!-- Launches + News -->
@@ -364,24 +439,24 @@
   }
 
   // ---------- state ----------
-  const S = { btc: null, chains: [], hist: {}, stableChains: {}, hl: null, cgExch: null };
+  const S = { btc: null, chains: [], hist: {}, stableChains: {}, hl: null, cgExch: null, fees: null, dexs: null, sig: {} };
 
   // ---------- BTC ----------
   async function loadBTC() {
-    const [cg, by, kl] = await Promise.all([
-      safe(getJSON('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true')),
+    const [by, kl] = await Promise.all([
       safe(getJSON('https://api.bybit.com/v5/market/tickers?category=spot&symbol=BTCUSDT')),
       safe(getJSON('https://api.bybit.com/v5/market/kline?category=spot&symbol=BTCUSDT&interval=60&limit=168')),
     ]);
     let p = null, ch = null;
     const t = by?.result?.list?.[0];
     if (t) { p = +t.lastPrice; ch = +t.price24hPcnt * 100; }
-    if (cg?.bitcoin) { p = p ?? cg.bitcoin.usd; ch = ch ?? cg.bitcoin.usd_24h_change; }
+    if (p == null) { const cg = await safe(getJSON('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true')); if (cg?.bitcoin) { p = cg.bitcoin.usd; ch = cg.bitcoin.usd_24h_change; } }
+    S.sig.btc = p; S.sig.btc24 = ch;
     S.btc = p;
     $('btc-price').textContent = price(p);
     $('btc-24h').replaceChildren(pctEl(ch, 2), ' 24h');
     const pts = (kl?.result?.list || []).map(r => ({ t: +r[0], v: +r[4] })).reverse();
-    if (pts.length > 1) { const c7 = (pts.at(-1).v / pts[0].v - 1) * 100; $('btc-7d').replaceChildren(pctEl(c7, 1), ' 7d'); }
+    if (pts.length > 1) { const c7 = (pts.at(-1).v / pts[0].v - 1) * 100; S.sig.btc7 = c7; $('btc-7d').replaceChildren(pctEl(c7, 1), ' 7d'); }
     lineChart($('btc-spark'), pts, { fmt: price });
   }
 
@@ -400,7 +475,7 @@
   async function loadFG() {
     const j = await safe(getJSON('https://api.alternative.me/fng/?limit=31'));
     const d = j?.data; if (!d?.length) { $('fg-hist').textContent = 'Unavailable'; return; }
-    const g = $('fg-gauge'); g.replaceChildren(gauge(+d[0].value));
+    const g = $('fg-gauge'); g.replaceChildren(gauge(+d[0].value)); S.sig.fg = +d[0].value; S.sig.fgLabel = d[0].value_classification;
     const label = el('div', { style: 'grid-column:1/-1;color:var(--text-primary);font-weight:600;margin-bottom:2px', text: d[0].value_classification });
     const row = (n, i) => d[i] ? [el('span', { class: 'muted', text: n }), el('span', { text: d[i].value + ' · ' + d[i].value_classification })] : [];
     $('fg-hist').replaceChildren(label, ...row('Yesterday', 1), ...row('Last week', 7), ...row('Last month', 30));
@@ -409,13 +484,12 @@
 
   // ---------- Open interest ----------
   async function loadOI() {
-    const [by, byh, okx, bn, hl, cgx] = await Promise.all([
+    const [by, byh, okx, bn, hl] = await Promise.all([
       safe(getJSON('https://api.bybit.com/v5/market/tickers?category=linear&symbol=BTCUSDT')),
       safe(getJSON('https://api.bybit.com/v5/market/open-interest?category=linear&symbol=BTCUSDT&intervalTime=1h&limit=25')),
       safe(getJSON('https://www.okx.com/api/v5/public/open-interest?instType=SWAP&instId=BTC-USDT-SWAP')),
       safe(getJSON('https://fapi.binance.com/fapi/v1/openInterest?symbol=BTCUSDT')),
       safe(getJSON('https://api.hyperliquid.xyz/info', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'metaAndAssetCtxs' }) })),
-      safe(getJSON('https://api.coingecko.com/api/v3/derivatives/exchanges?per_page=15')),
     ]);
     const bt = by?.result?.list?.[0];
     const px = S.btc || (bt ? +bt.markPrice : null);
@@ -431,7 +505,7 @@
       renderHL();
     } else $('hl-body').replaceChildren(el('tr', {}, el('td', { colspan: 6, class: 'err', text: 'Hyperliquid API unreachable right now.' })));
     const total = parts.reduce((a, b) => a + b[1], 0);
-    $('oi-total').textContent = parts.length ? usd(total) : '—';
+    $('oi-total').textContent = parts.length ? usd(total) : '—'; if (parts.length) S.sig.oi = total; if (bt?.fundingRate) S.sig.funding = +bt.fundingRate * 100;
     const br = parts.map(([n, v]) => el('span', {}, el('span', { class: 'muted', text: n + ' ' }), el('span', { class: 'num', text: usd(v) })));
     if (!bn) br.push(el('span', { class: 'muted', title: 'Binance futures API did not answer from this browser', text: 'Binance n/a' }));
     $('oi-break').replaceChildren(...br);
@@ -441,7 +515,10 @@
     if (bt?.fundingRate) f.push(el('span', {}, el('span', { class: 'muted', text: 'Funding Bybit ' }), el('span', { class: 'num', text: (+bt.fundingRate * 100).toFixed(4) + '%/8h' })));
     if (hlBtc) f.push(el('span', {}, el('span', { class: 'muted', text: 'HL ' }), el('span', { class: 'num', text: (+hlBtc.funding * 100).toFixed(4) + '%/1h' })));
     $('oi-funding').replaceChildren(...f);
-    // exchanges (all coins)
+  }
+  async function loadExchanges() {
+    const cgx = await safe(getJSON('https://api.coingecko.com/api/v3/derivatives/exchanges?per_page=15'));
+    const px = S.btc;
     if (Array.isArray(cgx)) {
       S.cgExch = cgx; const btc = px || S.btc;
       const rows = cgx.filter(x => x.open_interest_btc).sort((a, b) => b.open_interest_btc - a.open_interest_btc).slice(0, 12);
@@ -452,7 +529,7 @@
         el('td', { class: 'r num', text: btc ? usd(x.open_interest_btc * btc) : x.open_interest_btc.toFixed(0) + ' BTC' }),
         el('td', { class: 'r num muted', text: btc ? usd(+x.trade_volume_24h_btc * btc) : '' }),
         el('td', { class: 'bar-cell' }, el('div', { class: 'minibar', style: `width:${(x.open_interest_btc / max * 100).toFixed(1)}%` })))));
-    } else $('exch-body').replaceChildren(el('tr', {}, el('td', { colspan: 5, class: 'err', text: 'CoinGecko unreachable (rate limit?). Try Refresh in a minute.' })));
+    } else if (!S.cgExch) $('exch-body').replaceChildren(el('tr', {}, el('td', { colspan: 5, class: 'err', text: 'CoinGecko is rate-limiting right now; it retries every 10 minutes.' })));
   }
 
   function renderHL() {
@@ -478,7 +555,7 @@
     ]);
     if (chart?.length) {
       const pts = chart.slice(-90).map(x => ({ t: +x.date * 1000, v: x.totalCirculatingUSD?.peggedUSD || 0 }));
-      const last = pts.at(-1).v, at = (n) => pts[pts.length - 1 - n]?.v;
+      const last = pts.at(-1).v, at = (n) => pts[pts.length - 1 - n]?.v; S.sig.stTotal = last; if (at(7)) S.sig.st7 = last - at(7);
       $('st-total').textContent = usd(last);
       const c = (n, lbl) => { const p = at(n); if (!p) return null; const dv = last - p; return el('span', {}, el('span', { class: 'muted', text: lbl + ' ' }), el('span', { class: dv >= 0 ? 'up' : 'down', text: signedUsd(dv) })); };
       $('st-chg').replaceChildren(...[c(1, '1d'), c(7, '7d'), c(30, '30d')].filter(Boolean));
@@ -524,7 +601,7 @@
   const EXCLUDE = new Set(['Bitcoin']);
   async function loadChains() {
     const j = await safe(getJSON('https://api.llama.fi/v2/chains'));
-    if (!Array.isArray(j)) { $('chain-body').replaceChildren(el('tr', {}, el('td', { colspan: 7, class: 'err', text: 'DefiLlama unreachable.' }))); return; }
+    if (!Array.isArray(j)) { $('chain-body').replaceChildren(el('tr', {}, el('td', { colspan: 9, class: 'err', text: 'DefiLlama unreachable.' }))); return; }
     S.chains = j.filter(c => c.tvl > 0 && !EXCLUDE.has(c.name)).sort((a, b) => b.tvl - a.tvl);
     renderChains(); await fillHist();
   }
@@ -557,6 +634,8 @@
         el('td', { class: 'r' }, pctEl(histChange(c.name, 1, c.tvl), 1)),
         el('td', { class: 'r' }, pctEl(histChange(c.name, 7, c.tvl), 1)),
         el('td', { class: 'r' }, pctEl(histChange(c.name, 30, c.tvl), 1)),
+        el('td', { class: 'r num', text: actOf(S.fees, c.name) != null ? usd(actOf(S.fees, c.name)) : '—' }),
+        el('td', { class: 'r num muted', text: actOf(S.dexs, c.name) != null ? usd(actOf(S.dexs, c.name)) : '—' }),
         el('td', { class: 'bar-cell' }, miniSpark(c.name)));
       return tr;
     }));
@@ -750,6 +829,7 @@
     if (!j?.days?.length) { $('etf-btc-stats').replaceChildren(el('span', { class: 'err', text: 'ETF data source unreachable right now.' })); return; }
     const days = j.days.map(d => ({ t: Date.parse(d.date + 'T00:00:00Z'), v: d.netFlowUsd ?? d.vendorNetFlowUsd ?? 0 }));
     etfStats($('etf-btc-stats'), days, { aum: j.days.at(-1).totalNetAssetsUsd });
+    S.sig.etf7 = days.filter(d => d.t > days.at(-1).t - 7 * 864e5).reduce((a, d) => a + d.v, 0); S.sig.etfLast = days.at(-1).v;
     barChart($('etf-btc-bars'), days.slice(-45));
   }
   function renderEtfEth() {
@@ -767,21 +847,167 @@
     if (location.protocol.startsWith('http')) urls.push('intel.json?t=' + Date.now());
     if (REMOTE_INTEL) urls.push(REMOTE_INTEL + '?t=' + Date.now());
     for (const u of urls) { const j = await safe(getJSON(u)); if (j?.updatedAt) { if (!window.INTEL || Date.parse(j.updatedAt) >= Date.parse(window.INTEL.updatedAt || 0)) window.INTEL = j; break; } }
-    renderIntel(); renderEtfEth();
+    renderIntel(); renderEtfEth(); renderMacro(); renderUnlocks(); renderWeekly();
+  }
+
+
+  // ---------- Market structure (CoinGecko global + Bybit ETHBTC) ----------
+  async function loadMarket() {
+    const [gl, eb, ek] = await Promise.all([
+      safe(getJSON('https://api.coingecko.com/api/v3/global')),
+      safe(getJSON('https://api.bybit.com/v5/market/tickers?category=spot&symbol=ETHBTC')),
+      safe(getJSON('https://api.bybit.com/v5/market/kline?category=spot&symbol=ETHBTC&interval=D&limit=31')),
+    ]);
+    const g = gl?.data;
+    if (g) {
+      const mc = g.total_market_cap.usd, dom = g.market_cap_percentage.btc, ch = g.market_cap_change_percentage_24h_usd;
+      S.mkt = { mc, dom, ch };
+      $('m-mcap').textContent = usd(mc); $('m-mcap-s').replaceChildren(pctEl(ch, 1), ' 24h');
+      $('m-dom').textContent = dom.toFixed(1) + '%';
+    }
+    renderMarketDerived();
+    const t = eb?.result?.list?.[0];
+    if (t) { $('m-ethbtc').textContent = (+t.lastPrice).toFixed(5); const k = (ek?.result?.list || []).map(r => +r[4]).reverse();
+      const parts = [pctEl(+t.price24hPcnt * 100, 1), ' 24h']; if (k.length > 7) parts.push('  ', pctEl((k.at(-1) / k.at(-8) - 1) * 100, 1), ' 7d'); $('m-ethbtc-s').replaceChildren(...parts); }
+  }
+  function renderMarketDerived() {
+    const m = S.mkt, st = S.sig.stTotal; if (!m) return;
+    if (st) { const btcMc = m.mc * m.dom / 100; $('m-domx').textContent = (btcMc / (m.mc - st) * 100).toFixed(1) + '%'; $('m-stshare').textContent = (st / m.mc * 100).toFixed(1) + '%'; }
+  }
+
+  // ---------- Activity: fees + DEX volume per chain (DefiLlama) ----------
+  const ACT_KEY = { 'Hyperliquid L1': 'hyperliquid', 'OP Mainnet': 'optimism', 'Avalanche': 'avax', 'Gnosis': 'xdai', 'zkSync Era': 'era', 'ZKsync Era': 'era', 'Robinhood Chain': 'robinhood', 'X Layer': 'xlayer', 'Polygon zkEVM': 'polygon_zkevm', 'Cronos': 'cronos', 'BSC': 'bsc' };
+  const actKey = (name) => ACT_KEY[name] || name.toLowerCase().replace(/\s+/g, '_');
+  const actOf = (map, name) => { if (!map) return null; const k = actKey(name); return map[k] ?? map[k.replace(/_/g, '')] ?? null; };
+  function sumByChain(j) {
+    const agg = {}; for (const p of j?.protocols || []) { if (!p.breakdown24h) continue;
+      for (const [c, o] of Object.entries(p.breakdown24h)) { const v = typeof o === 'object' ? Object.values(o).reduce((a, b) => a + (+b || 0), 0) : +o; agg[c] = (agg[c] || 0) + v; } }
+    return agg;
+  }
+  async function loadActivity() {
+    const [f, d] = await Promise.all([
+      safe(getJSON('https://api.llama.fi/overview/fees?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true')),
+      safe(getJSON('https://api.llama.fi/overview/dexs?excludeTotalDataChart=true&excludeTotalDataChartBreakdown=true')),
+    ]);
+    if (f) S.fees = sumByChain(f); if (d) S.dexs = sumByChain(d);
+    renderChains();
+  }
+
+  // ---------- Winners / losers ----------
+  async function loadMovers() {
+    const [l1, l2] = await Promise.all([
+      safe(getJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=layer-1&order=market_cap_desc&per_page=40&price_change_percentage=7d')),
+      safe(getJSON('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&category=layer-2&order=market_cap_desc&per_page=20&price_change_percentage=7d')),
+    ]);
+    const STABLE = /usd|dai|eur/i;
+    const toks = [...(l1 || []), ...(l2 || [])].filter(c => c.price_change_percentage_7d_in_currency != null && !STABLE.test(c.symbol));
+    const uniq = [...new Map(toks.map(c => [c.id, c])).values()];
+    const col = (title, rows, fmt) => el('div', {}, el('div', { class: 'muted', style: 'font-size:11.5px;margin-bottom:2px', text: title }),
+      ...rows.map(r => el('div', { class: 'mover' }, el('span', {}, r.link ? el('a', { href: r.link, target: '_blank', rel: 'noopener', style: 'text-decoration:none', text: r.name }) : r.name, r.sub ? el('span', { class: 'muted', text: '  ' + r.sub }) : null), pctEl(r.v, 1))));
+    if (uniq.length) {
+      uniq.sort((a, b) => b.price_change_percentage_7d_in_currency - a.price_change_percentage_7d_in_currency);
+      const m = (c) => ({ name: c.symbol.toUpperCase(), sub: usd(c.market_cap), v: c.price_change_percentage_7d_in_currency, link: 'https://www.coingecko.com/en/coins/' + c.id });
+      $('mv-price').replaceChildren(col('Best', uniq.slice(0, 5).map(m)), col('Worst', uniq.slice(-5).reverse().map(m)));
+    } else if (!$('mv-price').querySelector('.mover')) $('mv-price').replaceChildren(el('div', { class: 'err', text: 'CoinGecko is rate-limiting; retrying in 30 min.' }));
+    // TVL movers: top 30 chains
+    const top = S.chains.slice(0, 30); let i = 0; const need = top.filter(c => !S.hist[c.name]);
+    await Promise.all(Array.from({ length: 6 }, async () => { while (i < need.length) { const c = need[i++]; const h = await safe(getJSON('https://api.llama.fi/v2/historicalChainTvl/' + encodeURIComponent(c.name))); if (Array.isArray(h)) S.hist[c.name] = h.slice(-120).map(p => ({ t: p.date * 1000, v: p.tvl })); } }));
+    const tv = top.map(c => ({ name: c.name, sub: usd(c.tvl), v: histChange(c.name, 7, c.tvl) })).filter(x => x.v != null).sort((a, b) => b.v - a.v);
+    if (tv.length) $('mv-tvl').replaceChildren(col('Best', tv.slice(0, 5)), col('Worst', tv.slice(-5).reverse()));
+  }
+
+  // ---------- Verdict ----------
+  function renderVerdict() {
+    const g = S.sig; const parts = []; let score = 0, n = 0;
+    const add = (v, pos, neg, label) => { if (v == null) return; n++; if (v >= pos) { score++; parts.push(label + ' ▲'); } else if (v <= neg) { score--; parts.push(label + ' ▼'); } };
+    add(g.btc7, 5, -5, 'BTC 7d ' + (g.btc7 != null ? (g.btc7 > 0 ? '+' : '') + g.btc7.toFixed(1) + '%' : ''));
+    add(g.etf7 != null ? g.etf7 / 1e6 : null, 500, -500, 'BTC ETFs 7d ' + (g.etf7 != null ? signedUsd(g.etf7) : ''));
+    add(g.st7 != null ? g.st7 / 1e9 : null, 1, -1, 'stablecoins 7d ' + (g.st7 != null ? signedUsd(g.st7) : ''));
+    add(g.funding, 0.01, -0.0001, 'funding ' + (g.funding != null ? g.funding.toFixed(4) + '%' : ''));
+    add(g.fg, 60, 25, 'Fear & Greed ' + (g.fg ?? ''));
+    if (n < 3) return;
+    const lvl = score <= -3 ? ['Risk-off', 'var(--down)'] : score <= -1 ? ['Cautious', '#ec835a'] : score === 0 ? ['Neutral', '#c3c2b7'] : score <= 2 ? ['Constructive', '#7fcf6b'] : ['Risk-on', 'var(--up)'];
+    $('v-badge').textContent = lvl[0]; $('v-badge').style.background = lvl[1];
+    const contra = g.fg != null && g.fg <= 20 ? ' Sentiment is at an extreme: historically, readings this low came near local bottoms more often than tops.' : g.fg >= 80 ? ' Sentiment is euphoric: historically a late-stage signal.' : '';
+    $('v-why').textContent = 'Score ' + (score > 0 ? '+' : '') + score + ' from ' + n + ' signals: ' + parts.join(' · ') + '.' + contra;
+    // since yesterday (per browser)
+    const snap = { t: Date.now(), btc: g.btc, fg: g.fg, oi: g.oi, st: g.stTotal, etfLast: g.etfLast };
+    const hist = store.get('snaps', []); const prev = hist.filter(x => Date.now() - x.t > 18 * 36e5).at(-1);
+    if (!hist.length || Date.now() - hist.at(-1).t > 3 * 36e5) { hist.push(snap); store.set('snaps', hist.slice(-20)); }
+    if (prev) {
+      const d = [];
+      if (prev.btc && g.btc) d.push('BTC ' + pct((g.btc / prev.btc - 1) * 100, 1));
+      if (prev.fg != null && g.fg != null) d.push('F&G ' + prev.fg + ' → ' + g.fg);
+      if (prev.oi && g.oi) d.push('BTC OI ' + pct((g.oi / prev.oi - 1) * 100, 1));
+      if (prev.st && g.stTotal) d.push('stablecoins ' + signedUsd(g.stTotal - prev.st));
+      $('v-delta').textContent = 'Since your last look (' + ago(prev.t) + '): ' + d.join(' · ');
+    } else $('v-delta').textContent = 'From tomorrow this line also shows what changed since your last visit.';
+  }
+
+  // ---------- Macro + unlocks (crawl) ----------
+  function renderMacro() {
+    const M = window.INTEL?.macro; if (!M?.events?.length) return;
+    const now = Date.now(); const ev = M.events.filter(e => Date.parse(e.time) > now - 6 * 36e5).sort((a, b) => Date.parse(a.time) - Date.parse(b.time));
+    const fmt = (t) => new Date(t).toLocaleString('en-GB', { weekday: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    const isToday = (t) => new Date(t).toDateString() === new Date().toDateString();
+    $('macro-body').className = '';
+    $('macro-body').replaceChildren(...(ev.length ? ev.map(e => el('div', { class: 'cal-item' },
+      el('div', { class: 'when' + (isToday(e.time) ? ' today' : ''), text: e.allDay ? new Date(e.time).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric' }) : fmt(e.time) }),
+      el('div', { class: 'what' }, e.event, e.note ? el('small', { text: e.note }) : null),
+      el('span', { class: 'imp ' + (e.impact === 'high' ? 'high' : ''), text: e.region ? e.region + (e.impact === 'high' ? ' · high' : '') : (e.impact || '') }))) : [el('div', { class: 'empty', text: 'Nothing scheduled in the stored window.' })]));
+    $('macro-src').textContent = M.source || '';
+  }
+  function renderUnlocks() {
+    const U = window.INTEL?.unlocks; if (!U?.items?.length) return;
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const it = U.items.filter(x => Date.parse(x.date) >= today - 864e5).sort((a, b) => Date.parse(a.date) - Date.parse(b.date) || (b.valueUsd || 0) - (a.valueUsd || 0));
+    $('unl-body').replaceChildren(...(it.length ? it.map(x => el('tr', {},
+      el('td', { class: 'muted' + (new Date(x.date).toDateString() === new Date().toDateString() ? ' today' : ''), text: new Date(x.date + 'T00:00:00').toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }) }),
+      el('td', {}, x.url ? el('a', { href: x.url, target: '_blank', rel: 'noopener', style: 'text-decoration:none;font-weight:600', text: x.token }) : el('b', { text: x.token }), x.name ? el('span', { class: 'muted', text: ' ' + x.name }) : null),
+      el('td', { class: 'r num', text: x.valueUsd != null ? usd(x.valueUsd) : '—' }),
+      el('td', { class: 'r num ' + ((x.pctCirc || 0) >= 3 ? 'down' : 'muted'), text: x.pctCirc != null ? x.pctCirc.toFixed(2) + '%' : '—' }),
+      el('td', { class: 'muted', style: 'white-space:normal;min-width:120px', text: x.recipients || '' }))) : [el('tr', {}, el('td', { colspan: 5, class: 'empty', text: 'No unlocks stored for the coming days.' }))]));
+    $('unl-src').textContent = U.source || '';
+  }
+
+  // ---------- Weekly: hiring + ecosystem ----------
+  let ecoFilter = 'All';
+  function renderWeekly() {
+    const W = window.INTEL?.weekly; if (!W) return;
+    if (W.hiring?.length) {
+      $('hire-body').className = ''; $('hire-sub').textContent = W.label || '';
+      $('hire-body').replaceChildren(...W.hiring.map(h => el('div', { class: 'eco-item' },
+        el('div', { class: 'nh' }, el('span', { class: 'chip', text: h.raise || '' }), h.what ? el('span', { text: h.what }) : null),
+        el('div', {}, h.url ? el('a', { class: 'title', href: h.url, target: '_blank', rel: 'noopener', text: h.company }) : el('b', { text: h.company })),
+        h.roles?.length ? el('div', { style: 'margin-top:3px' }, ...h.roles.map(r => el('div', {}, '→ ', r.url ? el('a', { href: r.url, target: '_blank', rel: 'noopener', style: 'color:var(--series-1);text-decoration:none', text: r.title }) : r.title, r.location ? el('span', { class: 'muted', text: ' · ' + r.location }) : null)))
+          : el('div', { class: 'muted', style: 'margin-top:3px', text: h.note || 'No BD / partnerships roles listed: speculative approach.' }))));
+    }
+    if (W.ecosystem?.length) {
+      $('eco-sub').textContent = W.ecoLabel || '';
+      const types = ['All', ...new Set(W.ecosystem.map(e => e.type))];
+      $('eco-chips').replaceChildren(...types.map(t => el('button', { class: t === ecoFilter ? 'on' : '', text: t, onclick: () => { ecoFilter = t; renderWeekly(); } })));
+      const items = W.ecosystem.filter(e => ecoFilter === 'All' || e.type === ecoFilter);
+      $('eco-body').replaceChildren(...items.map(e => el('div', { class: 'eco-item' },
+        el('div', { class: 'nh' }, el('span', { class: 'chip', text: e.type }), e.chain ? el('span', { text: e.chain }) : null, e.date ? el('span', { text: e.date }) : null),
+        e.url ? el('a', { class: 'title', href: e.url, target: '_blank', rel: 'noopener', text: e.title }) : el('span', { class: 'title', text: e.title }),
+        e.summary ? el('p', { style: 'margin:3px 0 0;color:var(--text-secondary)', text: e.summary }) : null)));
+    }
   }
 
   // ---------- refresh loop ----------
   let lastLive = 0;
-  async function refreshFast() { await loadBTC(); await loadOI(); lastLive = Date.now(); tickMeta(); }
-  async function refreshSlow() { await Promise.all([loadFG(), loadStables(), loadChains(), loadBTC130(), loadEtfBtc(), loadIntel()]); }
+  async function refreshFast() { await loadBTC(); await loadOI(); lastLive = Date.now(); tickMeta(); renderVerdict(); }
+  async function refreshSlow() { await Promise.all([loadFG(), loadStables(), loadChains(), loadBTC130(), loadEtfBtc(), loadIntel(), loadMarket(), loadExchanges()]); renderMarketDerived(); renderVerdict(); }
+  async function refreshHeavy() { await loadActivity(); await loadMovers(); }
   function tickMeta() {
     $('clock').textContent = new Date().toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
     $('live-at').textContent = lastLive ? ago(lastLive) : 'loading…';
   }
   $('refresh').addEventListener('click', () => { S.hist = {}; refreshFast(); refreshSlow(); });
   tickMeta(); setInterval(tickMeta, 30000);
-  renderIntel(); renderEtfEth();
-  refreshFast(); refreshSlow();
+  renderIntel(); renderEtfEth(); renderMacro(); renderUnlocks(); renderWeekly();
+  refreshFast(); refreshSlow().then(refreshHeavy);
+  setInterval(refreshHeavy, 30 * 60 * 1000);
   setInterval(refreshFast, 60 * 1000);
   setInterval(refreshSlow, 10 * 60 * 1000);
   let rT; addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(() => { loadBTC(); loadFG(); loadStables(); renderChains(); loadBTC130(); loadEtfBtc(); renderEtfEth(); }, 300); });
