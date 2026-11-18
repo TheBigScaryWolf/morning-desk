@@ -727,14 +727,36 @@
       n.url ? el('a', { class: 'title', href: n.url, target: '_blank', rel: 'noopener', text: n.title }) : el('span', { class: 'title', text: n.title }),
       n.summary ? el('p', { text: n.summary }) : null);
   }
-  let fundWeek = 0;
+  let fundWeek = -1, FH = null, fhLoading = false;
+  const FH_DIL = { 'Pre-Seed': .10, 'Pre-seed': .10, 'Seed': .12, 'Series A': .18, 'Series B': .15, 'Series C': .12 };
+  async function loadFundHist() {
+    if (FH || fhLoading) return; fhLoading = true;
+    try { const j = await getJSON('funding-history.json?t=' + Math.floor(Date.now() / 36e5)); FH = j.rows || []; } catch (e) { FH = []; }
+    fhLoading = false; renderFunding();
+  }
+  function last7() {
+    const now = Date.now(), t = (d) => Date.parse(d + 'T00:00:00Z');
+    const cur = FH.filter(x => now - t(x.d) <= 7 * 864e5), prev = FH.filter(x => now - t(x.d) > 7 * 864e5 && now - t(x.d) <= 14 * 864e5);
+    const map = (x) => { const d = FH_DIL[x.r]; const est = !x.v && d && x.a ? Math.round(x.a / d / 1e5) * 1e5 : null;
+      return { project: x.n, what: x.s, round: x.r, date: new Date(t(x.d)).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', timeZone: 'UTC' }), amount: x.a, valuation: x.v || est, valuationEst: !x.v && !!est, valuationNote: est ? `Estimate: assumes ~${Math.round(d * 100)}% sold in a ${x.r}` : '', lead: x.l, others: x.o, url: 'https://www.google.com/search?q=' + encodeURIComponent(`${x.n} ${x.r || ''} raise`) }; };
+    return { rows: cur.map(map), prevN: prev.length, prevSum: prev.reduce((a, x) => a + (x.a || 0), 0) };
+  }
   function renderFunding() {
-    const F = window.INTEL?.funding; if (!F?.weeks?.length) return;
-    const weeks = F.weeks; if (fundWeek >= weeks.length) fundWeek = 0;
-    $('fund-weeks').replaceChildren(...weeks.map((w, i) => el('button', { class: i === fundWeek ? 'on' : '', text: w.label, onclick: () => { fundWeek = i; renderFunding(); } })));
-    const w = weeks[fundWeek]; const rows = [...(w.rounds || [])].sort((a, b) => (b.amount || 0) - (a.amount || 0));
+    const F = window.INTEL?.funding; const weeks = F?.weeks || [];
+    if (!FH) loadFundHist();
+    if (fundWeek >= weeks.length) fundWeek = -1;
+    $('fund-weeks').replaceChildren(el('button', { class: fundWeek === -1 ? 'on' : '', text: 'Last 7 days', onclick: () => { fundWeek = -1; renderFunding(); } }),
+      ...weeks.map((w, i) => el('button', { class: i === fundWeek ? 'on' : '', text: w.label, onclick: () => { fundWeek = i; renderFunding(); } })));
+    let rows, cmp = '';
+    if (fundWeek === -1) {
+      if (!FH) { $('fund-body').replaceChildren(el('tr', {}, el('td', { colspan: 7, class: 'empty', text: 'Loading the last 7 days…' }))); return; }
+      const L = last7(); rows = L.rows.sort((a, b) => (b.amount || 0) - (a.amount || 0));
+      const sum = rows.reduce((a, r) => a + (r.amount || 0), 0);
+      if (L.prevSum) { const ch = (sum / L.prevSum - 1) * 100; cmp = ` · ${ch >= 0 ? '+' : ''}${ch.toFixed(0)}% vs prior 7 days (${L.prevN} deals, ${usd(L.prevSum)})`; }
+    } else { const w = weeks[fundWeek]; rows = [...(w.rounds || [])].sort((a, b) => (b.amount || 0) - (a.amount || 0)); }
     const total = rows.reduce((a, r) => a + (r.amount || 0), 0);
-    $('fund-sum').textContent = `· ${rows.length} deals · ${usd(total)} disclosed`;
+    $('fund-sum').textContent = `· ${rows.length} deals · ${usd(total)} disclosed${cmp}`;
+    if (!rows.length) { $('fund-body').replaceChildren(el('tr', {}, el('td', { colspan: 7, class: 'empty', text: 'No rounds recorded in this window yet.' }))); return; }
     $('fund-body').replaceChildren(...rows.map(r => el('tr', {},
       el('td', { style: 'white-space:normal;min-width:200px' }, r.url ? el('a', { href: r.url, target: '_blank', rel: 'noopener', style: 'font-weight:600;text-decoration:none', text: r.project }) : el('b', { text: r.project }),
         r.what ? el('div', { class: 'muted', style: 'font-size:12px', text: r.what }) : null),
@@ -744,7 +766,7 @@
       el('td', { class: 'r num' + (r.valuationEst ? ' muted' : ''), title: r.valuationNote || '', text: r.valuation ? (r.valuationEst ? '~' + usd(r.valuation) + ' est.' : (r.valuationPrefix || '') + usd(r.valuation)) : '—' }),
       el('td', { style: 'white-space:normal;min-width:140px', text: (r.lead || []).join(', ') || '—' }),
       el('td', { class: 'muted', style: 'white-space:normal;min-width:180px', text: (r.others || []).join(', ') || '—' }))));
-    $('fund-src').textContent = (F.note || '') + (F.updatedAt ? ' Updated ' + dateStr(Date.parse(F.updatedAt)) + '.' : '');
+    $('fund-src').textContent = fundWeek === -1 ? 'Rolling last 7 days from the fundraising history (DefiLlama data plus the Monday crawl). Recent deals can take a few days to be reported. Valuations marked est. are rough estimates.' : (F?.note || '') + (F?.updatedAt ? ' Updated ' + dateStr(Date.parse(F.updatedAt)) + '.' : '');
   }
   let newsFilter = 'All', launchTab = 'recent';
   function renderIntel() {

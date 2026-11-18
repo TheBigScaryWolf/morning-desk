@@ -52,7 +52,7 @@
   <section class="card">
     <div class="filters">
       <input type="search" id="q" placeholder="Search project, investor, category or description…">
-      <div class="tabs" id="win"><button data-k="30">30d</button><button data-k="90">90d</button><button data-k="365" class="on">1y</button><button data-k="730">2y</button><button data-k="1825">5y</button><button data-k="0">All</button></div>
+      <div class="tabs" id="win"><button data-k="7">7d</button><button data-k="30">30d</button><button data-k="90">90d</button><button data-k="365" class="on">1y</button><button data-k="730">2y</button><button data-k="1825">5y</button><button data-k="0">All</button></div>
       <select id="round"><option value="">All rounds</option></select>
       <select id="cat"><option value="">All categories</option></select>
       <select id="min"><option value="0">Any size</option><option value="1e6">≥ $1M</option><option value="5e6">≥ $5M</option><option value="1e7">≥ $10M</option><option value="5e7">≥ $50M</option><option value="1e8">≥ $100M</option></select>
@@ -70,7 +70,7 @@
   </div>
 
   <div class="grid two row">
-    <section class="card"><h2>Capital raised per month <span class="sub" id="ch-sub"></span></h2><div id="chart" style="height:220px"></div></section>
+    <section class="card"><h2>Capital raised <span class="sub" id="ch-sub"></span></h2><div id="chart" style="height:220px"></div></section>
     <section class="card"><h2>Most active lead investors <span class="sub">· in this selection, click to filter</span></h2><div id="leads" style="max-height:220px;overflow:auto"></div></section>
   </div>
   <div class="grid two row">
@@ -161,8 +161,8 @@
   }
   function renderChart() {
     const host = $('chart'); host.replaceChildren(); if (!view.length) return;
-    const span = win || 9999; const byMonth = span > 120; const key = (t) => { const d = new Date(t); return byMonth ? `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}` : new Date(t - ((d.getUTCDay() + 6) % 7) * 864e5).toISOString().slice(0, 10); };
-    $('ch-sub').textContent = byMonth ? '· per month (hover for deal count)' : '· per week (hover for deal count)';
+    const span = win || 9999; const byMonth = span > 120; const byDay = span <= 14; const key = (t) => { const d = new Date(t); if (byDay) return d.toISOString().slice(0, 10); return byMonth ? `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}` : new Date(t - ((d.getUTCDay() + 6) % 7) * 864e5).toISOString().slice(0, 10); };
+    $('ch-sub').textContent = byDay ? '· per day (hover for deal count)' : byMonth ? '· per month (hover for deal count)' : '· per week (hover for deal count)';
     const agg = {}; for (const x of view) { const k = key(x.t); (agg[k] ||= { s: 0, n: 0 }); agg[k].s += x.a || 0; agg[k].n++; }
     const pts = Object.entries(agg).sort((a, b) => a[0] < b[0] ? -1 : 1);
     const W = host.clientWidth || 600, H = 220, pl = 4, pr = 54, pt = 8, pb = 18, ns = 'http://www.w3.org/2000/svg';
