@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fundraising history · Morning Desk</title>
+<style>
+  :root { color-scheme: dark; --bg:#111110; --surface-1:#1a1a19; --surface-2:#222220; --line:#2e2e2b; --text-primary:#f0efec; --text-secondary:#c3c2b7; --text-muted:#8d8c84; --series-1:#3987e5; --series-2:#d95926; --up:#2fbf55; --down:#e66767;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, system-ui, sans-serif; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text-primary); font-size: 13px; line-height: 1.4; }
+  a { color: inherit; }
+  .num { font-variant-numeric: tabular-nums; }
+  .wrap { max-width: 1480px; margin: 0 auto; padding: 16px 20px 40px; }
+  header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+  header h1 { font-size: 17px; margin: 0; }
+  header a.back { color: var(--series-1); text-decoration: none; font-size: 13px; }
+  .card { background: var(--surface-1); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+  .row { margin-top: 12px; }
+  .grid { display: grid; gap: 12px; }
+  .stats { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .two { grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); }
+  @media (max-width: 1000px) { .stats { grid-template-columns: repeat(2,minmax(0,1fr)); } .two { grid-template-columns: minmax(0,1fr); } }
+  .stat .l { color: var(--text-secondary); font-size: 12px; } .stat .v { font-size: 22px; font-weight: 650; margin-top: 2px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  input, select, button { font: inherit; color: var(--text-primary); background: var(--surface-2); border: 1px solid var(--line); border-radius: 7px; padding: 5px 9px; }
+  input[type=search] { min-width: 260px; }
+  button { cursor: pointer; color: var(--text-secondary); } button.on { color: var(--text-primary); background: #2d2d2a; border-color: #55554e; }
+  .tabs { display: flex; gap: 4px; flex-wrap: wrap; } .tabs button { padding: 3px 9px; font-size: 12px; }
+  h2 { font-size: 13px; margin: 0 0 10px; font-weight: 600; } .sub { color: var(--text-muted); font-size: 11.5px; font-weight: 400; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-weight: 500; color: var(--text-muted); font-size: 11.5px; padding: 6px 8px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--surface-1); cursor: pointer; white-space: nowrap; z-index: 1; }
+  td { padding: 7px 8px; border-bottom: 1px solid #262624; vertical-align: top; }
+  .r { text-align: right; } .muted { color: var(--text-muted); }
+  .inv { color: var(--series-1); cursor: pointer; } .inv:hover { text-decoration: underline; }
+  .tag { display: inline-block; font-size: 10.5px; padding: 1px 6px; border-radius: 4px; background: #2b2b28; color: var(--text-secondary); margin: 1px 4px 1px 0; }
+  .list-row { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; padding: 4px 0; border-bottom: 1px solid #262624; cursor: pointer; }
+  .list-row:hover { background: #24241f; }
+  #tip { position: fixed; pointer-events: none; background: #2a2a27; border: 1px solid #45453f; border-radius: 6px; padding: 5px 8px; font-size: 12px; z-index: 50; display: none; white-space: nowrap; }
+  svg text { fill: var(--text-muted); font-size: 10.5px; }
+  .src { color: var(--text-muted); font-size: 11px; }
+  .more { margin-top: 10px; text-align: center; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Fundraising history</h1>
+    <div><span class="src" id="meta"></span> &nbsp; <a class="back" href="./">← Back to Morning Desk</a></div>
+  </header>
+
+  <section class="card">
+    <div class="filters">
+      <input type="search" id="q" placeholder="Search project, investor, category or description…">
+      <div class="tabs" id="win"><button data-k="30">30d</button><button data-k="90">90d</button><button data-k="365" class="on">1y</button><button data-k="730">2y</button><button data-k="1825">5y</button><button data-k="0">All</button></div>
+      <select id="round"><option value="">All rounds</option></select>
+      <select id="cat"><option value="">All categories</option></select>
+      <select id="min"><option value="0">Any size</option><option value="1e6">≥ $1M</option><option value="5e6">≥ $5M</option><option value="1e7">≥ $10M</option><option value="5e7">≥ $50M</option><option value="1e8">≥ $100M</option></select>
+      <label class="muted"><input type="checkbox" id="leadOnly"> investor must be lead</label>
+      <button id="reset">Reset</button>
+    </div>
+    <div class="src" style="margin-top:8px" id="active"></div>
+  </section>
+
+  <div class="grid stats row">
+    <section class="card stat"><div class="l">Deals</div><div class="v num" id="s-n">—</div></section>
+    <section class="card stat"><div class="l">Total disclosed</div><div class="v num" id="s-sum">—</div></section>
+    <section class="card stat"><div class="l">Median round</div><div class="v num" id="s-med">—</div></section>
+    <section class="card stat"><div class="l">Deals with a lead investor</div><div class="v num" id="s-lead">—</div></section>
+  </div>
+
+  <div class="grid two row">
+    <section class="card"><h2>Capital raised per month <span class="sub" id="ch-sub"></span></h2><div id="chart" style="height:220px"></div></section>
+    <section class="card"><h2>Most active lead investors <span class="sub">· in this selection, click to filter</span></h2><div id="leads" style="max-height:220px;overflow:auto"></div></section>
+  </div>
+  <div class="grid two row">
+    <section class="card"><h2>Top categories <span class="sub">· by $ raised</span></h2><div id="cats" style="max-height:200px;overflow:auto"></div></section>
+    <section class="card"><h2>Biggest rounds <span class="sub">· in this selection</span></h2><div id="big" style="max-height:200px;overflow:auto"></div></section>
+  </div>
+
+  <section class="card row">
+    <h2>Rounds <span class="sub" id="t-sub"></span></h2>
+    <div style="overflow:auto"><table>
+      <thead><tr><th data-s="d">Date ▾</th><th data-s="n">Project</th><th data-s="r">Round</th><th class="r" data-s="a">Raised</th><th class="r" data-s="v" title="Reported post-money valuation; 'est.' = estimate from typical dilution for the round type">Valuation</th><th>Lead</th><th>Other investors</th><th data-s="c">Category</th></tr></thead>
+      <tbody id="body"></tbody>
+    </table></div>
+    <div class="more"><button id="moreBtn">Show 200 more</button></div>
+    <div class="src" style="margin-top:8px">Data: DefiLlama raises database (public). New weekly rounds are added by the Monday crawl. Click a project to search for its announcement, or an investor to filter by them. Valuation estimates assume ~10% sold at pre-seed, 12% at seed, 18% at Series A, 15% at B and 12% at C. They are rough guides, not reported figures.</div>
+  </section>
+</div>
+<div id="tip"></div>
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const el = (tag, attrs = {}, ...kids) => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'class') n.className = v; else if (k === 'text') n.textContent = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v); } for (const k of kids) if (k != null) n.append(k.nodeType ? k : document.createTextNode(k)); return n; };
+  const usd = (v) => { if (v == null || !isFinite(v)) return '—'; const a = Math.abs(v); if (a >= 1e9) return '$' + (a / 1e9).toFixed(a >= 1e10 ? 1 : 2) + 'B'; if (a >= 1e6) return '$' + (a / 1e6).toFixed(a >= 1e8 ? 0 : 1) + 'M'; if (a >= 1e3) return '$' + (a / 1e3).toFixed(0) + 'K'; return '$' + a.toFixed(0); };
+  const DIL = { 'Pre-Seed': .10, 'Pre-seed': .10, 'Seed': .12, 'Series A': .18, 'Series B': .15, 'Series C': .12 };
+  const tip = $('tip');
+  const showTip = (x, y, lines) => { tip.replaceChildren(...lines.map(l => el('div', { text: l }))); tip.style.display = 'block'; const r = tip.getBoundingClientRect(); let L = x + 14, T = y - r.height - 10; if (L + r.width > innerWidth - 6) L = x - r.width - 14; if (T < 6) T = y + 16; tip.style.left = L + 'px'; tip.style.top = T + 'px'; };
+  const hideTip = () => tip.style.display = 'none';
+
+  let ROWS = [], view = [], shown = 200, sortK = 'd', sortDir = -1, win = 365, invFilter = '';
+  const st = { q: '', round: '', cat: '', min: 0, leadOnly: false };
+
+  function valOf(x) { if (x.v) return { v: x.v, est: false }; const d = DIL[x.r]; return d && x.a ? { v: Math.round(x.a / d / 1e5) * 1e5, est: true } : null; }
+
+  async function init() {
+    let j = null; try { j = await (await fetch('funding-history.json?t=' + Date.now())).json(); } catch (e) {}
+    if (!j) { $('body').replaceChildren(el('tr', {}, el('td', { colspan: 8, class: 'muted', text: 'Could not load funding-history.json.' }))); return; }
+    ROWS = j.rows.map(x => ({ ...x, t: Date.parse(x.d + 'T00:00:00Z'), hay: (x.n + ' ' + x.l.join(' ') + ' ' + x.o.join(' ') + ' ' + x.c + ' ' + x.s).toLowerCase() }));
+    $('meta').textContent = `${ROWS.length.toLocaleString()} rounds · ${ROWS.at(-1)?.d?.slice(0, 4) || ''}–${ROWS[0]?.d || ''} · ${j.meta?.source || ''}`;
+    const rounds = {}, cats = {}; for (const x of ROWS) { if (x.r) rounds[x.r] = (rounds[x.r] || 0) + 1; if (x.c) cats[x.c] = (cats[x.c] || 0) + 1; }
+    for (const [k] of Object.entries(rounds).sort((a, b) => b[1] - a[1])) $('round').append(el('option', { value: k, text: k }));
+    for (const [k] of Object.entries(cats).sort((a, b) => b[1] - a[1])) $('cat').append(el('option', { value: k, text: k }));
+    const h = new URLSearchParams(location.hash.slice(1)); // e.g. #investor=Paradigm
+    if (h.get('investor')) invFilter = h.get('investor');
+    apply();
+  }
+
+  function apply() {
+    const now = Date.now(), from = win ? now - win * 864e5 : 0, q = st.q.toLowerCase();
+    view = ROWS.filter(x => x.t >= from && (!st.round || x.r === st.round) && (!st.cat || x.c === st.cat) && (!st.min || (x.a || 0) >= st.min) && (!q || x.hay.includes(q))
+      && (!invFilter || (st.leadOnly ? x.l.includes(invFilter) : (x.l.includes(invFilter) || x.o.includes(invFilter)))));
+    sortView(); shown = 200; render();
+    $('active').textContent = invFilter ? `Filtered to investor: ${invFilter}${st.leadOnly ? ' (as lead)' : ''}. Click Reset to clear.` : '';
+  }
+  function sortView() {
+    const k = sortK; view.sort((a, b) => { const va = k === 'v' ? (valOf(a)?.v ?? -1) : (a[k] ?? -1), vb = k === 'v' ? (valOf(b)?.v ?? -1) : (b[k] ?? -1); return (va > vb ? 1 : va < vb ? -1 : 0) * sortDir; });
+  }
+  function render() {
+    const amts = view.map(x => x.a).filter(Boolean).sort((a, b) => a - b);
+    $('s-n').textContent = view.length.toLocaleString(); $('s-sum').textContent = usd(amts.reduce((a, b) => a + b, 0));
+    $('s-med').textContent = amts.length ? usd(amts[Math.floor(amts.length / 2)]) : '—';
+    $('s-lead').textContent = view.length ? Math.round(view.filter(x => x.l.length).length / view.length * 100) + '%' : '—';
+    renderChart(); renderSide(); renderTable();
+  }
+  function renderTable() {
+    const inv = (name) => el('span', { class: 'inv', text: name, onclick: () => { invFilter = name; apply(); scrollTo({ top: 0, behavior: 'smooth' }); } });
+    const join = (arr) => { const f = document.createDocumentFragment(); arr.forEach((n, i) => { if (i) f.append(', '); f.append(inv(n)); }); return f; };
+    $('t-sub').textContent = `· showing ${Math.min(shown, view.length).toLocaleString()} of ${view.length.toLocaleString()}`;
+    $('body').replaceChildren(...view.slice(0, shown).map(x => { const val = valOf(x);
+      return el('tr', {},
+        el('td', { class: 'muted num', style: 'white-space:nowrap', text: x.d }),
+        el('td', { style: 'min-width:200px' }, el('a', { href: 'https://www.google.com/search?q=' + encodeURIComponent(`${x.n} ${x.r || ''} raise ${x.d.slice(0, 4)}`), target: '_blank', rel: 'noopener', style: 'font-weight:600;text-decoration:none', text: x.n }),
+          x.s ? el('div', { class: 'muted', style: 'font-size:12px;max-width:380px', text: x.s.length > 140 ? x.s.slice(0, 137) + '…' : x.s }) : null,
+          x.ch?.length ? el('div', {}, ...x.ch.slice(0, 4).map(c => el('span', { class: 'tag', text: c }))) : null),
+        el('td', { class: 'muted', style: 'white-space:nowrap', text: x.r || '—' }),
+        el('td', { class: 'r num', text: x.a ? usd(x.a) : 'undisclosed' }),
+        el('td', { class: 'r num' + (val?.est ? ' muted' : ''), text: val ? (val.est ? '~' + usd(val.v) + ' est.' : usd(val.v)) : '—' }),
+        el('td', { style: 'min-width:130px' }, x.l.length ? join(x.l) : '—'),
+        el('td', { class: 'muted', style: 'min-width:200px;max-width:380px' }, x.o.length ? join(x.o.slice(0, 12)) : '—', x.o.length > 12 ? ` +${x.o.length - 12}` : null),
+        el('td', { class: 'muted', text: x.c || '—' })); }));
+    $('moreBtn').style.display = shown < view.length ? '' : 'none';
+  }
+  function renderSide() {
+    const L = {}, C = {}; for (const x of view) { for (const l of x.l) { (L[l] ||= { n: 0, s: 0 }); L[l].n++; L[l].s += x.a || 0; } if (x.c) { (C[x.c] ||= { n: 0, s: 0 }); C[x.c].n++; C[x.c].s += x.a || 0; } }
+    const row = (name, a, b, on) => el('div', { class: 'list-row', onclick: on }, el('span', { text: name }), el('span', { class: 'muted num', text: a }), el('span', { class: 'num', text: b }));
+    $('leads').replaceChildren(...Object.entries(L).sort((a, b) => b[1].n - a[1].n).slice(0, 30).map(([k, v]) => row(k, v.n + ' deals', usd(v.s), () => { invFilter = k; st.leadOnly = true; $('leadOnly').checked = true; apply(); })));
+    $('cats').replaceChildren(...Object.entries(C).sort((a, b) => b[1].s - a[1].s).slice(0, 20).map(([k, v]) => row(k, v.n + ' deals', usd(v.s), () => { st.cat = k; $('cat').value = k; apply(); })));
+    $('big').replaceChildren(...[...view].filter(x => x.a).sort((a, b) => b.a - a.a).slice(0, 15).map(x => row(`${x.n} · ${x.r || ''}`, x.d, usd(x.a), () => { $('q').value = x.n; st.q = x.n; apply(); })));
+  }
+  function renderChart() {
+    const host = $('chart'); host.replaceChildren(); if (!view.length) return;
+    const span = win || 9999; const byMonth = span > 120; const key = (t) => { const d = new Date(t); return byMonth ? `${d.getUTCFullYear()}-${String(d.getUTCMonth() + 1).padStart(2, '0')}` : new Date(t - ((d.getUTCDay() + 6) % 7) * 864e5).toISOString().slice(0, 10); };
+    $('ch-sub').textContent = byMonth ? '· per month (hover for deal count)' : '· per week (hover for deal count)';
+    const agg = {}; for (const x of view) { const k = key(x.t); (agg[k] ||= { s: 0, n: 0 }); agg[k].s += x.a || 0; agg[k].n++; }
+    const pts = Object.entries(agg).sort((a, b) => a[0] < b[0] ? -1 : 1);
+    const W = host.clientWidth || 600, H = 220, pl = 4, pr = 54, pt = 8, pb = 18, ns = 'http://www.w3.org/2000/svg';
+    const maxS = Math.max(...pts.map(p => p[1].s), 1), maxN = Math.max(...pts.map(p => p[1].n), 1);
+    const bw = (W - pl - pr) / pts.length; const Y = (v) => pt + (1 - v / maxS) * (H - pt - pb), YN = (v) => pt + (1 - v / maxN) * (H - pt - pb);
+    const svg = document.createElementNS(ns, 'svg'); svg.setAttribute('width', W); svg.setAttribute('height', H);
+    for (const v of [maxS, maxS / 2]) { const g = document.createElementNS(ns, 'line'); g.setAttribute('x1', pl); g.setAttribute('x2', W - pr); g.setAttribute('y1', Y(v)); g.setAttribute('y2', Y(v)); g.setAttribute('stroke', '#2e2e2b'); svg.append(g); const t = document.createElementNS(ns, 'text'); t.setAttribute('x', W - pr + 6); t.setAttribute('y', Y(v) + 4); t.textContent = usd(v); svg.append(t); }
+    let d = '';
+    pts.forEach(([k, v], i) => { const x = pl + i * bw; const r = document.createElementNS(ns, 'rect'); r.setAttribute('x', x + Math.min(1, bw * .15)); r.setAttribute('width', Math.max(1, bw - Math.min(2, bw * .3))); r.setAttribute('y', Y(v.s)); r.setAttribute('height', Math.max(0, H - pb - Y(v.s))); r.setAttribute('rx', Math.min(2, bw / 4)); r.setAttribute('fill', 'var(--series-1)'); r.setAttribute('opacity', '.85');
+      const hit = document.createElementNS(ns, 'rect'); hit.setAttribute('x', x); hit.setAttribute('width', bw); hit.setAttribute('y', 0); hit.setAttribute('height', H); hit.setAttribute('fill', 'transparent');
+      hit.addEventListener('mousemove', (e) => showTip(e.clientX, e.clientY, [k, usd(v.s) + ' raised', v.n + ' deals'])); hit.addEventListener('mouseleave', hideTip);
+      svg.append(r, hit); d += (i ? 'L' : 'M') + (x + bw / 2).toFixed(1) + ' ' + YN(v.n).toFixed(1); });
+    const lab = (i) => { const t = document.createElementNS(ns, 'text'); t.setAttribute('x', Math.min(pl + i * bw, W - pr - 50)); t.setAttribute('y', H - 4); t.textContent = pts[i][0]; svg.append(t); };
+    lab(0); if (pts.length > 2) lab(Math.floor(pts.length / 2)); lab(pts.length - 1);
+    host.append(svg);
+  }
+
+  // controls
+  let qT; $('q').addEventListener('input', () => { clearTimeout(qT); qT = setTimeout(() => { st.q = $('q').value.trim(); apply(); }, 200); });
+  $('win').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; win = +b.dataset.k; for (const x of $('win').children) x.classList.toggle('on', x === b); apply(); });
+  $('round').addEventListener('change', () => { st.round = $('round').value; apply(); });
+  $('cat').addEventListener('change', () => { st.cat = $('cat').value; apply(); });
+  $('min').addEventListener('change', () => { st.min = +$('min').value; apply(); });
+  $('leadOnly').addEventListener('change', () => { st.leadOnly = $('leadOnly').checked; apply(); });
+  $('reset').addEventListener('click', () => { Object.assign(st, { q: '', round: '', cat: '', min: 0, leadOnly: false }); invFilter = ''; $('q').value = ''; $('round').value = ''; $('cat').value = ''; $('min').value = '0'; $('leadOnly').checked = false; history.replaceState(null, '', location.pathname); apply(); });
+  $('moreBtn').addEventListener('click', () => { shown += 200; renderTable(); });
+  document.querySelector('thead').addEventListener('click', (e) => { const th = e.target.closest('th[data-s]'); if (!th) return; const k = th.dataset.s; if (sortK === k) sortDir = -sortDir; else { sortK = k; sortDir = k === 'n' || k === 'r' || k === 'c' ? 1 : -1; }
+    for (const t of document.querySelectorAll('th[data-s]')) t.textContent = t.textContent.replace(/ [▾▴]$/, ''); th.textContent += sortDir < 0 ? ' ▾' : ' ▴'; sortView(); renderTable(); });
+  let rT; addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(renderChart, 200); });
+  init();
+})();
+</script>
+</body>
+</html>
