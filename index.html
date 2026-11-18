@@ -65,6 +65,12 @@
   .mover { display: grid; grid-template-columns: 1fr auto; padding: 4px 0; border-bottom: 1px solid #262624; }
   .eco-item { padding: 8px 0; border-bottom: 1px solid #262624; }
   .eco-item .nh { font-size: 11.5px; color: var(--text-muted); display: flex; gap: 8px; flex-wrap: wrap; }
+  .idx { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .idx .big { font-size: 30px; font-weight: 700; letter-spacing: -0.02em; }
+  .idx .state { font-weight: 600; }
+  .idx .facts { color: var(--text-secondary); font-size: 12px; display: grid; grid-template-columns: auto auto; gap: 2px 12px; }
+  .sector-row { display: grid; grid-template-columns: 170px 1fr 70px 80px; gap: 8px; align-items: center; padding: 3px 0; }
+  .sector-row .nm { color: var(--text-secondary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .etf-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; margin-bottom: 10px; }
   .etf-stats .l { color: var(--text-muted); font-size: 11.5px; }
   .etf-stats .v { font-size: 16px; font-weight: 600; margin-top: 1px; }
@@ -198,6 +204,39 @@
       <div class="big num" id="st-total">—</div>
       <div class="line2 num" id="st-chg"></div>
       <div class="spark" id="st-spark"></div>
+    </section>
+  </div>
+
+  <!-- Momentum & positioning (own versions of regime / funding heat) -->
+  <div class="grid two-even row">
+    <section class="card" id="regime">
+      <div class="card-h"><h2>Market regime index</h2><span class="src">Binance daily candles · top 42 coins</span></div>
+      <div class="idx"><div class="big num" id="rg-heat">—</div><div><div class="state" id="rg-state">Computing…</div><div class="facts num" id="rg-facts"></div></div></div>
+      <div class="chart" id="rg-chart" style="height:110px;margin-top:8px"></div>
+      <div class="src" style="margin-top:4px">0–100. Half breadth (share of coins above their 200-day average) and half momentum (median 30-day return), each scored against its last 90 days. Under ~30 = capital retreating, over ~70 = broad risk appetite.</div>
+    </section>
+    <section class="card" id="fheat">
+      <div class="card-h"><h2>Funding heat index</h2><span class="src">Binance perps · 20 majors, OI-weighted</span></div>
+      <div class="idx"><div class="big num" id="fh-heat">—</div><div><div class="state" id="fh-state">Computing…</div><div class="facts num" id="fh-facts"></div></div></div>
+      <div class="chart" id="fh-chart" style="height:110px;margin-top:8px"></div>
+      <div class="src" style="margin-top:4px">0–100 from today's OI-weighted funding vs its last 30 days. High = longs crowded and paying up (squeeze risk). Low or negative = shorts crowded.</div>
+    </section>
+  </div>
+
+  <!-- Breakout radar + sectors -->
+  <div class="grid two row">
+    <section class="card" id="radar">
+      <div class="card-h"><h2>Breakout radar <span class="sub" id="rd-sub"></span></h2>
+        <div class="tabs" id="rd-tabs"><button data-k="up" class="on">Breakouts</button><button data-k="near">Near 52w high</button><button data-k="down">Breakdowns</button><button data-k="rs">Strongest 30d</button><button data-k="weak">Weakest 30d</button></div></div>
+      <div class="scroll" style="max-height:400px"><table>
+        <thead><tr><th>Coin</th><th class="r">Price</th><th class="r">24h</th><th class="r">30d</th><th class="r" title="Close as % of 52-week high">vs 52w high</th><th class="r" title="Yesterday's volume ÷ 20-day average">RVOL</th><th class="r" title="Trend strength (ADX 14)">ADX</th></tr></thead>
+        <tbody id="rd-body"><tr><td colspan="7" class="empty">Scanning the top 100 Binance pairs…</td></tr></tbody>
+      </table></div>
+      <div class="src" style="margin-top:6px">Breakout = within 5% of the 52-week high with volume ≥1.3× normal and ADX ≥22 (strong trend). Breakdown = the same near the 52-week low. Universe: top 100 Binance USDT pairs by volume, stablecoins excluded. Daily closes. Click a coin to open its TradingView chart.</div>
+    </section>
+    <section class="card" id="sectors">
+      <div class="card-h"><h2>Sector rotation <span class="sub">· 24h market-cap change</span></h2><span class="src">CoinGecko categories</span></div>
+      <div id="sec-body" class="empty">Loading…</div>
     </section>
   </div>
 
@@ -919,6 +958,109 @@
     if (tv.length) $('mv-tvl').replaceChildren(col('Best', tv.slice(0, 5)), col('Worst', tv.slice(-5).reverse()));
   }
 
+
+  // ---------- Own indices: regime, funding heat, breakout radar, sectors ----------
+  const Phi = (z) => 1 / (1 + Math.exp(-1.702 * z));
+  const mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+  const sd = (a) => { const m = mean(a); return Math.sqrt(mean(a.map(x => (x - m) ** 2))) || 1; };
+  const median = (a) => { const b = [...a].sort((x, y) => x - y); const n = b.length; return n ? (n % 2 ? b[(n - 1) / 2] : (b[n / 2 - 1] + b[n / 2]) / 2) : null; };
+  const BIN = ['https://api.binance.com', 'https://data-api.binance.vision'];
+  async function bget(path) { for (const b of BIN) { const j = await safe(getJSON(b + path)); if (j) return j; } return null; }
+  async function pool(items, n, fn) { let i = 0; const out = []; await Promise.all(Array.from({ length: n }, async () => { while (i < items.length) { const k = i++; out[k] = await fn(items[k]); } })); return out; }
+  function adx14(h, l, c) {
+    const n = 14; if (c.length < n * 3) return null; let tr = [], pdm = [], mdm = [];
+    for (let i = 1; i < c.length; i++) { const up = h[i] - h[i - 1], dn = l[i - 1] - l[i];
+      pdm.push(up > dn && up > 0 ? up : 0); mdm.push(dn > up && dn > 0 ? dn : 0); tr.push(Math.max(h[i] - l[i], Math.abs(h[i] - c[i - 1]), Math.abs(l[i] - c[i - 1]))); }
+    const sm = (a) => { let s = a.slice(0, n).reduce((x, y) => x + y, 0); const o = [s]; for (let i = n; i < a.length; i++) { s = s - s / n + a[i]; o.push(s); } return o; };
+    const T = sm(tr), P = sm(pdm), M = sm(mdm); const dx = T.map((t, i) => { const p = 100 * P[i] / t, m = 100 * M[i] / t; return 100 * Math.abs(p - m) / ((p + m) || 1); });
+    let a = mean(dx.slice(0, n)); for (let i = n; i < dx.length; i++) a = (a * (n - 1) + dx[i]) / n; return a;
+  }
+  const STABLE_RE = /^(USDC|FDUSD|TUSD|USDP|DAI|EUR|EURI|AEUR|USDE|BFUSD|XUSD|USD1|RLUSD|PYUSD|PAXG|XAUT|WBTC|WBETH|BUSD|U|USDS|USDF)$/;
+  let radarTab = 'up';
+  async function loadScan() {
+    const t = await bget('/api/v3/ticker/24hr?type=MINI'); if (!Array.isArray(t)) { $('rg-state').textContent = 'Binance unreachable from this browser.'; $('rd-body').replaceChildren(el('tr', {}, el('td', { colspan: 7, class: 'err', text: 'Binance market data unreachable from this browser.' }))); return; }
+    const uni = t.filter(x => x.symbol.endsWith('USDT') && !/(UP|DOWN|BULL|BEAR)USDT$/.test(x.symbol)).map(x => ({ sym: x.symbol, base: x.symbol.slice(0, -4), qv: +x.quoteVolume, last: +x.lastPrice, open: +x.openPrice }))
+      .filter(x => !STABLE_RE.test(x.base) && x.qv > 0).sort((a, b) => b.qv - a.qv).slice(0, 100);
+    const kl = await pool(uni, 8, (u) => bget('/api/v3/klines?symbol=' + u.sym + '&interval=1d&limit=365'));
+    const coins = [];
+    uni.forEach((u, i) => { const k = kl[i]; if (!Array.isArray(k) || k.length < 60) return;
+      const closed = k.slice(0, -1); const c = closed.map(r => +r[4]), h = closed.map(r => +r[2]), l = closed.map(r => +r[3]), qv = closed.map(r => +r[7]), ts = closed.map(r => +r[0]);
+      const last = c.at(-1), hi52 = Math.max(...h), lo52 = Math.min(...l);
+      const vAvg = mean(qv.slice(-21, -1)); const rvol = vAvg ? qv.at(-1) / vAvg : null;
+      coins.push({ base: u.base, sym: u.sym, live: u.last, ch24: u.open ? (u.last / u.open - 1) * 100 : null, c, ts, hi52, lo52, pct52: last / hi52 * 100, offLow: last / lo52, rvol, adx: adx14(h, l, c), mom30: c.length > 31 ? (last / c.at(-31) - 1) * 100 : null, vol: u.qv, len: c.length }); });
+    S.scan = coins; renderRadar(); computeRegime();
+  }
+  function renderRadar() {
+    const co = S.scan || []; if (!co.length) return;
+    const gate = (x) => x.rvol >= 1.3 && x.adx >= 22 && x.vol >= 1e5;
+    const lists = {
+      up: co.filter(x => x.pct52 >= 95 && gate(x)).sort((a, b) => b.pct52 - a.pct52),
+      near: co.filter(x => x.len >= 200).sort((a, b) => b.pct52 - a.pct52).slice(0, 15),
+      down: co.filter(x => x.offLow <= 1.05 && gate(x)).sort((a, b) => a.offLow - b.offLow),
+      rs: co.filter(x => x.mom30 != null).sort((a, b) => b.mom30 - a.mom30).slice(0, 15),
+      weak: co.filter(x => x.mom30 != null).sort((a, b) => a.mom30 - b.mom30).slice(0, 15),
+    };
+    $('rd-sub').textContent = `· ${lists.up.length} breakouts · ${lists.down.length} breakdowns · ${co.length} coins scanned`;
+    for (const b of $('rd-tabs').children) b.classList.toggle('on', b.dataset.k === radarTab);
+    const rows = lists[radarTab];
+    $('rd-body').replaceChildren(...(rows.length ? rows.map(x => el('tr', { class: 'click', onclick: () => window.open('https://www.tradingview.com/chart/?symbol=BINANCE%3A' + x.sym, '_blank', 'noopener') },
+      el('td', {}, el('b', { text: x.base })),
+      el('td', { class: 'r num', text: price(x.live) }), el('td', { class: 'r' }, pctEl(x.ch24, 1)), el('td', { class: 'r' }, pctEl(x.mom30, 1)),
+      el('td', { class: 'r num', text: x.pct52.toFixed(0) + '%' }), el('td', { class: 'r num ' + (x.rvol >= 1.3 ? '' : 'muted'), text: x.rvol ? x.rvol.toFixed(1) + '×' : '—' }),
+      el('td', { class: 'r num ' + (x.adx >= 22 ? '' : 'muted'), text: x.adx ? x.adx.toFixed(0) : '—' })))
+      : [el('tr', {}, el('td', { colspan: 7, class: 'empty', text: radarTab === 'up' ? 'No confirmed breakouts today. Nothing is near its 52-week high with volume and trend behind it.' : radarTab === 'down' ? 'No confirmed breakdowns today.' : 'Nothing to show.' }))]));
+  }
+  $('rd-tabs').addEventListener('click', (e) => { const b = e.target.closest('button[data-k]'); if (!b) return; radarTab = b.dataset.k; renderRadar(); });
+
+  function computeRegime() {
+    const basket = (S.scan || []).filter(x => x.len >= 300).slice(0, 42); if (basket.length < 15) { $('rg-state').textContent = 'Not enough history to compute.'; return; }
+    const N = Math.min(...basket.map(x => x.c.length)); const series = [];
+    for (let k = 230; k < N; k++) { // k = index from the aligned start
+      let above = 0, moms = [];
+      for (const x of basket) { const off = x.c.length - N; const i = off + k; const w = x.c.slice(i - 199, i + 1); const ma = mean(w); if (x.c[i] > ma) above++; moms.push((x.c[i] / x.c[i - 30] - 1) * 100); }
+      series.push({ t: basket[0].ts[basket[0].c.length - N + k], b: above / basket.length * 100, m: median(moms) });
+    }
+    const out = series.map((p, i) => { if (i < 89) return null; const w = series.slice(i - 89, i + 1); const zb = (p.b - mean(w.map(x => x.b))) / sd(w.map(x => x.b)), zm = (p.m - mean(w.map(x => x.m))) / sd(w.map(x => x.m)); const r = (zb + zm) / 2; return { t: p.t, v: Math.round(100 * Phi(r / 1.3)), r, b: p.b, m: p.m }; }).filter(Boolean);
+    const now = out.at(-1); if (!now) return;
+    const st = now.r <= -0.5 ? ['risk-off: capital retreating', 'var(--down)'] : now.r >= 0.5 ? ['risk-on: broad buying', 'var(--up)'] : ['neutral', 'var(--text-secondary)'];
+    $('rg-heat').textContent = now.v; $('rg-heat').style.color = st[1]; $('rg-state').textContent = st[0];
+    $('rg-facts').replaceChildren(el('span', { class: 'muted', text: 'Above 200-day MA' }), el('span', { text: now.b.toFixed(0) + '% of ' + basket.length }), el('span', { class: 'muted', text: 'Median 30d return' }), el('span', { text: (now.m > 0 ? '+' : '') + now.m.toFixed(1) + '%' }), el('span', { class: 'muted', text: 'A week ago' }), el('span', { text: String(out.at(-8)?.v ?? '—') }));
+    lineChart($('rg-chart'), out.slice(-120), { height: 110, axis: true, fmt: (v) => String(Math.round(v)), tfmt: dateStr, color: 'var(--series-1)' });
+    S.sig.regime = now.v; renderVerdict();
+  }
+
+  const FH_SYMS = ['BTC', 'ETH', 'SOL', 'XRP', 'BNB', 'DOGE', 'ADA', 'AVAX', 'LINK', 'SUI', 'HYPE', 'LTC', 'TRX', 'DOT', 'TON', 'BCH', 'NEAR', 'APT', 'UNI', 'AAVE'];
+  async function loadFundingHeat() {
+    const res = await pool(FH_SYMS, 5, async (b) => {
+      const [fr, oi] = await Promise.all([safe(getJSON('https://fapi.binance.com/fapi/v1/fundingRate?symbol=' + b + 'USDT&limit=300')), safe(getJSON('https://fapi.binance.com/futures/data/openInterestHist?symbol=' + b + 'USDT&period=1d&limit=1'))]);
+      return { b, fr: Array.isArray(fr) ? fr : [], oi: Array.isArray(oi) && oi[0] ? +oi[0].sumOpenInterestValue : 0 };
+    });
+    const ok = res.filter(r => r.fr.length && r.oi > 0); if (ok.length < 5) { $('fh-state').textContent = 'Binance futures unreachable from this browser.'; return; }
+    const W = ok.reduce((a, r) => a + r.oi, 0); const byDay = {};
+    for (const r of ok) for (const f of r.fr) { const d = Math.floor(+f.fundingTime / 864e5); (byDay[d] ||= { s: 0, w: 0, n: {} }); const key = r.b; byDay[d].n[key] = (byDay[d].n[key] || []); byDay[d].n[key].push(+f.fundingRate); }
+    const days = Object.keys(byDay).map(Number).sort((a, b) => a - b).map(d => { let s = 0, w = 0; for (const r of ok) { const a = byDay[d].n[r.b]; if (a?.length) { s += mean(a) * r.oi; w += r.oi; } } return { t: d * 864e5, apr: w ? s / w * 3 * 365 * 100 : null }; }).filter(x => x.apr != null);
+    const recent = days.slice(-1)[0]; const w30 = days.slice(-31, -1).map(x => x.apr); if (!recent || w30.length < 10) return;
+    const z = (recent.apr - mean(w30)) / sd(w30); const heat = Math.round(100 * Phi(z));
+    const st = heat >= 75 ? ['hot: longs crowded', 'var(--down)'] : heat <= 25 ? ['cold: shorts crowded / leverage flushed', 'var(--series-1)'] : ['neutral positioning', 'var(--text-secondary)'];
+    $('fh-heat').textContent = heat; $('fh-heat').style.color = st[1]; $('fh-state').textContent = st[0];
+    $('fh-facts').replaceChildren(el('span', { class: 'muted', text: 'Funding (annualised)' }), el('span', { text: recent.apr.toFixed(1) + '% APR' }), el('span', { class: 'muted', text: '30-day average' }), el('span', { text: mean(w30).toFixed(1) + '% APR' }), el('span', { class: 'muted', text: 'Coins / OI weighted' }), el('span', { text: ok.length + ' · ' + usd(W) }));
+    lineChart($('fh-chart'), days.slice(-90).map(d => ({ t: d.t, v: d.apr })), { height: 110, axis: true, fmt: (v) => v.toFixed(0) + '%', tfmt: dateStr, color: 'var(--series-2)' });
+    S.sig.fheat = heat; S.sig.fapr = recent.apr;
+  }
+
+  const SECTORS = ['layer-1', 'layer-2', 'decentralized-finance-defi', 'meme-token', 'artificial-intelligence', 'ai-agents', 'real-world-assets-rwa', 'gaming', 'privacy-coins', 'decentralized-exchange', 'liquid-staking-tokens', 'restaking', 'depin', 'oracle', 'lending-borrowing', 'zero-knowledge-zk', 'prediction-markets', 'payment-solutions', 'exchange-based-tokens', 'infrastructure', 'bitcoin-ecosystem', 'solana-ecosystem', 'base-ecosystem', 'hyperliquid-ecosystem'];
+  async function loadSectors() {
+    const c = await safe(getJSON('https://api.coingecko.com/api/v3/coins/categories'));
+    if (!Array.isArray(c)) { if (!$('sec-body').querySelector('.sector-row')) $('sec-body').replaceChildren(el('div', { class: 'muted', text: 'CoinGecko is busy; retrying in a couple of minutes…' })); setTimeout(loadSectors, 150000); return; }
+    const rows = c.filter(x => SECTORS.includes(x.id) && x.market_cap_change_24h != null).sort((a, b) => b.market_cap_change_24h - a.market_cap_change_24h);
+    const max = Math.max(...rows.map(r => Math.abs(r.market_cap_change_24h)), 1);
+    $('sec-body').className = ''; $('sec-body').replaceChildren(...rows.map(r => { const v = r.market_cap_change_24h, w = Math.abs(v) / max * 50;
+      return el('div', { class: 'sector-row' }, el('div', { class: 'nm', title: r.name, text: r.name.replace(/\s*\(.*?\)\s*/g, ' ').trim() }),
+        el('div', { class: 'fl-track', style: 'position:relative;height:12px' }, el('div', { style: 'position:absolute;left:50%;top:-2px;bottom:-2px;width:1px;background:#44443f' }), el('div', { style: `position:absolute;top:1px;height:10px;border-radius:3px;${v >= 0 ? 'left:50%' : 'right:50%'};width:${w}%;background:${v >= 0 ? 'var(--series-1)' : 'var(--series-2)'}` })),
+        el('div', { class: 'r' }, pctEl(v, 1)), el('div', { class: 'r num muted', text: usd(r.market_cap) })); }),
+      el('div', { class: 'src', style: 'margin-top:6px', text: 'Ecosystem rows (Solana, Base, Bitcoin, Hyperliquid) overlap the sector rows. Read them as "where money is moving", not as separate buckets.' }));
+  }
+
   // ---------- Verdict ----------
   function renderVerdict() {
     const g = S.sig; const parts = []; let score = 0, n = 0;
@@ -928,6 +1070,7 @@
     add(g.st7 != null ? g.st7 / 1e9 : null, 1, -1, 'stablecoins 7d ' + (g.st7 != null ? signedUsd(g.st7) : ''));
     add(g.funding, 0.01, -0.0001, 'funding ' + (g.funding != null ? g.funding.toFixed(4) + '%' : ''));
     add(g.fg, 60, 25, 'Fear & Greed ' + (g.fg ?? ''));
+    add(g.regime, 65, 35, 'regime ' + (g.regime ?? '') + '/100');
     if (n < 3) return;
     const lvl = score <= -3 ? ['Risk-off', 'var(--down)'] : score <= -1 ? ['Cautious', '#ec835a'] : score === 0 ? ['Neutral', '#c3c2b7'] : score <= 2 ? ['Constructive', '#7fcf6b'] : ['Risk-on', 'var(--up)'];
     $('v-badge').textContent = lvl[0]; $('v-badge').style.background = lvl[1];
@@ -1001,7 +1144,7 @@
   let lastLive = 0;
   async function refreshFast() { await loadBTC(); await loadOI(); lastLive = Date.now(); tickMeta(); renderVerdict(); }
   async function refreshSlow() { await Promise.all([loadFG(), loadStables(), loadChains(), loadBTC130(), loadEtfBtc(), loadIntel(), loadMarket(), loadExchanges()]); renderMarketDerived(); renderVerdict(); }
-  async function refreshHeavy() { await loadActivity(); await loadMovers(); }
+  async function refreshHeavy() { await Promise.all([loadScan(), loadFundingHeat()]); await loadActivity(); await loadMovers(); await loadSectors(); }
   function tickMeta() {
     $('clock').textContent = new Date().toLocaleString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' });
     $('live-at').textContent = lastLive ? ago(lastLive) : 'loading…';
