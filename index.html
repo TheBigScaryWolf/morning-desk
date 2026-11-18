@@ -755,7 +755,7 @@
   function renderEtfEth() {
     const e = window.INTEL?.etf?.eth; if (!e?.days?.length) return;
     const days = e.days.map(d => ({ t: Date.parse(d.date + 'T00:00:00Z'), v: d.flow })).sort((a, b) => a.t - b.t);
-    etfStats($('etf-eth-stats'), days, { cumulative: e.cumulative, aum: e.aum, last7: e.last7d, last30: e.last30d, partial: true });
+    etfStats($('etf-eth-stats'), days, { cumulative: e.cumulative ?? undefined, aum: e.aum, last7: e.last7d ?? undefined, last30: e.last30d ?? undefined, partial: days.length < 25 });
     barChart($('etf-eth-bars'), days.slice(-45));
     if (e.source) $('etf-eth-src').textContent = 'Collected by the morning crawl · ' + e.source;
   }
