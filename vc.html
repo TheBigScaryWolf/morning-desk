@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Investor · Morning Desk</title>
+<link rel="stylesheet" href="vc.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div><h1 id="name">Investor</h1><div class="muted" id="meta" style="margin-top:3px"></div></div>
+    <div><a class="back" href="vcs.html">All VCs</a> &nbsp;·&nbsp; <a class="back" id="histLink" href="funding.html">Deals in history</a> &nbsp;·&nbsp; <a class="back" href="./">← Morning Desk</a></div>
+  </header>
+
+  <div class="grid stats">
+    <section class="card stat"><div class="l">Deals announced (all time)</div><div class="v num" id="s-n">—</div></section>
+    <section class="card stat"><div class="l">Last 12 months</div><div class="v num" id="s-12">—</div><div class="src" id="s-12c"></div></section>
+    <section class="card stat"><div class="l">Led</div><div class="v num" id="s-led">—</div><div class="src" id="s-ledc"></div></section>
+    <section class="card stat"><div class="l">Most recent announced deal</div><div class="v num" id="s-last" style="font-size:18px">—</div><div class="src">Announcements lag real investing</div></section>
+  </div>
+
+  <div class="grid two row">
+    <section class="card"><h2>Fund history <span class="sub">· money raised from LPs</span></h2><div id="funds"></div><h2 style="margin-top:14px">Assets under management</h2><div id="aum"></div></section>
+    <section class="card"><h2>Reported returns <span class="sub">· only what has been made public</span></h2><div id="perf"></div></section>
+  </div>
+
+  <section class="card row"><h2>Deals announced per quarter <span class="sub">· darker part = deals they led</span></h2><div id="chart" style="height:200px"></div></section>
+
+  <div class="grid three row">
+    <section class="card"><h2>Stages <span class="sub">· last 24 months</span></h2><div id="stages"></div></section>
+    <section class="card"><h2>Sectors <span class="sub">· last 24 months</span></h2><div id="cats"></div></section>
+    <section class="card"><h2>Invests most often with <span class="sub">· last 24 months</span></h2><div id="co" style="max-height:330px;overflow:auto"></div></section>
+  </div>
+
+  <section class="card row"><h2>Recent announced deals <span class="sub" id="recent-sub"></span></h2>
+    <div style="overflow:auto"><table><thead><tr><th>Announced</th><th>Project</th><th>Round</th><th class="r">Raised</th><th>Role</th><th>Co-investors</th></tr></thead><tbody id="recent"></tbody></table></div>
+  </section>
+  <div class="src row">Sources: fundraising history (DefiLlama + CoinCarp) for deals; fund and return figures are hand-collected from public reporting and SEC filings, each linked. AUM is regulatory assets (including unrealised marks), not performance.</div>
+</div>
+<script src="vc-lib.js"></script>
+<script>
+(async () => {
+  const { $, el, usd, link, bars } = VC;
+  const { rows, data, canon } = await VC.load();
+  const name = canon(new URLSearchParams(location.search).get('n') || 'Paradigm');
+  const f = data.firms[name] || null;
+  document.title = name + ' · Morning Desk';
+  $('name').textContent = name;
+  const metaTxt = [f?.type, f?.hq, f?.founded ? 'founded ' + f.founded : null].filter(Boolean).join(' · ');
+  $('meta').replaceChildren(metaTxt,
+    f?.site ? el('span', {}, ' · ', link(f.site, 'website')) : '', f?.about ? el('div', { style: 'margin-top:3px;color:var(--text-secondary)', text: f.about }) : '');
+  $('histLink').href = 'funding.html#investor=' + encodeURIComponent(name);
+  const mine = rows.filter(x => x.L.includes(name) || x.O.includes(name)); // newest first
+  const now = Date.now(), y1 = now - 365 * 864e5, y2 = now - 730 * 864e5;
+  const led = mine.filter(x => x.L.includes(name)).length, n12 = mine.filter(x => x.t >= y1).length, p12 = mine.filter(x => x.t < y1 && x.t >= y2).length;
+  $('s-n').textContent = mine.length.toLocaleString(); $('s-12').textContent = n12;
+  $('s-12c').textContent = p12 ? `${n12 >= p12 ? '+' : ''}${((n12 / p12 - 1) * 100).toFixed(0)}% vs the 12 months before (${p12})` : '';
+  $('s-led').textContent = mine.length ? Math.round(led / mine.length * 100) + '%' : '—'; $('s-ledc').textContent = `${led} rounds led · some sources don't mark leads`;
+  $('s-last').textContent = mine[0]?.d || '—';
+  // funds
+  const funds = [...(f?.funds || [])].sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+  $('funds').replaceChildren(funds.length ? el('table', {}, el('thead', {}, el('tr', {}, el('th', { text: 'Fund' }), el('th', { text: 'Date' }), el('th', { class: 'r', text: 'Size' }), el('th', { text: 'Status' }))),
+    el('tbody', {}, ...funds.map(x => el('tr', {}, el('td', {}, x.name, x.note ? el('div', { class: 'src', text: x.note }) : null), el('td', { class: 'muted num', text: x.date || '—' }), el('td', { class: 'r num' }, link(x.url, usd(x.size))), el('td', { class: 'muted', text: x.status || '' })))))
+    : el('div', { class: 'muted', text: f ? (f.about || 'No outside fund raises to track.') : 'Not in the hand-collected list yet. Deal activity below is still complete.' }));
+  $('aum').replaceChildren(...((f?.aum || []).length ? f.aum.map(a => el('div', { class: 'kv', style: 'grid-template-columns:1fr auto' }, el('span', {}, a.label, a.note ? el('span', { class: 'muted', text: ' · ' + a.note }) : null), link(a.url, usd(a.value)))) : [el('div', { class: 'muted', text: 'No reported figure collected.' })]));
+  // perf
+  const perf = f?.perf || [];
+  $('perf').replaceChildren(el('div', { class: 'warn', text: 'Crypto funds rarely publish returns. These are the figures that leaked into the press via investor letters, or that show up in SEC filings. They are snapshots on different dates and bases (gross vs net, paper vs cash), so don\'t compare them like-for-like.' }),
+    ...(perf.length ? perf.map(p => el('div', { style: 'padding:7px 0;border-bottom:1px solid #262624' },
+      el('div', { style: 'display:flex;justify-content:space-between;gap:10px' }, el('b', { text: p.fund }), el('span', { class: 'num', style: 'font-weight:600', text: p.value })),
+      el('div', { class: 'src' }, p.metric + ' · ', link(p.url, p.src)), p.note ? el('div', { class: 'muted', style: 'font-size:12px;margin-top:2px', text: p.note }) : null))
+      : [el('div', { class: 'muted', text: 'No returns publicly reported for this investor.' })]),
+    ...(f?.lps || []).map(l => el('div', { class: 'src', style: 'margin-top:8px' }, 'LPs: ', l.text, ' ', link(l.url, 'source'))),
+    ...(f?.news || []).map(n => el('div', { class: 'src', style: 'margin-top:8px' }, n.date + ': ' + n.text + ' ', link(n.url, 'source'))));
+  // chart per quarter (last 6 years)
+  const Q = {}; const start = now - 6 * 365 * 864e5;
+  for (let t = start; t <= now; t += 80 * 864e5) Q[VC.q(t)] ||= { n: 0, l: 0 }; Q[VC.q(now)] ||= { n: 0, l: 0 };
+  for (const x of mine) if (x.t >= start) { const k = VC.q(x.t); (Q[k] ||= { n: 0, l: 0 }); Q[k].n++; if (x.L.includes(name)) Q[k].l++; }
+  bars($('chart'), Object.entries(Q).sort((a, b) => a[0].localeCompare(b[0])).map(([k, v]) => ({ label: k, v: v.n, v2: v.l, tip: [k, v.n + ' deals', v.l + ' led'] })), { height: 200 });
+  // mixes
+  const recent = mine.filter(x => x.t >= y2);
+  const mix = (host, key) => { const C = {}; for (const x of recent) { const k = key(x) || 'Unknown'; C[k] = (C[k] || 0) + 1; } const e = Object.entries(C).sort((a, b) => b[1] - a[1]).slice(0, 12); const mx = e[0]?.[1] || 1;
+    host.replaceChildren(...(e.length ? e.map(([k, v]) => el('div', { class: 'kv' }, el('span', { text: k }), el('div', {}, el('div', { class: 'bar', style: `width:${Math.max(4, v / mx * 100)}%` })), el('span', { class: 'num muted', text: v }))) : [el('div', { class: 'muted', text: 'No deals in the last 24 months.' })])); };
+  mix($('stages'), x => x.r); mix($('cats'), x => x.c);
+  const CO = {}; for (const x of recent) for (const n of [...x.L, ...x.O]) if (n !== name) CO[n] = (CO[n] || 0) + 1;
+  $('co').replaceChildren(...Object.entries(CO).sort((a, b) => b[1] - a[1]).slice(0, 25).map(([k, v]) => el('div', { class: 'kv', style: 'grid-template-columns:1fr auto' }, el('a', { class: 'lnk', href: 'vc.html?n=' + encodeURIComponent(k), text: k }), el('span', { class: 'num muted', text: v + ' deals' }))));
+  // recent deals
+  $('recent-sub').textContent = `· ${Math.min(60, mine.length)} newest`;
+  $('recent').replaceChildren(...mine.slice(0, 60).map(x => el('tr', {},
+    el('td', { class: 'muted num', style: 'white-space:nowrap', text: x.d }),
+    el('td', {}, el('b', { text: x.n }), x.s ? el('div', { class: 'muted', style: 'font-size:12px;max-width:420px', text: x.s.length > 120 ? x.s.slice(0, 117) + '…' : x.s }) : null),
+    el('td', { class: 'muted', text: x.r || '—' }), el('td', { class: 'r num', text: x.a ? usd(x.a) : '—' }),
+    el('td', { text: x.L.includes(name) ? 'Lead' : 'Participant' }),
+    el('td', { class: 'muted', style: 'max-width:380px', text: [...x.L, ...x.O].filter(n => n !== name).slice(0, 8).join(', ') }))));
+})();
+</script>
+</body>
+</html>

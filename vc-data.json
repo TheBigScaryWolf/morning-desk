@@ -1,0 +1,813 @@
+{
+ "updatedAt": "2026-11-18",
+ "note": "Hand-collected from public reporting, SEC filings (Form D / Form ADV via third-party mirrors) and fund letters. Every figure links to its source. Returns are only what has been publicly reported; most crypto funds never disclose them.",
+ "aliases": {
+  "a16z": "a16z crypto",
+  "Andreessen Horowitz(a16z)": "a16z crypto",
+  "Andreessen Horowitz": "a16z crypto",
+  "a16z Frontier (prev. a16z Crypto)": "a16z crypto",
+  "Binance Labs": "YZi Labs",
+  "YZi Labs (Formerly: Binance Labs)": "YZi Labs",
+  "Polychain": "Polychain Capital",
+  "Dragonfly": "Dragonfly Capital",
+  "Dragonfly.": "Dragonfly Capital",
+  "Variant Fund": "Variant",
+  "Galaxy": "Galaxy Digital",
+  "Galaxy Ventures": "Galaxy Digital",
+  "Faction Ventures": "Lightspeed Faction",
+  "Faction VC": "Lightspeed Faction",
+  "Faction": "Lightspeed Faction",
+  "HackVC": "Hack VC",
+  "Hack Ventures": "Hack VC",
+  "HashKey": "HashKey Capital",
+  "Hashkey Capital": "HashKey Capital",
+  "Arrington XRP Capital": "Arrington Capital",
+  "Animoca Ventures": "Animoca Brands",
+  "Coinbase": "Coinbase Ventures"
+ },
+ "market": {
+  "title": "New money committed to crypto VC funds (Galaxy Research)",
+  "source": "Galaxy Research quarterly crypto VC reports",
+  "rows": [
+   {
+    "q": "Q3 2024",
+    "funds": 8,
+    "usd": 140000000,
+    "url": "https://galaxy.com/insights/research/crypto-blockchain-venture-capital-q3-2024"
+   },
+   {
+    "q": "Q3 2025",
+    "funds": 16,
+    "usd": 3160000000,
+    "url": "https://www.galaxy.com/insights/research/crypto-blockchain-venture-capital-q3"
+   },
+   {
+    "q": "Q4 2025",
+    "funds": 11,
+    "usd": 1980000000,
+    "url": "https://www.galaxy.com/insights/research/crypto-blockchain-venture-capital-q4-2025"
+   },
+   {
+    "q": "Q1 2026",
+    "funds": 8,
+    "usd": 1100000000,
+    "url": "https://www.galaxy.com/insights/research/crypto-blockchain-vc-venture-capital-startups-fundraising-q1-2026"
+   },
+   {
+    "q": "Q2 2026",
+    "funds": 5,
+    "usd": 3900000000,
+    "url": "https://crypto.news/crypto-vc-funding-hits-5-68b-in-q2-galaxy-says/"
+   },
+   {
+    "q": "Q3 2026",
+    "funds": 3,
+    "usd": 1300000000,
+    "url": "https://www.rootdata.com/news/823058"
+   }
+  ],
+  "notes": [
+   {
+    "text": "2025 total: $8.75B raised by crypto VC funds, the most since 2022.",
+    "url": "https://www.galaxy.com/insights/research/crypto-blockchain-venture-capital-q4-2025"
+   },
+   {
+    "text": "2026 so far: median new fund ~$71M, average ~$386M — a few giant funds, many small ones.",
+    "url": "https://www.rootdata.com/news/823058"
+   },
+   {
+    "text": "Cambridge Associates: blockchain/crypto VC funds beat other VC on pooled net IRR over 10 years; winter vintages did best.",
+    "url": "https://www.cambridgeassociates.com/insight/blockchain-and-crypto-vc-funds/"
+   }
+  ]
+ },
+ "firms": {
+  "a16z crypto": {
+   "aliases": [
+    "a16z crypto",
+    "a16z",
+    "Andreessen Horowitz(a16z)",
+    "Andreessen Horowitz",
+    "a16z Frontier (prev. a16z Crypto)"
+   ],
+   "type": "VC (arm of Andreessen Horowitz)",
+   "hq": "Menlo Park, USA",
+   "founded": 2018,
+   "site": "https://a16zcrypto.com",
+   "about": "Largest dedicated crypto fund family; renamed a16z Frontier in Oct 2026 with a broader frontier-tech mandate.",
+   "aum": [
+    {
+     "label": "4 crypto funds, 2025 (SEC filings)",
+     "value": 9500000000,
+     "note": "down ~40% vs 2024, partly from returning capital",
+     "url": "https://global.foresightnews.pro/article/16415"
+    }
+   ],
+   "funds": [
+    {
+     "name": "Crypto Fund I",
+     "size": 350000000,
+     "date": "2018",
+     "status": "closed",
+     "url": "https://pitchbook.com/profiles/fund/16380-73F"
+    },
+    {
+     "name": "Crypto Fund III",
+     "size": 2200000000,
+     "date": "2021",
+     "status": "closed",
+     "url": "https://pitchbook.com/profiles/fund/18655-48F"
+    },
+    {
+     "name": "Crypto Fund IV",
+     "size": 4500000000,
+     "date": "2022",
+     "status": "closed",
+     "url": "https://pitchbook.com/profiles/fund/20701-63F"
+    },
+    {
+     "name": "Crypto Fund 5",
+     "size": 2200000000,
+     "date": "2026-05",
+     "status": "closed",
+     "url": "https://coin360.com/news/a16z-crypto-2-2b-haun-ventures-1b-funds"
+    }
+   ],
+   "perf": [
+    {
+     "fund": "Crypto Fund I (2018)",
+     "metric": "Net DPI",
+     "value": "5.4x",
+     "src": "Newcomer, cited by Fortune (2026)",
+     "url": "https://finance.yahoo.com/markets/crypto/articles/exclusive-top-crypto-vcs-paradigm-102213505.html",
+     "note": "Cash actually returned to LPs: 5.4x what they paid in. Strong vs other 2018 funds on Carta."
+    }
+   ],
+   "news": [
+    {
+     "date": "2026-10-22",
+     "text": "Renamed a16z Frontier; will keep investing in crypto.",
+     "url": "https://wublock.substack.com/p/a16z-drops-crypto-from-its-name-is"
+    }
+   ]
+  },
+  "Paradigm": {
+   "aliases": [
+    "Paradigm"
+   ],
+   "type": "VC",
+   "hq": "San Francisco, USA",
+   "founded": 2018,
+   "site": "https://www.paradigm.xyz",
+   "about": "Research-heavy crypto VC founded by Matt Huang and Fred Ehrsam; now also invests in AI and robotics.",
+   "aum": [
+    {
+     "label": "End 2021",
+     "value": 13200000000,
+     "url": "https://www.newcomer.co/p/in-2022-paradigms-assets-fell-by"
+    },
+    {
+     "label": "Apr 2025",
+     "value": 12700000000,
+     "url": "https://en.wikipedia.org/wiki/Paradigm_(venture_capital_firm)"
+    },
+    {
+     "label": "31 Dec 2025 (regulatory AUM)",
+     "value": 11870000000,
+     "note": "down ~6% in 2025",
+     "url": "https://www.coininsider.org/five-vc-firms-blockchain/"
+    }
+   ],
+   "funds": [
+    {
+     "name": "Initial capital",
+     "size": 750000000,
+     "date": "2018-10",
+     "status": "closed",
+     "url": "https://en.wikipedia.org/wiki/Paradigm_(venture_capital_firm)",
+     "note": "plus a $350M top-off"
+    },
+    {
+     "name": "Paradigm One",
+     "size": 2500000000,
+     "date": "2021-11",
+     "status": "closed",
+     "url": "https://decrypt.co/86126/paradigm-2-5-billion-crypto-fund-matt-huang"
+    },
+    {
+     "name": "Early-stage crypto fund",
+     "size": 850000000,
+     "date": "2024-06",
+     "status": "closed",
+     "url": "https://www.dlnews.com/articles/deals/venture-capitalist-paradigm-completes-its-third-crypto-fund/"
+    },
+    {
+     "name": "Fund IV (crypto, AI, robotics)",
+     "size": 1200000000,
+     "date": "2026-07",
+     "status": "closed",
+     "note": "below the $1.5B target reported by WSJ",
+     "url": "https://theblock.co/news/deals/2026-07-08-paradigm-raises-1-2-billion-fourth-fund-crypto-ai-robotics-407617"
+    }
+   ],
+   "perf": [
+    {
+     "fund": "Firm",
+     "metric": "AUM growth",
+     "value": "$2.98B → $13.2B (2020→2021)",
+     "src": "Newcomer, from SEC filings",
+     "url": "https://www.newcomer.co/p/in-2022-paradigms-assets-fell-by",
+     "note": "AUM is not a return figure, but this jump was mostly marked-up holdings."
+    }
+   ]
+  },
+  "Pantera Capital": {
+   "aliases": [
+    "Pantera Capital"
+   ],
+   "type": "Hybrid (venture + tokens + liquid)",
+   "hq": "Menlo Park, USA",
+   "founded": 2013,
+   "site": "https://panteracapital.com",
+   "about": "Oldest crypto-dedicated investor; runs all-in-one funds mixing equity, early tokens and liquid trading.",
+   "aum": [
+    {
+     "label": "Oct 2025 (firm letter)",
+     "value": 3500000000,
+     "url": "https://alpha-maven.com/story/hedge-fund/fund-v-closing-october-31st-httpspanteracapitalcom"
+    }
+   ],
+   "funds": [
+    {
+     "name": "Venture Fund I",
+     "size": 13000000,
+     "date": "2013",
+     "status": "closed",
+     "url": "https://techcrunch.com/?p=1692274"
+    },
+    {
+     "name": "Venture Fund III",
+     "size": 164700000,
+     "date": "2018–2020",
+     "status": "closed",
+     "note": "per SEC Form D",
+     "url": "https://forklog.com/en/pantera-capital-raises-164-7-million-for-its-third-venture-fund/"
+    },
+    {
+     "name": "Blockchain Fund (IV)",
+     "size": 1250000000,
+     "date": "2021",
+     "status": "closed",
+     "url": "https://pitchbook.com/news/articles/panteras-recent-token-bets-are-the-real-portfolio-winners"
+    },
+    {
+     "name": "Fund V",
+     "size": 1000000000,
+     "date": "2025-10",
+     "status": "first close (target)",
+     "note": "first close 31 Oct 2025; $1B target",
+     "url": "https://panteracapital.com/blockchain-letter/fund-v-closing-october-31st/"
+    }
+   ],
+   "perf": [
+    {
+     "fund": "Venture Fund I (2013)",
+     "metric": "Value",
+     "value": "$12M → $92M (~7.7x)",
+     "src": "CoinDesk, Sep 2019 data",
+     "url": "https://coindesk-coindesk-prod.cdn.arcpublishing.com/business/2020/10/08/pantera-capitals-first-venture-fund-did-pretty-well-its-second-fund-not-so-much"
+    },
+    {
+     "fund": "Venture Fund II",
+     "metric": "Value",
+     "value": "$26M → $41M (~1.6x)",
+     "src": "CoinDesk, Sep 2019 data",
+     "url": "https://hotfix.coindesk.com/business/2020/10/08/pantera-capitals-first-venture-fund-did-pretty-well-its-second-fund-not-so-much"
+    },
+    {
+     "fund": "Venture Fund II",
+     "metric": "Gross TVPI",
+     "value": "3.3x",
+     "src": "Pantera investor letter via The Block (2018)",
+     "url": "https://www.theblock.co/post/5192/security"
+    },
+    {
+     "fund": "Blockchain Fund IV (2021)",
+     "metric": "Gains",
+     "value": "$239M treasury/liquid + $431M special opportunities",
+     "src": "Pantera letter, Oct 2025",
+     "url": "https://panteracapital.com/blockchain-letter/fund-v-closing-october-31st/",
+     "note": "Pantera says assets are about double committed capital. PitchBook reports the venture-equity sleeve gained only $78M."
+    }
+   ]
+  },
+  "Polychain Capital": {
+   "aliases": [
+    "Polychain Capital",
+    "Polychain"
+   ],
+   "type": "Hedge fund + venture funds",
+   "hq": "San Francisco, USA",
+   "founded": 2016,
+   "about": "Founded by Olaf Carlson-Wee (first Coinbase employee); hedge fund plus separate venture funds.",
+   "aum": [
+    {
+     "label": "2021 → 2022",
+     "value": 2600000000,
+     "note": "fell 61% from $6B",
+     "url": "https://www.newcomer.co/p/in-2022-paradigms-assets-fell-by"
+    },
+    {
+     "label": "31 Dec 2025 (regulatory AUM)",
+     "value": 2900000000,
+     "url": "https://www.coininsider.org/five-vc-firms-blockchain/"
+    }
+   ],
+   "funds": [
+    {
+     "name": "Ventures IV",
+     "size": 200000000,
+     "date": "2023-07",
+     "status": "first close",
+     "note": "target $400M",
+     "url": "https://www.theblock.co/post/240369/polychain-capital-raises-200-million-for-fourth-fund-fortune"
+    }
+   ],
+   "perf": [
+    {
+     "fund": "Hedge fund (2016–Nov 2019)",
+     "metric": "Net return",
+     "value": "+1,332%",
+     "src": "Investor document seen by CoinDesk",
+     "url": "https://sg.news.yahoo.com/investors-polychain-capital-crypto-hedge-080000269.html"
+    },
+    {
+     "fund": "Ventures II",
+     "metric": "Distribution",
+     "value": "~44% of fund paid out (May 2024)",
+     "src": "Bloomberg",
+     "url": "https://www.bloomberg.com/news/articles/2024-05-10/crypto-vc-firm-polychain-makes-payouts-to-investors-in-two-funds"
+    }
+   ]
+  },
+  "Multicoin Capital": {
+   "aliases": [
+    "Multicoin Capital"
+   ],
+   "type": "Hedge fund + venture funds",
+   "hq": "Austin, USA",
+   "founded": 2017,
+   "about": "Thesis-driven investor best known for early Solana and Helium bets.",
+   "funds": [
+    {
+     "name": "Venture Fund II",
+     "size": 100000000,
+     "date": "2021",
+     "status": "closed",
+     "url": "https://www.theblock.co/post/103700/multicoin-capital-second-fund-100-million-defi-nft-crypto"
+    },
+    {
+     "name": "Venture Fund III",
+     "size": 430000000,
+     "date": "2022-07",
+     "status": "closed",
+     "url": "https://techcrunch.com/2022/07/12/crypto-focused-multicoin-capital-launches-430m-venture-fund"
+    },
+    {
+     "name": "Private Fund V (Form D)",
+     "size": 502000000,
+     "date": "2024-05",
+     "status": "reported sold",
+     "url": "https://aum13f.com/firm/multicoin-capital-management-llc"
+    }
+   ],
+   "perf": [
+    {
+     "fund": "Venture Fund I (2018)",
+     "metric": "Net multiple",
+     "value": ">28x",
+     "src": "Investor presentation, via Axios (Dec 2021)",
+     "url": "https://www.axios.com/2021/12/29/multicoin-capital-solana-arweave-bitcoin-returns"
+    },
+    {
+     "fund": "Venture Fund II",
+     "metric": "Reported assets vs size",
+     "value": "$1.43B assets on a ~$100M fund",
+     "src": "Form ADV via aum13f",
+     "url": "https://aum13f.com/firm/multicoin-capital-management-llc",
+     "note": "Gross regulatory assets, not net LP return; date of figure older."
+    },
+    {
+     "fund": "Venture Fund III",
+     "metric": "Reported assets vs raised",
+     "value": "$951M assets vs $298M sold",
+     "src": "Form ADV / Form D via aum13f",
+     "url": "https://aum13f.com/firm/multicoin-capital-management-llc",
+     "note": "Gross, as of the filing date; rough proxy only."
+    },
+    {
+     "fund": "Hedge fund",
+     "metric": "Net return",
+     "value": "+9,281% since Oct 2017 (to end 2023), after −91.4% in 2022",
+     "src": "Investor letter via The Block",
+     "url": "https://www.theblock.co/post/285724/llewitinn@theblock.co"
+    }
+   ]
+  },
+  "Dragonfly Capital": {
+   "aliases": [
+    "Dragonfly Capital",
+    "Dragonfly",
+    "Dragonfly."
+   ],
+   "type": "VC",
+   "hq": "San Francisco, USA",
+   "founded": 2018,
+   "about": "Global crypto VC; big wins include Polymarket, Ethena and Rain.",
+   "funds": [
+    {
+     "name": "Fund I",
+     "size": 100000000,
+     "date": "2018",
+     "status": "closed",
+     "url": "https://fortune.com/2026/02/17/dragonfly-fourth-fund-crypto-venture-capital-blockchain-polymarket-ethena/"
+    },
+    {
+     "name": "Fund II",
+     "size": 225000000,
+     "date": "2020",
+     "status": "closed",
+     "url": "https://fortune.com/2026/02/17/dragonfly-fourth-fund-crypto-venture-capital-blockchain-polymarket-ethena/"
+    },
+    {
+     "name": "Fund III",
+     "size": 500000000,
+     "date": "2022",
+     "status": "closed",
+     "url": "https://fortune.com/2026/02/17/dragonfly-fourth-fund-crypto-venture-capital-blockchain-polymarket-ethena/"
+    },
+    {
+     "name": "Fund IV",
+     "size": 650000000,
+     "date": "2026-02",
+     "status": "closed",
+     "note": "oversubscribed",
+     "url": "https://fortune.com/2026/02/17/dragonfly-fourth-fund-crypto-venture-capital-blockchain-polymarket-ethena/"
+    }
+   ],
+   "aum": [
+    {
+     "label": "31 Dec 2025 (regulatory AUM)",
+     "value": 3440000000,
+     "url": "https://www.coininsider.org/five-vc-firms-blockchain/"
+    }
+   ]
+  },
+  "Haun Ventures": {
+   "aliases": [
+    "Haun Ventures"
+   ],
+   "type": "VC",
+   "hq": "San Francisco, USA",
+   "founded": 2022,
+   "site": "https://haun.co",
+   "about": "Katie Haun's firm; strong on stablecoins and payments (BVNK exit to Mastercard).",
+   "aum": [
+    {
+     "label": "2025 (SEC filings)",
+     "value": 2500000000,
+     "note": "up >30% — the only top crypto VC to grow in 2025",
+     "url": "https://fortune.com/2026/04/16/top-crypto-vcs-paradigm-pantera-a16z-multicoin-haun-dragonfly/"
+    }
+   ],
+   "funds": [
+    {
+     "name": "Fund I",
+     "size": 1500000000,
+     "date": "2022-03",
+     "status": "closed",
+     "url": "https://en.wikipedia.org/wiki/Katie_Haun",
+     "note": "$500M early-stage + $1B acceleration fund"
+    },
+    {
+     "name": "Fund II (early + later stage)",
+     "size": 1000000000,
+     "date": "2026-05",
+     "status": "closed",
+     "note": "split evenly early/later stage; adds AI",
+     "url": "https://theblock.co/post/399902/crypto-vc-haun-ventures-raises-1-billion-fund-investing-blockchain-ai"
+    }
+   ],
+   "perf": [
+    {
+     "fund": "Fund I (2022)",
+     "metric": "Mark",
+     "value": "Held below the $1.5B raised at end of 2022",
+     "src": "Newcomer, from SEC filings",
+     "url": "https://www.newcomer.co/p/in-2022-paradigms-assets-fell-by",
+     "note": "Bear-market mark; AUM later grew to ~$2.5B by 2025 after exits like BVNK."
+    }
+   ],
+   "lps": [
+    {
+     "text": "CalPERS is an LP (also in Lightspeed).",
+     "url": "https://www.dakota.com/reports-blog/crypto-digital-assets-from-speculation-to-allocation"
+    }
+   ]
+  },
+  "Blockchain Capital": {
+   "aliases": [
+    "Blockchain Capital"
+   ],
+   "type": "VC",
+   "hq": "San Francisco, USA",
+   "founded": 2013,
+   "about": "One of the first crypto-dedicated VCs; backs Visa and PayPal as LPs.",
+   "aum": [
+    {
+     "label": "Form ADV (recent)",
+     "value": 2860000000,
+     "url": "https://altss.com/rankings/top-crypto-vcs"
+    }
+   ],
+   "funds": [
+    {
+     "name": "Fund V",
+     "size": 300000000,
+     "date": "2021",
+     "status": "closed",
+     "url": "https://www.theblock.co/amp/post/251367/blockchain-capital-580-million-two-new-funds"
+    },
+    {
+     "name": "Fund VI + Opportunity Fund I",
+     "size": 580000000,
+     "date": "2023",
+     "status": "closed",
+     "url": "https://www.theblock.co/amp/post/251367/blockchain-capital-580-million-two-new-funds"
+    },
+    {
+     "name": "Fund VII + Growth Fund II",
+     "size": 700000000,
+     "date": "2026-04",
+     "status": "raising",
+     "note": "target; already deploying; close expected H2 2026",
+     "url": "https://www.theblock.co/post/398560/blockchain-capital-seeks-700-million"
+    }
+   ]
+  },
+  "Framework Ventures": {
+   "aliases": [
+    "Framework Ventures"
+   ],
+   "type": "VC",
+   "hq": "San Francisco, USA",
+   "founded": 2019,
+   "about": "DeFi-native VC (Chainlink, Aave, Synthetix); now also AI, robotics and energy.",
+   "aum": [
+    {
+     "label": "Dec 2025 (SEC filing)",
+     "value": 1280000000,
+     "url": "https://www.kucoin.com/news/flash/framework-ventures-closes-400m-fund-expands-beyond-crypto-to-ai-and-robotics"
+    }
+   ],
+   "funds": [
+    {
+     "name": "Fund IV",
+     "size": 400000000,
+     "date": "2026-06",
+     "status": "closed",
+     "note": "about half already committed at announcement",
+     "url": "https://cryptobriefing.com/framework-ventures-raises-400m-fourth-fund/"
+    }
+   ]
+  },
+  "Electric Capital": {
+   "aliases": [
+    "Electric Capital"
+   ],
+   "type": "VC",
+   "hq": "Palo Alto, USA",
+   "founded": 2018,
+   "about": "Developer-focused VC; publishes the annual crypto Developer Report.",
+   "funds": [
+    {
+     "name": "Fund II",
+     "size": 110000000,
+     "date": "2020-08",
+     "status": "closed",
+     "url": "https://www.theblock.co/amp/post/73767/electric-capital-110-million-crypto"
+    },
+    {
+     "name": "Venture fund + token fund",
+     "size": 1000000000,
+     "date": "2022-03",
+     "status": "closed",
+     "note": "$400M venture + $600M tokens",
+     "url": "https://blockworks.com/electric-capital-raises-1-billion-to-launch-crypto-venture-token-funds/"
+    },
+    {
+     "name": "Venture Fund III",
+     "size": 300000000,
+     "date": "2023",
+     "status": "target (Form D)",
+     "url": "https://www.theblock.co/post/250606/crypto-vc-electric-capital-aims-to-raise-300-million-for-new-fund"
+    }
+   ]
+  },
+  "Variant": {
+   "aliases": [
+    "Variant",
+    "Variant Fund"
+   ],
+   "type": "VC",
+   "hq": "New York, USA",
+   "founded": 2020,
+   "about": "Early-stage 'ownership economy' investor (Uniswap, Phantom).",
+   "funds": [
+    {
+     "name": "Fund III",
+     "size": 450000000,
+     "date": "2022",
+     "status": "closed",
+     "url": "https://altss.com/rankings/top-crypto-vcs"
+    },
+    {
+     "name": "Variant 4",
+     "size": 222000000,
+     "date": "2026-06",
+     "status": "closed",
+     "url": "https://www.theblock.co/newsletters/layer-one/2026-06-11-layer-one-blockchain-capital-on-cryptos-next-decade-410812"
+    }
+   ]
+  },
+  "Galaxy Digital": {
+   "aliases": [
+    "Galaxy Digital",
+    "Galaxy",
+    "Galaxy Ventures"
+   ],
+   "type": "Public company (venture arm)",
+   "hq": "New York, USA",
+   "founded": 2018,
+   "about": "Mike Novogratz's firm; invested off balance sheet, first outside-capital venture fund in 2024–25.",
+   "funds": [
+    {
+     "name": "Galaxy Ventures Fund I",
+     "size": 175000000,
+     "date": "2025",
+     "status": "closed",
+     "note": "first close $113M in Jun 2024; above $150M target",
+     "url": "https://startupintros.com/orgs/galaxy-ventures"
+    }
+   ]
+  },
+  "Lightspeed Faction": {
+   "aliases": [
+    "Lightspeed Faction",
+    "Faction Ventures",
+    "Faction VC",
+    "Faction"
+   ],
+   "type": "VC (JV with Lightspeed)",
+   "hq": "Menlo Park, USA",
+   "founded": 2022,
+   "about": "Crypto-only partnership run alongside Lightspeed; seed and Series A, $5–10M checks.",
+   "funds": [
+    {
+     "name": "Fund I",
+     "size": 285000000,
+     "date": "2023-11",
+     "status": "closed",
+     "note": "target was $250M",
+     "url": "https://www.theblock.co/post/262389/lightspeed-faction-crypto-venture-fund"
+    }
+   ]
+  },
+  "Robot Ventures": {
+   "aliases": [
+    "Robot Ventures"
+   ],
+   "type": "VC",
+   "hq": "USA",
+   "founded": 2019,
+   "about": "Robert Leshner and Tarun Chitra's pre-seed fund for technical DeFi primitives.",
+   "funds": [
+    {
+     "name": "Fund IV",
+     "size": 75000000,
+     "date": "2024-08",
+     "status": "closed",
+     "url": "https://www.bloomberg.com/news/articles/2024-08-30/robot-ventures-raises-75-million-for-early-stage-crypto-venture-capital-fund"
+    }
+   ]
+  },
+  "Hack VC": {
+   "aliases": [
+    "Hack VC",
+    "HackVC",
+    "Hack Ventures"
+   ],
+   "type": "VC",
+   "hq": "San Francisco, USA",
+   "founded": 2014,
+   "funds": [
+    {
+     "name": "2024 fund",
+     "size": 150000000,
+     "date": "2024-02",
+     "status": "closed",
+     "url": "https://www.bloomberg.com/news/articles/2024-08-30/robot-ventures-raises-75-million-for-early-stage-crypto-venture-capital-fund"
+    }
+   ]
+  },
+  "Bain Capital Crypto": {
+   "aliases": [
+    "Bain Capital Crypto"
+   ],
+   "type": "VC (Bain Capital platform)",
+   "hq": "Boston, USA",
+   "founded": 2022,
+   "funds": [
+    {
+     "name": "Fund I",
+     "size": 560000000,
+     "date": "2022",
+     "status": "closed",
+     "url": "https://altss.com/rankings/top-crypto-vcs"
+    }
+   ]
+  },
+  "Castle Island Ventures": {
+   "aliases": [
+    "Castle Island Ventures"
+   ],
+   "type": "VC",
+   "hq": "Cambridge, USA",
+   "founded": 2018,
+   "funds": [
+    {
+     "name": "Fund III",
+     "size": 250000000,
+     "date": "",
+     "status": "closed",
+     "url": "https://altss.com/rankings/top-crypto-vcs"
+    }
+   ]
+  },
+  "1kx": {
+   "aliases": [
+    "1kx"
+   ],
+   "type": "VC",
+   "hq": "Europe",
+   "founded": 2018,
+   "funds": [
+    {
+     "name": "2024 fund",
+     "size": 75000000,
+     "date": "2024",
+     "status": "closed",
+     "url": "https://altss.com/rankings/top-crypto-vcs"
+    }
+   ]
+  },
+  "ParaFi Capital": {
+   "aliases": [
+    "ParaFi Capital"
+   ],
+   "type": "VC / asset manager",
+   "hq": "USA",
+   "founded": 2018,
+   "funds": [
+    {
+     "name": "Stablecoin & tokenization fund",
+     "size": 125000000,
+     "date": "2026",
+     "status": "closed",
+     "url": "https://global.foresightnews.pro/article/16415"
+    }
+   ]
+  },
+  "YZi Labs": {
+   "aliases": [
+    "YZi Labs",
+    "Binance Labs",
+    "YZi Labs (Formerly: Binance Labs)"
+   ],
+   "type": "Corporate / family office (ex-Binance Labs)",
+   "hq": "Global",
+   "about": "Formerly Binance Labs; invests its own capital, so there are no LP fund raises to track.",
+   "funds": []
+  },
+  "Coinbase Ventures": {
+   "aliases": [
+    "Coinbase Ventures",
+    "Coinbase"
+   ],
+   "type": "Corporate venture arm",
+   "hq": "USA",
+   "about": "Coinbase's balance-sheet investing arm; no outside LPs, so no fund raises or reported returns.",
+   "funds": []
+  }
+ }
+}
