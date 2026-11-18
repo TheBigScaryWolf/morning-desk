@@ -1,0 +1,794 @@
+// Written by the morning crawl. Safe to overwrite.
+window.INTEL = {
+ "updatedAt": "2026-11-18T06:30:00Z",
+ "briefNote": "Sources: CoinDesk, The Block, Cointelegraph, Decrypt RSS + chain news pages",
+ "brief": [
+  "**BTC ~$64K** after a 12% drop through its 200-week average; weekend liquidations ran about $2B and Fear & Greed has sat at 11–12 (Extreme Fear).",
+  "**Flows:** BlackRock's IBIT ended an 11-day outflow streak (~$2.35B out). Glassnode says realized losses are at levels last seen near the 2018/2020/2022 lows. Wintermute warns of the $50Ks if Fed-hike bets keep building.",
+  "**ETFs (16 Nov):** BTC ETFs took in a small +$8M as IBIT's +$76.5M offset GBTC/FBTC exits. ETH ETFs lost $8.3M; about −$223M over the last five sessions.",
+  "**Macro:** Nvidia leadership turmoil is weighing on risk assets. Earnings beat after hours, but the board ruled out Huang's return.",
+  "**Ethereum:** core devs are weighing Glamsterdam scaling changes that could break up to ~15K contracts. Bitmine is close to holding 5% of ETH supply.",
+  "**Solana (Breakpoint London):** mainnet-beta label dropped for 'Solana 1.0'. Solana Foundation took a majority stake in CoinGecko.",
+  "**Hyperliquid:** The Block says its OI has passed Bybit, Kraken and OKX. Q3 revenue was ~$191M (+22%).",
+  "**Regulation:** CFTC cleared US perps (Backpack first). The Clarity Act failed, so regulators will set the rules."
+ ],
+ "launches": [
+  {
+   "name": "Kaboom",
+   "symbol": "KABOOM",
+   "type": null,
+   "launchpad": "Backable (+1)",
+   "date": "17 Nov",
+   "salePrice": 0.0075,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 140000
+  },
+  {
+   "name": "Bot Party Club",
+   "symbol": "BPTY",
+   "type": null,
+   "launchpad": "Toobit",
+   "date": "17 Nov",
+   "salePrice": 0.00125,
+   "price": 0.00155,
+   "roi": 1.24,
+   "athRoi": 1.26,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 120000
+  },
+  {
+   "name": "KieDex",
+   "symbol": "KDX",
+   "type": null,
+   "launchpad": null,
+   "date": "16 Nov",
+   "salePrice": 0.008,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 1000000
+  },
+  {
+   "name": "Mori Finance",
+   "symbol": "MORI",
+   "type": null,
+   "launchpad": "MetaDAO",
+   "date": "13 Nov",
+   "salePrice": 0.025,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 250000
+  },
+  {
+   "name": "vibe/vibe",
+   "symbol": "VIBEVIBE",
+   "type": null,
+   "launchpad": "vibe/vibe",
+   "date": "13 Nov",
+   "salePrice": 0.006,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 300000
+  },
+  {
+   "name": "Kayan Carbon Token",
+   "symbol": "KYNCO2",
+   "type": null,
+   "launchpad": null,
+   "date": "13 Nov",
+   "salePrice": 0.1,
+   "price": 0.1296,
+   "roi": 1.3,
+   "athRoi": 1.33,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 1200000
+  },
+  {
+   "name": "AlphaPulse",
+   "symbol": "APLS",
+   "type": null,
+   "launchpad": null,
+   "date": "12 Nov",
+   "salePrice": 0.0001,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 10000
+  },
+  {
+   "name": "Final Wallet",
+   "symbol": "FINAL",
+   "type": null,
+   "launchpad": "Backable",
+   "date": "10 Nov",
+   "salePrice": 0.005,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 100000
+  },
+  {
+   "name": "Slop Cash",
+   "symbol": "SLOP",
+   "type": null,
+   "launchpad": "Umia",
+   "date": "10 Nov",
+   "salePrice": 0.00889,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 400000
+  },
+  {
+   "name": "Norventa",
+   "symbol": "NORV",
+   "type": null,
+   "launchpad": null,
+   "date": "10 Nov",
+   "salePrice": 0.07,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 1960000
+  },
+  {
+   "name": "Sendr",
+   "symbol": "SENDR",
+   "type": null,
+   "launchpad": "Backable",
+   "date": "9 Nov",
+   "salePrice": 0.025,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 250000
+  },
+  {
+   "name": "ConConAI",
+   "symbol": "CON",
+   "type": null,
+   "launchpad": null,
+   "date": "9 Nov",
+   "salePrice": 0.005,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": null
+  },
+  {
+   "name": "Liquid Logic X (v2)",
+   "symbol": "LLX",
+   "type": null,
+   "launchpad": "GemPad",
+   "date": "8 Nov",
+   "salePrice": 0.011,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 13713
+  },
+  {
+   "name": "1609sat",
+   "symbol": "SAT",
+   "type": null,
+   "launchpad": "MetaDAO",
+   "date": "7 Nov",
+   "salePrice": 0.01,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 100000
+  },
+  {
+   "name": "Panda Ai",
+   "symbol": "PANDA",
+   "type": null,
+   "launchpad": null,
+   "date": "6 Nov",
+   "salePrice": 0.05,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": null
+  },
+  {
+   "name": "WheCoin",
+   "symbol": "WHE",
+   "type": null,
+   "launchpad": "PinkSale",
+   "date": "5 Nov",
+   "salePrice": 0.008783,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 110000
+  },
+  {
+   "name": "BB84",
+   "symbol": "BB84",
+   "type": null,
+   "launchpad": null,
+   "date": "4 Nov",
+   "salePrice": 0.000274,
+   "price": 0.000219,
+   "roi": 0.802,
+   "athRoi": 1.69,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 41026
+  },
+  {
+   "name": "Gacha Galaxy",
+   "symbol": "GG",
+   "type": null,
+   "launchpad": "AlphaMind (+1)",
+   "date": "3 Nov",
+   "salePrice": 0.005,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 25000
+  },
+  {
+   "name": "Cope",
+   "symbol": "COPE",
+   "type": null,
+   "launchpad": "Backable",
+   "date": "3 Nov",
+   "salePrice": 0.005,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 50000
+  },
+  {
+   "name": "Hexncoin",
+   "symbol": "HEXN",
+   "type": null,
+   "launchpad": "Futardio",
+   "date": "3 Nov",
+   "salePrice": 0.0225,
+   "price": null,
+   "roi": null,
+   "athRoi": null,
+   "url": "https://www.coincarp.com/past-ido/",
+   "raise": 220000
+  }
+ ],
+ "upcoming": [
+  {
+   "name": "WELF",
+   "symbol": "WELF",
+   "type": null,
+   "launchpad": "Polkastarter",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 100000.0
+  },
+  {
+   "name": "Vameon",
+   "symbol": "VON",
+   "type": null,
+   "launchpad": "Poolz Finance",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 550000.0
+  },
+  {
+   "name": "AZCoiner",
+   "symbol": "AZC",
+   "type": null,
+   "launchpad": "Kommunitas",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 450000.0
+  },
+  {
+   "name": "ArkeFi",
+   "symbol": "RKFI",
+   "type": null,
+   "launchpad": "Poolz Finance",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 250000.0
+  },
+  {
+   "name": "DEGEN MARKETS",
+   "symbol": "BETAI",
+   "type": null,
+   "launchpad": "Poolz Finance",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 150000.0
+  },
+  {
+   "name": "RuneMine",
+   "symbol": "MINE",
+   "type": null,
+   "launchpad": "Fjord Foundry",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 700000.0
+  },
+  {
+   "name": "Pieverse",
+   "symbol": "PIEVERSE",
+   "type": null,
+   "launchpad": "Binance",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 200000.0
+  },
+  {
+   "name": "DRIVX",
+   "symbol": "DRIVX",
+   "type": null,
+   "launchpad": null,
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 260000.0
+  },
+  {
+   "name": "AetherMind AI",
+   "symbol": "AETH",
+   "type": null,
+   "launchpad": "P2B Launchpad",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 160000.0
+  },
+  {
+   "name": "Aegis",
+   "symbol": "AGS",
+   "type": null,
+   "launchpad": "P2B Launchpad",
+   "date": null,
+   "note": "",
+   "url": "https://www.coincarp.com/upcoming-ido/",
+   "raise": 280000.0
+  }
+ ],
+ "news": [
+  {
+   "chain": "Bitcoin",
+   "date": "18 Nov",
+   "source": "CoinDesk",
+   "title": "Bitcoin's 12% slide through its 200-week average has a bullish track record",
+   "summary": "Only three comparable breaks since 2013; the piece looks at what followed over the next ~3 months.",
+   "url": "https://www.coindesk.com/markets/2026/11/18/bitcoin-s-rare-12-crash-through-its-200-week-average-has-a-bullish-track-record"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "17 Nov",
+   "source": "Decrypt",
+   "title": "Bitcoin investors are capitulating, historically a bottom signal",
+   "summary": "Glassnode: realized losses match levels from prior cycle lows; buyers defending $62K–$66K.",
+   "url": "https://decrypt.co/383466/bitcoin-investors-capitulating-historical-bottom-signal"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "17 Nov",
+   "source": "CoinDesk",
+   "title": "Wintermute: BTC could slide into the $50,000s as Fed hike bets build",
+   "summary": "ETF outflows, weak spot demand and rate-hike risk are the market maker's main concerns.",
+   "url": "https://www.coindesk.com/markets/2026/11/17/bitcoin-could-slide-into-the-usd50-000s-as-fed-rate-hike-bets-build-wintermute-says"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "17 Nov",
+   "source": "Cointelegraph",
+   "title": "BlackRock's IBIT snaps $2.35B outflow streak",
+   "summary": "The first inflow day after 11 sessions of withdrawals. CryptoQuant says it's too early to call a turn.",
+   "url": "https://cointelegraph.com/markets/blackrock-ibit-outflow-streak-end-extreme-fear"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "16 Nov",
+   "source": "Decrypt",
+   "title": "$2B liquidation weekend leaves traders watching $60K",
+   "summary": "BTC fell to around $62.1K as forced liquidations swept the market.",
+   "url": "https://decrypt.co/383366/bitcoin-2-billion-liquidation-weekend-traders-watching-60000"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "17 Nov",
+   "source": "CoinDesk",
+   "title": "Glamsterdam upgrade risks breaking up to 15,000 automated apps",
+   "summary": "Audits found hundreds of compatibility issues. Core devs will revisit the two scaling changes.",
+   "url": "https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "16 Nov",
+   "source": "Cointelegraph",
+   "title": "Bitmine edges toward 5% of ETH supply",
+   "summary": "Treasury companies including Strategy, Strive and Bitmine reported fresh buys into the slump.",
+   "url": "https://cointelegraph.com/markets/bitmine-nears-5-eth-supply-treasuries-report-buys-amid-market-slump"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "16 Nov",
+   "source": "Decrypt",
+   "title": "Vitalik 'a total bull' on leanPCS as a fast track to quantum-safe Ethereum",
+   "summary": "He argues proof aggregation could arrive much sooner than devs expected.",
+   "url": "https://decrypt.co/383294/vitalik-buterin-now-a-total-bull-on-leanpcs-as-fast-track-to-quantum-safe-ethereum"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "17 Nov",
+   "source": "Cointelegraph",
+   "title": "Goldman Sachs reports $1.22B in Ether ETFs",
+   "summary": "Goldman added Ether ETF shares in Q3 and reshuffled its Bitcoin ETF positions.",
+   "url": "https://cointelegraph.com/news/goldman-sachs-reports-122b-ether-etfs-etha-shares-jumps"
+  },
+  {
+   "chain": "Solana",
+   "date": "17 Nov",
+   "source": "CoinDesk",
+   "title": "Solana Foundation takes majority stake in CoinGecko",
+   "summary": "Plans Solana-powered trading on CoinGecko, GeckoTerminal and the app.",
+   "url": "https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko"
+  },
+  {
+   "chain": "Solana",
+   "date": "16 Nov",
+   "source": "Decrypt",
+   "title": "Solana drops 'mainnet beta' after six years",
+   "summary": "Solana 1.0 adds shared protocol versioning so builders can track network rules.",
+   "url": "https://decrypt.co/383322/solana-drops-mainnet-beta-after-six-years"
+  },
+  {
+   "chain": "Solana",
+   "date": "16 Nov",
+   "source": "Decrypt",
+   "title": "Jupiter to let users borrow against Bullish shares",
+   "summary": "Permissioned lending market, identity passport and issuer liquidity tools announced at Breakpoint.",
+   "url": "https://decrypt.co/383333/tokenization-is-not-the-finish-line-jupiter-to-let-users-borrow-against-bullish-shares"
+  },
+  {
+   "chain": "Solana",
+   "date": "12 Nov",
+   "source": "solana.com",
+   "title": "DTCC Tokenization Service to connect with Solana",
+   "summary": "Targeted for H2 2027, for eligible DTC-custodied assets.",
+   "url": "https://solana.com/news"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "13 Nov",
+   "source": "The Block",
+   "title": "Hyperliquid leapfrogs Bybit, Kraken and OKX in open interest",
+   "summary": "Q3 revenue up 22% to ~$191M, with record daily traders and a surge in stock-linked volume.",
+   "url": "https://theblock.co/news/markets/2026-11-13-hyperliquid-leapfrogs-bybit-kraken-okx-open-interest-q3-positions-grow-440053"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "17 Nov",
+   "source": "Decrypt",
+   "title": "Ex-Robinhood engineer pleads guilty to Hyperliquid insider trades",
+   "summary": "Used confidential Robinhood listing plans to trade perps on Hyperliquid (~$125K profit).",
+   "url": "https://decrypt.co/383443/former-robinhood-engineer-pleads-guilty-crypto-insider-trading"
+  },
+  {
+   "chain": "Base",
+   "date": "17 Nov",
+   "source": "The Block",
+   "title": "Coinbase expands onchain crypto loans to New York via Morpho",
+   "summary": "BTC, ETH and SOL supported as collateral.",
+   "url": "https://www.theblock.co/news/business/2026-11-17-coinbase-borrow-new-york-morpho-442842"
+  },
+  {
+   "chain": "Cardano",
+   "date": "17 Nov",
+   "source": "CoinDesk",
+   "title": "Cardano Foundation seeks $5M from treasury at an ADA price 33% above market",
+   "summary": "The request is for 25M ADA to fund 12 global events.",
+   "url": "https://www.coindesk.com/tech/2026/11/17/cardano-foundation-seeks-usd5-million-from-treasury-using-ada-price-33-above-market"
+  },
+  {
+   "chain": "XRPL",
+   "date": "18 Nov",
+   "source": "CoinDesk",
+   "title": "XRP whales moved $270M during the selloff, but not to exchanges",
+   "summary": "Moves into two vaults look like custody rotation, not selling.",
+   "url": "https://www.coindesk.com/markets/2026/11/18/xrp-whales-moved-usd270-million-during-the-selloff-the-coins-didn-t-go-to-exchanges"
+  },
+  {
+   "chain": "Market",
+   "date": "17 Nov",
+   "source": "Decrypt",
+   "title": "CFTC officially greenlights perps in the US, starting with Backpack",
+   "summary": "First US-regulated venue cleared to list perpetual futures.",
+   "url": "https://decrypt.co/383418/morning-minute-the-cftc-officially-greenlights-perps-in-the-us-starting-with-backpack"
+  },
+  {
+   "chain": "Market",
+   "date": "17 Nov",
+   "source": "CoinDesk",
+   "title": "Binance hacker moves $63M in stolen ether after two weeks of silence",
+   "summary": "Investigators attribute the funds to North Korea's TraderTraitor group.",
+   "url": "https://www.coindesk.com/business/2026/11/17/binance-hacker-moves-usd63-million-in-stolen-ether-after-two-weeks-of-silence"
+  },
+  {
+   "chain": "Market",
+   "date": "17 Nov",
+   "source": "The Block",
+   "title": "World Bank Group taps Circle and Citi to test stablecoin fund disbursements",
+   "summary": "Pilot focuses on an intermediated, interoperable stablecoin payment model.",
+   "url": "https://www.theblock.co/news/business/2026-11-17-world-bank-group-citi-circle-fund-disbursements-442924"
+  },
+  {
+   "chain": "Market",
+   "date": "17 Nov",
+   "source": "CoinDesk",
+   "title": "Crypto-stealing code planted on 178 major websites, including Ledger",
+   "summary": "An Optimizely signup flaw let an attacker swap wallet addresses and skim cards.",
+   "url": "https://www.coindesk.com/tech/2026/11/17/hackers-planted-crypto-stealing-code-on-178-organizations-sites-including-hsbc-bbc-and-ledger"
+  },
+  {
+   "chain": "Market",
+   "date": "16 Nov",
+   "source": "Decrypt",
+   "title": "Clarity Act defeat a 'failure of American leadership', says Trump's former crypto chief",
+   "summary": "With the bill dead, regulators will set the rules.",
+   "url": "https://decrypt.co/383356/clarity-act-defeat-failure-of-american-leadership-trumps-former-crypto-chief"
+  }
+ ],
+ "launchSource": "CoinCarp",
+ "launchSourceUrl": "https://www.coincarp.com/past-ido/",
+ "etf": {
+  "eth": {
+   "source": "SoSoValue via daily reports",
+   "asOf": "2026-11-16",
+   "cumulative": 11520000000.0,
+   "aum": 10540000000.0,
+   "last7d": -222700000.0,
+   "days": [
+    {
+     "date": "2026-11-12",
+     "flow": -70570000.0
+    },
+    {
+     "date": "2026-11-13",
+     "flow": 2360000.0
+    },
+    {
+     "date": "2026-11-16",
+     "flow": -8310000.0
+    }
+   ]
+  }
+ },
+ "funding": {
+  "updatedAt": "2026-11-18T06:30:00Z",
+  "note": "Compiled weekly from crypto.news / DefiLlama weekly roundup, Gate Ventures recap and company announcements. Valuations marked est. are estimates.",
+  "weeks": [
+   {
+    "label": "7–13 Nov",
+    "from": "2026-11-07",
+    "to": "2026-11-13",
+    "rounds": [
+     {
+      "project": "Project Faro",
+      "what": "Bank-backed dollar stablecoin venture for payments and settlement",
+      "round": "Corporate commitment",
+      "date": "10 Nov",
+      "amount": 270000000.0,
+      "lead": [],
+      "others": [
+       "Goldman Sachs",
+       "Citigroup",
+       "Santander",
+       "Deutsche Bank",
+       "21-bank consortium"
+      ],
+      "url": "https://crypto.news/goldman-citi-270m-dollar-stablecoin-venture/"
+     },
+     {
+      "project": "Index Industries",
+      "what": "US home-price index and tokenization for housing-linked products",
+      "round": "Seed",
+      "date": "10 Nov",
+      "amount": 50000000.0,
+      "lead": [
+       "Lightspeed Venture Partners"
+      ],
+      "others": [
+       "Polychain Capital",
+       "Galaxy Ventures",
+       "Wintermute Ventures"
+      ],
+      "url": "https://www.prnewswire.com/news-releases/index-industries-raises-50-million-in-funding-to-reinvent-how-the-world-invests-in-real-estate-302935231.html",
+      "valuation": 417000000.0,
+      "valuationEst": true,
+      "valuationNote": "Estimate: assumes ~12% sold in a Seed round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "Alta",
+      "what": "Compliance-focused L1 for banks: cross-border payments, FX, treasury",
+      "round": "Series A",
+      "date": "10 Nov",
+      "amount": 47500000.0,
+      "lead": [
+       "Index Ventures"
+      ],
+      "others": [
+       "GV",
+       "Blackbird Ventures",
+       "Square Peg",
+       "Capital49",
+       "Airwallex"
+      ],
+      "url": "https://crypto.news/alta-raises-47-5m-for-blockchain-backed-by-crypto-skeptic-jack-zhang/",
+      "valuation": 264000000.0,
+      "valuationEst": true,
+      "valuationNote": "Estimate: assumes ~18% sold in a Series A round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "Griffin",
+      "what": "UK bank adding card issuing and stablecoin services",
+      "round": "Series B",
+      "date": "12 Nov",
+      "amount": 20000000.0,
+      "lead": [
+       "Octagon Partners"
+      ],
+      "others": [
+       "Notion Capital",
+       "A+ Ventures",
+       "Nordic Ninja",
+       "Breega"
+      ],
+      "url": "https://griffin.com/blog/series-b-announcement",
+      "valuation": 100000000.0,
+      "valuationPrefix": ">",
+      "valuationNote": "Reported as above $100M"
+     },
+     {
+      "project": "Marble",
+      "what": "Institutional frontier-markets trading + credit for AI infrastructure",
+      "round": "Seed",
+      "date": "10 Nov",
+      "amount": 11000000.0,
+      "lead": [
+       "Polychain Capital"
+      ],
+      "others": [
+       "Maven 11",
+       "Ripple",
+       "Susquehanna Crypto",
+       "Lattice",
+       "Blockwall"
+      ],
+      "url": "https://www.prnewswire.com/news-releases/marble-launches-with-11m-seed-led-by-polychain-capital-to-build-institutional-frontier-markets-trading-and-ai-infrastructure-finance-302934821.html",
+      "valuation": 92000000.0,
+      "valuationEst": true,
+      "valuationNote": "Estimate: assumes ~12% sold in a Seed round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "Seva Money",
+      "what": "Wallets, cards and embedded finance for remittance providers",
+      "round": "Seed",
+      "date": null,
+      "amount": 5000000.0,
+      "lead": [
+       "Blockwall",
+       "Revent"
+      ],
+      "others": [
+       "Seedcamp",
+       "Stride",
+       "Ada Ventures"
+      ],
+      "url": "https://seva.money/seva-money-raises-5m-seed-round-to-turn-remittances-into-ongoing-financial-relationships/",
+      "valuation": 42000000.0,
+      "valuationEst": true,
+      "valuationNote": "Estimate: assumes ~12% sold in a Seed round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "Quranum Protocol",
+      "what": "Protocol and financial infrastructure",
+      "round": "Strategic",
+      "date": null,
+      "amount": 4500000.0,
+      "lead": [],
+      "others": [
+       "Archer Capital",
+       "Tidal Capital",
+       "Astra Capital"
+      ],
+      "url": "https://www.theblock.co/press-releases/quranum-protocol-announces-4-5-million-strategic-funding-from-archer-capital-tidal-capital-and-astra-capital-435981"
+     },
+     {
+      "project": "DECA Labs",
+      "what": "AI-agent network that validates software ideas (cumulative funding)",
+      "round": "Cumulative",
+      "date": null,
+      "amount": null,
+      "lead": [],
+      "others": [
+       "Polychain",
+       "Pantera",
+       "Accel",
+       "dao5"
+      ],
+      "url": "https://decalabs.ai/",
+      "note": "$12M cumulative"
+     },
+     {
+      "project": "vibe/vibe",
+      "what": "Launchpad for Robinhood Chain",
+      "round": "Public sale",
+      "date": "13 Nov",
+      "amount": 300000.0,
+      "lead": [],
+      "others": [],
+      "url": "https://vibevibe.fun/links/"
+     },
+     {
+      "project": "Mori Finance",
+      "what": "Solana covered-call options platform",
+      "round": "MetaDAO raise",
+      "date": null,
+      "amount": 250000.0,
+      "lead": [],
+      "others": [],
+      "url": "https://metadao.com/companies/mori-finance"
+     },
+     {
+      "project": "Kailash",
+      "what": "Institutional investment products onchain",
+      "round": "Pre-seed",
+      "date": "12 Nov",
+      "amount": null,
+      "lead": [
+       "UTXO Management"
+      ],
+      "others": [],
+      "url": "https://cryptorank.io/insights/deals/kailash-pre-seed-2026-11-12"
+     },
+     {
+      "project": "Spout",
+      "what": "Lending against tokenized stocks on Solana",
+      "round": "Strategic",
+      "date": "12 Nov",
+      "amount": null,
+      "lead": [
+       "Ondo"
+      ],
+      "others": [],
+      "url": "https://cryptorank.io/insights/deals/msc-lp-raise-2026-11-12"
+     }
+    ]
+   }
+  ]
+ }
+};
