@@ -229,10 +229,10 @@
       <div class="card-h"><h2>Breakout radar <span class="sub" id="rd-sub"></span></h2>
         <div class="tabs" id="rd-tabs"><button data-k="up" class="on">Breakouts</button><button data-k="near">Near 52w high</button><button data-k="down">Breakdowns</button><button data-k="rs">Strongest 30d</button><button data-k="weak">Weakest 30d</button></div></div>
       <div class="scroll" style="max-height:400px"><table>
-        <thead><tr><th>Coin</th><th class="r">Price</th><th class="r">24h</th><th class="r">30d</th><th class="r" title="Close as % of 52-week high">vs 52w high</th><th class="r" title="Yesterday's volume ÷ 20-day average">RVOL</th><th class="r" title="Trend strength (ADX 14)">ADX</th></tr></thead>
+        <thead><tr><th>Coin</th><th class="r">Price</th><th class="r">24h</th><th class="r">30d</th><th class="r" title="Where the close sits in its 52-week range: 0% = at the low, 100% = at the high">52w range</th><th class="r" title="Yesterday's volume ÷ 20-day average">RVOL</th><th class="r" title="Trend strength (ADX 14)">ADX</th></tr></thead>
         <tbody id="rd-body"><tr><td colspan="7" class="empty">Scanning the top 100 Binance pairs…</td></tr></tbody>
       </table></div>
-      <div class="src" style="margin-top:6px">Breakout = within 5% of the 52-week high with volume ≥1.3× normal and ADX ≥22 (strong trend). Breakdown = the same near the 52-week low. Universe: top 100 Binance USDT pairs by volume, stablecoins excluded. Daily closes. Click a coin to open its TradingView chart.</div>
+      <div class="src" style="margin-top:6px">Breakout = closing in the top 10% of its 52-week range, with volume ≥1.3× normal and ADX ≥22 (strong trend). Breakdown = the same in the bottom 10%. Universe: top 100 Binance USDT pairs by volume, stablecoins excluded. Daily closes. Click a coin to open its TradingView chart.</div>
     </section>
     <section class="card" id="sectors">
       <div class="card-h"><h2>Sector rotation <span class="sub">· 24h market-cap change</span></h2><span class="src">CoinGecko categories</span></div>
@@ -987,16 +987,16 @@
       const closed = k.slice(0, -1); const c = closed.map(r => +r[4]), h = closed.map(r => +r[2]), l = closed.map(r => +r[3]), qv = closed.map(r => +r[7]), ts = closed.map(r => +r[0]);
       const last = c.at(-1), hi52 = Math.max(...h), lo52 = Math.min(...l);
       const vAvg = mean(qv.slice(-21, -1)); const rvol = vAvg ? qv.at(-1) / vAvg : null;
-      coins.push({ base: u.base, sym: u.sym, live: u.last, ch24: u.open ? (u.last / u.open - 1) * 100 : null, c, ts, hi52, lo52, pct52: last / hi52 * 100, offLow: last / lo52, rvol, adx: adx14(h, l, c), mom30: c.length > 31 ? (last / c.at(-31) - 1) * 100 : null, vol: u.qv, len: c.length }); });
+      coins.push({ base: u.base, sym: u.sym, live: u.last, ch24: u.open ? (u.last / u.open - 1) * 100 : null, c, ts, hi52, lo52, pct52: last / hi52 * 100, pos: hi52 > lo52 ? (last - lo52) / (hi52 - lo52) * 100 : 50, rvol, adx: adx14(h, l, c), mom30: c.length > 31 ? (last / c.at(-31) - 1) * 100 : null, vol: u.qv, len: c.length }); });
     S.scan = coins; renderRadar(); computeRegime();
   }
   function renderRadar() {
     const co = S.scan || []; if (!co.length) return;
     const gate = (x) => x.rvol >= 1.3 && x.adx >= 22 && x.vol >= 1e5;
     const lists = {
-      up: co.filter(x => x.pct52 >= 95 && gate(x)).sort((a, b) => b.pct52 - a.pct52),
-      near: co.filter(x => x.len >= 200).sort((a, b) => b.pct52 - a.pct52).slice(0, 15),
-      down: co.filter(x => x.offLow <= 1.05 && gate(x)).sort((a, b) => a.offLow - b.offLow),
+      up: co.filter(x => x.pos >= 90 && gate(x)).sort((a, b) => b.pos - a.pos),
+      near: co.filter(x => x.len >= 200).sort((a, b) => b.pos - a.pos).slice(0, 15),
+      down: co.filter(x => x.pos <= 10 && gate(x)).sort((a, b) => a.pos - b.pos),
       rs: co.filter(x => x.mom30 != null).sort((a, b) => b.mom30 - a.mom30).slice(0, 15),
       weak: co.filter(x => x.mom30 != null).sort((a, b) => a.mom30 - b.mom30).slice(0, 15),
     };
@@ -1006,22 +1006,22 @@
     $('rd-body').replaceChildren(...(rows.length ? rows.map(x => el('tr', { class: 'click', onclick: () => window.open('https://www.tradingview.com/chart/?symbol=BINANCE%3A' + x.sym, '_blank', 'noopener') },
       el('td', {}, el('b', { text: x.base })),
       el('td', { class: 'r num', text: price(x.live) }), el('td', { class: 'r' }, pctEl(x.ch24, 1)), el('td', { class: 'r' }, pctEl(x.mom30, 1)),
-      el('td', { class: 'r num', text: x.pct52.toFixed(0) + '%' }), el('td', { class: 'r num ' + (x.rvol >= 1.3 ? '' : 'muted'), text: x.rvol ? x.rvol.toFixed(1) + '×' : '—' }),
+      el('td', { class: 'r num', title: x.pct52.toFixed(0) + '% of 52w high', text: x.pos.toFixed(0) + '%' }), el('td', { class: 'r num ' + (x.rvol >= 1.3 ? '' : 'muted'), text: x.rvol ? x.rvol.toFixed(1) + '×' : '—' }),
       el('td', { class: 'r num ' + (x.adx >= 22 ? '' : 'muted'), text: x.adx ? x.adx.toFixed(0) : '—' })))
       : [el('tr', {}, el('td', { colspan: 7, class: 'empty', text: radarTab === 'up' ? 'No confirmed breakouts today. Nothing is near its 52-week high with volume and trend behind it.' : radarTab === 'down' ? 'No confirmed breakdowns today.' : 'Nothing to show.' }))]));
   }
   $('rd-tabs').addEventListener('click', (e) => { const b = e.target.closest('button[data-k]'); if (!b) return; radarTab = b.dataset.k; renderRadar(); });
 
   function computeRegime() {
-    const basket = (S.scan || []).filter(x => x.len >= 300).slice(0, 42); if (basket.length < 15) { $('rg-state').textContent = 'Not enough history to compute.'; return; }
+    const basket = (S.scan || []).filter(x => x.len >= 350).slice(0, 42); if (basket.length < 15) { $('rg-state').textContent = 'Not enough history to compute.'; return; }
     const N = Math.min(...basket.map(x => x.c.length)); const series = [];
-    for (let k = 230; k < N; k++) { // k = index from the aligned start
+    for (let k = 200; k < N; k++) { // k = index from the aligned start
       let above = 0, moms = [];
       for (const x of basket) { const off = x.c.length - N; const i = off + k; const w = x.c.slice(i - 199, i + 1); const ma = mean(w); if (x.c[i] > ma) above++; moms.push((x.c[i] / x.c[i - 30] - 1) * 100); }
       series.push({ t: basket[0].ts[basket[0].c.length - N + k], b: above / basket.length * 100, m: median(moms) });
     }
     const out = series.map((p, i) => { if (i < 89) return null; const w = series.slice(i - 89, i + 1); const zb = (p.b - mean(w.map(x => x.b))) / sd(w.map(x => x.b)), zm = (p.m - mean(w.map(x => x.m))) / sd(w.map(x => x.m)); const r = (zb + zm) / 2; return { t: p.t, v: Math.round(100 * Phi(r / 1.3)), r, b: p.b, m: p.m }; }).filter(Boolean);
-    const now = out.at(-1); if (!now) return;
+    const now = out.at(-1); if (!now) { $('rg-state').textContent = 'Not enough history to compute.'; return; }
     const st = now.r <= -0.5 ? ['risk-off: capital retreating', 'var(--down)'] : now.r >= 0.5 ? ['risk-on: broad buying', 'var(--up)'] : ['neutral', 'var(--text-secondary)'];
     $('rg-heat').textContent = now.v; $('rg-heat').style.color = st[1]; $('rg-state').textContent = st[0];
     $('rg-facts').replaceChildren(el('span', { class: 'muted', text: 'Above 200-day MA' }), el('span', { text: now.b.toFixed(0) + '% of ' + basket.length }), el('span', { class: 'muted', text: 'Median 30d return' }), el('span', { text: (now.m > 0 ? '+' : '') + now.m.toFixed(1) + '%' }), el('span', { class: 'muted', text: 'A week ago' }), el('span', { text: String(out.at(-8)?.v ?? '—') }));
