@@ -148,6 +148,8 @@
   .links a:hover { text-decoration: underline; }
   svg text { fill: var(--text-muted); font-size: 10.5px; }
 </style>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script src="btc-live.js" defer></script>
 </head>
 <body>
 <div class="wrap">
@@ -481,6 +483,7 @@
   const S = { btc: null, chains: [], hist: {}, stableChains: {}, hl: null, cgExch: null, fees: null, dexs: null, sig: {} };
 
   // ---------- BTC ----------
+  window.__pctEl = (v, d) => pctEl(v, d);
   async function loadBTC() {
     const [by, kl] = await Promise.all([
       safe(getJSON('https://api.bybit.com/v5/market/tickers?category=spot&symbol=BTCUSDT')),
@@ -491,9 +494,9 @@
     if (t) { p = +t.lastPrice; ch = +t.price24hPcnt * 100; }
     if (p == null) { const cg = await safe(getJSON('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true')); if (cg?.bitcoin) { p = cg.bitcoin.usd; ch = cg.bitcoin.usd_24h_change; } }
     S.sig.btc = p; S.sig.btc24 = ch;
+    const L = window.__btcLive; if (L && Date.now() - L.at < 15000) { p = L.price; ch = L.ch24; S.sig.btc = p; S.sig.btc24 = ch; }
     S.btc = p;
-    $('btc-price').textContent = price(p);
-    $('btc-24h').replaceChildren(pctEl(ch, 2), ' 24h');
+    if (!(L && Date.now() - L.at < 15000)) { $('btc-price').textContent = price(p); $('btc-24h').replaceChildren(pctEl(ch, 2), ' 24h'); }
     const pts = (kl?.result?.list || []).map(r => ({ t: +r[0], v: +r[4] })).reverse();
     if (pts.length > 1) { const c7 = (pts.at(-1).v / pts[0].v - 1) * 100; S.sig.btc7 = c7; $('btc-7d').replaceChildren(pctEl(c7, 1), ' 7d'); }
     lineChart($('btc-spark'), pts, { fmt: price });
