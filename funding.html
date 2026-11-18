@@ -55,6 +55,7 @@
       <div class="tabs" id="win"><button data-k="7">7d</button><button data-k="30">30d</button><button data-k="90">90d</button><button data-k="365" class="on">1y</button><button data-k="730">2y</button><button data-k="1825">5y</button><button data-k="0">All</button></div>
       <select id="round"><option value="">All rounds</option></select>
       <select id="cat"><option value="">All categories</option></select>
+      <select id="srcSel"><option value="">All sources</option><option value="dl">In DefiLlama</option><option value="cc">CoinCarp only (not in DefiLlama)</option></select>
       <select id="min"><option value="0">Any size</option><option value="1e6">≥ $1M</option><option value="5e6">≥ $5M</option><option value="1e7">≥ $10M</option><option value="5e7">≥ $50M</option><option value="1e8">≥ $100M</option></select>
       <label class="muted"><input type="checkbox" id="leadOnly"> investor must be lead</label>
       <button id="reset">Reset</button>
@@ -71,7 +72,7 @@
 
   <div class="grid two row">
     <section class="card"><h2>Capital raised <span class="sub" id="ch-sub"></span></h2><div id="chart" style="height:220px"></div></section>
-    <section class="card"><h2>Most active lead investors <span class="sub">· in this selection, click to filter</span></h2><div id="leads" style="max-height:220px;overflow:auto"></div></section>
+    <section class="card"><h2><span id="inv-title">Most active lead investors</span> <span class="sub">· in this selection, click to filter</span></h2><div id="leads" style="max-height:220px;overflow:auto"></div></section>
   </div>
   <div class="grid two row">
     <section class="card"><h2>Top categories <span class="sub">· by $ raised</span></h2><div id="cats" style="max-height:200px;overflow:auto"></div></section>
@@ -85,7 +86,7 @@
       <tbody id="body"></tbody>
     </table></div>
     <div class="more"><button id="moreBtn">Show 200 more</button></div>
-    <div class="src" style="margin-top:8px">Data: DefiLlama raises database (public). New weekly rounds are added by the Monday crawl. Click a project to search for its announcement, or an investor to filter by them. Valuation estimates assume ~10% sold at pre-seed, 12% at seed, 18% at Series A, 15% at B and 12% at C. They are rough guides, not reported figures.</div>
+    <div class="src" style="margin-top:8px">Data: DefiLlama's public raises database merged with CoinCarp's fundraising list, with duplicates removed (same project within ~2 weeks, or ~6 weeks when the amount matches). CoinCarp shows up to 3 investors per round and doesn't mark leads. New rounds are added by the Monday crawl. Click a project to search for its announcement, or an investor to filter by them. Valuation estimates assume ~10% sold at pre-seed, 12% at seed, 18% at Series A, 15% at B and 12% at C. They are rough guides, not reported figures.</div>
   </section>
 </div>
 <div id="tip"></div>
@@ -94,20 +95,21 @@
   const $ = (id) => document.getElementById(id);
   const el = (tag, attrs = {}, ...kids) => { const n = document.createElement(tag); for (const [k, v] of Object.entries(attrs)) { if (k === 'class') n.className = v; else if (k === 'text') n.textContent = v; else if (k.startsWith('on')) n.addEventListener(k.slice(2), v); else n.setAttribute(k, v); } for (const k of kids) if (k != null) n.append(k.nodeType ? k : document.createTextNode(k)); return n; };
   const usd = (v) => { if (v == null || !isFinite(v)) return '—'; const a = Math.abs(v); if (a >= 1e9) return '$' + (a / 1e9).toFixed(a >= 1e10 ? 1 : 2) + 'B'; if (a >= 1e6) return '$' + (a / 1e6).toFixed(a >= 1e8 ? 0 : 1) + 'M'; if (a >= 1e3) return '$' + (a / 1e3).toFixed(0) + 'K'; return '$' + a.toFixed(0); };
+  const SRC = { dl: 'DefiLlama', cc: 'CoinCarp', both: 'DefiLlama + CoinCarp', crawl: 'Weekly crawl' };
   const DIL = { 'Pre-Seed': .10, 'Pre-seed': .10, 'Seed': .12, 'Series A': .18, 'Series B': .15, 'Series C': .12 };
   const tip = $('tip');
   const showTip = (x, y, lines) => { tip.replaceChildren(...lines.map(l => el('div', { text: l }))); tip.style.display = 'block'; const r = tip.getBoundingClientRect(); let L = x + 14, T = y - r.height - 10; if (L + r.width > innerWidth - 6) L = x - r.width - 14; if (T < 6) T = y + 16; tip.style.left = L + 'px'; tip.style.top = T + 'px'; };
   const hideTip = () => tip.style.display = 'none';
 
   let ROWS = [], view = [], shown = 200, sortK = 'd', sortDir = -1, win = 365, invFilter = '';
-  const st = { q: '', round: '', cat: '', min: 0, leadOnly: false };
+  const st = { q: '', round: '', cat: '', min: 0, leadOnly: false, src: '' };
 
   function valOf(x) { if (x.v) return { v: x.v, est: false }; const d = DIL[x.r]; return d && x.a ? { v: Math.round(x.a / d / 1e5) * 1e5, est: true } : null; }
 
   async function init() {
     let j = null; try { j = await (await fetch('funding-history.json?t=' + Date.now())).json(); } catch (e) {}
     if (!j) { $('body').replaceChildren(el('tr', {}, el('td', { colspan: 8, class: 'muted', text: 'Could not load funding-history.json.' }))); return; }
-    ROWS = j.rows.map(x => ({ ...x, t: Date.parse(x.d + 'T00:00:00Z'), hay: (x.n + ' ' + x.l.join(' ') + ' ' + x.o.join(' ') + ' ' + x.c + ' ' + x.s).toLowerCase() }));
+    ROWS = j.rows.map(x => ({ ...x, t: Date.parse(x.d + 'T00:00:00Z'), hay: (x.n + ' ' + x.l.join(' ') + ' ' + x.o.join(' ') + ' ' + (x.c || '') + ' ' + (x.s || '')).toLowerCase() }));
     $('meta').textContent = `${ROWS.length.toLocaleString()} rounds · ${ROWS.at(-1)?.d?.slice(0, 4) || ''}–${ROWS[0]?.d || ''} · ${j.meta?.source || ''}`;
     const rounds = {}, cats = {}; for (const x of ROWS) { if (x.r) rounds[x.r] = (rounds[x.r] || 0) + 1; if (x.c) cats[x.c] = (cats[x.c] || 0) + 1; }
     for (const [k] of Object.entries(rounds).sort((a, b) => b[1] - a[1])) $('round').append(el('option', { value: k, text: k }));
@@ -119,7 +121,7 @@
 
   function apply() {
     const now = Date.now(), from = win ? now - win * 864e5 : 0, q = st.q.toLowerCase();
-    view = ROWS.filter(x => x.t >= from && (!st.round || x.r === st.round) && (!st.cat || x.c === st.cat) && (!st.min || (x.a || 0) >= st.min) && (!q || x.hay.includes(q))
+    view = ROWS.filter(x => x.t >= from && (!st.round || x.r === st.round) && (!st.cat || x.c === st.cat) && (!st.min || (x.a || 0) >= st.min) && (!st.src || (st.src === 'cc' ? x.src === 'cc' : x.src !== 'cc')) && (!q || x.hay.includes(q))
       && (!invFilter || (st.leadOnly ? x.l.includes(invFilter) : (x.l.includes(invFilter) || x.o.includes(invFilter)))));
     sortView(); shown = 200; render();
     $('active').textContent = invFilter ? `Filtered to investor: ${invFilter}${st.leadOnly ? ' (as lead)' : ''}. Click Reset to clear.` : '';
@@ -143,19 +145,22 @@
         el('td', { class: 'muted num', style: 'white-space:nowrap', text: x.d }),
         el('td', { style: 'min-width:200px' }, el('a', { href: 'https://www.google.com/search?q=' + encodeURIComponent(`${x.n} ${x.r || ''} raise ${x.d.slice(0, 4)}`), target: '_blank', rel: 'noopener', style: 'font-weight:600;text-decoration:none', text: x.n }),
           x.s ? el('div', { class: 'muted', style: 'font-size:12px;max-width:380px', text: x.s.length > 140 ? x.s.slice(0, 137) + '…' : x.s }) : null,
-          x.ch?.length ? el('div', {}, ...x.ch.slice(0, 4).map(c => el('span', { class: 'tag', text: c }))) : null),
+          (x.ch?.length || x.src) ? el('div', {}, ...(x.ch || []).slice(0, 4).map(c => el('span', { class: 'tag', text: c })), x.src ? el('span', { class: 'tag', style: 'opacity:.7', text: SRC[x.src] || x.src }) : null) : null),
         el('td', { class: 'muted', style: 'white-space:nowrap', text: x.r || '—' }),
         el('td', { class: 'r num', text: x.a ? usd(x.a) : 'undisclosed' }),
         el('td', { class: 'r num' + (val?.est ? ' muted' : ''), text: val ? (val.est ? '~' + usd(val.v) + ' est.' : usd(val.v)) : '—' }),
-        el('td', { style: 'min-width:130px' }, x.l.length ? join(x.l) : '—'),
-        el('td', { class: 'muted', style: 'min-width:200px;max-width:380px' }, x.o.length ? join(x.o.slice(0, 12)) : '—', x.o.length > 12 ? ` +${x.o.length - 12}` : null),
+        el('td', { style: 'min-width:130px' }, x.l.length ? join(x.l) : el('span', { class: 'muted', title: x.src === 'cc' ? 'CoinCarp does not mark lead investors' : '', text: '—' })),
+        el('td', { class: 'muted', style: 'min-width:200px;max-width:380px' }, x.o.length ? join(x.o.slice(0, 12)) : '—', x.o.length > 12 ? ` +${x.o.length - 12}` : null, x.m ? ` +${x.m} more` : null),
         el('td', { class: 'muted', text: x.c || '—' })); }));
     $('moreBtn').style.display = shown < view.length ? '' : 'none';
   }
   function renderSide() {
     const L = {}, C = {}; for (const x of view) { for (const l of x.l) { (L[l] ||= { n: 0, s: 0 }); L[l].n++; L[l].s += x.a || 0; } if (x.c) { (C[x.c] ||= { n: 0, s: 0 }); C[x.c].n++; C[x.c].s += x.a || 0; } }
     const row = (name, a, b, on) => el('div', { class: 'list-row', onclick: on }, el('span', { text: name }), el('span', { class: 'muted num', text: a }), el('span', { class: 'num', text: b }));
-    $('leads').replaceChildren(...Object.entries(L).sort((a, b) => b[1].n - a[1].n).slice(0, 30).map(([k, v]) => row(k, v.n + ' deals', usd(v.s), () => { invFilter = k; st.leadOnly = true; $('leadOnly').checked = true; apply(); })));
+    const useAll = view.filter(x => x.l.length).length < view.length * .2;
+    if (useAll) { for (const k in L) delete L[k]; for (const x of view) for (const l of [...x.l, ...x.o]) { (L[l] ||= { n: 0, s: 0 }); L[l].n++; L[l].s += x.a || 0; } }
+    $('inv-title').textContent = useAll ? 'Most active investors' : 'Most active lead investors';
+    $('leads').replaceChildren(...Object.entries(L).sort((a, b) => b[1].n - a[1].n).slice(0, 30).map(([k, v]) => row(k, v.n + ' deals', usd(v.s), () => { invFilter = k; st.leadOnly = !useAll; $('leadOnly').checked = !useAll; apply(); })));
     $('cats').replaceChildren(...Object.entries(C).sort((a, b) => b[1].s - a[1].s).slice(0, 20).map(([k, v]) => row(k, v.n + ' deals', usd(v.s), () => { st.cat = k; $('cat').value = k; apply(); })));
     $('big').replaceChildren(...[...view].filter(x => x.a).sort((a, b) => b.a - a.a).slice(0, 15).map(x => row(`${x.n} · ${x.r || ''}`, x.d, usd(x.a), () => { $('q').value = x.n; st.q = x.n; apply(); })));
   }
@@ -185,9 +190,10 @@
   $('win').addEventListener('click', (e) => { const b = e.target.closest('button'); if (!b) return; win = +b.dataset.k; for (const x of $('win').children) x.classList.toggle('on', x === b); apply(); });
   $('round').addEventListener('change', () => { st.round = $('round').value; apply(); });
   $('cat').addEventListener('change', () => { st.cat = $('cat').value; apply(); });
+  $('srcSel').addEventListener('change', () => { st.src = $('srcSel').value; apply(); });
   $('min').addEventListener('change', () => { st.min = +$('min').value; apply(); });
   $('leadOnly').addEventListener('change', () => { st.leadOnly = $('leadOnly').checked; apply(); });
-  $('reset').addEventListener('click', () => { Object.assign(st, { q: '', round: '', cat: '', min: 0, leadOnly: false }); invFilter = ''; $('q').value = ''; $('round').value = ''; $('cat').value = ''; $('min').value = '0'; $('leadOnly').checked = false; history.replaceState(null, '', location.pathname); apply(); });
+  $('reset').addEventListener('click', () => { Object.assign(st, { q: '', round: '', cat: '', min: 0, leadOnly: false, src: '' }); $('srcSel').value = ''; invFilter = ''; $('q').value = ''; $('round').value = ''; $('cat').value = ''; $('min').value = '0'; $('leadOnly').checked = false; history.replaceState(null, '', location.pathname); apply(); });
   $('moreBtn').addEventListener('click', () => { shown += 200; renderTable(); });
   document.querySelector('thead').addEventListener('click', (e) => { const th = e.target.closest('th[data-s]'); if (!th) return; const k = th.dataset.s; if (sortK === k) sortDir = -sortDir; else { sortK = k; sortDir = k === 'n' || k === 'r' || k === 'c' ? 1 : -1; }
     for (const t of document.querySelectorAll('th[data-s]')) t.textContent = t.textContent.replace(/ [▾▴]$/, ''); th.textContent += sortDir < 0 ? ' ▾' : ' ▴'; sortView(); renderTable(); });

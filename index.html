@@ -335,7 +335,7 @@
   <!-- Fundraising -->
   <section class="card row" id="funding">
     <div class="card-h">
-      <h2>Fundraising <span class="sub" id="fund-sum"></span> <a href="funding.html" style="color:var(--series-1);text-decoration:none;font-size:12px;font-weight:500;margin-left:8px">Full history since 2014 →</a></h2>
+      <h2>Fundraising <span class="sub" id="fund-sum"></span> <a href="funding.html" style="color:var(--series-1);text-decoration:none;font-size:12px;font-weight:500;margin-left:8px">Full history (11,700+ rounds) →</a></h2>
       <div class="tabs" id="fund-weeks"></div>
     </div>
     <div class="scroll" style="max-height:520px"><table>
@@ -766,7 +766,7 @@
       el('td', { class: 'r num' + (r.valuationEst ? ' muted' : ''), title: r.valuationNote || '', text: r.valuation ? (r.valuationEst ? '~' + usd(r.valuation) + ' est.' : (r.valuationPrefix || '') + usd(r.valuation)) : '—' }),
       el('td', { style: 'white-space:normal;min-width:140px', text: (r.lead || []).join(', ') || '—' }),
       el('td', { class: 'muted', style: 'white-space:normal;min-width:180px', text: (r.others || []).join(', ') || '—' }))));
-    $('fund-src').textContent = fundWeek === -1 ? 'Rolling last 7 days from the fundraising history (DefiLlama data plus the Monday crawl). Recent deals can take a few days to be reported. Valuations marked est. are rough estimates.' : (F?.note || '') + (F?.updatedAt ? ' Updated ' + dateStr(Date.parse(F.updatedAt)) + '.' : '');
+    $('fund-src').textContent = fundWeek === -1 ? 'Rolling last 7 days from the fundraising history (DefiLlama + CoinCarp, plus the Monday crawl). Recent deals can take a few days to be reported. Valuations marked est. are rough estimates.' : (F?.note || '') + (F?.updatedAt ? ' Updated ' + dateStr(Date.parse(F.updatedAt)) + '.' : '');
   }
   let newsFilter = 'All', launchTab = 'recent';
   function renderIntel() {
