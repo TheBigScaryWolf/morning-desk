@@ -1,16 +1,16 @@
 // Written by the morning crawl.
 window.INTEL = {
- "updatedAt": "2026-11-18T06:30:00Z",
- "briefNote": "Sources: CoinDesk, The Block, Cointelegraph, Decrypt RSS + chain news pages",
+ "updatedAt": "2026-11-19T01:54:33Z",
+ "briefNote": "Sources: WebSearch headlines (RSS fetch unavailable this run) + chain news pages",
  "brief": [
-  "**BTC ~$64K** after a 12% drop through its 200-week average; weekend liquidations ran about $2B and Fear & Greed has sat at 11–12 (Extreme Fear).",
-  "**Flows:** BlackRock's IBIT ended an 11-day outflow streak (~$2.35B out). Glassnode says realized losses are at levels last seen near the 2018/2020/2022 lows. Wintermute warns of the $50Ks if Fed-hike bets keep building.",
-  "**ETFs (16 Nov):** BTC ETFs took in a small +$8M as IBIT's +$76.5M offset GBTC/FBTC exits. ETH ETFs lost $8.3M; about −$223M over the last five sessions.",
-  "**Macro:** Nvidia leadership turmoil is weighing on risk assets. Earnings beat after hours, but the board ruled out Huang's return.",
-  "**Ethereum:** core devs are weighing Glamsterdam scaling changes that could break up to ~15K contracts. Bitmine is close to holding 5% of ETH supply.",
-  "**Solana (Breakpoint London):** mainnet-beta label dropped for 'Solana 1.0'. Solana Foundation took a majority stake in CoinGecko.",
-  "**Hyperliquid:** The Block says its OI has passed Bybit, Kraken and OKX. Q3 revenue was ~$191M (+22%).",
-  "**Regulation:** CFTC cleared US perps (Backpack first). The Clarity Act failed, so regulators will set the rules."
+  "**BTC ~$64K:** still pinned near its lows after the 200-week-average break; Fed-minutes headlines pushed it slightly lower and sentiment remains in Extreme Fear. ETH is struggling to get back above $1,800.",
+  "**ETFs (17 Nov):** BTC funds swung back to about −$240M with IBIT the biggest seller. ETH funds lost $29.1M, a third straight day of outflows. Solana funds bucked the trend with ~+$11.7M.",
+  "**Macro today:** US jobless claims and Philly Fed at 13:30 UTC; Japan CPI late tonight (yen-carry watch). Next big prints: PCE and GDP on 25 Nov, then Thanksgiving closes US markets on 26 Nov.",
+  "**Solana:** Breakpoint London wrap-up: Zelle and ICE tie-ins, the CoinGecko stake and 'Solana 1.0' were the headlines.",
+  "**Avalanche / Base / Tron:** debate continues over the NYSE tokenized-stock settlement deal on Avalanche. HashKey's HSK Chain is linking up with Base. Justin Sun touted $2.21T in Q3 Tron stablecoin transfers.",
+  "**Perps:** Bloomberg says a Hyperliquid rival has reached a $1.5B valuation. The CFTC has approved onchain derivatives setups for Backpack and tZERO.",
+  "**Security:** wallet-draining code planted via a third-party script on 178 major sites, Ledger's among them, is still being cleaned up. Double-check addresses before sending.",
+  "**Unlocks (next 3 days):** LayerZero (ZRO) ~$34.7M, 5.8% of circulating supply, on 20 Nov. Kaito ~$3.1M (7.3%) on the same day."
  ],
  "launches": [
   {
@@ -380,6 +380,38 @@ window.INTEL = {
   {
    "chain": "Bitcoin",
    "date": "18 Nov",
+   "source": "CryptoTicker",
+   "title": "Bitcoin price prediction: Fed minutes push BTC lower",
+   "summary": "BTC slipped as the minutes of the October FOMC meeting kept rate-hike worries alive.",
+   "url": "https://cryptoticker.io/en/bitcoin-price-prediction-fed-minutes-november-18-2026/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "18 Nov",
+   "source": "Crypto.com",
+   "title": "Bitcoin Price Shrugs off Nvidia Earnings as Fed Minutes Loom",
+   "summary": "Nvidia's strong quarter did little for BTC, which stayed range-bound ahead of the Fed minutes.",
+   "url": "https://crypto.com/us/market-updates/bitcoin-price-nvidia-earnings-fomc-minutes"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "18 Nov",
+   "source": "Crypto Briefing",
+   "title": "BlackRock's IBIT leads $240M Bitcoin ETF outflow on November 17",
+   "summary": "US spot bitcoin funds swung back to heavy net redemptions, with IBIT the largest seller.",
+   "url": "https://cryptobriefing.com/blackrock-ibit-leads-bitcoin-etf-outflow/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "18 Nov",
+   "source": "TokenPost",
+   "title": "HTX Researcher Says ETF Outflows Could Keep Bitcoin Weak Without Spot Demand",
+   "summary": "An exchange analyst argues fund redemptions will cap BTC unless spot buyers return.",
+   "url": "https://www.tokenpost.com/news/investing/60296"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "18 Nov",
    "source": "CoinDesk",
    "title": "Bitcoin's 12% slide through its 200-week average has a bullish track record",
    "summary": "Only three comparable breaks since 2013; the piece looks at what followed over the next ~3 months.",
@@ -419,11 +451,35 @@ window.INTEL = {
   },
   {
    "chain": "Ethereum",
+   "date": "18 Nov",
+   "source": "FXStreet",
+   "title": "Ethereum Price Forecast: ETH fails to recover $1,800 as selling lingers",
+   "summary": "Ether stayed under $1,800 as futures and spot selling persisted.",
+   "url": "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-fails-to-recover-1-800-after-futures-and-spot-distribution-202611182108"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "18 Nov",
+   "source": "TokenPost",
+   "title": "Spot Ethereum ETF outflows widen 3.5-fold to $29.09 million",
+   "summary": "Ether funds logged a third straight day of net redemptions on 17 Nov.",
+   "url": "https://www.tokenpost.com/news/investing/60206"
+  },
+  {
+   "chain": "Ethereum",
    "date": "17 Nov",
    "source": "CoinDesk",
    "title": "Glamsterdam upgrade risks breaking up to 15,000 automated apps",
    "summary": "Audits found hundreds of compatibility issues. Core devs will revisit the two scaling changes.",
    "url": "https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "17 Nov",
+   "source": "Cointelegraph",
+   "title": "Goldman Sachs reports $1.22B in Ether ETFs",
+   "summary": "Goldman added Ether ETF shares in Q3 and reshuffled its Bitcoin ETF positions.",
+   "url": "https://cointelegraph.com/news/goldman-sachs-reports-122b-ether-etfs-etha-shares-jumps"
   },
   {
    "chain": "Ethereum",
@@ -442,12 +498,20 @@ window.INTEL = {
    "url": "https://decrypt.co/383294/vitalik-buterin-now-a-total-bull-on-leanpcs-as-fast-track-to-quantum-safe-ethereum"
   },
   {
-   "chain": "Ethereum",
-   "date": "17 Nov",
-   "source": "Cointelegraph",
-   "title": "Goldman Sachs reports $1.22B in Ether ETFs",
-   "summary": "Goldman added Ether ETF shares in Q3 and reshuffled its Bitcoin ETF positions.",
-   "url": "https://cointelegraph.com/news/goldman-sachs-reports-122b-ether-etfs-etha-shares-jumps"
+   "chain": "Solana",
+   "date": "18 Nov",
+   "source": "Invezz",
+   "title": "Solana surges 3% as ETFs attract $11.68 million",
+   "summary": "SOL bounced as US Solana funds drew fresh inflows against the wider ETF selling.",
+   "url": "https://invezz.com/news/2026/11/18/solana-surges-3-as-etfs-attract-11-68-million/"
+  },
+  {
+   "chain": "Solana",
+   "date": "18 Nov",
+   "source": "Genfinity",
+   "title": "Solana Breakpoint 2026 Recap: Zelle, ICE, CoinGecko, and Backpack's CFTC Win Define Solana's London Debut",
+   "summary": "A roundup of the main payments, market-structure and corporate announcements from Breakpoint London.",
+   "url": "https://genfinity.io/2026/11/18/solana-breakpoint-2026-recap-zelle-ice-coingecko-backpack-solana-1-0/"
   },
   {
    "chain": "Solana",
@@ -474,20 +538,12 @@ window.INTEL = {
    "url": "https://decrypt.co/383333/tokenization-is-not-the-finish-line-jupiter-to-let-users-borrow-against-bullish-shares"
   },
   {
-   "chain": "Solana",
-   "date": "12 Nov",
-   "source": "solana.com",
-   "title": "DTCC Tokenization Service to connect with Solana",
-   "summary": "Targeted for H2 2027, for eligible DTC-custodied assets.",
-   "url": "https://solana.com/news"
-  },
-  {
    "chain": "Hyperliquid L1",
-   "date": "13 Nov",
-   "source": "The Block",
-   "title": "Hyperliquid leapfrogs Bybit, Kraken and OKX in open interest",
-   "summary": "Q3 revenue up 22% to ~$191M, with record daily traders and a surge in stock-linked volume.",
-   "url": "https://theblock.co/news/markets/2026-11-13-hyperliquid-leapfrogs-bybit-kraken-okx-open-interest-q3-positions-grow-440053"
+   "date": "18 Nov",
+   "source": "TokenPost",
+   "title": "Hyperliquid and Zcash Spot ETFs Post $4.19 Million Combined Outflow",
+   "summary": "The newer single-asset funds for HYPE and ZEC saw small combined redemptions.",
+   "url": "https://www.tokenpost.com/news/investing/61021"
   },
   {
    "chain": "Hyperliquid L1",
@@ -498,12 +554,44 @@ window.INTEL = {
    "url": "https://decrypt.co/383443/former-robinhood-engineer-pleads-guilty-crypto-insider-trading"
   },
   {
+   "chain": "BSC",
+   "date": "18 Nov",
+   "source": "Longbridge",
+   "title": "BNB Chain RWA Holders Reach 2.17 Million, Up 6.4% in 30 Days",
+   "summary": "Tokenized-asset holder counts on BNB Chain kept growing over the past month.",
+   "url": "https://longbridge.com/en/news/305911969"
+  },
+  {
+   "chain": "Base",
+   "date": "18 Nov",
+   "source": "Manila Times / PR Newswire",
+   "title": "HSK Chain and Base Collaborate to Connect Asia's Premier Onchain Asset with Global Liquidity",
+   "summary": "HashKey's chain is linking with Coinbase's L2 to route liquidity for its flagship onchain asset.",
+   "url": "https://manilatimes.net/2026/11/18/tmt-newswire/pr-newswire/hsk-chain-and-base-collaborate-to-connect-asias-premier-onchain-asset-with-global-liquidity/2472839"
+  },
+  {
    "chain": "Base",
    "date": "17 Nov",
    "source": "The Block",
    "title": "Coinbase expands onchain crypto loans to New York via Morpho",
    "summary": "BTC, ETH and SOL supported as collateral.",
    "url": "https://www.theblock.co/news/business/2026-11-17-coinbase-borrow-new-york-morpho-442842"
+  },
+  {
+   "chain": "Avalanche",
+   "date": "18 Nov",
+   "source": "The Motley Fool",
+   "title": "Did Avalanche's New NYSE Deal Just Make Solana and XRP Irrelevant?",
+   "summary": "An analysis of what NYSE settling tokenized stocks on Avalanche means for competing chains.",
+   "url": "https://fool.com/investing/2026/11/18/did-avalanche-s-new-nyse-deal-just-make-solana-and-xrp-irrelevant"
+  },
+  {
+   "chain": "Tron",
+   "date": "18 Nov",
+   "source": "TokenPost",
+   "title": "TRON Founder 孙宇晨 Cites $2.21 Trillion in Q3 Stablecoin Transfers",
+   "summary": "Justin Sun highlighted Tron's Q3 stablecoin transfer volume as evidence of payment usage.",
+   "url": "https://tokenpost.com/news/technology/60261"
   },
   {
    "chain": "Cardano",
@@ -520,6 +608,22 @@ window.INTEL = {
    "title": "XRP whales moved $270M during the selloff, but not to exchanges",
    "summary": "Moves into two vaults look like custody rotation, not selling.",
    "url": "https://www.coindesk.com/markets/2026/11/18/xrp-whales-moved-usd270-million-during-the-selloff-the-coins-didn-t-go-to-exchanges"
+  },
+  {
+   "chain": "Market",
+   "date": "18 Nov",
+   "source": "Bloomberg",
+   "title": "Crypto Platform Hyperliquid Rival Hits $1.5 Billion Valuation as Perps Boom",
+   "summary": "Bloomberg reports a perps venue competing with Hyperliquid reached a $1.5B valuation as derivatives demand grows.",
+   "url": "https://www.bloomberg.com/news/articles/2026-11-18/hyperliquid-rival-hits-1-5-billion-valuation-as-perps-boom"
+  },
+  {
+   "chain": "Market",
+   "date": "17 Nov",
+   "source": "The Block",
+   "title": "CFTC backs blockchain-based derivatives infrastructure as Backpack, tZERO win approvals",
+   "summary": "The CFTC approved onchain derivatives setups for Backpack and tZERO.",
+   "url": "https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591"
   },
   {
    "chain": "Market",
@@ -3230,14 +3334,6 @@ window.INTEL = {
  "unlocks": {
   "source": "Tokenomist / ChainCatcher weekly lists",
   "items": [
-   {
-    "date": "2026-11-18",
-    "token": "KAT",
-    "name": "Katana",
-    "valueUsd": 240000.0,
-    "pctCirc": null,
-    "recipients": ""
-   },
    {
     "date": "2026-11-20",
     "token": "ZRO",
