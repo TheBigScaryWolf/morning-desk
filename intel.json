@@ -1,15 +1,14 @@
 {
- "updatedAt": "2026-11-19T01:54:33Z",
- "briefNote": "Sources: WebSearch headlines (RSS fetch unavailable this run) + chain news pages",
+ "updatedAt": "2026-11-20T01:57:39Z",
+ "briefNote": "Sources: web search + news pages (RSS and CoinCarp fetch unavailable this run; token-sale lists unchanged)",
  "brief": [
-  "**BTC ~$64K:** still pinned near its lows after the 200-week-average break; Fed-minutes headlines pushed it slightly lower and sentiment remains in Extreme Fear. ETH is struggling to get back above $1,800.",
-  "**ETFs (17 Nov):** BTC funds swung back to about −$240M with IBIT the biggest seller. ETH funds lost $29.1M, a third straight day of outflows. Solana funds bucked the trend with ~+$11.7M.",
-  "**Macro today:** US jobless claims and Philly Fed at 13:30 UTC; Japan CPI late tonight (yen-carry watch). Next big prints: PCE and GDP on 25 Nov, then Thanksgiving closes US markets on 26 Nov.",
-  "**Solana:** Breakpoint London wrap-up: Zelle and ICE tie-ins, the CoinGecko stake and 'Solana 1.0' were the headlines.",
-  "**Avalanche / Base / Tron:** debate continues over the NYSE tokenized-stock settlement deal on Avalanche. HashKey's HSK Chain is linking up with Base. Justin Sun touted $2.21T in Q3 Tron stablecoin transfers.",
-  "**Perps:** Bloomberg says a Hyperliquid rival has reached a $1.5B valuation. The CFTC has approved onchain derivatives setups for Backpack and tZERO.",
-  "**Security:** wallet-draining code planted via a third-party script on 178 major sites, Ledger's among them, is still being cleaned up. Double-check addresses before sending.",
-  "**Unlocks (next 3 days):** LayerZero (ZRO) ~$34.7M, 5.8% of circulating supply, on 20 Nov. Kaito ~$3.1M (7.3%) on the same day."
+  "**BTC ~$62–64K:** slid to its lowest since July on Thursday as US stocks fell over 2% and hawkish Fed minutes kept a December hike in play; Fear & Greed sits at 10 (Extreme Fear). ETH is hovering around $1,750–1,800.",
+  "**ETFs (18 Nov):** BTC funds lost about $306M, taking YTD outflows past $2.5B. ETH funds shed $39.8M, a fourth straight outflow day, leaving ~$9.7B in assets. Roundhill dropped its planned SOL and XRP income ETFs.",
+  "**Macro today:** Anthropic's record IPO starts trading on Nasdaq after crypto venues (Hyperliquid, OKX, Binance Wallet) ran pre-IPO markets; UMich sentiment at 15:00 UTC. Next week: flash PMIs Monday, then PCE + GDP on 25 Nov and Thanksgiving closes US markets on 26 Nov.",
+  "**Stablecoins / security:** a report tying North Korea-linked flows to Sky's peg module triggered ~$1.5B of USDS outflows and freeze-risk worries. Binance won a $6.5B worldwide freezing order against its October hackers.",
+  "**Hyperliquid:** CFTC chair Selig laid out a US path (register or partner with a licensed exchange), 1inch added Hyperliquid perps, but Hong Kong's SFC put it on its unlicensed-platform alert list.",
+  "**Ethereum / Sui / Tron:** a US judge cleared the MIT brothers in the MEV case; CoinShares sold its whole treasury ETH. Hashi brought BTC-backed USDC borrowing to Sui, and UBS piloted a tokenized note with Chainlink.",
+  "**Unlocks (next 3 days):** LayerZero (ZRO) ~$34.7M (5.8% of circ.) today, AKE ~$24.4M (9.4%) on 21 Nov, SENT ~$5.3M on 22 Nov. Watch Monad (MON) on 24 Nov: the one-year team/investor cliff is the month's biggest, estimated in the hundreds of millions."
  ],
  "launches": [
   {
@@ -377,6 +376,230 @@
  ],
  "news": [
   {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "North Korean hackers used Sky's stablecoin system, putting billions at freeze risk",
+   "summary": "Analysts traced hundreds of millions in illicit flows, some tied to North Korea, through Sky's peg module, raising the risk of a court freeze on its USDC reserve.",
+   "url": "https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Sky's USDS stablecoin shrinks 35% as $1.5 billion exits reserves after illicit-finance report",
+   "summary": "A big holder pulled about $1.5B of backing after the report, though USDS kept its dollar peg.",
+   "url": "https://www.coindesk.com/business/2026/11/19/sky-s-usds-stablecoin-shrinks-35-as-usd1-5-billion-exits-reserves-after-illicit-finance-report"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Binance wins $6.5 billion feezing order against hackers behind crypto's largest theft",
+   "summary": "An Abu Dhabi court issued a worldwide asset freeze against the October hackers; Binance says users were already made whole.",
+   "url": "https://www.coindesk.com/business/2026/11/19/binance-wins-usd6-5-billion-feezing-order-against-hackers-behind-crypto-s-largest-theft"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Live updates: Bitcoin plunges to lowest since July as Anthropic gains, but broader markets tumble",
+   "summary": "BTC hit its lowest level since July as US stock indexes each fell more than 2%.",
+   "url": "https://www.coindesk.com/markets/2026/11/19/live-updates-bitcoin-nears-usd64-000-as-anthropic-s-record-ipo-lifts-tech"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Bitcoin ETF outflows show waning crypto appetite ahead of Anthropic's Nasdaq debut",
+   "summary": "Spot BTC funds shed about $306M on Wednesday as attention shifted to the Anthropic listing.",
+   "url": "https://www.coindesk.com/daybook-us/2026/11/19/bitcoin-etf-outflows-show-waning-crypto-appetite-ahead-of-anthropic-s-nasdaq-debut"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Crypto traders vs. Wall Street: OKX's Anthropic markets put IPO pricing to the test",
+   "summary": "OKX's pre-IPO Anthropic futures traded well above the $83 offer price ahead of the stock's debut.",
+   "url": "https://www.coindesk.com/markets/2026/11/19/crypto-traders-vs-wall-street-okx-s-anthropic-markets-put-ipo-pricing-to-the-test"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Trump Media wants to clear $884 million of debt without selling its bitcoin",
+   "summary": "Trump Media repurchased part of its convertible notes and aims to settle the rest while keeping its BTC.",
+   "url": "https://www.coindesk.com/markets/2026/11/19/trump-media-wants-to-clear-usd884-million-of-debt-without-selling-its-bitcoin"
+  },
+  {
+   "chain": "Solana",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Roundhill scraps Solana and XRP income ETFs as rival funds attract just $12 million",
+   "summary": "Roundhill pulled its planned SOL and XRP income funds, citing thin demand for niche crypto ETFs.",
+   "url": "https://www.coindesk.com/markets/2026/11/19/roundhill-scraps-solana-and-xrp-income-etfs-as-rival-funds-attract-just-usd12-million"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Singapore settles $77.5 million tokenized bill sale in local CBDC",
+   "summary": "The MAS settled a tokenized government bill issue using wholesale central bank digital money.",
+   "url": "https://www.coindesk.com/business/2026/11/19/singapore-settles-usd77-5-million-tokenized-bill-sale-in-local-cbdc"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Trump's Democratic SEC pick suggests tokenization policy deserves full rule process",
+   "summary": "At Senate confirmation hearings, an SEC nominee argued tokenization rules should go through formal rulemaking.",
+   "url": "https://www.coindesk.com/policy/2026/11/19/trump-s-democratic-sec-pick-suggests-tokenization-policy-deserves-full-rule-process"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Financial firms must act now as quantum computers grow 'highly advanced,' IOSCO warns",
+   "summary": "The global securities watchdog urged banks and blockchains to start multi-year cryptography upgrades now.",
+   "url": "https://www.coindesk.com/tech/2026/11/19/banks-and-blockchains-lag-on-quantum-defense-as-encryption-risks-loom-watchdog-warns"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "CoinDesk",
+   "title": "Crypto for Advisors: Falling prices drove October's 10% drop in institutional crypto exposure",
+   "summary": "Institutional crypto holdings shrank about 10% in October, mostly due to lower prices.",
+   "url": "https://www.coindesk.com/coindesk-indices/2026/11/19/crypto-for-advisors-falling-prices-drove-october-s-10-drop-in-institutional-crypto-exposure"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "19 Nov",
+   "source": "The Block",
+   "title": "CFTC Chair Selig outlines how Hyperliquid and other onchain venues could enter the US",
+   "summary": "Selig said onchain derivatives venues must register or partner with a registered exchange to serve US retail.",
+   "url": "https://www.theblock.co/news/regulation/2026-11-19-cftc-chair-selig-hyperliquid-onchain-venues-the-us-444106"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "19 Nov",
+   "source": "The Block",
+   "title": "1inch integrates Hyperliquid's perpetual futures contracts into its dApp and wallet platform",
+   "summary": "1inch users in eligible regions can now trade Hyperliquid perps on crypto, stocks, commodities and FX.",
+   "url": "https://www.theblock.co/news/web3/2026-11-19-1inch-integrates-hyperliquid-perpetual-futures-443574"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "19 Nov",
+   "source": "Cointelegraph",
+   "title": "Hong Kong SFC Adds Hyperliquid to Suspicious Crypto Platform Alert List",
+   "summary": "Hong Kong's regulator flagged Hyperliquid as unlicensed for local users, stressing it is a licensing warning.",
+   "url": "https://cointelegraph.com/news/hyperliquid-hong-kong-regulators-alert-list"
+  },
+  {
+   "chain": "Sui",
+   "date": "19 Nov",
+   "source": "The Crypto Basic",
+   "title": "Hashi Goes Live, Bringing Bitcoin-Backed Borrowing to Sui",
+   "summary": "Hashi launched on Sui mainnet so users can borrow USDC against BTC-backed hBTC.",
+   "url": "https://thecryptobasic.com/2026/11/19/tcb-daily-edition-what-happened-in-crypto-on-november-19-2026/"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "19 Nov",
+   "source": "The Crypto Basic",
+   "title": "UBS Uses Chainlink for Tokenized Structured Note Operations",
+   "summary": "UBS ran a production pilot using Chainlink to automate steps for a tokenized structured note.",
+   "url": "https://thecryptobasic.com/2026/11/19/tcb-daily-edition-what-happened-in-crypto-on-november-19-2026/"
+  },
+  {
+   "chain": "Tron",
+   "date": "19 Nov",
+   "source": "The Crypto Basic",
+   "title": "Pulsar Adds TRON-Based USDT Deposits",
+   "summary": "Pulsar Money now lets users top up its virtual cards with USDT on Tron.",
+   "url": "https://thecryptobasic.com/2026/11/19/tcb-daily-edition-what-happened-in-crypto-on-november-19-2026/"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "The Crypto Basic",
+   "title": "Standard Chartered Expands Tokenized Deposits in Singapore",
+   "summary": "The bank's tokenized deposits now move near-instantly between Singapore and Hong Kong in six currencies.",
+   "url": "https://thecryptobasic.com/2026/11/19/tcb-daily-edition-what-happened-in-crypto-on-november-19-2026/"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "The Crypto Basic",
+   "title": "Ant International Introduces Protocol for Tokenized Fund Transactions",
+   "summary": "Ant launched a protocol to coordinate tokenized deposits and money-market funds, piloting with DBS and Franklin Templeton.",
+   "url": "https://thecryptobasic.com/2026/11/19/tcb-daily-edition-what-happened-in-crypto-on-november-19-2026/"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "Crypto.news",
+   "title": "Russia Lists 30 Crypto Operators, but Retail Access Is Unconfirmed",
+   "summary": "Russia's central bank published 30 authorised crypto operators, but none has yet confirmed retail trading.",
+   "url": "https://crypto.news/russia-crypto-operators-retail-trading/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "19 Nov",
+   "source": "Bitcoin Magazine",
+   "title": "A Leipzig Judge Offers to End the Movie2K Case for 40,000 Bitcoin",
+   "summary": "A German court offered to drop the piracy case if the defendant hands over about 40,000 BTC.",
+   "url": "https://bitcoinmagazine.com/news/german-court-offers-drop-movie2k-case-40000-bitcoin"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "19 Nov",
+   "source": "Crypto.news",
+   "title": "BTCPay Server Issues Emergency Update Patching Five Nginx Security Flaws",
+   "summary": "BTCPay shipped an urgent update fixing five nginx vulnerabilities; self-hosters should upgrade.",
+   "url": "https://crypto.news/btcpay-server-nginx-emergency-update/"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "Cointelegraph",
+   "title": "S&P keeps USDT at its weakest stability score",
+   "summary": "S&P left Tether's USDT at its lowest stability rating; Tether disputes the methodology.",
+   "url": "https://cointelegraph.com/news/tether-usdt-sp-stability-assessment-reserve-risks"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "Cointelegraph",
+   "title": "Senators ask Bessent to widen the GENIUS safe harbour",
+   "summary": "Six senators asked Treasury to extend GENIUS Act transition relief to more state-regulated stablecoin issuers.",
+   "url": "https://cointelegraph.com/news/us-senators-genius-act-rules-favor-federal-stablecoin-issuers"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "19 Nov",
+   "source": "Decrypt",
+   "title": "CoinShares sells its treasury ether",
+   "summary": "CoinShares sold all its treasury ETH and half its SOL to fund share buybacks.",
+   "url": "https://decrypt.co/383570/why-coinshares-just-sold-all-ethereum-half-solana"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "19 Nov",
+   "source": "TokenPost",
+   "title": "Ethereum spot ETFs hold $9.68 billion in net assets after $39.83 million daily outflow",
+   "summary": "ETH funds posted a fourth straight day of outflows on 18 Nov, leaving about $9.68B in assets.",
+   "url": "https://www.tokenpost.com/news/investing/61149"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "18 Nov",
+   "source": "CoinDesk",
+   "title": "U.S. judge says Ethereum has 'no terms of use,' clears MIT brothers of $25 million fraud",
+   "summary": "A federal judge cleared the brothers in the Ethereum MEV exploit case of the fraud charge.",
+   "url": "https://www.coindesk.com/policy/2026/11/18/u-s-judge-says-ethereum-has-no-terms-of-use-clears-mit-brothers-of-usd25-million-fraud"
+  },
+  {
    "chain": "Bitcoin",
    "date": "18 Nov",
    "source": "CryptoTicker",
@@ -417,38 +640,6 @@
    "url": "https://www.coindesk.com/markets/2026/11/18/bitcoin-s-rare-12-crash-through-its-200-week-average-has-a-bullish-track-record"
   },
   {
-   "chain": "Bitcoin",
-   "date": "17 Nov",
-   "source": "Decrypt",
-   "title": "Bitcoin investors are capitulating, historically a bottom signal",
-   "summary": "Glassnode: realized losses match levels from prior cycle lows; buyers defending $62K–$66K.",
-   "url": "https://decrypt.co/383466/bitcoin-investors-capitulating-historical-bottom-signal"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "17 Nov",
-   "source": "CoinDesk",
-   "title": "Wintermute: BTC could slide into the $50,000s as Fed hike bets build",
-   "summary": "ETF outflows, weak spot demand and rate-hike risk are the market maker's main concerns.",
-   "url": "https://www.coindesk.com/markets/2026/11/17/bitcoin-could-slide-into-the-usd50-000s-as-fed-rate-hike-bets-build-wintermute-says"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "17 Nov",
-   "source": "Cointelegraph",
-   "title": "BlackRock's IBIT snaps $2.35B outflow streak",
-   "summary": "The first inflow day after 11 sessions of withdrawals. CryptoQuant says it's too early to call a turn.",
-   "url": "https://cointelegraph.com/markets/blackrock-ibit-outflow-streak-end-extreme-fear"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "16 Nov",
-   "source": "Decrypt",
-   "title": "$2B liquidation weekend leaves traders watching $60K",
-   "summary": "BTC fell to around $62.1K as forced liquidations swept the market.",
-   "url": "https://decrypt.co/383366/bitcoin-2-billion-liquidation-weekend-traders-watching-60000"
-  },
-  {
    "chain": "Ethereum",
    "date": "18 Nov",
    "source": "FXStreet",
@@ -463,38 +654,6 @@
    "title": "Spot Ethereum ETF outflows widen 3.5-fold to $29.09 million",
    "summary": "Ether funds logged a third straight day of net redemptions on 17 Nov.",
    "url": "https://www.tokenpost.com/news/investing/60206"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "17 Nov",
-   "source": "CoinDesk",
-   "title": "Glamsterdam upgrade risks breaking up to 15,000 automated apps",
-   "summary": "Audits found hundreds of compatibility issues. Core devs will revisit the two scaling changes.",
-   "url": "https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "17 Nov",
-   "source": "Cointelegraph",
-   "title": "Goldman Sachs reports $1.22B in Ether ETFs",
-   "summary": "Goldman added Ether ETF shares in Q3 and reshuffled its Bitcoin ETF positions.",
-   "url": "https://cointelegraph.com/news/goldman-sachs-reports-122b-ether-etfs-etha-shares-jumps"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "16 Nov",
-   "source": "Cointelegraph",
-   "title": "Bitmine edges toward 5% of ETH supply",
-   "summary": "Treasury companies including Strategy, Strive and Bitmine reported fresh buys into the slump.",
-   "url": "https://cointelegraph.com/markets/bitmine-nears-5-eth-supply-treasuries-report-buys-amid-market-slump"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "16 Nov",
-   "source": "Decrypt",
-   "title": "Vitalik 'a total bull' on leanPCS as a fast track to quantum-safe Ethereum",
-   "summary": "He argues proof aggregation could arrive much sooner than devs expected.",
-   "url": "https://decrypt.co/383294/vitalik-buterin-now-a-total-bull-on-leanpcs-as-fast-track-to-quantum-safe-ethereum"
   },
   {
    "chain": "Solana",
@@ -513,44 +672,12 @@
    "url": "https://genfinity.io/2026/11/18/solana-breakpoint-2026-recap-zelle-ice-coingecko-backpack-solana-1-0/"
   },
   {
-   "chain": "Solana",
-   "date": "17 Nov",
-   "source": "CoinDesk",
-   "title": "Solana Foundation takes majority stake in CoinGecko",
-   "summary": "Plans Solana-powered trading on CoinGecko, GeckoTerminal and the app.",
-   "url": "https://www.coindesk.com/business/2026/11/17/solana-foundation-takes-majority-stake-in-crypto-data-provider-coingecko"
-  },
-  {
-   "chain": "Solana",
-   "date": "16 Nov",
-   "source": "Decrypt",
-   "title": "Solana drops 'mainnet beta' after six years",
-   "summary": "Solana 1.0 adds shared protocol versioning so builders can track network rules.",
-   "url": "https://decrypt.co/383322/solana-drops-mainnet-beta-after-six-years"
-  },
-  {
-   "chain": "Solana",
-   "date": "16 Nov",
-   "source": "Decrypt",
-   "title": "Jupiter to let users borrow against Bullish shares",
-   "summary": "Permissioned lending market, identity passport and issuer liquidity tools announced at Breakpoint.",
-   "url": "https://decrypt.co/383333/tokenization-is-not-the-finish-line-jupiter-to-let-users-borrow-against-bullish-shares"
-  },
-  {
    "chain": "Hyperliquid L1",
    "date": "18 Nov",
    "source": "TokenPost",
    "title": "Hyperliquid and Zcash Spot ETFs Post $4.19 Million Combined Outflow",
    "summary": "The newer single-asset funds for HYPE and ZEC saw small combined redemptions.",
    "url": "https://www.tokenpost.com/news/investing/61021"
-  },
-  {
-   "chain": "Hyperliquid L1",
-   "date": "17 Nov",
-   "source": "Decrypt",
-   "title": "Ex-Robinhood engineer pleads guilty to Hyperliquid insider trades",
-   "summary": "Used confidential Robinhood listing plans to trade perps on Hyperliquid (~$125K profit).",
-   "url": "https://decrypt.co/383443/former-robinhood-engineer-pleads-guilty-crypto-insider-trading"
   },
   {
    "chain": "BSC",
@@ -569,14 +696,6 @@
    "url": "https://manilatimes.net/2026/11/18/tmt-newswire/pr-newswire/hsk-chain-and-base-collaborate-to-connect-asias-premier-onchain-asset-with-global-liquidity/2472839"
   },
   {
-   "chain": "Base",
-   "date": "17 Nov",
-   "source": "The Block",
-   "title": "Coinbase expands onchain crypto loans to New York via Morpho",
-   "summary": "BTC, ETH and SOL supported as collateral.",
-   "url": "https://www.theblock.co/news/business/2026-11-17-coinbase-borrow-new-york-morpho-442842"
-  },
-  {
    "chain": "Avalanche",
    "date": "18 Nov",
    "source": "The Motley Fool",
@@ -591,14 +710,6 @@
    "title": "TRON Founder 孙宇晨 Cites $2.21 Trillion in Q3 Stablecoin Transfers",
    "summary": "Justin Sun highlighted Tron's Q3 stablecoin transfer volume as evidence of payment usage.",
    "url": "https://tokenpost.com/news/technology/60261"
-  },
-  {
-   "chain": "Cardano",
-   "date": "17 Nov",
-   "source": "CoinDesk",
-   "title": "Cardano Foundation seeks $5M from treasury at an ADA price 33% above market",
-   "summary": "The request is for 25M ADA to fund 12 global events.",
-   "url": "https://www.coindesk.com/tech/2026/11/17/cardano-foundation-seeks-usd5-million-from-treasury-using-ada-price-33-above-market"
   },
   {
    "chain": "XRPL",
@@ -617,52 +728,12 @@
    "url": "https://www.bloomberg.com/news/articles/2026-11-18/hyperliquid-rival-hits-1-5-billion-valuation-as-perps-boom"
   },
   {
-   "chain": "Market",
-   "date": "17 Nov",
-   "source": "The Block",
-   "title": "CFTC backs blockchain-based derivatives infrastructure as Backpack, tZERO win approvals",
-   "summary": "The CFTC approved onchain derivatives setups for Backpack and tZERO.",
-   "url": "https://www.theblock.co/news/regulation/2026-11-16-cftc-blockchain-derivatives-exchange-approval-backpack-tzero-441591"
-  },
-  {
-   "chain": "Market",
+   "chain": "Bitcoin",
    "date": "17 Nov",
    "source": "Decrypt",
-   "title": "CFTC officially greenlights perps in the US, starting with Backpack",
-   "summary": "First US-regulated venue cleared to list perpetual futures.",
-   "url": "https://decrypt.co/383418/morning-minute-the-cftc-officially-greenlights-perps-in-the-us-starting-with-backpack"
-  },
-  {
-   "chain": "Market",
-   "date": "17 Nov",
-   "source": "CoinDesk",
-   "title": "Binance hacker moves $63M in stolen ether after two weeks of silence",
-   "summary": "Investigators attribute the funds to North Korea's TraderTraitor group.",
-   "url": "https://www.coindesk.com/business/2026/11/17/binance-hacker-moves-usd63-million-in-stolen-ether-after-two-weeks-of-silence"
-  },
-  {
-   "chain": "Market",
-   "date": "17 Nov",
-   "source": "The Block",
-   "title": "World Bank Group taps Circle and Citi to test stablecoin fund disbursements",
-   "summary": "Pilot focuses on an intermediated, interoperable stablecoin payment model.",
-   "url": "https://www.theblock.co/news/business/2026-11-17-world-bank-group-citi-circle-fund-disbursements-442924"
-  },
-  {
-   "chain": "Market",
-   "date": "17 Nov",
-   "source": "CoinDesk",
-   "title": "Crypto-stealing code planted on 178 major websites, including Ledger",
-   "summary": "An Optimizely signup flaw let an attacker swap wallet addresses and skim cards.",
-   "url": "https://www.coindesk.com/tech/2026/11/17/hackers-planted-crypto-stealing-code-on-178-organizations-sites-including-hsbc-bbc-and-ledger"
-  },
-  {
-   "chain": "Market",
-   "date": "16 Nov",
-   "source": "Decrypt",
-   "title": "Clarity Act defeat a 'failure of American leadership', says Trump's former crypto chief",
-   "summary": "With the bill dead, regulators will set the rules.",
-   "url": "https://decrypt.co/383356/clarity-act-defeat-failure-of-american-leadership-trumps-former-crypto-chief"
+   "title": "Bitcoin investors are capitulating, historically a bottom signal",
+   "summary": "Glassnode: realized losses match levels from prior cycle lows; buyers defending $62K–$66K.",
+   "url": "https://decrypt.co/383466/bitcoin-investors-capitulating-historical-bottom-signal"
   }
  ],
  "launchSource": "CoinCarp",
@@ -670,9 +741,9 @@
  "etf": {
   "eth": {
    "source": "Farside Investors (history) + SoSoValue daily reports",
-   "asOf": "2026-11-17",
-   "cumulative": 11514700000,
-   "aum": 10540000000.0,
+   "asOf": "2026-11-18",
+   "cumulative": 11474870000,
+   "aum": 9680000000.0,
    "last7d": null,
    "days": [
     {
@@ -3050,6 +3121,10 @@
     {
      "date": "2026-11-17",
      "flow": -29100000
+    },
+    {
+     "date": "2026-11-18",
+     "flow": -39830000
     }
    ],
    "last30d": null
@@ -3260,27 +3335,8 @@
   ]
  },
  "macro": {
-  "source": "Sources: fedratecalc.com, helious.io, weekly market previews",
+  "source": "Sources: helious.io, LiteFinance weekly calendar, Admiral Markets holiday hours",
   "events": [
-   {
-    "time": "2026-11-18T07:00:00Z",
-    "event": "UK CPI (Oct)",
-    "region": "UK",
-    "impact": "medium"
-   },
-   {
-    "time": "2026-11-18T13:30:00Z",
-    "event": "US housing starts",
-    "region": "US",
-    "impact": "medium"
-   },
-   {
-    "time": "2026-11-18T19:00:00Z",
-    "event": "FOMC minutes (Oct 27–28 meeting)",
-    "region": "US",
-    "impact": "high",
-    "note": "Markets are pricing possible rate hikes; hawkish minutes would add pressure"
-   },
    {
     "time": "2026-11-19T13:30:00Z",
     "event": "US initial jobless claims + Philly Fed manufacturing",
@@ -3307,11 +3363,41 @@
     "impact": "medium"
    },
    {
+    "time": "2026-11-23T09:00:00Z",
+    "event": "Eurozone flash PMIs (Nov)",
+    "region": "EU",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-23T09:30:00Z",
+    "event": "UK flash PMIs (Nov)",
+    "region": "UK",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-23T14:45:00Z",
+    "event": "US S&P Global flash PMIs (Nov)",
+    "region": "US",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-24T15:00:00Z",
+    "event": "US Conference Board consumer confidence",
+    "region": "US",
+    "impact": "medium"
+   },
+   {
     "time": "2026-11-25T13:30:00Z",
     "event": "US PCE inflation + GDP (2nd estimate)",
     "region": "US",
     "impact": "high",
-    "note": "The Fed's preferred inflation gauge"
+    "note": "Durable goods and weekly jobless claims (moved from Thursday) at the same time"
+   },
+   {
+    "time": "2026-11-25T19:00:00Z",
+    "event": "Fed Beige Book",
+    "region": "US",
+    "impact": "medium"
    },
    {
     "time": "2026-11-26T12:00:00Z",
@@ -3320,6 +3406,18 @@
     "region": "US",
     "impact": "medium",
     "note": "Thin liquidity; ETF flows pause"
+   },
+   {
+    "time": "2026-11-26T23:30:00Z",
+    "event": "Tokyo CPI (Nov)",
+    "region": "JP",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-27T18:00:00Z",
+    "event": "US stocks early close (13:00 ET) after Thanksgiving",
+    "region": "US",
+    "impact": "medium"
    },
    {
     "time": "2026-12-09T19:00:00Z",
@@ -3331,7 +3429,7 @@
   ]
  },
  "unlocks": {
-  "source": "Tokenomist / ChainCatcher weekly lists",
+  "source": "Tokenomist digest, KuCoin daily report, Bittime November unlock calendar",
   "items": [
    {
     "date": "2026-11-20",
@@ -3358,11 +3456,99 @@
     "recipients": ""
    },
    {
+    "date": "2026-11-21",
+    "token": "AKE",
+    "name": "",
+    "valueUsd": 24400000,
+    "pctCirc": 9.35,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-22",
+    "token": "SENT",
+    "name": "",
+    "valueUsd": 5300000,
+    "pctCirc": 4.4,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-22",
+    "token": "MBG",
+    "name": "",
+    "valueUsd": 2400000,
+    "pctCirc": null,
+    "recipients": ""
+   },
+   {
     "date": "2026-11-23",
     "token": "SOON",
     "name": "SOON",
     "valueUsd": 4410000.0,
     "pctCirc": 3.38,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-24",
+    "token": "MON",
+    "name": "Monad",
+    "valueUsd": 288690000,
+    "pctCirc": 144.65,
+    "recipients": "Team and investors (end of 1-year lock); estimates range ~$132M–$324M"
+   },
+   {
+    "date": "2026-11-25",
+    "token": "XPL",
+    "name": "Plasma",
+    "valueUsd": 17520000,
+    "pctCirc": null,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-25",
+    "token": "H",
+    "name": "Humanity",
+    "valueUsd": 14790000,
+    "pctCirc": null,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-26",
+    "token": "HUMA",
+    "name": "Huma Finance",
+    "valueUsd": 13200000,
+    "pctCirc": null,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-28",
+    "token": "STX",
+    "name": "Stacks",
+    "valueUsd": 1200000,
+    "pctCirc": null,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-29",
+    "token": "FF",
+    "name": "Falcon Finance",
+    "valueUsd": 19440000,
+    "pctCirc": null,
+    "recipients": "Team and investors (monthly vesting)"
+   },
+   {
+    "date": "2026-11-29",
+    "token": "CARDS",
+    "name": "Collector Crypt",
+    "valueUsd": 17030000,
+    "pctCirc": null,
+    "recipients": ""
+   },
+   {
+    "date": "2026-11-30",
+    "token": "KMNO",
+    "name": "Kamino",
+    "valueUsd": 7700000,
+    "pctCirc": null,
     "recipients": ""
    }
   ]
