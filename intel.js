@@ -1,15 +1,15 @@
 // Written by the morning crawl.
 window.INTEL = {
- "updatedAt": "2026-11-20T01:57:39Z",
- "briefNote": "Sources: web search + news pages (RSS and CoinCarp fetch unavailable this run; token-sale lists unchanged)",
+ "updatedAt": "2026-11-21T01:56:20Z",
+ "briefNote": "Feeds and CoinCarp could not be fetched this run; news gathered via search, token-sale lists unchanged.",
  "brief": [
-  "**BTC ~$62–64K:** slid to its lowest since July on Thursday as US stocks fell over 2% and hawkish Fed minutes kept a December hike in play; Fear & Greed sits at 10 (Extreme Fear). ETH is hovering around $1,750–1,800.",
-  "**ETFs (18 Nov):** BTC funds lost about $306M, taking YTD outflows past $2.5B. ETH funds shed $39.8M, a fourth straight outflow day, leaving ~$9.7B in assets. Roundhill dropped its planned SOL and XRP income ETFs.",
-  "**Macro today:** Anthropic's record IPO starts trading on Nasdaq after crypto venues (Hyperliquid, OKX, Binance Wallet) ran pre-IPO markets; UMich sentiment at 15:00 UTC. Next week: flash PMIs Monday, then PCE + GDP on 25 Nov and Thanksgiving closes US markets on 26 Nov.",
-  "**Stablecoins / security:** a report tying North Korea-linked flows to Sky's peg module triggered ~$1.5B of USDS outflows and freeze-risk worries. Binance won a $6.5B worldwide freezing order against its October hackers.",
-  "**Hyperliquid:** CFTC chair Selig laid out a US path (register or partner with a licensed exchange), 1inch added Hyperliquid perps, but Hong Kong's SFC put it on its unlicensed-platform alert list.",
-  "**Ethereum / Sui / Tron:** a US judge cleared the MIT brothers in the MEV case; CoinShares sold its whole treasury ETH. Hashi brought BTC-backed USDC borrowing to Sui, and UBS piloted a tokenized note with Chainlink.",
-  "**Unlocks (next 3 days):** LayerZero (ZRO) ~$34.7M (5.8% of circ.) today, AKE ~$24.4M (9.4%) on 21 Nov, SENT ~$5.3M on 22 Nov. Watch Monad (MON) on 24 Nov: the one-year team/investor cliff is the month's biggest, estimated in the hundreds of millions."
+  "**BTC ~$58–59K:** bitcoin broke below $60K on Friday as a Nasdaq rout after Anthropic's debut and Fed-hike fears drove a rush to cash; about $660M of leveraged positions were liquidated. ETH fell ~9% to ~$1,600 and SOL to ~$67. Fear & Greed is in Extreme Fear (~12).",
+  "**ETFs (19 Nov):** BTC funds lost $582M (November outflows near $3.5B); ETH funds shed $131M, a fifth straight outflow day, almost all from ETHA. VanEck is dropping Gemini as custodian of its BTC/ETH/SOL ETFs.",
+  "**Macro:** quiet weekend. Next week is Thanksgiving-shortened: flash PMIs Monday, Conference Board confidence Tuesday, then PCE + GDP on Wed 25 Nov and US markets shut on 26 Nov. Rising real yields are weighing on gold and BTC alike.",
+  "**Hyperliquid:** the CFTC says onchain perp venues get no special exemptions to serve US users. Separately, Wagyu's wrapped-Monero token XMR1 crashed 99% after a ~$13M exploit dumped on Hyperliquid; refunds promised.",
+  "**US policy / infra:** MoonPay applied for an OCC national trust charter; the Senate passed a ban on death/war prediction contracts; a House crypto tax vote may still happen before Congress ends. Fairmint plans a tokenized-stock venue on Canton and Ethereum under the SEC pilot.",
+  "**Treasuries & funds:** Saylor sees up to $7.5B of demand for Strategy's STRC preferred; Ark bought ~$90M of Anthropic and trimmed ETH/SOL staking ETFs. JPMorgan pegs BTC's production cost near $86K.",
+  "**Unlocks (next 3 days):** AKE ~$24.4M (9.4% of circ.) today, GRAM ~$43.1M and SENT ~$5.3M on 22 Nov, SOON ~$4.4M on 23 Nov. Then Monad (MON) on 24 Nov: the one-year team/investor cliff, estimated $130M–$340M."
  ],
  "launches": [
   {
@@ -377,6 +377,142 @@ window.INTEL = {
  ],
  "news": [
   {
+   "chain": "Bitcoin",
+   "date": "20 Nov",
+   "source": "CoinDesk",
+   "title": "Why Crypto Is Crashing: Bitcoin (BTC) nears new 2026 low as strategists say cash Is king amid Fed fears",
+   "summary": "Bitcoin dropped under $59K as investors fled to cash on fears of a December Fed hike, putting this year's lows back in reach.",
+   "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-plunges-below-usd59-000-as-rush-to-cash-puts-new-bear-market-lows-back-in-play"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "CoinDesk",
+   "title": "BTC slides to $61,300 after Anthropic's IPO, triggers $660 million in liquidations",
+   "summary": "The sell-off that followed Anthropic's Nasdaq debut flushed out roughly $660M of leveraged crypto positions.",
+   "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-hits-four-month-low-after-anthropic-s-ipo-as-tech-stocks-wilt"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "CoinDesk",
+   "title": "Gold tanks, BTC under pressure as 'real rates' surge",
+   "summary": "Rising inflation-adjusted Treasury yields knocked gold lower and are adding pressure on bitcoin.",
+   "url": "https://www.coindesk.com/markets/2026/11/20/here-s-what-s-crashing-gold-and-likely-weighing-on-bitcoin-too"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "JPMorgan says bitcoin price correction widens gap to estimated $86,000 production cost",
+   "summary": "JPMorgan analysts put bitcoin's estimated mining cost near $86K, well above where the price now trades.",
+   "url": "https://www.theblock.co/news/markets/2026-11-20-jpmorgan-bitcoin-price-correction-gap-86000-production-cost-444763"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "US spot bitcoin ETFs see $582 million in daily net outflows as November total nears $3.5 billion",
+   "summary": "Bitcoin ETFs lost $582M on 19 Nov, led by BlackRock's IBIT, pushing November redemptions toward $3.5B.",
+   "url": "https://www.theblock.co/news/markets/2026-11-20-us-spot-bitcoin-etfs-see-582-million-in-daily-net-outflows-as-november-total-nears-3-5-billion-444217"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "TokenPost",
+   "title": "U.S. spot Ethereum ETFs post $131.24 million net outflow",
+   "summary": "Ether ETFs bled $131M on 19 Nov, a fifth straight outflow day, almost all of it from BlackRock's ETHA.",
+   "url": "https://www.tokenpost.com/news/investing/61791"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "Wagyu's XMR1 wrapped Monero plunges 99% after $13 million hack as founder promises refunds",
+   "summary": "A wrapped-Monero token collapsed after about $13M was drained and dumped via Hyperliquid; the founder says holders will be refunded.",
+   "url": "https://www.theblock.co/news/defi/2026-11-20-wagyus-xmr1-wrapped-monero-plunges-99-after-13-million-hack-founder-promises-refunds-444747"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "20 Nov",
+   "source": "CoinDesk",
+   "title": "CFTC tells Hyperliquid and rivals: No special exemptions for onchain trading.",
+   "summary": "The CFTC chair signalled onchain perp venues must meet the same rules as traditional exchanges to serve US users.",
+   "url": "https://www.coindesk.com/markets/2026/11/20/cftc-tells-hyperliquid-and-crypto-rivals-no-special-rules-for-onchain-trading"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "MoonPay applies for national trust bank charter to expand stablecoin services",
+   "summary": "MoonPay filed with the OCC for a national trust charter to broaden its stablecoin and custody offering.",
+   "url": "https://www.theblock.co/news/business/2026-11-20-moonpay-applies-occ-national-bank-charter-444198"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "CoinDesk",
+   "title": "BTC, ETH, SOL news: VanEck drops Gemini as custodian of its bitcoin, ether and SOL ETFs",
+   "summary": "VanEck is replacing Gemini as custodian across its bitcoin, ether and Solana ETFs.",
+   "url": "https://coindesk.com/markets/2026/11/20/vaneck-drops-gemini-as-custodian-of-its-bitcoin-ether-and-sol-etfs"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "Ark buys $90 million worth of Anthropic shares on debut, trims Ethereum and Solana staking ETF holdings",
+   "summary": "Cathie Wood's Ark bought about $90M of Anthropic stock on day one while cutting its ETH and SOL staking ETF positions.",
+   "url": "https://www.theblock.co/news/markets/2026-11-20-ark-buys-90-million-worth-of-anthropic-shares-on-debut-trims-ethereum-and-solana-staking-etf-holdings-444226"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "20 Nov",
+   "source": "CoinDesk",
+   "title": "Fairmint plans tokenized stock venue on Canton, Ethereum under SEC experiment",
+   "summary": "Fairmint aims to run a tokenized-equity trading venue on Canton and Ethereum under the SEC's pilot framework.",
+   "url": "https://www.coindesk.com/business/2026/11/20/fairmint-plans-tokenized-stock-venue-on-canton-ethereum-under-sec-experiment"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "Michael Saylor sees up to $7.5 billion in 'natural demand' for Strategy's STRC preferred stock",
+   "summary": "Saylor said Strategy's STRC preferred could draw up to $7.5B of demand, a potential funding source for more BTC buys.",
+   "url": "https://www.theblock.co/news/business/2026-11-20-michael-saylor-natural-demand-strategy-strc-444190"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "Senate passes 'Death Bets Act' to ban prediction market contracts tied to death and war",
+   "summary": "The Senate approved a bill barring prediction-market contracts on deaths and wars.",
+   "url": "https://www.theblock.co/news/regulation/2026-11-20-senate-death-bets-act-444200"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "Rep. Horsford sees opening for House vote on crypto tax bill before Congress ends",
+   "summary": "A House Democrat says a crypto tax bill could still get a floor vote before the session closes.",
+   "url": "https://theblock.co/news/regulation/2026-11-20-rep-horsford-sees-opening-house-vote-crypto-tax-bill-before-congress-ends-444720"
+  },
+  {
+   "chain": "Market",
+   "date": "20 Nov",
+   "source": "The Block",
+   "title": "Wintermute policy chief calls for crypto lobby to 'clean house' in D.C.",
+   "summary": "Wintermute's policy head urged the industry's Washington lobby to overhaul itself after the CLARITY Act setback.",
+   "url": "https://www.theblock.co/news/regulation/2026-11-20-wintermute-policy-chief-calls-for-crypto-lobby-clean-house-d-c-444721"
+  },
+  {
+   "chain": "Market",
+   "date": "19 Nov",
+   "source": "The Block",
+   "title": "Coinbase backs CFTC proposal to distinguish prediction market contracts from gambling",
+   "summary": "Coinbase supported a CFTC plan to separate event contracts from gambling products.",
+   "url": "https://theblock.co/news/business/2026-11-19-coinbase-backs-cftc-prediction-markets-444152"
+  },
+  {
    "chain": "Market",
    "date": "19 Nov",
    "source": "CoinDesk",
@@ -599,142 +735,6 @@ window.INTEL = {
    "title": "U.S. judge says Ethereum has 'no terms of use,' clears MIT brothers of $25 million fraud",
    "summary": "A federal judge cleared the brothers in the Ethereum MEV exploit case of the fraud charge.",
    "url": "https://www.coindesk.com/policy/2026/11/18/u-s-judge-says-ethereum-has-no-terms-of-use-clears-mit-brothers-of-usd25-million-fraud"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "18 Nov",
-   "source": "CryptoTicker",
-   "title": "Bitcoin price prediction: Fed minutes push BTC lower",
-   "summary": "BTC slipped as the minutes of the October FOMC meeting kept rate-hike worries alive.",
-   "url": "https://cryptoticker.io/en/bitcoin-price-prediction-fed-minutes-november-18-2026/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "18 Nov",
-   "source": "Crypto.com",
-   "title": "Bitcoin Price Shrugs off Nvidia Earnings as Fed Minutes Loom",
-   "summary": "Nvidia's strong quarter did little for BTC, which stayed range-bound ahead of the Fed minutes.",
-   "url": "https://crypto.com/us/market-updates/bitcoin-price-nvidia-earnings-fomc-minutes"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "18 Nov",
-   "source": "Crypto Briefing",
-   "title": "BlackRock's IBIT leads $240M Bitcoin ETF outflow on November 17",
-   "summary": "US spot bitcoin funds swung back to heavy net redemptions, with IBIT the largest seller.",
-   "url": "https://cryptobriefing.com/blackrock-ibit-leads-bitcoin-etf-outflow/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "18 Nov",
-   "source": "TokenPost",
-   "title": "HTX Researcher Says ETF Outflows Could Keep Bitcoin Weak Without Spot Demand",
-   "summary": "An exchange analyst argues fund redemptions will cap BTC unless spot buyers return.",
-   "url": "https://www.tokenpost.com/news/investing/60296"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "18 Nov",
-   "source": "CoinDesk",
-   "title": "Bitcoin's 12% slide through its 200-week average has a bullish track record",
-   "summary": "Only three comparable breaks since 2013; the piece looks at what followed over the next ~3 months.",
-   "url": "https://www.coindesk.com/markets/2026/11/18/bitcoin-s-rare-12-crash-through-its-200-week-average-has-a-bullish-track-record"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "18 Nov",
-   "source": "FXStreet",
-   "title": "Ethereum Price Forecast: ETH fails to recover $1,800 as selling lingers",
-   "summary": "Ether stayed under $1,800 as futures and spot selling persisted.",
-   "url": "https://www.fxstreet.com/cryptocurrencies/news/ethereum-price-forecast-eth-fails-to-recover-1-800-after-futures-and-spot-distribution-202611182108"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "18 Nov",
-   "source": "TokenPost",
-   "title": "Spot Ethereum ETF outflows widen 3.5-fold to $29.09 million",
-   "summary": "Ether funds logged a third straight day of net redemptions on 17 Nov.",
-   "url": "https://www.tokenpost.com/news/investing/60206"
-  },
-  {
-   "chain": "Solana",
-   "date": "18 Nov",
-   "source": "Invezz",
-   "title": "Solana surges 3% as ETFs attract $11.68 million",
-   "summary": "SOL bounced as US Solana funds drew fresh inflows against the wider ETF selling.",
-   "url": "https://invezz.com/news/2026/11/18/solana-surges-3-as-etfs-attract-11-68-million/"
-  },
-  {
-   "chain": "Solana",
-   "date": "18 Nov",
-   "source": "Genfinity",
-   "title": "Solana Breakpoint 2026 Recap: Zelle, ICE, CoinGecko, and Backpack's CFTC Win Define Solana's London Debut",
-   "summary": "A roundup of the main payments, market-structure and corporate announcements from Breakpoint London.",
-   "url": "https://genfinity.io/2026/11/18/solana-breakpoint-2026-recap-zelle-ice-coingecko-backpack-solana-1-0/"
-  },
-  {
-   "chain": "Hyperliquid L1",
-   "date": "18 Nov",
-   "source": "TokenPost",
-   "title": "Hyperliquid and Zcash Spot ETFs Post $4.19 Million Combined Outflow",
-   "summary": "The newer single-asset funds for HYPE and ZEC saw small combined redemptions.",
-   "url": "https://www.tokenpost.com/news/investing/61021"
-  },
-  {
-   "chain": "BSC",
-   "date": "18 Nov",
-   "source": "Longbridge",
-   "title": "BNB Chain RWA Holders Reach 2.17 Million, Up 6.4% in 30 Days",
-   "summary": "Tokenized-asset holder counts on BNB Chain kept growing over the past month.",
-   "url": "https://longbridge.com/en/news/305911969"
-  },
-  {
-   "chain": "Base",
-   "date": "18 Nov",
-   "source": "Manila Times / PR Newswire",
-   "title": "HSK Chain and Base Collaborate to Connect Asia's Premier Onchain Asset with Global Liquidity",
-   "summary": "HashKey's chain is linking with Coinbase's L2 to route liquidity for its flagship onchain asset.",
-   "url": "https://manilatimes.net/2026/11/18/tmt-newswire/pr-newswire/hsk-chain-and-base-collaborate-to-connect-asias-premier-onchain-asset-with-global-liquidity/2472839"
-  },
-  {
-   "chain": "Avalanche",
-   "date": "18 Nov",
-   "source": "The Motley Fool",
-   "title": "Did Avalanche's New NYSE Deal Just Make Solana and XRP Irrelevant?",
-   "summary": "An analysis of what NYSE settling tokenized stocks on Avalanche means for competing chains.",
-   "url": "https://fool.com/investing/2026/11/18/did-avalanche-s-new-nyse-deal-just-make-solana-and-xrp-irrelevant"
-  },
-  {
-   "chain": "Tron",
-   "date": "18 Nov",
-   "source": "TokenPost",
-   "title": "TRON Founder 孙宇晨 Cites $2.21 Trillion in Q3 Stablecoin Transfers",
-   "summary": "Justin Sun highlighted Tron's Q3 stablecoin transfer volume as evidence of payment usage.",
-   "url": "https://tokenpost.com/news/technology/60261"
-  },
-  {
-   "chain": "XRPL",
-   "date": "18 Nov",
-   "source": "CoinDesk",
-   "title": "XRP whales moved $270M during the selloff, but not to exchanges",
-   "summary": "Moves into two vaults look like custody rotation, not selling.",
-   "url": "https://www.coindesk.com/markets/2026/11/18/xrp-whales-moved-usd270-million-during-the-selloff-the-coins-didn-t-go-to-exchanges"
-  },
-  {
-   "chain": "Market",
-   "date": "18 Nov",
-   "source": "Bloomberg",
-   "title": "Crypto Platform Hyperliquid Rival Hits $1.5 Billion Valuation as Perps Boom",
-   "summary": "Bloomberg reports a perps venue competing with Hyperliquid reached a $1.5B valuation as derivatives demand grows.",
-   "url": "https://www.bloomberg.com/news/articles/2026-11-18/hyperliquid-rival-hits-1-5-billion-valuation-as-perps-boom"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "17 Nov",
-   "source": "Decrypt",
-   "title": "Bitcoin investors are capitulating, historically a bottom signal",
-   "summary": "Glassnode: realized losses match levels from prior cycle lows; buyers defending $62K–$66K.",
-   "url": "https://decrypt.co/383466/bitcoin-investors-capitulating-historical-bottom-signal"
   }
  ],
  "launchSource": "CoinCarp",
@@ -742,8 +742,8 @@ window.INTEL = {
  "etf": {
   "eth": {
    "source": "Farside Investors (history) + SoSoValue daily reports",
-   "asOf": "2026-11-18",
-   "cumulative": 11474870000,
+   "asOf": "2026-11-19",
+   "cumulative": 11343630000,
    "aum": 9680000000.0,
    "last7d": null,
    "days": [
@@ -3126,9 +3126,14 @@ window.INTEL = {
     {
      "date": "2026-11-18",
      "flow": -39830000
+    },
+    {
+     "date": "2026-11-19",
+     "flow": -131240000
     }
    ],
-   "last30d": null
+   "last30d": null,
+   "aumAsOf": "2026-11-18"
   }
  },
  "funding": {
@@ -3339,25 +3344,6 @@ window.INTEL = {
   "source": "Sources: helious.io, LiteFinance weekly calendar, Admiral Markets holiday hours",
   "events": [
    {
-    "time": "2026-11-19T13:30:00Z",
-    "event": "US initial jobless claims + Philly Fed manufacturing",
-    "region": "US",
-    "impact": "medium"
-   },
-   {
-    "time": "2026-11-19T23:30:00Z",
-    "event": "Japan CPI",
-    "region": "JP",
-    "impact": "medium",
-    "note": "Relevant for yen carry trade"
-   },
-   {
-    "time": "2026-11-20T01:15:00Z",
-    "event": "China loan prime rate",
-    "region": "CN",
-    "impact": "medium"
-   },
-   {
     "time": "2026-11-20T15:00:00Z",
     "event": "UMich consumer sentiment (final)",
     "region": "US",
@@ -3430,32 +3416,8 @@ window.INTEL = {
   ]
  },
  "unlocks": {
-  "source": "Tokenomist digest, KuCoin daily report, Bittime November unlock calendar",
+  "source": "Tokenomist digest, KuCoin daily report, Bittime November unlock calendar, CoinGabbar November top-10",
   "items": [
-   {
-    "date": "2026-11-20",
-    "token": "ZRO",
-    "name": "LayerZero",
-    "valueUsd": 34690000.0,
-    "pctCirc": 5.82,
-    "recipients": "Private investors, team"
-   },
-   {
-    "date": "2026-11-20",
-    "token": "KAITO",
-    "name": "Kaito",
-    "valueUsd": 3070000.0,
-    "pctCirc": 7.29,
-    "recipients": "Community, team, investors, reserve"
-   },
-   {
-    "date": "2026-11-20",
-    "token": "BR",
-    "name": "",
-    "valueUsd": 2150000.0,
-    "pctCirc": 1.46,
-    "recipients": ""
-   },
    {
     "date": "2026-11-21",
     "token": "AKE",
@@ -3479,6 +3441,15 @@ window.INTEL = {
     "valueUsd": 2400000,
     "pctCirc": null,
     "recipients": ""
+   },
+   {
+    "date": "2026-11-22",
+    "token": "GRAM",
+    "name": "",
+    "valueUsd": 43100000,
+    "pctCirc": null,
+    "recipients": "",
+    "url": "https://coinstats.app/news/3a07bf7159ce332884b8878a3556615630bb46f49c006fe28f415e930247aa09_Token-Unlocks-November-2026-Top-10-Dates-Values-and-Risks/"
    },
    {
     "date": "2026-11-23",
