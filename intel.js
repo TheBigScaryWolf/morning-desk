@@ -1,15 +1,16 @@
 // Written by the morning crawl.
 window.INTEL = {
- "updatedAt": "2026-11-22T01:55:24Z",
- "briefNote": "News feeds, CoinCarp and Farside could not be fetched this run; news gathered via search, token-sale lists unchanged, ETH ETF flow for 20 Nov not yet confirmed.",
+ "updatedAt": "2026-11-23T02:01:02Z",
+ "briefNote": "CoinCarp, Farside and the RSS feeds could not be fetched this run: news gathered via search, token-sale lists unchanged, ETH ETF flow for 20 Nov not yet confirmed.",
  "brief": [
-  "**BTC ~$60K after a $55K flush:** bitcoin plunged below $56K on Saturday, a two-year low, as an AI/tech-stock rout spilled into crypto and roughly $2.4–2.7B of leveraged positions were liquidated. It then bounced ~9% back to about $60K. ETH briefly hit ~$1,500, XRP fell ~10%; sentiment is in Extreme Fear.",
-  "**ETFs:** US spot ETH funds lost $131M on 19 Nov (~$209M over four sessions, mostly ETHA); combined US crypto ETFs shed about $1.5B in the week to 20 Nov. XRP ETF assets have slipped under $1B.",
-  "**Macro:** quiet Sunday. The Thanksgiving week opens with flash PMIs Monday and Conference Board confidence Tuesday; PCE + GDP land together on Wed 25 Nov (13:30 UTC) and US markets close on 26 Nov. Watch Monday's stock open after the weekend crypto crash.",
-  "**Hacks:** Chainflip paused swaps after ~$4.9M was drained from its Ethereum vault (FLIP −34%); Cyber is probing a ~$1M bridge exploit as Upbit and Bithumb froze transfers. The Binance hackers keep laundering, mixing $149M of BTC and bridging another ~$346M of ETH.",
-  "**Ethereum treasuries under stress:** BTCS warned the SEC its $54M Aave loan could be liquidated if ETH keeps sliding, a first sign of strain among ether treasury firms.",
-  "**Infra & policy:** Bitcoin Core fixed a node-stalling bug; Polygon shipped its Heimdall v0.14.0 (Purley) upgrade; Kalshi faces a Monday hearing on a New York order it says would shut it down nationwide.",
-  "**Unlocks (next 3 days):** GRAM ~$43M, SENT ~$5M and MBG ~$2M today, SOON ~$4M on 23 Nov, then Monad (MON) on 24 Nov: ~10.7B MON from team and investors, worth roughly $130M–$340M depending on price, the week's main supply risk."
+  "**BTC steadies near $60K:** bitcoin is holding around $60–61K after last weekend's flush to ~$55K, the lowest since 2024, and ~$2.7B of liquidations; ETH sits near $1.7K. It is still down ~6% on the week and sentiment remains in extreme fear. Saylor hinted at another Strategy buy.",
+  "**ETFs:** US spot ETH funds shed about $222M over 16–20 Nov, including $131M on 19 Nov; ETH ETF assets are down to ~$9.6B. Solana ETFs ended a six-week outflow streak.",
+  "**Macro today:** Thanksgiving week starts with flash PMIs (EU 09:00, UK 09:30, US 14:45 UTC) and Fed's Williams speaking; Japan is on holiday. The big day is Wed 25 Nov: PCE plus Q3 GDP at 13:30 UTC, then US markets shut on Thursday. Next FOMC decision is 9 Dec.",
+  "**Hacks:** Chainflip's losses rose to ~$12M after it disclosed a 122.9 BTC theft and offered the attacker a bounty; on BNB Chain, an unbacked-mint exploit let traders drain ~$3.7M from Fusionist's ACE bridge. Kraken's BTC/CAD book briefly printed $17K and the trades stand.",
+  "**Solana:** mainnet drops its beta label with Solana 1.0, and the Foundation now holds a majority stake in CoinGecko; Zelle's ZelleUSD stablecoin will also run on Solana.",
+  "**Policy:** scrutiny is building over Trump's second TRUMP memecoin dinner, with the token ~99% off its high and about half of qualifying wallets funded via offshore exchanges. The ECB is seeking partners for tokenized deposit and securities trials.",
+  "**Last week's raises:** Variational led at $110M (Series B, $1.5B valuation, Bain Capital Crypto); stablecoin payments dominated, with Codex ($30M, Pantera), Avenia ($25M) and several Tether-backed deals.",
+  "**Unlocks (next 3 days):** SOON ~$5M today; Monad's one-year cliff on 24 Nov releases ~16.6B MON (~$219M, ~32% of circulating per Tokenomist) to team, investors and treasury, the week's main supply risk; SOSO ~$6M on 24 Nov, then XPL ~$10M, COAI and H on 25 Nov."
  ],
  "launches": [
   {
@@ -377,6 +378,142 @@ window.INTEL = {
  ],
  "news": [
   {
+   "chain": "Solana",
+   "date": "23 Nov",
+   "source": "Cointelegraph",
+   "title": "Half of wallets on Trump's dinner list got tokens from non-US exchanges",
+   "summary": "A Public Citizen review found roughly half of the wallets qualifying for the TRUMP memecoin dinner were funded from offshore exchanges that restrict US users.",
+   "url": "https://cointelegraph.com/news/half-wallets-trumps-dinner-list-got-tokens-from-non-us-exchanges"
+  },
+  {
+   "chain": "BSC",
+   "date": "22 Nov",
+   "source": "The Block",
+   "title": "A $2 million exploit leads to a $3.7 million free-for-all as traders empty Fusionist's ACE bridge",
+   "summary": "An attacker minted unbacked ACE on BNB Chain and dumped it, after which other traders drained the real ACE held in Fusionist's bridge.",
+   "url": "https://www.theblock.co/news/defi/2026-11-22-a-2-million-exploit-leads-to-a-3-7-million-free-for-all-as-traders-empty-fusionists-ace-bridge-444838"
+  },
+  {
+   "chain": "Solana",
+   "date": "22 Nov",
+   "source": "The Block",
+   "title": "Trump to host second memecoin dinner tonight with TRUMP down 99% from peak",
+   "summary": "Trump is hosting top TRUMP holders at his Virginia golf club while the token sits about 99% below its January 2025 high.",
+   "url": "https://www.theblock.co/news/ecosystems/2026-11-22-trump-to-host-second-memecoin-dinner-tonight-with-trump-down-99-from-peak-444828"
+  },
+  {
+   "chain": "Market",
+   "date": "22 Nov",
+   "source": "The Block",
+   "title": "Chainflip's losses climb to $12 million after protocol discloses 122.9 BTC theft, offers hacker bounty",
+   "summary": "Chainflip now says its Bitcoin vault was also drained, lifting total losses to about $12M, and it is offering the attacker a 10% bounty.",
+   "url": "https://www.theblock.co/news/defi/2026-11-22-chainflips-losses-climb-to-12-million-after-protocol-discloses-122-9-btc-theft-offers-hacker-bounty-444829"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "22 Nov",
+   "source": "CoinDesk",
+   "title": "Bitcoin's quantum security challenge extends to bridges, custodians and millions of coins",
+   "summary": "Preparing Bitcoin for quantum computers involves custodians, bridges and millions of exposed coins, not just a protocol change.",
+   "url": "https://www.coindesk.com/tech/2026/11/22/bitcoin-s-quantum-security-challenge-extends-to-bridges-custodians-and-millions-of-coins"
+  },
+  {
+   "chain": "Solana",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "Solana upgrades to mainnet 1.0 as Foundation takes majority CoinGecko stake",
+   "summary": "Solana has dropped its beta label with protocol version 1.0, and its Foundation now holds a controlling stake in CoinGecko.",
+   "url": "https://crypto.news/solana-mainnet-1-0-foundation-coingecko-majority-stake/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "Michael Saylor hints at another Strategy Bitcoin buy after BTC crash",
+   "summary": "Saylor's usual Sunday post suggests Strategy may announce a new BTC purchase after the drop toward $55K.",
+   "url": "https://crypto.news/michael-saylor-strategy-bitcoin-buy-hint-november-2026/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "7 reasons Bitcoin price crashed to $55K before rebounding to $60K",
+   "summary": "Fed hike fears, tech-stock losses, ETF outflows and heavy liquidations are listed as the drivers of BTC's slide to its lowest level since 2024.",
+   "url": "https://crypto.news/bitcoin-price-crash-seven-market-pressures-altcoins/"
+  },
+  {
+   "chain": "XRPL",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "XRP price risks further losses as ETFs shed $30.8M in November",
+   "summary": "XRP briefly slipped under $0.90, and US spot XRP funds are net sellers for the month.",
+   "url": "https://crypto.news/xrp-price-below-90-cents-november-etf-outflows/"
+  },
+  {
+   "chain": "Market",
+   "date": "22 Nov",
+   "source": "Cointelegraph",
+   "title": "Will Bitcoin's big rebound hold? More tampered Ledgers found: Hodler's Digest",
+   "summary": "Weekly roundup covering BTC's bounce from about $55K, more Ledger tampering cases, Binance hack fund movements and the Sky outflows.",
+   "url": "https://cointelegraph.com/magazine/will-bitcoins-big-rebound-hold-more-tampered-ledgers-found-hodlers-digest"
+  },
+  {
+   "chain": "Market",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "Malicious iPhone ads target crypto wallet seed phrases in 47 countries",
+   "summary": "Researchers flagged a malicious iPhone ad campaign in 47 countries that tries to steal wallet recovery phrases.",
+   "url": "https://crypto.news/moldyroost-iphone-ads-crypto-wallet-seed-phrases/"
+  },
+  {
+   "chain": "Solana",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "Solana price rebounds toward $70 as ETFs end six-week outflow streak",
+   "summary": "SOL bounced back near $70 while US Solana ETFs posted net inflows for the first time in six weeks.",
+   "url": "https://crypto.news/solana-price-rebounds-70-etf-inflows-return/"
+  },
+  {
+   "chain": "Market",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "Philippines crypto exchange Coins.ph halts self-custody transfers under Travel Rule",
+   "summary": "Coins.ph has stopped transfers to self-hosted wallets to comply with Travel Rule requirements.",
+   "url": "https://crypto.news/coins-ph-stops-self-custody-crypto-transfers/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "22 Nov",
+   "source": "Cointelegraph",
+   "title": "Bitcoin briefly drops to $17K on Kraken, exchange upholds trades",
+   "summary": "Kraken's BTC/CAD market briefly printed the equivalent of about $17K during the selloff, and the exchange says the fills will stand.",
+   "url": "https://cointelegraph.com/news/bitcoin-17k-kraken-canadian-dollar-market-trades-stand"
+  },
+  {
+   "chain": "Market",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "Bitcoin price stalls near $60K as Pi Network rebounds, VVV jumps 20%: Market watch",
+   "summary": "BTC held around $60K after the weekend flush while Pi bounced off its low and Venice Token led altcoin gains.",
+   "url": "https://crypto.news/bitcoin-price-pi-network-vvv-weekend-recovery/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "22 Nov",
+   "source": "crypto.news",
+   "title": "Bitcoin price rebounds from $55K after historic sell-off, is $72K next?",
+   "summary": "Analysts weigh whether BTC's recovery from the $55K low can extend toward $72K after $2.7B in liquidations.",
+   "url": "https://crypto.news/bitcoin-price-rebounds-55k-2-7b-liquidations/"
+  },
+  {
+   "chain": "Market",
+   "date": "21 Nov",
+   "source": "crypto.news",
+   "title": "ECB seeks partners for tokenized deposits and securities tests",
+   "summary": "The ECB is looking for market participants to trial tokenized deposits and securities settlement under its Appia plan.",
+   "url": "https://crypto.news/ecb-appia-tokenized-deposits-securities-tests/"
+  },
+  {
    "chain": "Bitcoin",
    "date": "21 Nov",
    "source": "CoinDesk",
@@ -599,142 +736,6 @@ window.INTEL = {
    "title": "Ark buys $90 million worth of Anthropic shares on debut, trims Ethereum and Solana staking ETF holdings",
    "summary": "Cathie Wood's Ark bought about $90M of Anthropic stock on day one while cutting its ETH and SOL staking ETF positions.",
    "url": "https://www.theblock.co/news/markets/2026-11-20-ark-buys-90-million-worth-of-anthropic-shares-on-debut-trims-ethereum-and-solana-staking-etf-holdings-444226"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "20 Nov",
-   "source": "CoinDesk",
-   "title": "Fairmint plans tokenized stock venue on Canton, Ethereum under SEC experiment",
-   "summary": "Fairmint aims to run a tokenized-equity trading venue on Canton and Ethereum under the SEC's pilot framework.",
-   "url": "https://www.coindesk.com/business/2026/11/20/fairmint-plans-tokenized-stock-venue-on-canton-ethereum-under-sec-experiment"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "Michael Saylor sees up to $7.5 billion in 'natural demand' for Strategy's STRC preferred stock",
-   "summary": "Saylor said Strategy's STRC preferred could draw up to $7.5B of demand, a potential funding source for more BTC buys.",
-   "url": "https://www.theblock.co/news/business/2026-11-20-michael-saylor-natural-demand-strategy-strc-444190"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "Senate passes 'Death Bets Act' to ban prediction market contracts tied to death and war",
-   "summary": "The Senate approved a bill barring prediction-market contracts on deaths and wars.",
-   "url": "https://www.theblock.co/news/regulation/2026-11-20-senate-death-bets-act-444200"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "Rep. Horsford sees opening for House vote on crypto tax bill before Congress ends",
-   "summary": "A House Democrat says a crypto tax bill could still get a floor vote before the session closes.",
-   "url": "https://theblock.co/news/regulation/2026-11-20-rep-horsford-sees-opening-house-vote-crypto-tax-bill-before-congress-ends-444720"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "Wintermute policy chief calls for crypto lobby to 'clean house' in D.C.",
-   "summary": "Wintermute's policy head urged the industry's Washington lobby to overhaul itself after the CLARITY Act setback.",
-   "url": "https://www.theblock.co/news/regulation/2026-11-20-wintermute-policy-chief-calls-for-crypto-lobby-clean-house-d-c-444721"
-  },
-  {
-   "chain": "Market",
-   "date": "19 Nov",
-   "source": "The Block",
-   "title": "Coinbase backs CFTC proposal to distinguish prediction market contracts from gambling",
-   "summary": "Coinbase supported a CFTC plan to separate event contracts from gambling products.",
-   "url": "https://theblock.co/news/business/2026-11-19-coinbase-backs-cftc-prediction-markets-444152"
-  },
-  {
-   "chain": "Market",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "North Korean hackers used Sky's stablecoin system, putting billions at freeze risk",
-   "summary": "Analysts traced hundreds of millions in illicit flows, some tied to North Korea, through Sky's peg module, raising the risk of a court freeze on its USDC reserve.",
-   "url": "https://www.coindesk.com/business/2026/11/19/north-korean-hackers-used-sky-s-stablecoin-system-putting-billions-at-freeze-risk"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Sky's USDS stablecoin shrinks 35% as $1.5 billion exits reserves after illicit-finance report",
-   "summary": "A big holder pulled about $1.5B of backing after the report, though USDS kept its dollar peg.",
-   "url": "https://www.coindesk.com/business/2026/11/19/sky-s-usds-stablecoin-shrinks-35-as-usd1-5-billion-exits-reserves-after-illicit-finance-report"
-  },
-  {
-   "chain": "Market",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Binance wins $6.5 billion feezing order against hackers behind crypto's largest theft",
-   "summary": "An Abu Dhabi court issued a worldwide asset freeze against the October hackers; Binance says users were already made whole.",
-   "url": "https://www.coindesk.com/business/2026/11/19/binance-wins-usd6-5-billion-feezing-order-against-hackers-behind-crypto-s-largest-theft"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Live updates: Bitcoin plunges to lowest since July as Anthropic gains, but broader markets tumble",
-   "summary": "BTC hit its lowest level since July as US stock indexes each fell more than 2%.",
-   "url": "https://www.coindesk.com/markets/2026/11/19/live-updates-bitcoin-nears-usd64-000-as-anthropic-s-record-ipo-lifts-tech"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Bitcoin ETF outflows show waning crypto appetite ahead of Anthropic's Nasdaq debut",
-   "summary": "Spot BTC funds shed about $306M on Wednesday as attention shifted to the Anthropic listing.",
-   "url": "https://www.coindesk.com/daybook-us/2026/11/19/bitcoin-etf-outflows-show-waning-crypto-appetite-ahead-of-anthropic-s-nasdaq-debut"
-  },
-  {
-   "chain": "Market",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Crypto traders vs. Wall Street: OKX's Anthropic markets put IPO pricing to the test",
-   "summary": "OKX's pre-IPO Anthropic futures traded well above the $83 offer price ahead of the stock's debut.",
-   "url": "https://www.coindesk.com/markets/2026/11/19/crypto-traders-vs-wall-street-okx-s-anthropic-markets-put-ipo-pricing-to-the-test"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Trump Media wants to clear $884 million of debt without selling its bitcoin",
-   "summary": "Trump Media repurchased part of its convertible notes and aims to settle the rest while keeping its BTC.",
-   "url": "https://www.coindesk.com/markets/2026/11/19/trump-media-wants-to-clear-usd884-million-of-debt-without-selling-its-bitcoin"
-  },
-  {
-   "chain": "Solana",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Roundhill scraps Solana and XRP income ETFs as rival funds attract just $12 million",
-   "summary": "Roundhill pulled its planned SOL and XRP income funds, citing thin demand for niche crypto ETFs.",
-   "url": "https://www.coindesk.com/markets/2026/11/19/roundhill-scraps-solana-and-xrp-income-etfs-as-rival-funds-attract-just-usd12-million"
-  },
-  {
-   "chain": "Market",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Singapore settles $77.5 million tokenized bill sale in local CBDC",
-   "summary": "The MAS settled a tokenized government bill issue using wholesale central bank digital money.",
-   "url": "https://www.coindesk.com/business/2026/11/19/singapore-settles-usd77-5-million-tokenized-bill-sale-in-local-cbdc"
-  },
-  {
-   "chain": "Market",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Trump's Democratic SEC pick suggests tokenization policy deserves full rule process",
-   "summary": "At Senate confirmation hearings, an SEC nominee argued tokenization rules should go through formal rulemaking.",
-   "url": "https://www.coindesk.com/policy/2026/11/19/trump-s-democratic-sec-pick-suggests-tokenization-policy-deserves-full-rule-process"
-  },
-  {
-   "chain": "Market",
-   "date": "19 Nov",
-   "source": "CoinDesk",
-   "title": "Financial firms must act now as quantum computers grow 'highly advanced,' IOSCO warns",
-   "summary": "The global securities watchdog urged banks and blockchains to start multi-year cryptography upgrades now.",
-   "url": "https://www.coindesk.com/tech/2026/11/19/banks-and-blockchains-lag-on-quantum-defense-as-encryption-risks-loom-watchdog-warns"
   }
  ],
  "launchSource": "CoinCarp",
@@ -744,7 +745,7 @@ window.INTEL = {
    "source": "Farside Investors (history) + SoSoValue daily reports",
    "asOf": "2026-11-19",
    "cumulative": 11343630000,
-   "aum": 9680000000.0,
+   "aum": 9599000000,
    "last7d": null,
    "days": [
     {
@@ -3133,13 +3134,293 @@ window.INTEL = {
     }
    ],
    "last30d": null,
-   "aumAsOf": "2026-11-18"
+   "aumAsOf": "2026-11-19"
   }
  },
  "funding": {
-  "updatedAt": "2026-11-18T06:30:00Z",
-  "note": "Compiled weekly from crypto.news / DefiLlama weekly roundup, Gate Ventures recap and company announcements. Valuations marked est. are estimates.",
+  "updatedAt": "2026-11-23T02:01:02Z",
+  "note": "Compiled weekly from crypto.news / DefiLlama weekly roundup, crypto-fundraising.info and company announcements. Valuations marked est. are estimates.",
   "weeks": [
+   {
+    "label": "14–20 Nov",
+    "from": "2026-11-14",
+    "to": "2026-11-20",
+    "rounds": [
+     {
+      "project": "Variational",
+      "what": "Onchain derivatives venue (Omni) routing perps on crypto and traditional assets between onchain and CeFi liquidity",
+      "round": "Series B",
+      "date": "18 Nov",
+      "isoDate": "2026-11-18",
+      "amount": 110000000,
+      "valuation": 1500000000,
+      "valuationNote": "",
+      "lead": [
+       "Bain Capital Crypto"
+      ],
+      "others": [
+       "Dragonfly",
+       "HSG",
+       "Peak XV",
+       "50T Funds"
+      ],
+      "url": "https://www.theblock.co/news/deals/2026-11-18-variational-raises-110-million-at-1-5-billion-valuation-to-expand-onchain-derivatives-trading-443445",
+      "category": "DeFi / Derivatives",
+      "chains": [
+       "Arbitrum"
+      ],
+      "valuationEst": false
+     },
+     {
+      "project": "Nomad",
+      "what": "Brazilian fintech offering US-dollar accounts, international payments and investing; eyeing USDT/XAUT access",
+      "round": "Series C",
+      "date": "16 Nov",
+      "isoDate": "2026-11-16",
+      "amount": 30500000,
+      "valuation": 750000000,
+      "valuationPrefix": "~",
+      "valuationNote": "",
+      "lead": [
+       "Tether Capital"
+      ],
+      "others": [
+       "Endeavor",
+       "Globo Ventures",
+       "Tiger Global Management",
+       "Spark Capital"
+      ],
+      "url": "https://startups.com.br/negocios/nomad-capta-r-172m-com-a-tether-e-mais-que-dobra-valuation-para-r-4b/",
+      "category": "Payments",
+      "valuationEst": false,
+      "chains": []
+     },
+     {
+      "project": "Codex",
+      "what": "Stablecoin-powered FX and cross-border settlement for businesses, focused on Asia-LatAm-Africa corridors",
+      "round": "Series A",
+      "date": "17 Nov",
+      "isoDate": "2026-11-17",
+      "amount": 30000000,
+      "valuation": 130000000,
+      "valuationNote": "",
+      "lead": [
+       "Pantera Capital"
+      ],
+      "others": [
+       "Dragonfly",
+       "Coinbase Ventures"
+      ],
+      "url": "https://fortune.com/2026/11/17/pantera-backed-codex-30-million-asia-global-markets-stablecoins/",
+      "category": "Stablecoins",
+      "valuationEst": false,
+      "chains": []
+     },
+     {
+      "project": "Avenia",
+      "what": "Brazilian stablecoin rails (BRLA issuer) to receive, convert and send funds between local currencies and stablecoins via API",
+      "round": "Series A",
+      "date": "17 Nov",
+      "isoDate": "2026-11-17",
+      "amount": 25000000,
+      "lead": [
+       "Lightspeed Faction"
+      ],
+      "others": [
+       "Flourish Ventures",
+       "Quona Capital",
+       "Big Bets",
+       "Headline"
+      ],
+      "url": "https://www.theblock.co/news/deals/2026-11-17-avenia-funding-stablecoin-crypto-infrastructure-442119",
+      "category": "Stablecoins",
+      "valuationEst": true,
+      "chains": [],
+      "valuation": 139000000,
+      "valuationNote": "Estimate: assumes ~18% sold in a Series A round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "MetaComp",
+      "what": "Singapore cross-border payments network mixing fiat and stablecoin rails across Asia, Middle East and Africa",
+      "round": "Pre-Series A (extension)",
+      "date": "19 Nov",
+      "isoDate": "2026-11-19",
+      "amount": 10000000,
+      "valuationNote": "",
+      "lead": [
+       "Tether"
+      ],
+      "others": [
+       "Further Asset Management"
+      ],
+      "url": "https://chainwire.org/2026/11/19/metacomp-extends-pre-a-with-approximately-us10m-from-tether-and-further/",
+      "category": "Payments",
+      "valuationEst": false,
+      "chains": []
+     },
+     {
+      "project": "Global MPC",
+      "what": "Tokenizes real-world mining assets and builds rails linking physical resources to onchain representations",
+      "round": "Strategic",
+      "date": "18 Nov",
+      "isoDate": "2026-11-18",
+      "amount": 7500000,
+      "valuationNote": "",
+      "lead": [],
+      "others": [
+       "MH Ventures",
+       "Mapleblock Capital",
+       "Paul Taylor Family Office",
+       "Genesis Capital",
+       "Becker Ventures",
+       "Titans Ventures",
+       "Asva Capital"
+      ],
+      "url": "https://www.theblock.co/press-releases/global-mpc-announces-us7-5-million-in-strategic-funding-with-participation-from-seven-investors-443459",
+      "category": "RWA",
+      "chains": [
+       "BNB Chain"
+      ],
+      "valuationEst": false
+     },
+     {
+      "project": "TheHUB (Global Kiwi Labs)",
+      "what": "Low-latency colocation beside exchange matching engines with GPS timestamping and onchain execution audit trails",
+      "round": "Seed",
+      "date": "17 Nov",
+      "isoDate": "2026-11-17",
+      "amount": 4000000,
+      "lead": [
+       "Valor Capital Group"
+      ],
+      "others": [
+       "Keyrock",
+       "Adderall Capital",
+       "Staking Facilities"
+      ],
+      "url": "https://pomegra.io/startups/thehub-raises-4m-seed-for-crypto-colocation-in-2026-2026-11-18",
+      "category": "Infrastructure",
+      "valuationEst": true,
+      "chains": [],
+      "valuation": 33300000,
+      "valuationNote": "Estimate: assumes ~12% sold in a Seed round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "OmenX",
+      "what": "Leveraged prediction market launching on-demand 30-second Bitcoin price markets",
+      "round": "Seed",
+      "date": "18 Nov",
+      "isoDate": "2026-11-18",
+      "amount": 2000000,
+      "lead": [
+       "Informed Ventures"
+      ],
+      "url": "https://cointelegraph.com/press-releases/omenx-announces-2-million-in-funding-from-informed-ventures-and-launches-on-demand-30-second-bitcoin-predictions",
+      "category": "Prediction Markets",
+      "valuationEst": true,
+      "others": [],
+      "chains": [],
+      "valuation": 16700000,
+      "valuationNote": "Estimate: assumes ~12% sold in a Seed round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "Null",
+      "what": "Ethereum-based derivatives / synthetic-asset protocol",
+      "round": "Pre-seed",
+      "date": "18 Nov",
+      "isoDate": "2026-11-18",
+      "amount": 1700000,
+      "lead": [
+       "Cyber Fund",
+       "Nethermind"
+      ],
+      "others": [
+       "Noah Zinsmeister",
+       "Moody Salem",
+       "Leo Sprueth"
+      ],
+      "url": "https://cryptorank.io/insights/deals/null-solutions-pre-seed-2026-11-18",
+      "category": "DeFi",
+      "chains": [
+       "Ethereum"
+      ],
+      "valuationEst": true,
+      "valuation": 17000000,
+      "valuationNote": "Estimate: assumes ~10% sold in a Pre-seed round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "RIPR",
+      "what": "Queryable AI-ready data lake of Solana onchain data, with terminal, mobile apps and an MCP server for agents",
+      "round": "Pre-seed",
+      "date": "16 Nov",
+      "isoDate": "2026-11-16",
+      "amount": 1000000,
+      "lead": [
+       "Vultr"
+      ],
+      "url": "https://coinfomania.com/ripr-raises-1m-pre-seed-vultr-data-lake-ai/",
+      "category": "AI x Crypto",
+      "chains": [
+       "Solana"
+      ],
+      "valuationEst": true,
+      "others": [],
+      "valuation": 10000000,
+      "valuationNote": "Estimate: assumes ~10% sold in a Pre-seed round (raise ÷ dilution). Not reported."
+     },
+     {
+      "project": "Stables",
+      "what": "Single API for businesses to collect local currency, convert and pay out cross-border in USDT (160+ markets)",
+      "round": "Strategic",
+      "date": "17 Nov",
+      "isoDate": "2026-11-17",
+      "amount": null,
+      "valuationNote": "",
+      "lead": [
+       "Tether Capital"
+      ],
+      "url": "https://www.thecoinrepublic.com/2026/11/17/tether-invests-in-stables-to-expand-payment-capabilities/",
+      "category": "Payments",
+      "valuationEst": false,
+      "others": [],
+      "chains": []
+     },
+     {
+      "project": "SCRYPT",
+      "what": "Swiss institutional trading and custody provider expanding into stablecoin payments and fiat accounts",
+      "round": "Strategic",
+      "date": "19 Nov",
+      "isoDate": "2026-11-19",
+      "amount": null,
+      "valuationNote": "",
+      "lead": [
+       "Tether"
+      ],
+      "url": "https://crypto.news/tether-scrypt-stablecoin-payments/",
+      "category": "Stablecoins",
+      "valuationEst": false,
+      "others": [],
+      "chains": []
+     },
+     {
+      "project": "Jeeves",
+      "what": "Corporate cards, spend management and cross-border payments platform; expanded credit facility to $300M capacity",
+      "round": "Debt financing",
+      "date": "18 Nov",
+      "isoDate": "2026-11-18",
+      "amount": null,
+      "valuationNote": "",
+      "lead": [
+       "Neuberger Berman Specialty Finance"
+      ],
+      "url": "https://crypto.news/crypto-vc-funding-variational-nomad-metacomp/",
+      "category": "Payments",
+      "valuationEst": false,
+      "others": [],
+      "chains": []
+     }
+    ]
+   },
    {
     "label": "7–13 Nov",
     "from": "2026-11-07",
@@ -3341,13 +3622,29 @@ window.INTEL = {
   ]
  },
  "macro": {
-  "source": "Sources: helious.io, LiteFinance weekly calendar, Admiral Markets holiday hours",
+  "source": "Federal Reserve calendar (Nov/Dec 2026), Newsquawk weekly calendar 23-27 Nov 2026, LiteFinance weekly calendar (GMT times), letterstoayounginvestor & Six Sigma Research week-ahead, forexfundamentals (EZ HICP)",
   "events": [
+   {
+    "time": "2026-11-23T00:00:00Z",
+    "allDay": true,
+    "event": "Japan market holiday (Labour Thanksgiving Day)",
+    "region": "JP",
+    "impact": "medium"
+   },
+   {
+    "time": "2026-11-23T00:00:00Z",
+    "allDay": true,
+    "event": "Fed's Williams speaks; ECB's Lane; BoE's Pill",
+    "region": "US",
+    "impact": "medium",
+    "note": "times not published in sources; Hewlett Packard Enterprise earnings"
+   },
    {
     "time": "2026-11-23T09:00:00Z",
     "event": "Eurozone flash PMIs (Nov)",
     "region": "EU",
-    "impact": "medium"
+    "impact": "medium",
+    "note": "Germany 08:30Z"
    },
    {
     "time": "2026-11-23T09:30:00Z",
@@ -3362,242 +3659,428 @@ window.INTEL = {
     "impact": "medium"
    },
    {
-    "time": "2026-11-24T15:00:00Z",
-    "event": "US Conference Board consumer confidence",
-    "region": "US",
+    "time": "2026-11-24T00:00:00Z",
+    "allDay": true,
+    "event": "German Ifo business climate (Nov); Japan flash PMI",
+    "region": "EU",
     "impact": "medium"
    },
    {
+    "time": "2026-11-24T15:00:00Z",
+    "event": "US Conference Board consumer confidence (Nov)",
+    "region": "US",
+    "impact": "medium",
+    "note": "prev 91.7"
+   },
+   {
+    "time": "2026-11-24T21:00:00Z",
+    "allDay": true,
+    "event": "Dell, HP earnings (after close)",
+    "region": "US",
+    "impact": "medium",
+    "note": "AI-hardware read-through; exact time not confirmed"
+   },
+   {
     "time": "2026-11-25T13:30:00Z",
-    "event": "US PCE inflation + GDP (2nd estimate)",
+    "event": "US PCE inflation & personal income/spending (Oct)",
     "region": "US",
     "impact": "high",
-    "note": "Durable goods and weekly jobless claims (moved from Thursday) at the same time"
+    "note": "prev core PCE 3.1% y/y (Sep)"
+   },
+   {
+    "time": "2026-11-25T13:30:00Z",
+    "event": "US Q3 GDP (second estimate)",
+    "region": "US",
+    "impact": "high",
+    "note": "advance estimate 3.4%"
+   },
+   {
+    "time": "2026-11-25T13:30:00Z",
+    "event": "US durable goods orders (Oct)",
+    "region": "US",
+    "impact": "medium",
+    "note": "8:30 ET standard time, not explicitly confirmed"
+   },
+   {
+    "time": "2026-11-25T13:30:00Z",
+    "event": "US initial jobless claims (moved to Wed for Thanksgiving)",
+    "region": "US",
+    "impact": "medium",
+    "note": "8:30 ET standard time"
    },
    {
     "time": "2026-11-25T19:00:00Z",
     "event": "Fed Beige Book",
     "region": "US",
-    "impact": "medium"
+    "impact": "medium",
+    "note": "2:00 pm ET per Fed calendar"
    },
    {
-    "time": "2026-11-26T12:00:00Z",
+    "time": "2026-11-26T00:00:00Z",
     "allDay": true,
-    "event": "US Thanksgiving: stock markets closed",
+    "event": "US Thanksgiving - stock & bond markets closed",
     "region": "US",
     "impact": "medium",
-    "note": "Thin liquidity; ETF flows pause"
+    "note": "Fri 27 Nov US stocks close early 13:00 ET (18:00Z)"
+   },
+   {
+    "time": "2026-11-26T00:00:00Z",
+    "allDay": true,
+    "event": "ECB monetary policy account (Oct meeting); BoJ's Tamura speaks; BoE Financial Stability Report",
+    "region": "EU",
+    "impact": "medium"
    },
    {
     "time": "2026-11-26T23:30:00Z",
     "event": "Tokyo CPI (Nov)",
     "region": "JP",
-    "impact": "medium"
+    "impact": "medium",
+    "note": "prev 2.8% y/y; core ex food & energy 2.4%"
    },
    {
-    "time": "2026-11-27T18:00:00Z",
-    "event": "US stocks early close (13:00 ET) after Thanksgiving",
-    "region": "US",
-    "impact": "medium"
-   },
-   {
-    "time": "2026-11-30T01:30:00Z",
-    "event": "China official NBS PMIs (Nov)",
+    "time": "2026-11-27T00:00:00Z",
+    "allDay": true,
+    "event": "China industrial profits (Oct); France & Spain flash CPI (Nov)",
     "region": "CN",
-    "impact": "medium"
+    "impact": "medium",
+    "note": "S&P rating review on France Fri evening"
+   },
+   {
+    "time": "2026-11-30T00:00:00Z",
+    "allDay": true,
+    "event": "China official NBS PMIs (Nov) - expected",
+    "region": "CN",
+    "impact": "medium",
+    "note": "date per usual month-end schedule, not confirmed"
+   },
+   {
+    "time": "2026-12-01T10:00:00Z",
+    "event": "Eurozone flash HICP (Nov)",
+    "region": "EU",
+    "impact": "medium",
+    "note": "prev 4.0% y/y (Oct)"
+   },
+   {
+    "time": "2026-12-01T15:00:00Z",
+    "event": "US ISM manufacturing PMI (Nov); JOLTS (Oct)",
+    "region": "US",
+    "impact": "medium",
+    "note": "10:00 ET standard time"
+   },
+   {
+    "time": "2026-12-04T13:30:00Z",
+    "event": "US November jobs report (NFP)",
+    "region": "US",
+    "impact": "high",
+    "note": "outside window; 8:30 ET standard time"
    },
    {
     "time": "2026-12-09T19:00:00Z",
-    "event": "FOMC rate decision",
+    "event": "FOMC rate decision (Dec 8-9 meeting); Chair Warsh press conference 19:30Z",
     "region": "US",
     "impact": "high",
-    "note": "Next Fed meeting"
+    "note": "confirmed on federalreserve.gov; minutes Dec 30"
    }
   ]
  },
  "unlocks": {
-  "source": "Tokenomist digest, KuCoin daily report, Bittime November unlock calendar, CoinGabbar November top-10",
+  "source": "Tokenomist via PANews weekly list (23–29 Nov); MrNasDog December calendar (1–7 Dec, % of circulating not given)",
   "items": [
-   {
-    "date": "2026-11-22",
-    "token": "SENT",
-    "name": "",
-    "valueUsd": 5300000,
-    "pctCirc": 4.4,
-    "recipients": ""
-   },
-   {
-    "date": "2026-11-22",
-    "token": "MBG",
-    "name": "",
-    "valueUsd": 2400000,
-    "pctCirc": null,
-    "recipients": ""
-   },
-   {
-    "date": "2026-11-22",
-    "token": "GRAM",
-    "name": "",
-    "valueUsd": 43100000,
-    "pctCirc": null,
-    "recipients": "",
-    "url": "https://coinstats.app/news/3a07bf7159ce332884b8878a3556615630bb46f49c006fe28f415e930247aa09_Token-Unlocks-November-2026-Top-10-Dates-Values-and-Risks/"
-   },
    {
     "date": "2026-11-23",
     "token": "SOON",
     "name": "SOON",
-    "valueUsd": 4410000.0,
+    "valueUsd": 5300000,
     "pctCirc": 3.38,
-    "recipients": ""
+    "recipients": "",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
    },
    {
     "date": "2026-11-24",
     "token": "MON",
     "name": "Monad",
-    "valueUsd": 288690000,
-    "pctCirc": 144.65,
-    "recipients": "Team and investors (end of 1-year lock, ~10.7B MON); estimates range ~$132M–$324M",
-    "url": "https://cryptoticker.io/en/monad-mon-unlock-lock-up-expiry/"
+    "valueUsd": 219000000,
+    "pctCirc": 32.37,
+    "recipients": "One-year cliff: team ~10.7B, early investors ~4.9B, Category Labs treasury ~1.0B MON",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
+   },
+   {
+    "date": "2026-11-24",
+    "token": "SOSO",
+    "name": "SoSoValue",
+    "valueUsd": 6100000,
+    "pctCirc": 5.33,
+    "recipients": "",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
    },
    {
     "date": "2026-11-25",
     "token": "XPL",
     "name": "Plasma",
-    "valueUsd": 17520000,
-    "pctCirc": null,
-    "recipients": ""
+    "valueUsd": 10400000,
+    "pctCirc": 4.78,
+    "recipients": "Ecosystem, team, investors (monthly)",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
+   },
+   {
+    "date": "2026-11-25",
+    "token": "COAI",
+    "name": "ChainOpera AI",
+    "valueUsd": 3400000,
+    "pctCirc": 5.98,
+    "recipients": "",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
    },
    {
     "date": "2026-11-25",
     "token": "H",
     "name": "Humanity",
-    "valueUsd": 14790000,
-    "pctCirc": null,
-    "recipients": ""
+    "valueUsd": 3000000,
+    "pctCirc": 6.4,
+    "recipients": "",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
    },
    {
     "date": "2026-11-26",
     "token": "HUMA",
     "name": "Huma Finance",
-    "valueUsd": 13200000,
-    "pctCirc": null,
-    "recipients": ""
-   },
-   {
-    "date": "2026-11-28",
-    "token": "STX",
-    "name": "Stacks",
-    "valueUsd": 1200000,
-    "pctCirc": null,
-    "recipients": ""
+    "valueUsd": 3900000,
+    "pctCirc": 14.31,
+    "recipients": "",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
    },
    {
     "date": "2026-11-29",
     "token": "FF",
     "name": "Falcon Finance",
-    "valueUsd": 19440000,
-    "pctCirc": null,
-    "recipients": "Team and investors (monthly vesting)"
+    "valueUsd": 21100000,
+    "pctCirc": 6.21,
+    "recipients": "Team, investors, foundation, ecosystem (monthly)",
+    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
    },
    {
-    "date": "2026-11-29",
-    "token": "CARDS",
-    "name": "Collector Crypt",
-    "valueUsd": 17030000,
+    "date": "2026-12-01",
+    "token": "SUI",
+    "name": "Sui",
+    "valueUsd": 8410000,
     "pctCirc": null,
-    "recipients": ""
+    "recipients": "Team, Foundation reserve, Mysten Labs",
+    "url": "https://mrnasdog.com/token-unlocks/december-2026"
    },
    {
-    "date": "2026-11-30",
-    "token": "KMNO",
-    "name": "Kamino",
-    "valueUsd": 7700000,
+    "date": "2026-12-03",
+    "token": "KITE",
+    "name": "Kite",
+    "valueUsd": 23600000,
     "pctCirc": null,
-    "recipients": ""
+    "recipients": "Team, investors, ecosystem, modules",
+    "url": "https://mrnasdog.com/token-unlocks/december-2026"
+   },
+   {
+    "date": "2026-12-05",
+    "token": "ENA",
+    "name": "Ethena",
+    "valueUsd": 9250000,
+    "pctCirc": null,
+    "recipients": "Team",
+    "url": "https://mrnasdog.com/token-unlocks/december-2026"
+   },
+   {
+    "date": "2026-12-06",
+    "token": "GRAM",
+    "name": "Gram",
+    "valueUsd": 34800000,
+    "pctCirc": null,
+    "recipients": "Believers Fund holders",
+    "url": "https://mrnasdog.com/token-unlocks/december-2026"
+   },
+   {
+    "date": "2026-12-07",
+    "token": "SOL",
+    "name": "Solana",
+    "valueUsd": 45300000,
+    "pctCirc": null,
+    "recipients": "",
+    "url": "https://mrnasdog.com/token-unlocks/december-2026"
+   },
+   {
+    "date": "2026-12-07",
+    "token": "JTO",
+    "name": "Jito",
+    "valueUsd": 2520000,
+    "pctCirc": null,
+    "recipients": "Team and backers (final monthly batch)",
+    "url": "https://mrnasdog.com/token-unlocks/december-2026"
    }
   ]
  },
  "weekly": {
-  "label": "from raises of 7–13 Nov",
+  "label": "from raises of 14–20 Nov",
   "hiring": [
    {
-    "company": "Index Industries",
-    "raise": "$50M seed · Lightspeed",
-    "what": "Tokenized US housing index (RWA)",
-    "url": "https://job-boards.greenhouse.io/indexindustries",
-    "roles": [
-     {
-      "title": "Head of Partnerships",
-      "location": "Chicago",
-      "url": "https://job-boards.greenhouse.io/indexindustries/jobs/4696883006"
-     },
-     {
-      "title": "Head of Business Development (Capital Raising)",
-      "location": "Chicago",
-      "url": "https://job-boards.greenhouse.io/indexindustries/jobs/4691376006"
-     }
-    ]
+    "company": "Variational",
+    "raise": "$110M Series B · Bain Capital Crypto",
+    "what": "Onchain derivatives venue (Omni) bridging crypto and TradFi markets",
+    "url": "https://variational.io/",
+    "roles": [],
+    "note": "Careers page could not be fetched (blocked); only engineering roles seen via a recruiter (Decircle). Fresh $110M at $1.5B to list hundreds of TradFi markets, so a speculative BD/partnerships approach makes sense."
    },
    {
-    "company": "Alta",
-    "raise": "$47.5M Series A · Index Ventures",
-    "what": "L1 blockchain for banks (privacy + compliance); Airwallex is a backer",
-    "url": "https://cryptorank.io/insights/deals/alta-series-a-2026-11-10",
+    "company": "Codex",
+    "raise": "$30M Series A · Pantera Capital",
+    "what": "Stablecoin FX and cross-border settlement for businesses in emerging-market corridors",
+    "url": "https://jobs.ashbyhq.com/codex",
+    "roles": [
+     {
+      "title": "Sales Lead (Hong Kong)",
+      "location": "Remote, Hong Kong",
+      "url": "https://builtin.com/job/sales-lead-hong-kong/10641531"
+     },
+     {
+      "title": "Sales Lead (Latin America)",
+      "location": "Remote, Latin America",
+      "url": "https://builtin.com/job/sales-lead-latin-america/10641536"
+     }
+    ],
+    "note": "Roles seen on Built In (mirrors Codex's Ashby board, which could not be opened directly). Posted ~2–3 months ago; confirm they are still live."
+   },
+   {
+    "company": "Avenia",
+    "raise": "$25M Series A ext · Lightspeed Faction",
+    "what": "Brazilian stablecoin rails and BRLA issuer",
+    "url": "https://avenia.io/careers",
+    "roles": [
+     {
+      "title": "Marketing Manager",
+      "location": "Not stated",
+      "url": "https://avenia.io/careers/marketing-manager"
+     }
+    ],
+    "note": "Only growth-adjacent role readable; other listings (FP&A, customer success, internal tools) are not BD. Worth a speculative BD/partnerships approach as it scales LatAm stablecoin flows."
+   },
+   {
+    "company": "MetaComp",
+    "raise": "$10M Pre-A ext · Tether",
+    "what": "Singapore fiat + stablecoin cross-border payments network",
+    "url": "https://sg.indeed.com/cmp/Metacomp/jobs",
     "roles": [],
-    "note": "No public job listings found yet: worth a speculative approach. An L1 for institutions will need ecosystem and partnerships leads."
+    "note": "Own careers page could not be opened; Indeed shows only ops and quant trading roles. Fresh Tether money to grow in Asia, the Middle East and Africa makes it worth a speculative partnerships/FI-BD approach."
+   },
+   {
+    "company": "Stables",
+    "raise": "Undisclosed strategic · Tether Capital",
+    "what": "API for businesses to collect, convert and pay out cross-border in USDT",
+    "url": "https://jobs.hub71.com/companies/stables-2-017e226f-d7c5-4913-954d-5316bb7e4912",
+    "roles": [],
+    "note": "Hub71 board lists no open roles. Tether backing for Asia/MENA expansion means market-entry BD hires are likely; worth a speculative approach."
+   },
+   {
+    "company": "SCRYPT",
+    "raise": "Undisclosed strategic · Tether",
+    "what": "Swiss institutional trading/custody provider moving into stablecoin payments",
+    "url": "https://scrypt.swiss/",
+    "roles": [],
+    "note": "Careers page could not be fetched; aggregators show only engineering and marketing roles. New third-party payments line suggests a need for institutional BD; worth a speculative approach."
    }
   ],
   "ecosystem": [
    {
     "type": "Upgrade",
-    "chain": "Solana",
-    "date": "16 Nov",
-    "title": "Solana drops 'mainnet beta': Solana 1.0",
-    "summary": "Adds shared protocol versioning; announced at Breakpoint London.",
-    "url": "https://decrypt.co/383322/solana-drops-mainnet-beta-after-six-years"
+    "chain": "Stellar",
+    "date": "23 Nov",
+    "title": "Stellar validators vote on Bell (Protocol 30) mainnet upgrade",
+    "summary": "Validators vote on 23 Nov on Bell, which adds post-quantum signature checks for Soroban contracts and faster ledger closes.",
+    "url": "https://coinranking.com/news/stellar-sets-november-23-mainnet-vote-bell-protocol-30"
+   },
+   {
+    "type": "Mainnet",
+    "chain": "LayerZero",
+    "date": "20 Nov",
+    "title": "LayerZero opens ZRO pre-genesis staking ahead of Zero L1 mainnet",
+    "summary": "ZRO staking for the Zero layer-1 opens 23 Nov, with mainnet slated for 30 Nov.",
+    "url": "https://cryptonews.net/news/altcoins/33786047/"
+   },
+   {
+    "type": "Upgrade",
+    "chain": "Polygon",
+    "date": "20 Nov",
+    "title": "Polygon POL network upgrade",
+    "summary": "Polygon ran a network upgrade on 20 Nov, with exchanges briefly pausing POL transfers.",
+    "url": "https://announcements.bybit.com/en/article/bybit-to-support-polygon-pol-network-upgrade-nov-20-2026--art856259fd577f"
+   },
+   {
+    "type": "Mainnet",
+    "chain": "Sui",
+    "date": "19 Nov",
+    "title": "Hashi Bitcoin finance protocol goes live on Sui mainnet",
+    "summary": "Hashi launched hBTC, a Bitcoin-backed token on Sui usable as lending collateral.",
+    "url": "https://www.theblock.co/news/defi/2026-11-19-bitcoin-finance-protocol-hashi-goes-live-on-sui-mainnet-443608"
+   },
+   {
+    "type": "Upgrade",
+    "chain": "Injective",
+    "date": "19 Nov",
+    "title": "Injective Veyra upgrade passes governance, set for 24 Nov",
+    "summary": "Stakers approved Veyra, adding RWA tooling, privacy features and RFQ perps for institutions.",
+    "url": "https://phemex.com/news/article/injective-veyra-mainnet-upgrade-passes-governance-vote-with-9951-approval-set-for-nov-24-104117"
+   },
+   {
+    "type": "Upgrade",
+    "chain": "XRPL",
+    "date": "18 Nov",
+    "title": "XRP Ledger vault and lending amendments near activation threshold",
+    "summary": "The vault and lending amendments are a few validator votes short of the 80% needed to start activation.",
+    "url": "https://coinalertnews.com/news/2026/11/18/xrp-ledger-vault-lending-upgrade"
+   },
+   {
+    "type": "Partnership",
+    "chain": "X Layer",
+    "date": "18 Nov",
+    "title": "Morpho deploys on OKX's X Layer with wallet incentive program",
+    "summary": "Morpho launched on X Layer with a curated USDC vault and an OKX Wallet incentive program.",
+    "url": "https://thecryptobasic.com/2026/11/18/tcb-daily-edition-what-happened-in-crypto-on-november-18-2026"
    },
    {
     "type": "Partnership",
     "chain": "Solana",
-    "date": "12 Nov",
-    "title": "DTCC Tokenization Service to connect with Solana",
-    "summary": "Targeted for H2 2027 for eligible DTC-custodied assets.",
-    "url": "https://solana.com/news"
-   },
-   {
-    "type": "Mainnet",
-    "chain": "Hyperliquid L1",
-    "date": "9 Nov",
-    "title": "Elysium mainnet: first L2 in the Hyperliquid ecosystem",
-    "summary": "Runs on HyperEVM and uses HYPE for fees.",
-    "url": "https://pluang.com/en/news-feed/elysium-luncurkan-mainnet-hyperliquid-layer-2-9-november"
+    "date": "17 Nov",
+    "title": "Solana Foundation takes majority stake in CoinGecko",
+    "summary": "The Solana Foundation now holds a controlling stake in CoinGecko; terms were not disclosed.",
+    "url": "https://crypto.news/solana-mainnet-1-0-foundation-coingecko-majority-stake/"
    },
    {
     "type": "TGE",
-    "chain": "Wire Network",
-    "date": "Dec",
-    "title": "Wire Network TGE and mainnet delayed again, now December",
-    "summary": "Second delay; exchange listings held back after industry security incidents.",
-    "url": "https://www.coingabbar.com/en/wire-network-tge-mainnet-launch-delayed-december-update"
+    "chain": "Ethereum",
+    "date": "17 Nov",
+    "title": "infiniFi INFI token generation event",
+    "summary": "infiniFi's INFI token went live on Ethereum and Base after its airdrop.",
+    "url": "https://www.kucoin.com/news/flash/infinifi-to-launch-infi-token-generation-event-on-november-17"
    },
    {
     "type": "Upgrade",
-    "chain": "Ethereum",
-    "date": "17 Nov",
-    "title": "Glamsterdam scaling changes could break up to 15,000 contracts",
-    "summary": "Core devs are reconsidering the two changes after audits flagged hundreds of issues.",
-    "url": "https://www.coindesk.com/tech/2026/11/17/ethereum-s-glamsterdam-upgrade-risks-breaking-up-to-15-000-contracts"
+    "chain": "Solana",
+    "date": "16 Nov",
+    "title": "Solana drops mainnet-beta label, introduces Solana 1.0",
+    "summary": "Solana retired its beta tag and introduced 1.0 as a shared protocol version across validator clients.",
+    "url": "https://crypto.news/solana-mainnet-1-0-foundation-coingecko-majority-stake/"
    },
    {
-    "type": "Grant",
-    "chain": "Pyth",
-    "date": "Nov",
-    "title": "Pyth Community Hackathon: round 2 open",
-    "summary": "Registration via the Pyth forum and Discord.",
-    "url": "https://opengrants.io/guides/crypto-grants/"
+    "type": "Partnership",
+    "chain": "Solana",
+    "date": "16 Nov",
+    "title": "Zelle's ZelleUSD stablecoin to run on Solana",
+    "summary": "Zelle said its ZelleUSD stablecoin will run on Solana, starting with a US–India corridor.",
+    "url": "https://genfinity.io/2026/11/18/solana-breakpoint-2026-recap-zelle-ice-coingecko-backpack-solana-1-0/"
+   },
+   {
+    "type": "Partnership",
+    "chain": "ADI Chain",
+    "date": "13 Nov",
+    "title": "ADI Foundation partners with The Vault on custody and quantum-security research",
+    "summary": "The Vault will add custody for ADI Chain assets and run joint quantum-security research.",
+    "url": "https://thecryptobasic.com/?p=175945"
    }
   ],
-  "ecoLabel": "9–17 Nov"
+  "ecoLabel": "13–23 Nov"
  }
 };
