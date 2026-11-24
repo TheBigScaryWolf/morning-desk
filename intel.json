@@ -1,15 +1,15 @@
 {
- "updatedAt": "2026-11-23T02:01:02Z",
- "briefNote": "CoinCarp, Farside and the RSS feeds could not be fetched this run: news gathered via search, token-sale lists unchanged, ETH ETF flow for 20 Nov not yet confirmed.",
+ "updatedAt": "2026-11-24T01:57:29Z",
+ "briefNote": "RSS feeds, CoinCarp and Farside could not be fetched this run: news gathered via search and digests, token-sale lists unchanged, ETH ETF flow for 20 Nov from Farside as reported by Bitcoinist; 23 Nov not yet published.",
  "brief": [
-  "**BTC steadies near $60K:** bitcoin is holding around $60–61K after last weekend's flush to ~$55K, the lowest since 2024, and ~$2.7B of liquidations; ETH sits near $1.7K. It is still down ~6% on the week and sentiment remains in extreme fear. Saylor hinted at another Strategy buy.",
-  "**ETFs:** US spot ETH funds shed about $222M over 16–20 Nov, including $131M on 19 Nov; ETH ETF assets are down to ~$9.6B. Solana ETFs ended a six-week outflow streak.",
-  "**Macro today:** Thanksgiving week starts with flash PMIs (EU 09:00, UK 09:30, US 14:45 UTC) and Fed's Williams speaking; Japan is on holiday. The big day is Wed 25 Nov: PCE plus Q3 GDP at 13:30 UTC, then US markets shut on Thursday. Next FOMC decision is 9 Dec.",
-  "**Hacks:** Chainflip's losses rose to ~$12M after it disclosed a 122.9 BTC theft and offered the attacker a bounty; on BNB Chain, an unbacked-mint exploit let traders drain ~$3.7M from Fusionist's ACE bridge. Kraken's BTC/CAD book briefly printed $17K and the trades stand.",
-  "**Solana:** mainnet drops its beta label with Solana 1.0, and the Foundation now holds a majority stake in CoinGecko; Zelle's ZelleUSD stablecoin will also run on Solana.",
-  "**Policy:** scrutiny is building over Trump's second TRUMP memecoin dinner, with the token ~99% off its high and about half of qualifying wallets funded via offshore exchanges. The ECB is seeking partners for tokenized deposit and securities trials.",
-  "**Last week's raises:** Variational led at $110M (Series B, $1.5B valuation, Bain Capital Crypto); stablecoin payments dominated, with Codex ($30M, Pantera), Avenia ($25M) and several Tether-backed deals.",
-  "**Unlocks (next 3 days):** SOON ~$5M today; Monad's one-year cliff on 24 Nov releases ~16.6B MON (~$219M, ~32% of circulating per Tokenomist) to team, investors and treasury, the week's main supply risk; SOSO ~$6M on 24 Nov, then XPL ~$10M, COAI and H on 25 Nov."
+  "**BTC rebound stalls near $61K:** bitcoin is holding around $60–61K after the weekend low near $55K, with ETH around $1.7K. Sentiment is still extreme fear (index ~11), and BTC lagged Monday's strong tech-stock bounce. Strategy added 457 BTC and Bitmine kept buying ETH.",
+  "**ETFs:** spot ETH funds lost roughly $300M over 16–20 Nov (about $97M on Friday per Farside; SoSoValue puts the week at $314M), the sixth-plus straight losing week. Spot BTC ETFs shed $1.79B, their worst week since June, while SOL ETFs finally took in money.",
+  "**Macro today:** quiet data day: German Ifo, US Conference Board confidence at 15:00 UTC, then Dell and HP earnings after the close. Tomorrow is the big one: PCE plus Q3 GDP and durable goods at 13:30 UTC and the Beige Book at 19:00; US markets shut Thursday. Next FOMC decision 9 Dec.",
+  "**Policy:** South Korea's FSC takes up the Digital Asset Basic Act draft today (exchange licensing, bank-led won stablecoins). In the US, the CFTC set event-contract reporting rules and a New York judge let Kalshi keep operating for now; the UK FCA will bar exchanges from market-making on their own venues.",
+  "**Tokenization & payments:** the OKX–ICE venue opened 24/7 tokenized-securities trading for eligible US users; OCBC and StraitsX are piloting stablecoin settlement into business bank accounts.",
+  "**Solana:** solana.ai launched as a hub for AI agents that pay onchain, and SOL ETFs posted their first weekly inflow since October.",
+  "**Security:** Binance commissioned three outside security reviews; Chainflip (~$12M) and Fusionist's ACE bridge on BNB Chain remain the week's exploits.",
+  "**Unlocks (next 3 days):** Monad's one-year cliff today releases ~16.6B MON (~$217M, ~32% of circulating, to team, investors and treasury), by far the biggest supply event; SOSO ~$6M also today, then XPL ~$10M, COAI and H on 25 Nov and HUMA on 26 Nov."
  ],
  "launches": [
   {
@@ -378,6 +378,142 @@
  "news": [
   {
    "chain": "Solana",
+   "date": "24 Nov",
+   "source": "Digital Today",
+   "title": "Solana spot ETFs return to net inflows after six weeks; bitcoin, ether still in red",
+   "summary": "SOL funds took in about $4.4M last week per SoSoValue, their first weekly inflow since early October.",
+   "url": "https://www.digitaltoday.co.kr/en/view/129901/solana-spot-etfs-return-to-net-inflows-after-six-weeks-bitcoin-ether-still-in-red"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "23 Nov",
+   "source": "CoinDesk",
+   "title": "Bitcoin rebound already losing steam as AI trade returns with a bang",
+   "summary": "Bitcoin lagged as tech stocks bounced hard on Monday, with US-hours selling still capping the recovery.",
+   "url": "https://www.coindesk.com/markets/2026/11/23/bitcoin-rebound-already-losing-steam-as-ai-trade-returns-with-a-bank"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "CoinDesk",
+   "title": "New York judge declines to block Kalshi from operating in the state for now",
+   "summary": "A New York judge let Kalshi keep operating pending expedited arguments in the state's challenge.",
+   "url": "https://www.coindesk.com/policy/2026/11/23/new-york-judge-declines-to-block-kalshi-from-operating-in-the-state-for-now"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "CoinDesk",
+   "title": "U.S. CFTC sets policies on event contract data, using crypto to check financial boxes",
+   "summary": "The CFTC issued reporting rules for event contracts and guidance on when crypto can meet regulatory requirements.",
+   "url": "https://www.coindesk.com/policy/2026/11/23/u-s-cftc-sets-policies-on-event-contract-data-using-crypto-to-check-financial-boxes"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "crypto.news",
+   "title": "South Korea to reveal major crypto law covering exchanges, stablecoins on November 24",
+   "summary": "Korea's FSC takes up the Digital Asset Basic Act draft today, with exchange licensing and bank-led won stablecoins still contested.",
+   "url": "https://crypto.news/south-korea-crypto-law-draft-november-24-stablecoins/"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "The Block",
+   "title": "Spot bitcoin ETFs shed $1.79 billion last week, largest weekly outflow since June",
+   "summary": "US bitcoin funds logged a fourth straight losing week, while ether ETFs lost about $314M.",
+   "url": "https://x.com/TheBlockCo/status/2124695842703761800"
+  },
+  {
+   "chain": "Solana",
+   "date": "23 Nov",
+   "source": "crypto.news",
+   "title": "Solana launches solana.ai platform for autonomous AI agents and payments",
+   "summary": "Solana rolled out a hub aimed at developers building AI agents that transact onchain.",
+   "url": "https://crypto.news/"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "crypto.news",
+   "title": "UK FCA sets new market making restrictions for crypto exchanges",
+   "summary": "The UK regulator will stop exchanges from acting as market makers on their own venues.",
+   "url": "https://crypto.news/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "Strategy adds 457 BTC and expands its buyback program",
+   "summary": "Strategy bought 457 BTC for ~$30M, taking holdings to 851,305 BTC, and lifted its STRC buyback authorization to $4B.",
+   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "Bitmine reports another 7,819 ETH purchase",
+   "summary": "Bitmine now holds about 6.09M ETH, close to 5% of supply, most of it staked.",
+   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "OKXICE launches round-the-clock tokenized securities trading",
+   "summary": "The OKX–ICE venue opens 24/7 tokenized-securities trading for eligible US users under a temporary SEC exemption.",
+   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "Binance commissions three independent security reviews",
+   "summary": "Binance hired Mandiant, SlowMist and Verichains to audit its security processes.",
+   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "OCBC and StraitsX pilot stablecoin payments into business accounts",
+   "summary": "The Singapore pilot settles cross-border payments in stablecoins while crediting firms' ordinary bank accounts.",
+   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "American Bitcoin discloses a $150 million FalconX credit line",
+   "summary": "The miner arranged a two-year BTC-secured revolving facility, currently undrawn.",
+   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
+  },
+  {
+   "chain": "Market",
+   "date": "23 Nov",
+   "source": "KuCoin News",
+   "title": "Global Markets Hit by Broad Sell-Off as BTC Rebounds from a New Yearly Low",
+   "summary": "BTC bounced from about $55K after Friday's sharp Nasdaq drop; Fear & Greed sits at 11.",
+   "url": "https://www.kucoin.com/news/articles/crypto-daily-market-report-november-23-2026"
+  },
+  {
+   "chain": "XRPL",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "XRP Faces Its Worst November in History as Monthly Loss Exceeds Previous Record",
+   "summary": "XRP's November slide is now its deepest for the month on record.",
+   "url": "https://thecryptobasic.com/2026/11/23/xrp-faces-its-worst-november-in-history-as-monthly-loss-exceeds-previous-record/"
+  },
+  {
+   "chain": "Cardano",
+   "date": "23 Nov",
+   "source": "The Crypto Basic",
+   "title": "Cardano Developer Toolkit Seeks 600,000 ADA as Downloads Surge 144%",
+   "summary": "A Cardano tooling team is asking the treasury for 600K ADA after strong download growth.",
+   "url": "https://thecryptobasic.com/2026/11/23/cardano-developer-toolkit-seeks-600000-ada-as-downloads-surge-144/"
+  },
+  {
+   "chain": "Solana",
    "date": "23 Nov",
    "source": "Cointelegraph",
    "title": "Half of wallets on Trump's dinner list got tokens from non-US exchanges",
@@ -599,142 +735,6 @@
    "title": "Kalshi faces Monday hearing on New York order it says would shut down its exchange nationwide",
    "summary": "Prediction market Kalshi heads to court Monday over a New York order it argues would force a nationwide shutdown.",
    "url": "https://www.theblock.co/news/regulation/2026-11-21-kalshi-faces-monday-hearing-on-new-york-order-it-says-would-shut-down-its-exchange-nationwide-444813"
-  },
-  {
-   "chain": "Market",
-   "date": "21 Nov",
-   "source": "CryptoETF.today",
-   "title": "Crypto ETF Week — Nov 16–20, 2026: net -$1.50B",
-   "summary": "US crypto ETFs lost about $1.5B combined over the week as bitcoin funds led redemptions.",
-   "url": "https://cryptoetf.today/en/news/crypto-etf-weekly-recap-2026-11-20"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "Binance hack laundering ramps up as $149 million in bitcoin mixed through coinjoins: Elliptic",
-   "summary": "Elliptic says the Binance hackers have stepped up laundering, pushing $149M of BTC through coinjoin mixers.",
-   "url": "https://theblock.co/news/markets/2026-11-20-binance-hack-laundering-ramps-up-149-million-bitcoin-mixed-coinjoins-elliptic-444758"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Crypto Times",
-   "title": "Binance Hacker Moves Another $346M in ETH Through Bridges: Why It Can’t Be Frozen",
-   "summary": "The Binance attacker bridged another large batch of stolen ether across chains.",
-   "url": "https://www.cryptotimes.io/2026/11/20/binance-hacker-moves-another-346m-in-eth-through-bridges-why-it-cant-be-frozen/"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "Crypto.news",
-   "title": "Ethereum price tests $1,700 as ETF outflows hit $208.5M",
-   "summary": "Ether slipped toward $1,700 as US spot ETH funds logged about $208M of outflows over four sessions.",
-   "url": "https://crypto.news/ethereum-price-1700-etf-outflows-nov-20/"
-  },
-  {
-   "chain": "Polygon",
-   "date": "20 Nov",
-   "source": "TokenPost",
-   "title": "Polygon Releases Heimdall v0.14.0 With Purley Network Changes",
-   "summary": "Polygon shipped a Heimdall client release carrying the Purley upgrade, which exchanges supported on 20 Nov.",
-   "url": "https://tokenpost.com/news/technology/61882"
-  },
-  {
-   "chain": "Base",
-   "date": "20 Nov",
-   "source": "Base",
-   "title": "What’s happening on Base: week of November 20, 2026",
-   "summary": "Base published its weekly roundup of ecosystem launches and network updates.",
-   "url": "https://www.base.org/blog/weekly-update-2026-11-20"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "20 Nov",
-   "source": "CoinDesk",
-   "title": "Why Crypto Is Crashing: Bitcoin (BTC) nears new 2026 low as strategists say cash Is king amid Fed fears",
-   "summary": "Bitcoin dropped under $59K as investors fled to cash on fears of a December Fed hike, putting this year's lows back in reach.",
-   "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-plunges-below-usd59-000-as-rush-to-cash-puts-new-bear-market-lows-back-in-play"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "CoinDesk",
-   "title": "BTC slides to $61,300 after Anthropic's IPO, triggers $660 million in liquidations",
-   "summary": "The sell-off that followed Anthropic's Nasdaq debut flushed out roughly $660M of leveraged crypto positions.",
-   "url": "https://www.coindesk.com/markets/2026/11/20/bitcoin-hits-four-month-low-after-anthropic-s-ipo-as-tech-stocks-wilt"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "CoinDesk",
-   "title": "Gold tanks, BTC under pressure as 'real rates' surge",
-   "summary": "Rising inflation-adjusted Treasury yields knocked gold lower and are adding pressure on bitcoin.",
-   "url": "https://www.coindesk.com/markets/2026/11/20/here-s-what-s-crashing-gold-and-likely-weighing-on-bitcoin-too"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "JPMorgan says bitcoin price correction widens gap to estimated $86,000 production cost",
-   "summary": "JPMorgan analysts put bitcoin's estimated mining cost near $86K, well above where the price now trades.",
-   "url": "https://www.theblock.co/news/markets/2026-11-20-jpmorgan-bitcoin-price-correction-gap-86000-production-cost-444763"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "US spot bitcoin ETFs see $582 million in daily net outflows as November total nears $3.5 billion",
-   "summary": "Bitcoin ETFs lost $582M on 19 Nov, led by BlackRock's IBIT, pushing November redemptions toward $3.5B.",
-   "url": "https://www.theblock.co/news/markets/2026-11-20-us-spot-bitcoin-etfs-see-582-million-in-daily-net-outflows-as-november-total-nears-3-5-billion-444217"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "TokenPost",
-   "title": "U.S. spot Ethereum ETFs post $131.24 million net outflow",
-   "summary": "Ether ETFs bled $131M on 19 Nov, a fifth straight outflow day, almost all of it from BlackRock's ETHA.",
-   "url": "https://www.tokenpost.com/news/investing/61791"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "Wagyu's XMR1 wrapped Monero plunges 99% after $13 million hack as founder promises refunds",
-   "summary": "A wrapped-Monero token collapsed after about $13M was drained and dumped via Hyperliquid; the founder says holders will be refunded.",
-   "url": "https://www.theblock.co/news/defi/2026-11-20-wagyus-xmr1-wrapped-monero-plunges-99-after-13-million-hack-founder-promises-refunds-444747"
-  },
-  {
-   "chain": "Hyperliquid L1",
-   "date": "20 Nov",
-   "source": "CoinDesk",
-   "title": "CFTC tells Hyperliquid and rivals: No special exemptions for onchain trading.",
-   "summary": "The CFTC chair signalled onchain perp venues must meet the same rules as traditional exchanges to serve US users.",
-   "url": "https://www.coindesk.com/markets/2026/11/20/cftc-tells-hyperliquid-and-crypto-rivals-no-special-rules-for-onchain-trading"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "MoonPay applies for national trust bank charter to expand stablecoin services",
-   "summary": "MoonPay filed with the OCC for a national trust charter to broaden its stablecoin and custody offering.",
-   "url": "https://www.theblock.co/news/business/2026-11-20-moonpay-applies-occ-national-bank-charter-444198"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "CoinDesk",
-   "title": "BTC, ETH, SOL news: VanEck drops Gemini as custodian of its bitcoin, ether and SOL ETFs",
-   "summary": "VanEck is replacing Gemini as custodian across its bitcoin, ether and Solana ETFs.",
-   "url": "https://coindesk.com/markets/2026/11/20/vaneck-drops-gemini-as-custodian-of-its-bitcoin-ether-and-sol-etfs"
-  },
-  {
-   "chain": "Market",
-   "date": "20 Nov",
-   "source": "The Block",
-   "title": "Ark buys $90 million worth of Anthropic shares on debut, trims Ethereum and Solana staking ETF holdings",
-   "summary": "Cathie Wood's Ark bought about $90M of Anthropic stock on day one while cutting its ETH and SOL staking ETF positions.",
-   "url": "https://www.theblock.co/news/markets/2026-11-20-ark-buys-90-million-worth-of-anthropic-shares-on-debut-trims-ethereum-and-solana-staking-etf-holdings-444226"
   }
  ],
  "launchSource": "CoinCarp",
@@ -742,8 +742,8 @@
  "etf": {
   "eth": {
    "source": "Farside Investors (history) + SoSoValue daily reports",
-   "asOf": "2026-11-19",
-   "cumulative": 11343630000,
+   "asOf": "2026-11-20",
+   "cumulative": 11246330000,
    "aum": 9599000000,
    "last7d": null,
    "days": [
@@ -3130,6 +3130,10 @@
     {
      "date": "2026-11-19",
      "flow": -131240000
+    },
+    {
+     "date": "2026-11-20",
+     "flow": -97300000
     }
    ],
    "last30d": null,
@@ -3786,21 +3790,12 @@
   "source": "Tokenomist via PANews weekly list (23–29 Nov); MrNasDog December calendar (1–7 Dec, % of circulating not given)",
   "items": [
    {
-    "date": "2026-11-23",
-    "token": "SOON",
-    "name": "SOON",
-    "valueUsd": 5300000,
-    "pctCirc": 3.38,
-    "recipients": "",
-    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
-   },
-   {
     "date": "2026-11-24",
     "token": "MON",
     "name": "Monad",
-    "valueUsd": 219000000,
+    "valueUsd": 217190000,
     "pctCirc": 32.37,
-    "recipients": "One-year cliff: team ~10.7B, early investors ~4.9B, Category Labs treasury ~1.0B MON",
+    "recipients": "One-year cliff: team ~10.70B, investors ~4.92B, Category Labs treasury ~0.99B MON (Tokenomist: pending verification)",
     "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
    },
    {
