@@ -1,16 +1,15 @@
 // Written by the morning crawl.
 window.INTEL = {
- "updatedAt": "2026-11-25T01:54:56Z",
- "briefNote": "RSS feeds, CoinCarp and Farside could not be fetched this run: news gathered via web search, token-sale lists unchanged, ETH ETF flow for 23 Nov from SoSoValue as reported by KuCoin/PANews; 24 Nov not yet published.",
+ "updatedAt": "2026-11-26T01:54:39Z",
+ "briefNote": "RSS feeds, CoinCarp and Farside could not be fetched this run: news gathered via web search, token-sale lists unchanged, ETH ETF flow for 24 Nov from SoSoValue as reported by PANews/KuCoin; 25 Nov not yet published (US markets closed today for Thanksgiving).",
  "brief": [
-  "**BTC back under $60K:** bitcoin failed to hold Monday's Nvidia-driven bounce and slipped below $60K again on Tuesday, with ETH under $1,700 and SOL near $70. Sentiment remains in extreme fear, and Monad's MON hit a record low as its big cliff unlocked.",
-  "**ETFs:** spot ETH funds lost about $85M on 23 Nov (SoSoValue), a seventh straight day of outflows led by ETHA; spot BTC funds shed roughly $570M the same day, and November's BTC ETF redemptions are now the largest monthly total on record (~$4.7B).",
-  "**Macro today:** the week's main event: October PCE inflation, the Q3 GDP second estimate, durable goods and jobless claims all at 13:30 UTC, then the Beige Book at 19:00. US markets are shut Thursday and close early Friday; next FOMC decision is 9 Dec.",
-  "**Policy:** South Korea's FSC published its Digital Asset Basic Act draft: a 20% cap on exchange shareholders, bank-majority won stablecoins and a route back to domestic ICOs. In the US, CFTC staff let derivatives firms count BTC, ETH and payment stablecoins toward operating resources in limited cases, and Rep. Raskin opened a probe into 1789 Capital's Polymarket stake.",
-  "**Binance hack follow-up:** US prosecutors are seeking to recover about $1.17B in stolen USDC, and stablecoin freezes are being credited with limiting losses from the $6.3B exploit.",
-  "**Ethereum:** the Ethereum Foundation doubled its protocol security team and called AI-driven attacks a more urgent risk than quantum; several ETH treasury companies have started selling.",
-  "**Solana & XRPL:** DeFi Development bought SOL for an 11th straight week (2.62M SOL held); an Evernorth report puts XRPL DEX volume at 4.51M XRP a day in Q3.",
-  "**Unlocks (next 3 days):** Plasma's monthly XPL release (~$10M, ~4.8% of circulating) plus smaller COAI and H unlocks today, then HUMA (~$4M, ~14% of circulating) on 26 Nov; Falcon Finance's ~$21M FF unlock follows on 29 Nov."
+  "**BTC slips toward $57–58K:** bitcoin lost $58K on Wednesday before short liquidations sparked a shaky bounce; ETH is near $1,650–1,700 (down ~29% in a month) and SOL hovers around $66–70. Sentiment is still extreme fear, and Santiment shows mid-size and whale wallets have shed ~150K BTC since 2 Nov.",
+  "**ETFs:** spot ETH funds lost $64M on 24 Nov (SoSoValue), an eighth straight outflow day led by ETHA; spot BTC funds shed about $232M. Fidelity filed for a spot Chainlink ETF.",
+  "**Macro:** hot data Wednesday: October PCE rose to 3.8% y/y with core above forecasts, Q3 GDP was revised up to 4.3% and jobless claims fell to 189K, which weakens the case for easing at the 8–9 Dec FOMC. US markets are shut today for Thanksgiving and close early Friday; Tokyo CPI is due tonight at 23:30 UTC.",
+  "**Policy:** the DOJ unveiled what it calls its largest crackdown on crypto fraud proceeds, while Sens. Warren and Van Hollen are pushing the SEC to scrap Regulation Crypto and its innovation exemption.",
+  "**Chains:** Base led bridge inflows (~$73M) as Ethereum mainnet saw ~$212M leave; Aave Labs opened its savings app to the public; ARB fell 15% on the week despite growth on Robinhood Chain; HYPE led altcoin losses with an 8% drop.",
+  "**Binance hack follow-up:** US prosecutors are still seeking to recover about $1.17B in stolen USDC from the $6.3B exploit.",
+  "**Unlocks (next 3 days):** HUMA (~$4M, ~14% of circulating) today, then Falcon Finance's ~$21M FF release (~6% of circulating) on 29 Nov; Sui's monthly unlock follows on 1 Dec."
  ],
  "launches": [
   {
@@ -379,6 +378,158 @@ window.INTEL = {
  "news": [
   {
    "chain": "Bitcoin",
+   "date": "25 Nov",
+   "source": "The Block",
+   "title": "Bitcoin falls below $58,000 as CoinShares' Butterfill sees 'tail end of the bear market'",
+   "summary": "BTC slid under $58K midweek while CoinShares' research head argued the downturn is in its late stages.",
+   "url": "https://www.theblock.co/news/markets/2026-11-25-bitcoin-falls-below-58000-coinshares-butterfill-sees-tail-end-bear-market-446678"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "25 Nov",
+   "source": "Motley Fool",
+   "title": "Crypto Market Today, Nov. 25: Bitcoin, Ethereum, and Solana as Short Liquidations Fuel Fragile Rebound",
+   "summary": "A wave of short liquidations lifted majors off their lows, though the bounce looked thin.",
+   "url": "https://www.fool.com/coverage/stock-market-today/2026/11/25/crypto-market-today-nov-25-bitcoin-ethereum-and-solana-as-short-liquidations-fuel-fragile-rebound/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "25 Nov",
+   "source": "Cointelegraph",
+   "title": "Bitcoin wallets holding 10 to 10,000 BTC have shed 150,000 BTC since November 2",
+   "summary": "Santiment data shows mid-size and whale wallets cutting holdings as BTC fell about a quarter this month.",
+   "url": "https://x.com/Cointelegraph/status/2125666128567447838"
+  },
+  {
+   "chain": "Market",
+   "date": "25 Nov",
+   "source": "KuCoin/SoSoValue",
+   "title": "Ethereum spot ETFs record $64.02M net outflow on November 24, marking 8th consecutive day of outflows",
+   "summary": "US spot ether funds extended their redemption streak to eight sessions, with ETHA the largest seller.",
+   "url": "https://www.kucoin.com/news/flash/ethereum-spot-etfs-record-64-02m-net-outflow-on-november-24-marking-8th-consecutive-day-of-outflows"
+  },
+  {
+   "chain": "Market",
+   "date": "25 Nov",
+   "source": "CoinCentral",
+   "title": "Bitcoin ETFs Shed $232M as Ethereum Records Eighth Day of Outflows",
+   "summary": "Spot BTC funds lost roughly $232M on 24 Nov, adding to November's record redemptions.",
+   "url": "https://coincentral.com/bitcoin-etfs-shed-232m-as-ethereum-records-eighth-day-of-outflows"
+  },
+  {
+   "chain": "Market",
+   "date": "25 Nov",
+   "source": "CNBC",
+   "title": "PCE inflation report October 2026: Fed's preferred inflation gauge accelerated to 3.8%",
+   "summary": "Headline PCE rose to 3.8% y/y in October and core prices beat forecasts ahead of the December FOMC.",
+   "url": "https://www.cnbc.com/2026/11/25/pce-inflation-report-october-2026.html"
+  },
+  {
+   "chain": "Market",
+   "date": "25 Nov",
+   "source": "Advisor Perspectives",
+   "title": "Q3 GDP Second Estimate: Real GDP At 4.3%, Higher Than Expected",
+   "summary": "US Q3 growth was revised up to 4.3% from 3.4%, driven by business and AI-related investment.",
+   "url": "https://www.advisorperspectives.com/dshort/updates/2026/11/25/gdp-gross-domestic-product-q3-2026-second-estimate"
+  },
+  {
+   "chain": "Market",
+   "date": "25 Nov",
+   "source": "The Block",
+   "title": "Justice Department takes aim at billions in crypto fraud proceeds in historic 'largest ever crackdown'",
+   "summary": "The DOJ announced a sweeping effort to seize crypto fraud proceeds worth billions.",
+   "url": "https://www.theblock.co/news/regulation/2026-11-25-justice-department-takes-aim-billions-crypto-fraud-proceeds-largest-ever-crackdown-446711"
+  },
+  {
+   "chain": "Market",
+   "date": "25 Nov",
+   "source": "The Block",
+   "title": "Sens. Warren, Van Hollen lead push to scrap SEC's Regulation Crypto and innovation exemption",
+   "summary": "Democratic senators are pressing the SEC to withdraw its new crypto rulebook and innovation exemption.",
+   "url": "https://www.theblock.co/news/regulation/2026-11-25-warren-van-hollen-lead-push-scrap-sec-regulation-crypto-innovation-exemption-446756"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "25 Nov",
+   "source": "The Block",
+   "title": "Fidelity files for spot Chainlink ETF with planned Nasdaq listing",
+   "summary": "Fidelity registered a spot LINK fund aimed at Nasdaq, adding to the queue of altcoin ETFs.",
+   "url": "https://www.theblock.co/news/business/2026-11-25-fidelity-chainlink-etf-nasdaq-listing-446735"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "25 Nov",
+   "source": "The Block",
+   "title": "Aave Labs publicly launches savings app as balances top $63 million",
+   "summary": "Aave opened its consumer savings app to the public after deposits passed $63M in early access.",
+   "url": "https://www.theblock.co/news/defi/2026-11-25-aave-labs-publicly-launches-savings-app-as-balances-top-63-million-446674"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "25 Nov",
+   "source": "crypto.news",
+   "title": "Ethereum drops 29% in a month. Can ETH hold $1,650?",
+   "summary": "ETH is down nearly 30% over the month and traders are watching the $1,650 area as support.",
+   "url": "https://crypto.news/ethereum-price-drops-29-percent-1650-support/"
+  },
+  {
+   "chain": "Base",
+   "date": "25 Nov",
+   "source": "TokenPost",
+   "title": "Chain flows: Base leads with $73.41 million net inflow as Ethereum loses $212.47 million",
+   "summary": "Bridge data shows capital rotating into Base while Ethereum mainnet saw the biggest net outflow.",
+   "url": "https://tokenpost.com/news/investing/62522"
+  },
+  {
+   "chain": "Arbitrum",
+   "date": "25 Nov",
+   "source": "Crypto Daily",
+   "title": "ARB Slides 15% in a Week Even as Robinhood Chain Assets Jump 67% on Arbitrum Tech",
+   "summary": "ARB fell sharply on the week even as assets on Arbitrum-built Robinhood Chain grew strongly.",
+   "url": "https://cryptodaily.co.uk/2026/11/arb-slides-15-in-a-week-even-as-robinhood-chain-assets-jump-67-on-arbitrum-tech"
+  },
+  {
+   "chain": "BSC",
+   "date": "25 Nov",
+   "source": "QuantMirror",
+   "title": "LayerZero Opens Canton Coin Bridge to BNB Smart Chain",
+   "summary": "LayerZero enabled bridging of Canton Network's token to BNB Smart Chain.",
+   "url": "https://quantmirror.org/news/layerzero-opens-canton-coin-bridge-to-bnb-smart-chain-32c35ba1"
+  },
+  {
+   "chain": "Solana",
+   "date": "25 Nov",
+   "source": "crypto.news",
+   "title": "Solana falls to $66.75 as traders watch the $65 low",
+   "summary": "SOL gave back its rebound and slipped toward the $65 level that has held several times.",
+   "url": "https://crypto.news/solana-price-66-78-rebound-fades/"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "25 Nov",
+   "source": "Crypto Economy",
+   "title": "Bitcoin Falls Below $59K as HYPE Leads Altcoin Sell-Off With 8% Drop",
+   "summary": "HYPE dropped about 8% to lead altcoin losses as BTC lost $59K.",
+   "url": "https://crypto-economy.com/bitcoin-falls-below-59k-as-hype-leads-altcoin/"
+  },
+  {
+   "chain": "Tron",
+   "date": "25 Nov",
+   "source": "Crypto Briefing",
+   "title": "Tron average transaction fees drop 60% since August 2025 energy price cut",
+   "summary": "Tron's average fees are down about 60% since its energy price reduction last year.",
+   "url": "https://cryptobriefing.com/tron-network-fees-halved-energy-price-cut/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "25 Nov",
+   "source": "CoinDesk",
+   "title": "Crypto Long & Short: Bitcoin investors can't keep ignoring Japan",
+   "summary": "CoinDesk argues rising Japanese yields and yen moves are becoming a key driver for BTC.",
+   "url": "https://www.coindesk.com/coindesk-indices/2026/11/25/crypto-long-and-short-bitcoin-investors-can-t-keep-ignoring-japan"
+  },
+  {
+   "chain": "Bitcoin",
    "date": "24 Nov",
    "source": "Motley Fool",
    "title": "Crypto Market Today, Nov. 24: Bitcoin Falls Below $60,000 as ETF Outflows Hit a Record $4.7 Billion",
@@ -546,59 +697,11 @@ window.INTEL = {
    "url": "https://crypto.news/"
   },
   {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "crypto.news",
-   "title": "UK FCA sets new market making restrictions for crypto exchanges",
-   "summary": "The UK regulator will stop exchanges from acting as market makers on their own venues.",
-   "url": "https://crypto.news/"
-  },
-  {
    "chain": "Bitcoin",
    "date": "23 Nov",
    "source": "The Crypto Basic",
    "title": "Strategy adds 457 BTC and expands its buyback program",
    "summary": "Strategy bought 457 BTC for ~$30M, taking holdings to 851,305 BTC, and lifted its STRC buyback authorization to $4B.",
-   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "Bitmine reports another 7,819 ETH purchase",
-   "summary": "Bitmine now holds about 6.09M ETH, close to 5% of supply, most of it staked.",
-   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
-  },
-  {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "OKXICE launches round-the-clock tokenized securities trading",
-   "summary": "The OKX–ICE venue opens 24/7 tokenized-securities trading for eligible US users under a temporary SEC exemption.",
-   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
-  },
-  {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "Binance commissions three independent security reviews",
-   "summary": "Binance hired Mandiant, SlowMist and Verichains to audit its security processes.",
-   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
-  },
-  {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "OCBC and StraitsX pilot stablecoin payments into business accounts",
-   "summary": "The Singapore pilot settles cross-border payments in stablecoins while crediting firms' ordinary bank accounts.",
-   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "American Bitcoin discloses a $150 million FalconX credit line",
-   "summary": "The miner arranged a two-year BTC-secured revolving facility, currently undrawn.",
    "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
   },
   {
@@ -632,110 +735,6 @@ window.INTEL = {
    "title": "Half of wallets on Trump's dinner list got tokens from non-US exchanges",
    "summary": "A Public Citizen review found roughly half of the wallets qualifying for the TRUMP memecoin dinner were funded from offshore exchanges that restrict US users.",
    "url": "https://cointelegraph.com/news/half-wallets-trumps-dinner-list-got-tokens-from-non-us-exchanges"
-  },
-  {
-   "chain": "BSC",
-   "date": "22 Nov",
-   "source": "The Block",
-   "title": "A $2 million exploit leads to a $3.7 million free-for-all as traders empty Fusionist's ACE bridge",
-   "summary": "An attacker minted unbacked ACE on BNB Chain and dumped it, after which other traders drained the real ACE held in Fusionist's bridge.",
-   "url": "https://www.theblock.co/news/defi/2026-11-22-a-2-million-exploit-leads-to-a-3-7-million-free-for-all-as-traders-empty-fusionists-ace-bridge-444838"
-  },
-  {
-   "chain": "Solana",
-   "date": "22 Nov",
-   "source": "The Block",
-   "title": "Trump to host second memecoin dinner tonight with TRUMP down 99% from peak",
-   "summary": "Trump is hosting top TRUMP holders at his Virginia golf club while the token sits about 99% below its January 2025 high.",
-   "url": "https://www.theblock.co/news/ecosystems/2026-11-22-trump-to-host-second-memecoin-dinner-tonight-with-trump-down-99-from-peak-444828"
-  },
-  {
-   "chain": "Market",
-   "date": "22 Nov",
-   "source": "The Block",
-   "title": "Chainflip's losses climb to $12 million after protocol discloses 122.9 BTC theft, offers hacker bounty",
-   "summary": "Chainflip now says its Bitcoin vault was also drained, lifting total losses to about $12M, and it is offering the attacker a 10% bounty.",
-   "url": "https://www.theblock.co/news/defi/2026-11-22-chainflips-losses-climb-to-12-million-after-protocol-discloses-122-9-btc-theft-offers-hacker-bounty-444829"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "22 Nov",
-   "source": "CoinDesk",
-   "title": "Bitcoin's quantum security challenge extends to bridges, custodians and millions of coins",
-   "summary": "Preparing Bitcoin for quantum computers involves custodians, bridges and millions of exposed coins, not just a protocol change.",
-   "url": "https://www.coindesk.com/tech/2026/11/22/bitcoin-s-quantum-security-challenge-extends-to-bridges-custodians-and-millions-of-coins"
-  },
-  {
-   "chain": "Solana",
-   "date": "22 Nov",
-   "source": "crypto.news",
-   "title": "Solana upgrades to mainnet 1.0 as Foundation takes majority CoinGecko stake",
-   "summary": "Solana has dropped its beta label with protocol version 1.0, and its Foundation now holds a controlling stake in CoinGecko.",
-   "url": "https://crypto.news/solana-mainnet-1-0-foundation-coingecko-majority-stake/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "22 Nov",
-   "source": "crypto.news",
-   "title": "Michael Saylor hints at another Strategy Bitcoin buy after BTC crash",
-   "summary": "Saylor's usual Sunday post suggests Strategy may announce a new BTC purchase after the drop toward $55K.",
-   "url": "https://crypto.news/michael-saylor-strategy-bitcoin-buy-hint-november-2026/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "22 Nov",
-   "source": "crypto.news",
-   "title": "7 reasons Bitcoin price crashed to $55K before rebounding to $60K",
-   "summary": "Fed hike fears, tech-stock losses, ETF outflows and heavy liquidations are listed as the drivers of BTC's slide to its lowest level since 2024.",
-   "url": "https://crypto.news/bitcoin-price-crash-seven-market-pressures-altcoins/"
-  },
-  {
-   "chain": "XRPL",
-   "date": "22 Nov",
-   "source": "crypto.news",
-   "title": "XRP price risks further losses as ETFs shed $30.8M in November",
-   "summary": "XRP briefly slipped under $0.90, and US spot XRP funds are net sellers for the month.",
-   "url": "https://crypto.news/xrp-price-below-90-cents-november-etf-outflows/"
-  },
-  {
-   "chain": "Market",
-   "date": "22 Nov",
-   "source": "Cointelegraph",
-   "title": "Will Bitcoin's big rebound hold? More tampered Ledgers found: Hodler's Digest",
-   "summary": "Weekly roundup covering BTC's bounce from about $55K, more Ledger tampering cases, Binance hack fund movements and the Sky outflows.",
-   "url": "https://cointelegraph.com/magazine/will-bitcoins-big-rebound-hold-more-tampered-ledgers-found-hodlers-digest"
-  },
-  {
-   "chain": "Market",
-   "date": "22 Nov",
-   "source": "crypto.news",
-   "title": "Malicious iPhone ads target crypto wallet seed phrases in 47 countries",
-   "summary": "Researchers flagged a malicious iPhone ad campaign in 47 countries that tries to steal wallet recovery phrases.",
-   "url": "https://crypto.news/moldyroost-iphone-ads-crypto-wallet-seed-phrases/"
-  },
-  {
-   "chain": "Solana",
-   "date": "22 Nov",
-   "source": "crypto.news",
-   "title": "Solana price rebounds toward $70 as ETFs end six-week outflow streak",
-   "summary": "SOL bounced back near $70 while US Solana ETFs posted net inflows for the first time in six weeks.",
-   "url": "https://crypto.news/solana-price-rebounds-70-etf-inflows-return/"
-  },
-  {
-   "chain": "Market",
-   "date": "22 Nov",
-   "source": "crypto.news",
-   "title": "Philippines crypto exchange Coins.ph halts self-custody transfers under Travel Rule",
-   "summary": "Coins.ph has stopped transfers to self-hosted wallets to comply with Travel Rule requirements.",
-   "url": "https://crypto.news/coins-ph-stops-self-custody-crypto-transfers/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "22 Nov",
-   "source": "Cointelegraph",
-   "title": "Bitcoin briefly drops to $17K on Kraken, exchange upholds trades",
-   "summary": "Kraken's BTC/CAD market briefly printed the equivalent of about $17K during the selloff, and the exchange says the fills will stand.",
-   "url": "https://cointelegraph.com/news/bitcoin-17k-kraken-canadian-dollar-market-trades-stand"
   }
  ],
  "launchSource": "CoinCarp",
@@ -743,8 +742,8 @@ window.INTEL = {
  "etf": {
   "eth": {
    "source": "Farside Investors (history) + SoSoValue daily reports",
-   "asOf": "2026-11-23",
-   "cumulative": 11161370000,
+   "asOf": "2026-11-24",
+   "cumulative": 11097350000,
    "aum": 9599000000,
    "last7d": null,
    "days": [
@@ -3139,6 +3138,10 @@ window.INTEL = {
     {
      "date": "2026-11-23",
      "flow": -84960000
+    },
+    {
+     "date": "2026-11-24",
+     "flow": -64020000
     }
    ],
    "last30d": null,
@@ -3630,43 +3633,21 @@ window.INTEL = {
   ]
  },
  "macro": {
-  "source": "Federal Reserve calendar (Nov/Dec 2026), Newsquawk weekly calendar 23-27 Nov 2026, LiteFinance weekly calendar (GMT times), letterstoayounginvestor & Six Sigma Research week-ahead, forexfundamentals (EZ HICP)",
+  "source": "Federal Reserve calendar (Nov/Dec 2026), Newsquawk weekly calendar 23-27 Nov 2026, LiteFinance weekly calendar (GMT times), letterstoayounginvestor & Six Sigma Research week-ahead, forexfundamentals (EZ HICP); CNBC/Advisor Perspectives/StockAnalysis for 25 Nov actuals",
   "events": [
-   {
-    "time": "2026-11-24T00:00:00Z",
-    "allDay": true,
-    "event": "German Ifo business climate (Nov); Japan flash PMI",
-    "region": "EU",
-    "impact": "medium"
-   },
-   {
-    "time": "2026-11-24T15:00:00Z",
-    "event": "US Conference Board consumer confidence (Nov)",
-    "region": "US",
-    "impact": "medium",
-    "note": "prev 91.7"
-   },
-   {
-    "time": "2026-11-24T21:00:00Z",
-    "allDay": true,
-    "event": "Dell, HP earnings (after close)",
-    "region": "US",
-    "impact": "medium",
-    "note": "AI-hardware read-through; exact time not confirmed"
-   },
    {
     "time": "2026-11-25T13:30:00Z",
     "event": "US PCE inflation & personal income/spending (Oct)",
     "region": "US",
     "impact": "high",
-    "note": "prev core PCE 3.1% y/y (Sep)"
+    "note": "actual: headline 3.8% y/y (prev 3.6%), core beat forecasts"
    },
    {
     "time": "2026-11-25T13:30:00Z",
     "event": "US Q3 GDP (second estimate)",
     "region": "US",
     "impact": "high",
-    "note": "advance estimate 3.4%"
+    "note": "actual: revised up to 4.3% (advance 3.4%)"
    },
    {
     "time": "2026-11-25T13:30:00Z",
@@ -3680,7 +3661,7 @@ window.INTEL = {
     "event": "US initial jobless claims (moved to Wed for Thanksgiving)",
     "region": "US",
     "impact": "medium",
-    "note": "8:30 ET standard time"
+    "note": "actual: 189K (prev 202K)"
    },
    {
     "time": "2026-11-25T19:00:00Z",
@@ -3767,33 +3748,6 @@ window.INTEL = {
  "unlocks": {
   "source": "Tokenomist via PANews weekly list (23–29 Nov); MrNasDog December calendar (1–7 Dec, % of circulating not given)",
   "items": [
-   {
-    "date": "2026-11-25",
-    "token": "XPL",
-    "name": "Plasma",
-    "valueUsd": 10400000,
-    "pctCirc": 4.78,
-    "recipients": "Ecosystem, team, investors (monthly)",
-    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
-   },
-   {
-    "date": "2026-11-25",
-    "token": "COAI",
-    "name": "ChainOpera AI",
-    "valueUsd": 3400000,
-    "pctCirc": 5.98,
-    "recipients": "",
-    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
-   },
-   {
-    "date": "2026-11-25",
-    "token": "H",
-    "name": "Humanity",
-    "valueUsd": 3000000,
-    "pctCirc": 6.4,
-    "recipients": "",
-    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
-   },
    {
     "date": "2026-11-26",
     "token": "HUMA",
