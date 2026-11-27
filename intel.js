@@ -1,15 +1,15 @@
 // Written by the morning crawl.
 window.INTEL = {
- "updatedAt": "2026-11-26T01:54:39Z",
- "briefNote": "RSS feeds, CoinCarp and Farside could not be fetched this run: news gathered via web search, token-sale lists unchanged, ETH ETF flow for 24 Nov from SoSoValue as reported by PANews/KuCoin; 25 Nov not yet published (US markets closed today for Thanksgiving).",
+ "updatedAt": "2026-11-27T01:55:13Z",
+ "briefNote": "RSS feeds, CoinCarp and Farside could not be fetched this run: news gathered via web search, token-sale lists unchanged, ETH ETF flow for 25 Nov from SoSoValue as reported by KuCoin/TokenPost; US markets were shut for Thanksgiving on 26 Nov.",
  "brief": [
-  "**BTC slips toward $57–58K:** bitcoin lost $58K on Wednesday before short liquidations sparked a shaky bounce; ETH is near $1,650–1,700 (down ~29% in a month) and SOL hovers around $66–70. Sentiment is still extreme fear, and Santiment shows mid-size and whale wallets have shed ~150K BTC since 2 Nov.",
-  "**ETFs:** spot ETH funds lost $64M on 24 Nov (SoSoValue), an eighth straight outflow day led by ETHA; spot BTC funds shed about $232M. Fidelity filed for a spot Chainlink ETF.",
-  "**Macro:** hot data Wednesday: October PCE rose to 3.8% y/y with core above forecasts, Q3 GDP was revised up to 4.3% and jobless claims fell to 189K, which weakens the case for easing at the 8–9 Dec FOMC. US markets are shut today for Thanksgiving and close early Friday; Tokyo CPI is due tonight at 23:30 UTC.",
-  "**Policy:** the DOJ unveiled what it calls its largest crackdown on crypto fraud proceeds, while Sens. Warren and Van Hollen are pushing the SEC to scrap Regulation Crypto and its innovation exemption.",
-  "**Chains:** Base led bridge inflows (~$73M) as Ethereum mainnet saw ~$212M leave; Aave Labs opened its savings app to the public; ARB fell 15% on the week despite growth on Robinhood Chain; HYPE led altcoin losses with an 8% drop.",
-  "**Binance hack follow-up:** US prosecutors are still seeking to recover about $1.17B in stolen USDC from the $6.3B exploit.",
-  "**Unlocks (next 3 days):** HUMA (~$4M, ~14% of circulating) today, then Falcon Finance's ~$21M FF release (~6% of circulating) on 29 Nov; Sui's monthly unlock follows on 1 Dec."
+  "**BTC rebounds into the holiday:** bitcoin climbed back above $60K and briefly tagged ~$61K on Thanksgiving as shorts were squeezed in thin liquidity; SOL sits near $70 and is on course for a record tenth losing month. Sentiment remains in extreme fear, and Galaxy dropped its call that June was the bottom.",
+  "**ETFs:** spot ETH funds lost another $68.5M on 25 Nov (SoSoValue), a ninth straight outflow day, leaving net assets around $8.9B; spot BTC funds are heading for their worst month on record.",
+  "**Macro today:** US stocks close early at 13:00 ET after Thanksgiving and liquidity will stay thin; Tokyo CPI and French/Spanish flash CPI are out. Next week brings ISM, Eurozone HICP and the 4 Dec jobs report ahead of the 8–9 Dec FOMC.",
+  "**Strategy signal:** JPMorgan reads Strategy's record-low premium to its bitcoin holdings as a capitulation sign.",
+  "**Chains:** BNB Chain published a litepaper for a new trading-focused L1 with fast pre-confirmations and private DeFi; HYPE fell after Abraxas Capital exited and a Hong Kong SFC warning; a CFTC staff advisory now lets firms count crypto toward capital requirements.",
+  "**Policy:** Sens. Warren and Van Hollen keep pressing the SEC to drop Regulation Crypto and its innovation exemption.",
+  "**Unlocks (next 3 days):** Falcon Finance's ~$21M FF release (~6% of circulating) on 29 Nov, then Sui's monthly ~$8M unlock on 1 Dec."
  ],
  "launches": [
   {
@@ -378,6 +378,94 @@ window.INTEL = {
  "news": [
   {
    "chain": "Bitcoin",
+   "date": "26 Nov",
+   "source": "Bitcoin.com News",
+   "title": "Bitcoin Price Taps $61K on Thanksgiving as Short Sellers Take a Beating",
+   "summary": "BTC bounced back to around $61K during thin holiday trading, squeezing short positions.",
+   "url": "https://news.bitcoin.com/market-updates/bitcoin-price-taps-61k-on-thanksgiving-as-short-sellers-take-a-beating/"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "26 Nov",
+   "source": "Cointelegraph",
+   "title": "Bitcoin price eyes $61K as Talos warns of thin Thanksgiving liquidity",
+   "summary": "Talos cautioned that low holiday liquidity could exaggerate moves as BTC approached $61K.",
+   "url": "https://cointelegraph.com/markets/bitcoin-price-talos-warns-thin-thanksgiving-liquidity"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "26 Nov",
+   "source": "The Block",
+   "title": "Galaxy walks back bitcoin's June-bottom call, warns of deeper losses below $58,525",
+   "summary": "Galaxy Research abandoned its view that June marked the cycle low and flagged further downside if a key level breaks.",
+   "url": "https://www.theblock.co/news/markets/2026-11-26-galaxy-walks-back-bitcoin-bottom-call-446786"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "26 Nov",
+   "source": "The Block",
+   "title": "JPMorgan says bitcoin 'capitulation' signaled by Strategy's record-low NAV multiple",
+   "summary": "JPMorgan analysts read Strategy trading at its lowest premium to its bitcoin holdings as a sign of capitulation.",
+   "url": "https://www.theblock.co/news/markets/2026-11-26-jpmorgan-bitcoin-capitulation-strategy-low-nav-multiple-447007"
+  },
+  {
+   "chain": "Market",
+   "date": "26 Nov",
+   "source": "The Block",
+   "title": "Spot bitcoin ETFs on track for worst month on record as bear market drags on",
+   "summary": "US spot BTC funds are heading for their largest monthly net outflow ever in November.",
+   "url": "https://www.theblock.co/news/markets/2026-11-26-spot-bitcoin-etfs-worst-month-november-446814"
+  },
+  {
+   "chain": "Market",
+   "date": "26 Nov",
+   "source": "KuCoin/SoSoValue",
+   "title": "Ethereum spot ETFs recorded a $68.51 million net outflow on November 25, marking the ninth consecutive day of outflows.",
+   "summary": "US spot ether funds extended their losing streak to nine sessions, with total net assets near $8.87B.",
+   "url": "https://www.kucoin.com/news/flash/ethereum-spot-etfs-record-68-51m-net-outflow-on-nov-25-ninth-consecutive-day-of-outflows"
+  },
+  {
+   "chain": "Market",
+   "date": "26 Nov",
+   "source": "Blockhead",
+   "title": "CFTC Hands Crypto a Balance-Sheet Victory, but Bitcoin Doesn't Care",
+   "summary": "A CFTC staff advisory letting firms count crypto toward capital requirements did little to lift prices.",
+   "url": "https://blockhead.co/2026/11/26/cftc-hands-crypto-a-balance-sheet-victory-but-bitcoin-doesnt-care"
+  },
+  {
+   "chain": "BSC",
+   "date": "26 Nov",
+   "source": "crypto.news",
+   "title": "BNB Chain unveils new layer-1 blockchain architecture for high-frequency trading, payments, AI agents",
+   "summary": "BNB Chain published a litepaper for a new trading-focused L1 with fast pre-confirmations and private DeFi features.",
+   "url": "https://crypto.news/bnb-chain-new-layer-1-litepaper-trading-payments/"
+  },
+  {
+   "chain": "Solana",
+   "date": "26 Nov",
+   "source": "KuCoin News",
+   "title": "Solana (SOL) On Track For Record 10 Losing Months In 2026",
+   "summary": "SOL is set for an unprecedented ten down months this year as it trades near $70.",
+   "url": "https://www.kucoin.com/news/flash/solana-sol-on-track-for-record-10-losing-months-in-2026"
+  },
+  {
+   "chain": "Solana",
+   "date": "26 Nov",
+   "source": "Solana",
+   "title": "Solana Changelog: November 26, 2026",
+   "summary": "The Solana team's regular roundup of recent client, tooling and protocol changes.",
+   "url": "https://solana.com/news/solana-changelog-november-26-2026"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "25 Nov",
+   "source": "The Crypto Times",
+   "title": "Hyperliquid (HYPE) Price Drops 7% as Abraxas Capital Exits, SFC Alert Weighs",
+   "summary": "HYPE slid after Abraxas Capital unwound its position and a Hong Kong SFC warning added pressure.",
+   "url": "https://www.cryptotimes.io/2026/11/25/hyperliquid-hype-price-drops-7-as-abraxas-capital-exits-sfc-alert-weighs/"
+  },
+  {
+   "chain": "Bitcoin",
    "date": "25 Nov",
    "source": "The Block",
    "title": "Bitcoin falls below $58,000 as CoinShares' Butterfill sees 'tail end of the bear market'",
@@ -647,94 +735,6 @@ window.INTEL = {
    "title": "Solana spot ETFs return to net inflows after six weeks; bitcoin, ether still in red",
    "summary": "SOL funds took in about $4.4M last week per SoSoValue, their first weekly inflow since early October.",
    "url": "https://www.digitaltoday.co.kr/en/view/129901/solana-spot-etfs-return-to-net-inflows-after-six-weeks-bitcoin-ether-still-in-red"
-  },
-  {
-   "chain": "Solana",
-   "date": "23 Nov",
-   "source": "The Block",
-   "title": "DeFi Development extends Solana buying streak to 11 straight weeks, SOL treasury hits 2.62 million",
-   "summary": "Nasdaq-listed DFDV kept adding SOL for an 11th week, lifting its treasury to about 2.62M tokens.",
-   "url": "https://www.theblock.co/news/markets/2026-11-23-defi-development-dfdv-solana-treasury-11-consecutive-weeks-444950"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "23 Nov",
-   "source": "CoinDesk",
-   "title": "Bitcoin rebound already losing steam as AI trade returns with a bang",
-   "summary": "Bitcoin lagged as tech stocks bounced hard on Monday, with US-hours selling still capping the recovery.",
-   "url": "https://www.coindesk.com/markets/2026/11/23/bitcoin-rebound-already-losing-steam-as-ai-trade-returns-with-a-bank"
-  },
-  {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "CoinDesk",
-   "title": "New York judge declines to block Kalshi from operating in the state for now",
-   "summary": "A New York judge let Kalshi keep operating pending expedited arguments in the state's challenge.",
-   "url": "https://www.coindesk.com/policy/2026/11/23/new-york-judge-declines-to-block-kalshi-from-operating-in-the-state-for-now"
-  },
-  {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "CoinDesk",
-   "title": "U.S. CFTC sets policies on event contract data, using crypto to check financial boxes",
-   "summary": "The CFTC issued reporting rules for event contracts and guidance on when crypto can meet regulatory requirements.",
-   "url": "https://www.coindesk.com/policy/2026/11/23/u-s-cftc-sets-policies-on-event-contract-data-using-crypto-to-check-financial-boxes"
-  },
-  {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "The Block",
-   "title": "Spot bitcoin ETFs shed $1.79 billion last week, largest weekly outflow since June",
-   "summary": "US bitcoin funds logged a fourth straight losing week, while ether ETFs lost about $314M.",
-   "url": "https://x.com/TheBlockCo/status/2124695842703761800"
-  },
-  {
-   "chain": "Solana",
-   "date": "23 Nov",
-   "source": "crypto.news",
-   "title": "Solana launches solana.ai platform for autonomous AI agents and payments",
-   "summary": "Solana rolled out a hub aimed at developers building AI agents that transact onchain.",
-   "url": "https://crypto.news/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "Strategy adds 457 BTC and expands its buyback program",
-   "summary": "Strategy bought 457 BTC for ~$30M, taking holdings to 851,305 BTC, and lifted its STRC buyback authorization to $4B.",
-   "url": "https://thecryptobasic.com/2026/11/23/tcb-daily-edition-what-happened-in-crypto-on-november-23-2026/"
-  },
-  {
-   "chain": "Market",
-   "date": "23 Nov",
-   "source": "KuCoin News",
-   "title": "Global Markets Hit by Broad Sell-Off as BTC Rebounds from a New Yearly Low",
-   "summary": "BTC bounced from about $55K after Friday's sharp Nasdaq drop; Fear & Greed sits at 11.",
-   "url": "https://www.kucoin.com/news/articles/crypto-daily-market-report-november-23-2026"
-  },
-  {
-   "chain": "XRPL",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "XRP Faces Its Worst November in History as Monthly Loss Exceeds Previous Record",
-   "summary": "XRP's November slide is now its deepest for the month on record.",
-   "url": "https://thecryptobasic.com/2026/11/23/xrp-faces-its-worst-november-in-history-as-monthly-loss-exceeds-previous-record/"
-  },
-  {
-   "chain": "Cardano",
-   "date": "23 Nov",
-   "source": "The Crypto Basic",
-   "title": "Cardano Developer Toolkit Seeks 600,000 ADA as Downloads Surge 144%",
-   "summary": "A Cardano tooling team is asking the treasury for 600K ADA after strong download growth.",
-   "url": "https://thecryptobasic.com/2026/11/23/cardano-developer-toolkit-seeks-600000-ada-as-downloads-surge-144/"
-  },
-  {
-   "chain": "Solana",
-   "date": "23 Nov",
-   "source": "Cointelegraph",
-   "title": "Half of wallets on Trump's dinner list got tokens from non-US exchanges",
-   "summary": "A Public Citizen review found roughly half of the wallets qualifying for the TRUMP memecoin dinner were funded from offshore exchanges that restrict US users.",
-   "url": "https://cointelegraph.com/news/half-wallets-trumps-dinner-list-got-tokens-from-non-us-exchanges"
   }
  ],
  "launchSource": "CoinCarp",
@@ -742,9 +742,9 @@ window.INTEL = {
  "etf": {
   "eth": {
    "source": "Farside Investors (history) + SoSoValue daily reports",
-   "asOf": "2026-11-24",
-   "cumulative": 11097350000,
-   "aum": 9599000000,
+   "asOf": "2026-11-25",
+   "cumulative": 11028840000,
+   "aum": 8870000000,
    "last7d": null,
    "days": [
     {
@@ -3142,10 +3142,14 @@ window.INTEL = {
     {
      "date": "2026-11-24",
      "flow": -64020000
+    },
+    {
+     "date": "2026-11-25",
+     "flow": -68510000
     }
    ],
    "last30d": null,
-   "aumAsOf": "2026-11-19"
+   "aumAsOf": "2026-11-25"
   }
  },
  "funding": {
@@ -3636,56 +3640,6 @@ window.INTEL = {
   "source": "Federal Reserve calendar (Nov/Dec 2026), Newsquawk weekly calendar 23-27 Nov 2026, LiteFinance weekly calendar (GMT times), letterstoayounginvestor & Six Sigma Research week-ahead, forexfundamentals (EZ HICP); CNBC/Advisor Perspectives/StockAnalysis for 25 Nov actuals",
   "events": [
    {
-    "time": "2026-11-25T13:30:00Z",
-    "event": "US PCE inflation & personal income/spending (Oct)",
-    "region": "US",
-    "impact": "high",
-    "note": "actual: headline 3.8% y/y (prev 3.6%), core beat forecasts"
-   },
-   {
-    "time": "2026-11-25T13:30:00Z",
-    "event": "US Q3 GDP (second estimate)",
-    "region": "US",
-    "impact": "high",
-    "note": "actual: revised up to 4.3% (advance 3.4%)"
-   },
-   {
-    "time": "2026-11-25T13:30:00Z",
-    "event": "US durable goods orders (Oct)",
-    "region": "US",
-    "impact": "medium",
-    "note": "8:30 ET standard time, not explicitly confirmed"
-   },
-   {
-    "time": "2026-11-25T13:30:00Z",
-    "event": "US initial jobless claims (moved to Wed for Thanksgiving)",
-    "region": "US",
-    "impact": "medium",
-    "note": "actual: 189K (prev 202K)"
-   },
-   {
-    "time": "2026-11-25T19:00:00Z",
-    "event": "Fed Beige Book",
-    "region": "US",
-    "impact": "medium",
-    "note": "2:00 pm ET per Fed calendar"
-   },
-   {
-    "time": "2026-11-26T00:00:00Z",
-    "allDay": true,
-    "event": "US Thanksgiving - stock & bond markets closed",
-    "region": "US",
-    "impact": "medium",
-    "note": "Fri 27 Nov US stocks close early 13:00 ET (18:00Z)"
-   },
-   {
-    "time": "2026-11-26T00:00:00Z",
-    "allDay": true,
-    "event": "ECB monetary policy account (Oct meeting); BoJ's Tamura speaks; BoE Financial Stability Report",
-    "region": "EU",
-    "impact": "medium"
-   },
-   {
     "time": "2026-11-26T23:30:00Z",
     "event": "Tokyo CPI (Nov)",
     "region": "JP",
@@ -3699,6 +3653,13 @@ window.INTEL = {
     "region": "CN",
     "impact": "medium",
     "note": "S&P rating review on France Fri evening"
+   },
+   {
+    "time": "2026-11-27T18:00:00Z",
+    "event": "US stock market early close (day after Thanksgiving)",
+    "region": "US",
+    "impact": "medium",
+    "note": "13:00 ET; bond market also closes early"
    },
    {
     "time": "2026-11-30T00:00:00Z",
@@ -3748,15 +3709,6 @@ window.INTEL = {
  "unlocks": {
   "source": "Tokenomist via PANews weekly list (23–29 Nov); MrNasDog December calendar (1–7 Dec, % of circulating not given)",
   "items": [
-   {
-    "date": "2026-11-26",
-    "token": "HUMA",
-    "name": "Huma Finance",
-    "valueUsd": 3900000,
-    "pctCirc": 14.31,
-    "recipients": "",
-    "url": "https://panews.io/articles/01a202ee-487b-711b-a2eb-1e6d9bf9e127"
-   },
    {
     "date": "2026-11-29",
     "token": "FF",
