@@ -1,14 +1,14 @@
 {
- "updatedAt": "2026-11-27T01:55:13Z",
- "briefNote": "RSS feeds, CoinCarp and Farside could not be fetched this run: news gathered via web search, token-sale lists unchanged, ETH ETF flow for 25 Nov from SoSoValue as reported by KuCoin/TokenPost; US markets were shut for Thanksgiving on 26 Nov.",
+ "updatedAt": "2026-11-28T01:54:18Z",
+ "briefNote": "Saturday crawl: news gathered via web search (feeds and CoinCarp could not be fetched today); token-sale lists, ETF data and weekly sections carried over.",
  "brief": [
-  "**BTC rebounds into the holiday:** bitcoin climbed back above $60K and briefly tagged ~$61K on Thanksgiving as shorts were squeezed in thin liquidity; SOL sits near $70 and is on course for a record tenth losing month. Sentiment remains in extreme fear, and Galaxy dropped its call that June was the bottom.",
-  "**ETFs:** spot ETH funds lost another $68.5M on 25 Nov (SoSoValue), a ninth straight outflow day, leaving net assets around $8.9B; spot BTC funds are heading for their worst month on record.",
-  "**Macro today:** US stocks close early at 13:00 ET after Thanksgiving and liquidity will stay thin; Tokyo CPI and French/Spanish flash CPI are out. Next week brings ISM, Eurozone HICP and the 4 Dec jobs report ahead of the 8–9 Dec FOMC.",
-  "**Strategy signal:** JPMorgan reads Strategy's record-low premium to its bitcoin holdings as a capitulation sign.",
-  "**Chains:** BNB Chain published a litepaper for a new trading-focused L1 with fast pre-confirmations and private DeFi; HYPE fell after Abraxas Capital exited and a Hong Kong SFC warning; a CFTC staff advisory now lets firms count crypto toward capital requirements.",
-  "**Policy:** Sens. Warren and Van Hollen keep pressing the SEC to drop Regulation Crypto and its innovation exemption.",
-  "**Unlocks (next 3 days):** Falcon Finance's ~$21M FF release (~6% of circulating) on 29 Nov, then Sui's monthly ~$8M unlock on 1 Dec."
+  "**BTC & sentiment:** bitcoin bounced toward ~$61.5K after Thanksgiving, then slipped back under $60K on Friday even as Wall Street rallied; a ~$7B month-end options expiry has rolled off. The Fear & Greed index sits around 10, deep in extreme fear, and ETH is trading below $1,650.",
+  "**ETFs:** US markets were shut on 26 Nov; the last reported spot ETH day was a $68.5M outflow on 25 Nov (ninth straight), with net assets near $8.9B. Spot BTC funds have lost roughly $5.4B in November, their worst month on record, and spot SOL funds saw a small $0.9M outflow on 27 Nov.",
+  "**Macro:** a quiet weekend. Next week brings China PMIs (30 Nov), Eurozone flash HICP and US ISM manufacturing/JOLTS (1 Dec), ISM services (3 Dec) and the November jobs report on 4 Dec, ahead of the 8–9 Dec FOMC.",
+  "**Hyperliquid:** HYPE rebounded after Franklin Templeton said it will add the token to a crypto ETF in December; a supply update shows ~49M HYPE burned so far.",
+  "**Liquidity watch:** CryptoQuant says a lasting BTC recovery needs USDT supply to start growing again; ~12K ETH tied to this year's Binance hack moved on-chain.",
+  "**Policy:** Fidelity filed for a spot LINK ETF, ESMA plans to overhaul the EU MiCA register by 2027, and Injective is lobbying the SEC to allow on-chain order books for tokenized stocks.",
+  "**Unlocks (next 3 days):** Falcon Finance releases ~$21M of FF (~6% of circulating) on 29 Nov, then Sui's monthly ~$8M unlock lands on 1 Dec."
  ],
  "launches": [
   {
@@ -376,6 +376,134 @@
  ],
  "news": [
   {
+   "chain": "Market",
+   "date": "28 Nov",
+   "source": "TokenPost",
+   "title": "Crypto Fear and Greed Index Falls to 10 in Extreme Fear Range",
+   "summary": "The sentiment gauge sank to 10, deep in extreme fear, despite bitcoin's late-week bounce.",
+   "url": "https://www.tokenpost.com/news/investing/63932"
+  },
+  {
+   "chain": "Solana",
+   "date": "28 Nov",
+   "source": "TokenPost",
+   "title": "U.S. Spot Solana ETFs Record $0.9 Million Net Outflow on Nov. 27",
+   "summary": "US spot SOL funds saw a small net outflow in the shortened post-Thanksgiving session.",
+   "url": "https://www.tokenpost.com/news/investing/63950"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "27 Nov",
+   "source": "Bloomberg",
+   "title": "Bitcoin Bucks Wall Street Rally as It Slips Back Below $60,000",
+   "summary": "Bitcoin fell back under $60K on Friday even as US equities posted a strong rally.",
+   "url": "https://www.bloomberg.com/news/articles/2026-11-27/bitcoin-bounces-as-optimism-returns-to-markets-after-holiday"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "27 Nov",
+   "source": "CoinDesk",
+   "title": "Bitcoin, rising with stocks, is on course to end its seven-week losing streak",
+   "summary": "Earlier in the session BTC was tracking toward its first weekly gain in eight weeks, though it lagged the stock rebound.",
+   "url": "https://www.coindesk.com/markets/2026/11/27/bitcoin-on-course-to-end-seven-week-losing-streak-while-trailing-stock-rebound"
+  },
+  {
+   "chain": "Market",
+   "date": "27 Nov",
+   "source": "The Block",
+   "title": "CryptoQuant says bitcoin price recovery needs USDT supply growth",
+   "summary": "CryptoQuant argues a sustained BTC recovery depends on renewed expansion in Tether's supply.",
+   "url": "https://www.theblock.co/news/markets/2026-11-27-cryptoquant-bitcoin-price-recovery-usdt-supply-growth-447560"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "27 Nov",
+   "source": "Decrypt",
+   "title": "$7 Billion in Bitcoin Options Just Expired: Here’s What It Means",
+   "summary": "A large month-end BTC options expiry rolled off on Deribit, removing a pin on price heading into December.",
+   "url": "https://decrypt.co/384154/7-billion-bitcoin-options-just-expired-what-it-means"
+  },
+  {
+   "chain": "Bitcoin",
+   "date": "27 Nov",
+   "source": "Decrypt",
+   "title": "4 Scary Bitcoin Charts That Suggest This Bear Market Is Different",
+   "summary": "Decrypt walks through on-chain and market charts suggesting this downturn differs from past cycles.",
+   "url": "https://decrypt.co/384177/bitcoin-4-scary-charts-crypto-winter-bear-market"
+  },
+  {
+   "chain": "Market",
+   "date": "27 Nov",
+   "source": "CoinMarketCap",
+   "title": "Crypto News Today: Binance Ends Freeze, Fidelity Files LINK ETF",
+   "summary": "Daily wrap: Binance lifted a freeze and Fidelity filed for a spot Chainlink ETF.",
+   "url": "https://coinmarketcap.com/academy/article/crypto-news-today-nov-27-2026"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "27 Nov",
+   "source": "Crypto Briefing",
+   "title": "Franklin Templeton to add Hyperliquid's HYPE token to crypto ETF in December",
+   "summary": "Franklin Templeton plans to include HYPE in one of its crypto index ETFs next month, lifting the token.",
+   "url": "https://cryptobriefing.com/franklin-templeton-to-add-hyperliquids-hype-token-to-crypto-etf-in-december/"
+  },
+  {
+   "chain": "Hyperliquid L1",
+   "date": "27 Nov",
+   "source": "TokenPost",
+   "title": "Hyperliquid Burns Nearly 49.36 Million HYPE in Supply Update",
+   "summary": "A supply update shows close to 49.4M HYPE burned so far through fees and buybacks.",
+   "url": "https://www.tokenpost.com/news/investing/63889"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "27 Nov",
+   "source": "TokenPost",
+   "title": "Nearly 12,000 ETH Moves From Wallet Tied to 2026 Binance Hack",
+   "summary": "Close to 12K ETH linked to this year's Binance exploit moved on-chain, drawing tracker attention.",
+   "url": "https://www.tokenpost.com/news/technology/63725"
+  },
+  {
+   "chain": "Ethereum",
+   "date": "27 Nov",
+   "source": "crypto.news",
+   "title": "Ethereum slides below $1,650 as ETF outflows top $523M",
+   "summary": "ETH dropped under $1,650 as spot ETH funds extended a long run of outflows.",
+   "url": "https://crypto.news/ethereum-price-below-1650-1605-support/"
+  },
+  {
+   "chain": "Market",
+   "date": "27 Nov",
+   "source": "Crypto Briefing",
+   "title": "ESMA plans overhaul of EU MiCA crypto register by 2027",
+   "summary": "The EU markets regulator intends to revamp its public MiCA register of crypto firms by 2027.",
+   "url": "https://cryptobriefing.com/esma-overhaul-mica-crypto-register-2027"
+  },
+  {
+   "chain": "Market",
+   "date": "27 Nov",
+   "source": "crypto.news",
+   "title": "Three major crypto policy battles take shape in Washington ahead of 2027",
+   "summary": "An outlook on the key US crypto policy fights lining up for next year.",
+   "url": "https://crypto.news/three-major-crypto-policy-battles-take-shape/"
+  },
+  {
+   "chain": "Market",
+   "date": "27 Nov",
+   "source": "KuCoin",
+   "title": "U.S. Spot Bitcoin ETFs Record $5.39 Billion Outflows in November 2026",
+   "summary": "Spot BTC funds have shed about $5.4B this month, the heaviest monthly outflow on record.",
+   "url": "https://www.kucoin.com/news/flash/u-s-spot-bitcoin-etfs-record-5-39-billion-outflows-in-november-2026"
+  },
+  {
+   "chain": "Market",
+   "date": "27 Nov",
+   "source": "Bitcoin.com News",
+   "title": "Injective Urges SEC to Open Tokenized Stock Trading to Order Books",
+   "summary": "Injective asked the SEC to let tokenized equities trade on on-chain order books.",
+   "url": "https://news.bitcoin.com/regulation-and-legal/injective-urges-sec-open-tokenized-stock-trading-order-books"
+  },
+  {
    "chain": "Bitcoin",
    "date": "26 Nov",
    "source": "Bitcoin.com News",
@@ -606,134 +734,6 @@
    "title": "Tron average transaction fees drop 60% since August 2025 energy price cut",
    "summary": "Tron's average fees are down about 60% since its energy price reduction last year.",
    "url": "https://cryptobriefing.com/tron-network-fees-halved-energy-price-cut/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "25 Nov",
-   "source": "CoinDesk",
-   "title": "Crypto Long & Short: Bitcoin investors can't keep ignoring Japan",
-   "summary": "CoinDesk argues rising Japanese yields and yen moves are becoming a key driver for BTC.",
-   "url": "https://www.coindesk.com/coindesk-indices/2026/11/25/crypto-long-and-short-bitcoin-investors-can-t-keep-ignoring-japan"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "24 Nov",
-   "source": "Motley Fool",
-   "title": "Crypto Market Today, Nov. 24: Bitcoin Falls Below $60,000 as ETF Outflows Hit a Record $4.7 Billion",
-   "summary": "Bitcoin slipped back under $60K as November's spot bitcoin ETF redemptions grew into the largest monthly total on record.",
-   "url": "https://www.fool.com/coverage/stock-market-today/2026/11/24/crypto-market-today-nov-24-bitcoin-falls-below-usd60-000-as-etf-outflows-hit-a-record-usd4-7-billion/"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "24 Nov",
-   "source": "Bloomberg",
-   "title": "Bitcoin Fails to Hold Nvidia Bump With Crypto Headwinds in Focus",
-   "summary": "An early lift from Nvidia-driven tech optimism faded and bitcoin gave back its gains as crypto-specific worries dominated.",
-   "url": "https://www.bloomberg.com/news/articles/2026-11-24/bitcoin-fails-to-hold-nvidia-bump-with-crypto-headwinds-in-focus"
-  },
-  {
-   "chain": "Bitcoin",
-   "date": "24 Nov",
-   "source": "crypto.news",
-   "title": "Bitcoin price struggles near $60K as Nvidia rally fades, ETFs shed $570M",
-   "summary": "BTC hovered around the $60K line after US spot bitcoin funds lost roughly $570M on Monday.",
-   "url": "https://crypto.news/bitcoin-price-prediction-etf-outflows-60k-support/"
-  },
-  {
-   "chain": "Market",
-   "date": "24 Nov",
-   "source": "KuCoin News",
-   "title": "Ethereum Spot ETFs Record $84.96M Net Outflow on November 23, 2026",
-   "summary": "US spot ether funds bled about $85M on Monday, a seventh straight day of net redemptions led by BlackRock's ETHA.",
-   "url": "https://www.kucoin.com/news/flash/ethereum-spot-etfs-record-84-96m-net-outflow-on-november-23-2026"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "24 Nov",
-   "source": "crypto.news",
-   "title": "Ethereum price falls below $1,700 as ETF outflows mount",
-   "summary": "Ether dropped under $1,700 as continued ETF redemptions weighed on the price.",
-   "url": "https://crypto.news/ethereum-price-below-1700-etf-outflows/"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "24 Nov",
-   "source": "The Block",
-   "title": "Ethereum Foundation doubles protocol security team, calls AI a 'more urgent risk' than quantum",
-   "summary": "The Ethereum Foundation has doubled its protocol security staff and flagged AI-assisted attacks as a nearer-term threat than quantum computing.",
-   "url": "https://www.theblock.co/news/ecosystems/2026-11-24-ethereum-foundation-doubles-protocol-security-team-calls-ai-a-more-urgent-risk-than-quantum-445497"
-  },
-  {
-   "chain": "Ethereum",
-   "date": "24 Nov",
-   "source": "24/7 Wall St.",
-   "title": "Ethereum Treasury Companies Are Selling: How Much More Could Hit the Market?",
-   "summary": "Several ether treasury firms have begun selling holdings, raising the question of how much more supply could follow.",
-   "url": "https://247wallst.com/investing/cryptocurrency/2026/11/24/ethereum-treasury-companies-are-selling-how-much-more-could-hit-the-market/"
-  },
-  {
-   "chain": "Market",
-   "date": "24 Nov",
-   "source": "piqmarkets",
-   "title": "South Korea's FSC unveils digital asset bill capping exchange stakes at 20%",
-   "summary": "Korea's regulator released its draft Digital Asset Basic Act, limiting major shareholders in exchanges to 20%, putting banks in charge of won stablecoins and reopening a path to domestic ICOs.",
-   "url": "https://piqmarkets.com/story/south-korea-s-fsc-unveils-digital-asset-bill-capping-exchange-stakes-at-20"
-  },
-  {
-   "chain": "Market",
-   "date": "24 Nov",
-   "source": "Fortune",
-   "title": "Stablecoins saved the day when Binance was exploited for $6.3B",
-   "summary": "Fortune looks at how issuer freezes of stolen stablecoins limited the damage from the Binance exploit and what it means for custody rules.",
-   "url": "https://fortune.com/2026/11/24/binance-hack-stablecoins-custody-crypto-regulation/"
-  },
-  {
-   "chain": "Market",
-   "date": "24 Nov",
-   "source": "Crypto News Australia",
-   "title": "US Seeks to Recover US$1.17 Billion in Stolen USDC From Binance Hack",
-   "summary": "US prosecutors filed to claw back about $1.17B in USDC linked to the Binance hack.",
-   "url": "https://cryptonews.com.au/news/us-seeks-to-recover-us1-17-billion-in-stolen-usdc-from-binance-hack-135605/"
-  },
-  {
-   "chain": "Market",
-   "date": "24 Nov",
-   "source": "The Block",
-   "title": "Rep. Raskin probes Trump Jr.'s firm's investments into Polymarket and Juul over 'suspiciously well-timed government favors'",
-   "summary": "A senior House Democrat opened an inquiry into 1789 Capital's stakes in Polymarket and Juul and their timing relative to government decisions.",
-   "url": "https://theblock.co/news/regulation/2026-11-24-rep-raskin-probes-trump-jr-s-firms-investments-polymarket-juul-suspiciously-well-timed-government-favors-446052"
-  },
-  {
-   "chain": "Monad",
-   "date": "24 Nov",
-   "source": "CoinCentral",
-   "title": "Monad (MON) Price Slips to Record Low as 16 Billion Tokens Unlock Today",
-   "summary": "MON hit a new all-time low as its one-year cliff released about 16.6B tokens to team, investors and treasury.",
-   "url": "https://coincentral.com/monad-mon-price-slips-to-record-low-as-16-billion-tokens-unlock-today"
-  },
-  {
-   "chain": "XRPL",
-   "date": "24 Nov",
-   "source": "The Block",
-   "title": "XRP Ledger DEX volume hits 4.51 million XRP a day in Q3 as big traders take over: Evernorth",
-   "summary": "An Evernorth report finds XRPL's native DEX averaged 4.51M XRP in daily volume in Q3, driven by larger trades.",
-   "url": "https://theblock.co/news/markets/2026-11-24-xrpl-dex-volume-q3-2026-evernorth-report-445395"
-  },
-  {
-   "chain": "Solana",
-   "date": "24 Nov",
-   "source": "The Crypto Times",
-   "title": "Solana Price Update: SOL Around $70.50 With Network Upgrades and Onchain Equity Growth",
-   "summary": "SOL traded near $70 while network upgrades and tokenized equity activity on Solana kept growing.",
-   "url": "https://www.cryptotimes.io/2026/11/24/solana-price-update-sol-around-70-50-with-network-upgrades-and-onchain-equity-growth/"
-  },
-  {
-   "chain": "Solana",
-   "date": "24 Nov",
-   "source": "Digital Today",
-   "title": "Solana spot ETFs return to net inflows after six weeks; bitcoin, ether still in red",
-   "summary": "SOL funds took in about $4.4M last week per SoSoValue, their first weekly inflow since early October.",
-   "url": "https://www.digitaltoday.co.kr/en/view/129901/solana-spot-etfs-return-to-net-inflows-after-six-weeks-bitcoin-ether-still-in-red"
   }
  ],
  "launchSource": "CoinCarp",
@@ -3638,21 +3638,6 @@
  "macro": {
   "source": "Federal Reserve calendar (Nov/Dec 2026), Newsquawk weekly calendar 23-27 Nov 2026, LiteFinance weekly calendar (GMT times), letterstoayounginvestor & Six Sigma Research week-ahead, forexfundamentals (EZ HICP); CNBC/Advisor Perspectives/StockAnalysis for 25 Nov actuals",
   "events": [
-   {
-    "time": "2026-11-26T23:30:00Z",
-    "event": "Tokyo CPI (Nov)",
-    "region": "JP",
-    "impact": "medium",
-    "note": "prev 2.8% y/y; core ex food & energy 2.4%"
-   },
-   {
-    "time": "2026-11-27T00:00:00Z",
-    "allDay": true,
-    "event": "China industrial profits (Oct); France & Spain flash CPI (Nov)",
-    "region": "CN",
-    "impact": "medium",
-    "note": "S&P rating review on France Fri evening"
-   },
    {
     "time": "2026-11-27T18:00:00Z",
     "event": "US stock market early close (day after Thanksgiving)",
